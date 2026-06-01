@@ -1,0 +1,195 @@
+local Workspace = game:GetService("Workspace")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Shared = ReplicatedStorage:WaitForChild("Shared")
+local GachaLibrary = require(Shared:WaitForChild("GachaLibrary"))
+
+local remoteFolder = ReplicatedStorage:FindFirstChild("GachaRemotes")
+if not remoteFolder then
+	remoteFolder = Instance.new("Folder")
+	remoteFolder.Name = "GachaRemotes"
+	remoteFolder.Parent = ReplicatedStorage
+end
+
+local summonResult = remoteFolder:FindFirstChild("SummonResult")
+if not summonResult then
+	summonResult = Instance.new("RemoteEvent")
+	summonResult.Name = "SummonResult"
+	summonResult.Parent = remoteFolder
+end
+
+local function createFountain()
+	local hub = Workspace:FindFirstChild("SummoningHub")
+	if not hub then
+		hub = Instance.new("Model")
+		hub.Name = "SummoningHub"
+		hub.Parent = Workspace
+	end
+
+	local ground = hub:FindFirstChild("HubGround")
+	if not ground then
+		ground = Instance.new("Part")
+		ground.Name = "HubGround"
+		ground.Anchored = true
+		ground.CanCollide = true
+		ground.Size = Vector3.new(120, 2, 120)
+		ground.Position = Vector3.new(0, 1, 0)
+		ground.Material = Enum.Material.Slate
+		ground.Color = Color3.fromRGB(40, 40, 60)
+		ground.Parent = hub
+	end
+
+	local floor = hub:FindFirstChild("HubFloor")
+	if not floor then
+		floor = Instance.new("Part")
+		floor.Name = "HubFloor"
+		floor.Anchored = true
+		floor.CanCollide = true
+		floor.Size = Vector3.new(108, 1, 108)
+		floor.Position = Vector3.new(0, 2.5, 0)
+		floor.Material = Enum.Material.Brick
+		floor.Color = Color3.fromRGB(75, 75, 95)
+		floor.TopSurface = Enum.SurfaceType.Smooth
+		floor.BottomSurface = Enum.SurfaceType.Smooth
+		floor.Parent = hub
+	end
+
+	local function makePillar(name, position)
+		local pillar = hub:FindFirstChild(name)
+		if not pillar then
+			pillar = Instance.new("Part")
+			pillar.Name = name
+			pillar.Anchored = true
+			pillar.CanCollide = true
+			pillar.Size = Vector3.new(4, 24, 4)
+			pillar.Position = position
+			pillar.Material = Enum.Material.Concrete
+			pillar.Color = Color3.fromRGB(90, 90, 120)
+			pillar.Parent = hub
+
+			local cap = Instance.new("Part")
+			cap.Name = name .. "Cap"
+			cap.Anchored = true
+			cap.CanCollide = false
+			cap.Size = Vector3.new(5, 2, 5)
+			cap.Position = position + Vector3.new(0, 13, 0)
+			cap.Material = Enum.Material.Neon
+			cap.Color = Color3.fromRGB(100, 180, 255)
+			cap.Parent = hub
+
+			local light = Instance.new("PointLight")
+			light.Brightness = 2.5
+			light.Range = 18
+			light.Color = Color3.fromRGB(140, 210, 255)
+			light.Parent = cap
+		end
+	end
+
+	makePillar("PillarNorth", Vector3.new(0, 14, -30))
+	makePillar("PillarSouth", Vector3.new(0, 14, 30))
+	makePillar("PillarEast", Vector3.new(30, 14, 0))
+	makePillar("PillarWest", Vector3.new(-30, 14, 0))
+
+	local fountainBase = hub:FindFirstChild("FountainBase")
+	if not fountainBase then
+		fountainBase = Instance.new("Part")
+		fountainBase.Name = "FountainBase"
+		fountainBase.Anchored = true
+		fountainBase.CanCollide = true
+		fountainBase.Size = Vector3.new(30, 1, 30)
+		fountainBase.Position = Vector3.new(0, 3, 0)
+		fountainBase.Material = Enum.Material.Slate
+		fountainBase.Color = Color3.fromRGB(55, 60, 90)
+		fountainBase.Parent = hub
+	end
+
+	local fountainRing = hub:FindFirstChild("FountainRing")
+	if not fountainRing then
+		fountainRing = Instance.new("Part")
+		fountainRing.Name = "FountainRing"
+		fountainRing.Anchored = true
+		fountainRing.CanCollide = true
+		fountainRing.Size = Vector3.new(22, 2, 22)
+		fountainRing.Position = Vector3.new(0, 5.5, 0)
+		fountainRing.Material = Enum.Material.Neon
+		fountainRing.Color = Color3.fromRGB(100, 170, 255)
+		fountainRing.Shape = Enum.PartType.Cylinder
+		fountainRing.Orientation = Vector3.new(0, 0, 90)
+		fountainRing.Parent = hub
+	end
+
+	local core = hub:FindFirstChild("FountainCore")
+	if not core then
+		core = Instance.new("Part")
+		core.Name = "FountainCore"
+		core.Anchored = true
+		core.CanCollide = false
+		core.Size = Vector3.new(8, 8, 8)
+		core.Position = Vector3.new(0, 9.5, 0)
+		core.Material = Enum.Material.Neon
+		core.Color = Color3.fromRGB(150, 220, 255)
+		core.Shape = Enum.PartType.Ball
+		core.Parent = hub
+	end
+
+	local light = core:FindFirstChildOfClass("PointLight")
+	if not light then
+		light = Instance.new("PointLight")
+		light.Brightness = 5
+		light.Range = 24
+		light.Color = Color3.fromRGB(190, 235, 255)
+		light.Parent = core
+	end
+
+	local prompt = core:FindFirstChildOfClass("ProximityPrompt")
+	if not prompt then
+		prompt = Instance.new("ProximityPrompt")
+		prompt.ActionText = "Summon"
+		prompt.ObjectText = "Summoning Fountain"
+		prompt.HoldDuration = 0.5
+		prompt.MaxActivationDistance = 12
+		prompt.RequiresLineOfSight = false
+		prompt.Parent = core
+	end
+
+	local billboard = core:FindFirstChild("FountainLabel")
+	if not billboard then
+		billboard = Instance.new("BillboardGui")
+		billboard.Name = "FountainLabel"
+		billboard.Size = UDim2.fromOffset(240, 48)
+		billboard.AlwaysOnTop = true
+		billboard.StudsOffset = Vector3.new(0, 5.5, 0)
+		billboard.Parent = core
+
+		local label = Instance.new("TextLabel")
+		label.Size = UDim2.fromScale(1, 1)
+		label.BackgroundTransparency = 1
+		label.TextColor3 = Color3.fromRGB(255, 255, 255)
+		label.TextStrokeTransparency = 0.4
+		label.TextScaled = true
+		label.Font = Enum.Font.GothamBold
+		label.Text = "Summoning Fountain"
+		label.Parent = billboard
+	end
+
+	prompt.Triggered:Connect(function(player)
+		local result = GachaLibrary.PickFromPool("normal")
+		local payload = {
+			CharacterName = result.Name,
+			Type = result.Type,
+			Rarity = result.Rarity,
+			Stars = result.Stars,
+			Attack = result.Attack,
+			Defense = result.Defense,
+			CritChance = result.CritChance,
+			CritDamage = result.CritDamage,
+			DisplayName = GachaLibrary.FormatResult(result),
+		}
+
+		summonResult:FireClient(player, payload)
+		print(player.Name .. " summoned " .. payload.DisplayName)
+	end)
+end
+
+createFountain()
+print("Summoning hub created")
