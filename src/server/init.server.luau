@@ -2,6 +2,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Shared = ReplicatedStorage:WaitForChild("Shared")
 local GachaLibrary = require(Shared:WaitForChild("GachaLibrary"))
 local CombatLibrary = require(Shared:WaitForChild("CombatLibrary"))
+local UnitManager = require(Shared:WaitForChild("UnitManager"))
+local FollowerManager = require(script:WaitForChild("FollowerManager"))
 
 local remoteFolder = ReplicatedStorage:FindFirstChild("GachaRemotes")
 if not remoteFolder then
@@ -17,6 +19,13 @@ if not summonRequest then
 	summonRequest.Parent = remoteFolder
 end
 
+local unitsUpdated = remoteFolder:FindFirstChild("UnitsUpdated")
+if not unitsUpdated then
+	unitsUpdated = Instance.new("RemoteEvent")
+	unitsUpdated.Name = "UnitsUpdated"
+	unitsUpdated.Parent = remoteFolder
+end
+
 local attackRequest = remoteFolder:FindFirstChild("AttackRequest")
 if not attackRequest then
 	attackRequest = Instance.new("RemoteFunction")
@@ -26,7 +35,7 @@ end
 
 function summonRequest.OnServerInvoke(_player)
 	local result = GachaLibrary.PickFromPool("normal")
-	return {
+	local payload = {
 		CharacterName = result.Name,
 		Type = result.Type,
 		Rarity = result.Rarity,
@@ -37,6 +46,11 @@ function summonRequest.OnServerInvoke(_player)
 		CritDamage = result.CritDamage,
 		DisplayName = GachaLibrary.FormatResult(result),
 	}
+
+	UnitManager.AddUnit(_player, payload)
+	unitsUpdated:FireClient(_player, UnitManager.GetUnits(_player))
+	FollowerManager.SpawnFollower(_player)
+	return payload
 end
 
 function attackRequest.OnServerInvoke(_player, attackerData, defenderData)

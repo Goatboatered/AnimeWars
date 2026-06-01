@@ -3,6 +3,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Shared = ReplicatedStorage:WaitForChild("Shared")
 local GachaLibrary = require(Shared:WaitForChild("GachaLibrary"))
+local UnitManager = require(Shared:WaitForChild("UnitManager"))
+local FollowerManager = require(script.Parent:WaitForChild("FollowerManager"))
 
 local remoteFolder = ReplicatedStorage:FindFirstChild("GachaRemotes")
 if not remoteFolder then
@@ -16,6 +18,13 @@ if not summonResult then
 	summonResult = Instance.new("RemoteEvent")
 	summonResult.Name = "SummonResult"
 	summonResult.Parent = remoteFolder
+end
+
+local unitsUpdated = remoteFolder:FindFirstChild("UnitsUpdated")
+if not unitsUpdated then
+	unitsUpdated = Instance.new("RemoteEvent")
+	unitsUpdated.Name = "UnitsUpdated"
+	unitsUpdated.Parent = remoteFolder
 end
 
 local function createFountain()
@@ -186,6 +195,9 @@ local function createFountain()
 			DisplayName = GachaLibrary.FormatResult(result),
 		}
 
+		UnitManager.AddUnit(player, payload)
+		unitsUpdated:FireClient(player, UnitManager.GetUnits(player))
+		FollowerManager.SpawnFollower(player)
 		summonResult:FireClient(player, payload)
 		print(player.Name .. " summoned " .. payload.DisplayName)
 	end)
