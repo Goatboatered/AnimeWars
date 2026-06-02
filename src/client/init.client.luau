@@ -104,8 +104,297 @@ local function performSummon()
 end
 
 summonButton.MouseButton1Click:Connect(performSummon)
+
+local modeMenu = Instance.new("Frame")
+modeMenu.Name = "ModeMenu"
+modeMenu.Size = UDim2.fromOffset(340, 260)
+modeMenu.Position = UDim2.new(0.5, -170, 1, -320)
+modeMenu.AnchorPoint = Vector2.new(0.5, 1)
+modeMenu.BackgroundColor3 = Color3.fromRGB(17, 19, 28)
+modeMenu.BorderSizePixel = 0
+modeMenu.Visible = false
+modeMenu.Parent = screenGui
+
+local modeCorner = Instance.new("UICorner")
+modeCorner.CornerRadius = UDim.new(0, 18)
+modeCorner.Parent = modeMenu
+
+local modeStroke = Instance.new("UIStroke")
+modeStroke.Color = Color3.fromRGB(95, 121, 255)
+modeStroke.Thickness = 2
+modeStroke.Transparency = 0.15
+modeStroke.Parent = modeMenu
+
+local modeTitle = Instance.new("TextLabel")
+modeTitle.Size = UDim2.new(1, -24, 0, 36)
+modeTitle.Position = UDim2.fromOffset(12, 10)
+modeTitle.BackgroundTransparency = 1
+modeTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+modeTitle.Font = Enum.Font.GothamBold
+modeTitle.TextScaled = true
+modeTitle.Text = "Choose a Mode"
+modeTitle.TextXAlignment = Enum.TextXAlignment.Left
+modeTitle.Parent = modeMenu
+
+local modeList = Instance.new("UIListLayout")
+modeList.Padding = UDim.new(0, 10)
+modeList.SortOrder = Enum.SortOrder.LayoutOrder
+modeList.Parent = modeMenu
+modeList.HorizontalAlignment = Enum.HorizontalAlignment.Center
+modeList.VerticalAlignment = Enum.VerticalAlignment.Top
+
+local areaMenu = Instance.new("Frame")
+areaMenu.Name = "AreaMenu"
+areaMenu.Size = UDim2.fromOffset(340, 280)
+areaMenu.Position = UDim2.new(0.5, -170, 1, -172)
+areaMenu.AnchorPoint = Vector2.new(0.5, 1)
+areaMenu.BackgroundColor3 = Color3.fromRGB(17, 19, 28)
+areaMenu.BorderSizePixel = 0
+areaMenu.Visible = false
+areaMenu.Parent = screenGui
+
+local areaCorner = Instance.new("UICorner")
+areaCorner.CornerRadius = UDim.new(0, 18)
+areaCorner.Parent = areaMenu
+
+local areaStroke = Instance.new("UIStroke")
+areaStroke.Color = Color3.fromRGB(95, 121, 255)
+areaStroke.Thickness = 2
+areaStroke.Transparency = 0.15
+areaStroke.Parent = areaMenu
+
+local areaTitle = Instance.new("TextLabel")
+areaTitle.Size = UDim2.new(1, -24, 0, 36)
+areaTitle.Position = UDim2.fromOffset(12, 8)
+areaTitle.BackgroundTransparency = 1
+areaTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+areaTitle.Font = Enum.Font.GothamBold
+areaTitle.TextScaled = true
+areaTitle.Text = "Choose an Area"
+areaTitle.TextXAlignment = Enum.TextXAlignment.Left
+areaTitle.Parent = areaMenu
+
+local areaScroll = Instance.new("ScrollingFrame")
+areaScroll.Name = "AreaScroll"
+areaScroll.Size = UDim2.new(1, -12, 1, -100)
+areaScroll.Position = UDim2.fromOffset(6, 50)
+areaScroll.BackgroundTransparency = 1
+areaScroll.BorderSizePixel = 0
+areaScroll.ScrollBarThickness = 6
+areaScroll.CanvasSize = UDim2.fromOffset(0, 0)
+areaScroll.Parent = areaMenu
+
+local areaList = Instance.new("UIListLayout")
+areaList.Padding = UDim.new(0, 6)
+areaList.SortOrder = Enum.SortOrder.LayoutOrder
+areaList.Parent = areaScroll
+areaList.HorizontalAlignment = Enum.HorizontalAlignment.Center
+areaList.VerticalAlignment = Enum.VerticalAlignment.Top
+
+local selectedArea = ""
+
+local stageMenu = Instance.new("Frame")
+stageMenu.Name = "StageMenu"
+stageMenu.Size = UDim2.fromOffset(340, 280)
+stageMenu.Position = UDim2.new(0.5, -170, 1, -172)
+stageMenu.AnchorPoint = Vector2.new(0.5, 1)
+stageMenu.BackgroundColor3 = Color3.fromRGB(17, 19, 28)
+stageMenu.BorderSizePixel = 0
+stageMenu.Visible = false
+stageMenu.Parent = screenGui
+
+local stageCorner = Instance.new("UICorner")
+stageCorner.CornerRadius = UDim.new(0, 18)
+stageCorner.Parent = stageMenu
+
+local stageStroke = Instance.new("UIStroke")
+stageStroke.Color = Color3.fromRGB(95, 121, 255)
+stageStroke.Thickness = 2
+stageStroke.Transparency = 0.15
+stageStroke.Parent = stageMenu
+
+local stageTitle = Instance.new("TextLabel")
+stageTitle.Size = UDim2.new(1, -24, 0, 36)
+stageTitle.Position = UDim2.fromOffset(12, 8)
+stageTitle.BackgroundTransparency = 1
+stageTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+stageTitle.Font = Enum.Font.GothamBold
+stageTitle.TextScaled = true
+stageTitle.Text = "Choose a Stage"
+stageTitle.TextXAlignment = Enum.TextXAlignment.Left
+stageTitle.Parent = stageMenu
+
+local stageScroll = Instance.new("ScrollingFrame")
+stageScroll.Name = "StageScroll"
+stageScroll.Size = UDim2.new(1, -12, 1, -100)
+stageScroll.Position = UDim2.fromOffset(6, 50)
+stageScroll.BackgroundTransparency = 1
+stageScroll.BorderSizePixel = 0
+stageScroll.ScrollBarThickness = 6
+stageScroll.CanvasSize = UDim2.fromOffset(0, 0)
+stageScroll.Parent = stageMenu
+
+local stageList = Instance.new("UIListLayout")
+stageList.Padding = UDim.new(0, 6)
+stageList.SortOrder = Enum.SortOrder.LayoutOrder
+stageList.Parent = stageScroll
+stageList.HorizontalAlignment = Enum.HorizontalAlignment.Center
+stageList.VerticalAlignment = Enum.VerticalAlignment.Top
+
+local function createModeButton(text, onClick)
+	local button = Instance.new("TextButton")
+	button.Name = text .. "Button"
+	button.Size = UDim2.new(1, -24, 0, 44)
+	button.BackgroundColor3 = Color3.fromRGB(39, 47, 66)
+	button.BorderSizePixel = 0
+	button.TextColor3 = Color3.fromRGB(255, 255, 255)
+	button.Font = Enum.Font.GothamMedium
+	button.TextScaled = true
+	button.Text = text
+	button.Parent = modeMenu
+
+	local buttonCorner = Instance.new("UICorner")
+	buttonCorner.CornerRadius = UDim.new(0, 12)
+	buttonCorner.Parent = button
+
+	button.MouseButton1Click:Connect(function()
+		if onClick then
+			onClick()
+		else
+			modeMenu.Visible = false
+			showMessage(text .. " mode selected")
+		end
+	end)
+
+	return button
+end
+
+createModeButton("Campaign", function()
+	modeMenu.Visible = false
+	areaMenu.Visible = true
+	showMessage("Campaign selected")
+end)
+createModeButton("Dungeons", function()
+	modeMenu.Visible = false
+	showMessage("Dungeons mode selected")
+end)
+createModeButton("Rifts", function()
+	modeMenu.Visible = false
+	showMessage("Rifts mode selected")
+end)
+createModeButton("PvP", function()
+	modeMenu.Visible = false
+	showMessage("PvP mode selected")
+end)
+
+local function createAreaButton(text)
+	local button = Instance.new("TextButton")
+	button.Name = text .. "Button"
+	button.Size = UDim2.new(1, -24, 0, 40)
+	button.BackgroundColor3 = Color3.fromRGB(39, 47, 66)
+	button.BorderSizePixel = 0
+	button.TextColor3 = Color3.fromRGB(255, 255, 255)
+	button.Font = Enum.Font.GothamMedium
+	button.TextScaled = true
+	button.Text = text
+	button.Parent = areaScroll
+
+	local buttonCorner = Instance.new("UICorner")
+	buttonCorner.CornerRadius = UDim.new(0, 10)
+	buttonCorner.Parent = button
+
+	button.MouseButton1Click:Connect(function()
+		areaMenu.Visible = false
+		selectedArea = text
+		stageTitle.Text = text .. " — Stages"
+		stageMenu.Visible = true
+	end)
+
+	return button
+end
+
+for i = 1, 8 do
+	createAreaButton("Area " .. i)
+end
+
+areaScroll.CanvasSize = UDim2.fromOffset(0, 8 * 40 + 7 * 6)
+
+local backToModes = Instance.new("TextButton")
+backToModes.Name = "BackButton"
+backToModes.Size = UDim2.new(1, -24, 0, 36)
+backToModes.Position = UDim2.new(0, 12, 1, -44)
+backToModes.BackgroundColor3 = Color3.fromRGB(55, 65, 85)
+backToModes.BorderSizePixel = 0
+backToModes.TextColor3 = Color3.fromRGB(190, 200, 220)
+backToModes.Font = Enum.Font.GothamMedium
+backToModes.TextScaled = true
+backToModes.Text = "← Back"
+backToModes.Parent = areaMenu
+
+local backCorner = Instance.new("UICorner")
+backCorner.CornerRadius = UDim.new(0, 10)
+backCorner.Parent = backToModes
+
+backToModes.MouseButton1Click:Connect(function()
+	areaMenu.Visible = false
+	modeMenu.Visible = true
+end)
+
+local function createStageButton(text)
+	local button = Instance.new("TextButton")
+	button.Name = text .. "Button"
+	button.Size = UDim2.new(1, -24, 0, 40)
+	button.BackgroundColor3 = Color3.fromRGB(39, 47, 66)
+	button.BorderSizePixel = 0
+	button.TextColor3 = Color3.fromRGB(255, 255, 255)
+	button.Font = Enum.Font.GothamMedium
+	button.TextScaled = true
+	button.Text = text
+	button.Parent = stageScroll
+
+	local buttonCorner = Instance.new("UICorner")
+	buttonCorner.CornerRadius = UDim.new(0, 10)
+	buttonCorner.Parent = button
+
+	button.MouseButton1Click:Connect(function()
+		stageMenu.Visible = false
+		showMessage(selectedArea .. " · " .. text .. " selected")
+	end)
+
+	return button
+end
+
+for i = 1, 7 do
+	createStageButton("Stage " .. i)
+end
+
+stageScroll.CanvasSize = UDim2.fromOffset(0, 7 * 40 + 6 * 6)
+
+local stageBackButton = Instance.new("TextButton")
+stageBackButton.Name = "StageBackButton"
+stageBackButton.Size = UDim2.new(1, -24, 0, 36)
+stageBackButton.Position = UDim2.new(0, 12, 1, -44)
+stageBackButton.BackgroundColor3 = Color3.fromRGB(55, 65, 85)
+stageBackButton.BorderSizePixel = 0
+stageBackButton.TextColor3 = Color3.fromRGB(190, 200, 220)
+stageBackButton.Font = Enum.Font.GothamMedium
+stageBackButton.TextScaled = true
+stageBackButton.Text = "← Back"
+stageBackButton.Parent = stageMenu
+
+local stageBackCorner = Instance.new("UICorner")
+stageBackCorner.CornerRadius = UDim.new(0, 10)
+stageBackCorner.Parent = stageBackButton
+
+stageBackButton.MouseButton1Click:Connect(function()
+	stageMenu.Visible = false
+	areaMenu.Visible = true
+end)
+
 playButton.MouseButton1Click:Connect(function()
-	-- Placeholder for future play logic; do nothing for now.
+	modeMenu.Visible = not modeMenu.Visible
+	areaMenu.Visible = false
+	stageMenu.Visible = false
 end)
 
 local unitRequest = remotes:WaitForChild("GetUnits")
