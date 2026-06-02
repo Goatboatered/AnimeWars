@@ -504,6 +504,120 @@ noUnitsLabel.TextXAlignment = Enum.TextXAlignment.Left
 noUnitsLabel.Parent = unitPanel
 noUnitsLabel.Visible = false
 
+local unitDetailPanel = Instance.new("Frame")
+unitDetailPanel.Name = "UnitDetailPanel"
+unitDetailPanel.Size = UDim2.fromOffset(520, 300)
+unitDetailPanel.Position = UDim2.new(0.5, -260, 0.5, -150)
+unitDetailPanel.BackgroundColor3 = Color3.fromRGB(21, 21, 29)
+unitDetailPanel.BorderSizePixel = 0
+unitDetailPanel.Visible = false
+unitDetailPanel.Parent = overlay
+
+local detailPanelCorner = Instance.new("UICorner")
+detailPanelCorner.CornerRadius = UDim.new(0, 12)
+detailPanelCorner.Parent = unitDetailPanel
+
+local detailHeader = Instance.new("Frame")
+detailHeader.Size = UDim2.fromOffset(520, 64)
+detailHeader.BackgroundColor3 = Color3.fromRGB(33, 33, 44)
+detailHeader.BorderSizePixel = 0
+detailHeader.Parent = unitDetailPanel
+
+local detailHeaderCorner = Instance.new("UICorner")
+detailHeaderCorner.CornerRadius = UDim.new(0, 12)
+detailHeaderCorner.Parent = detailHeader
+
+local detailNameLabel = Instance.new("TextLabel")
+detailNameLabel.Size = UDim2.fromScale(0.72, 1)
+detailNameLabel.Position = UDim2.fromOffset(16, 0)
+detailNameLabel.BackgroundTransparency = 1
+detailNameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+detailNameLabel.Font = Enum.Font.GothamBold
+detailNameLabel.TextScaled = true
+detailNameLabel.Text = ""
+detailNameLabel.TextXAlignment = Enum.TextXAlignment.Left
+detailNameLabel.Parent = detailHeader
+
+local detailRarityLabel = Instance.new("TextLabel")
+detailRarityLabel.Size = UDim2.fromScale(0.25, 0.5)
+detailRarityLabel.Position = UDim2.new(0.73, 0, 0.25, 0)
+detailRarityLabel.BackgroundTransparency = 1
+detailRarityLabel.TextColor3 = Color3.fromRGB(170, 210, 255)
+detailRarityLabel.Font = Enum.Font.GothamBold
+detailRarityLabel.TextScaled = true
+detailRarityLabel.Text = ""
+detailRarityLabel.TextXAlignment = Enum.TextXAlignment.Left
+detailRarityLabel.Parent = detailHeader
+
+local detailStarsLabel = Instance.new("TextLabel")
+detailStarsLabel.Size = UDim2.fromOffset(488, 32)
+detailStarsLabel.Position = UDim2.fromOffset(16, 80)
+detailStarsLabel.BackgroundTransparency = 1
+detailStarsLabel.TextColor3 = Color3.fromRGB(255, 215, 80)
+detailStarsLabel.Font = Enum.Font.GothamBold
+detailStarsLabel.TextScaled = true
+detailStarsLabel.Text = ""
+detailStarsLabel.TextXAlignment = Enum.TextXAlignment.Left
+detailStarsLabel.Parent = unitDetailPanel
+
+local detailInfoLabel = Instance.new("TextLabel")
+detailInfoLabel.Size = UDim2.fromOffset(488, 28)
+detailInfoLabel.Position = UDim2.fromOffset(16, 120)
+detailInfoLabel.BackgroundTransparency = 1
+detailInfoLabel.TextColor3 = Color3.fromRGB(150, 210, 255)
+detailInfoLabel.Font = Enum.Font.Gotham
+detailInfoLabel.TextScaled = true
+detailInfoLabel.Text = ""
+detailInfoLabel.TextXAlignment = Enum.TextXAlignment.Left
+detailInfoLabel.Parent = unitDetailPanel
+
+local detailStatsLabel = Instance.new("TextLabel")
+detailStatsLabel.Size = UDim2.fromOffset(488, 28)
+detailStatsLabel.Position = UDim2.fromOffset(16, 156)
+detailStatsLabel.BackgroundTransparency = 1
+detailStatsLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+detailStatsLabel.Font = Enum.Font.Gotham
+detailStatsLabel.TextScaled = true
+detailStatsLabel.Text = ""
+detailStatsLabel.TextXAlignment = Enum.TextXAlignment.Left
+detailStatsLabel.Parent = unitDetailPanel
+
+local function makeDetailButton(text, xPos, color)
+	local btn = Instance.new("TextButton")
+	btn.Size = UDim2.fromOffset(150, 50)
+	btn.Position = UDim2.fromOffset(xPos, 210)
+	btn.BackgroundColor3 = color
+	btn.BorderSizePixel = 0
+	btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+	btn.Font = Enum.Font.GothamBold
+	btn.TextScaled = true
+	btn.Text = text
+	btn.Parent = unitDetailPanel
+	local c = Instance.new("UICorner")
+	c.CornerRadius = UDim.new(0, 10)
+	c.Parent = btn
+	return btn
+end
+
+local displayButton = makeDetailButton("Display", 17,  Color3.fromRGB(60, 130, 220))
+local deleteButton  = makeDetailButton("Delete",  184, Color3.fromRGB(183, 62, 62))
+local backButton    = makeDetailButton("← Back",  351, Color3.fromRGB(55, 65, 85))
+
+local function openUnitDetail(unit)
+	detailNameLabel.Text  = unit.DisplayName
+	detailRarityLabel.Text = unit.Rarity
+	detailStarsLabel.Text  = string.rep("★", unit.Stars) .. string.rep("☆", math.max(0, 5 - unit.Stars))
+	detailInfoLabel.Text   = unit.Type .. "  ·  " .. unit.Rarity
+	detailStatsLabel.Text  = string.format("ATK %d   DEF %d", unit.Attack, unit.Defense)
+	unitPanel.Visible = false
+	unitDetailPanel.Visible = true
+end
+
+backButton.MouseButton1Click:Connect(function()
+	unitDetailPanel.Visible = false
+	unitPanel.Visible = true
+end)
+
 local function clearUnitList()
 	for _, child in ipairs(unitList:GetChildren()) do
 		if child:IsA("Frame") then
@@ -573,6 +687,16 @@ local function populateUnitList(units)
 		statsLabel.Text = string.format("%d★  ATK %d  DEF %d", unit.Stars, unit.Attack, unit.Defense)
 		statsLabel.TextXAlignment = Enum.TextXAlignment.Left
 		statsLabel.Parent = row
+
+		local rowButton = Instance.new("TextButton")
+		rowButton.Size = UDim2.fromScale(1, 1)
+		rowButton.BackgroundTransparency = 1
+		rowButton.Text = ""
+		rowButton.ZIndex = 2
+		rowButton.Parent = row
+		rowButton.MouseButton1Click:Connect(function()
+			openUnitDetail(unit)
+		end)
 	end
 
 	unitList.CanvasSize = UDim2.fromOffset(0, listLayout.AbsoluteContentSize.Y + 16)
