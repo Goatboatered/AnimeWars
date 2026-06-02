@@ -20,11 +20,73 @@ if not summonResult then
 	summonResult.Parent = remoteFolder
 end
 
+local summonRequest = remoteFolder:FindFirstChild("SummonRequest")
+if not summonRequest then
+	summonRequest = Instance.new("RemoteFunction")
+	summonRequest.Name = "SummonRequest"
+	summonRequest.Parent = remoteFolder
+end
+
+local getUnits = remoteFolder:FindFirstChild("GetUnits")
+if not getUnits then
+	getUnits = Instance.new("RemoteFunction")
+	getUnits.Name = "GetUnits"
+	getUnits.Parent = remoteFolder
+end
+
 local unitsUpdated = remoteFolder:FindFirstChild("UnitsUpdated")
 if not unitsUpdated then
 	unitsUpdated = Instance.new("RemoteEvent")
 	unitsUpdated.Name = "UnitsUpdated"
 	unitsUpdated.Parent = remoteFolder
+end
+
+local attackRequest = remoteFolder:FindFirstChild("AttackRequest")
+if not attackRequest then
+	attackRequest = Instance.new("RemoteFunction")
+	attackRequest.Name = "AttackRequest"
+	attackRequest.Parent = remoteFolder
+end
+
+function summonRequest.OnServerInvoke(player)
+	if not player then
+		return nil
+	end
+
+	local result = GachaLibrary.PickFromPool("normal")
+	local payload = {
+		CharacterName = result.Name,
+		Type = result.Type,
+		Rarity = result.Rarity,
+		Stars = result.Stars,
+		Attack = result.Attack,
+		Defense = result.Defense,
+		CritChance = result.CritChance,
+		CritDamage = result.CritDamage,
+		DisplayName = GachaLibrary.FormatResult(result),
+	}
+
+	UnitManager.AddUnit(player, payload)
+	unitsUpdated:FireClient(player, UnitManager.GetUnits(player))
+	FollowerManager.SpawnFollower(player)
+	return payload
+end
+
+function getUnits.OnServerInvoke(player)
+	if not player then
+		return {}
+	end
+	return UnitManager.GetUnits(player)
+end
+
+function attackRequest.OnServerInvoke(player, attackerData, defenderData)
+	local CombatLibrary = require(Shared:WaitForChild("CombatLibrary"))
+	local damage, hitType, details = CombatLibrary.CalculateDamageFromStats(attackerData, defenderData)
+	return {
+		Damage = damage,
+		HitType = hitType,
+		Details = details,
+	}
 end
 
 local function createFountain()

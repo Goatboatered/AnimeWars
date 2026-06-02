@@ -18,6 +18,13 @@ if not unitRequest then
 	unitRequest.Parent = remoteFolder
 end
 
+local summonResult = remoteFolder:FindFirstChild("SummonResult")
+if not summonResult then
+	summonResult = Instance.new("RemoteEvent")
+	summonResult.Name = "SummonResult"
+	summonResult.Parent = remoteFolder
+end
+
 local unitUpdated = remoteFolder:FindFirstChild("UnitsUpdated")
 if not unitUpdated then
 	unitUpdated = Instance.new("RemoteEvent")

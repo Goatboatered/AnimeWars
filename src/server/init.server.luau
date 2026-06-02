@@ -3,7 +3,11 @@ local Shared = ReplicatedStorage:WaitForChild("Shared")
 local GachaLibrary = require(Shared:WaitForChild("GachaLibrary"))
 local CombatLibrary = require(Shared:WaitForChild("CombatLibrary"))
 local UnitManager = require(Shared:WaitForChild("UnitManager"))
-local FollowerManager = require(script:WaitForChild("FollowerManager"))
+local FollowerManager = require(script.Parent:WaitForChild("FollowerManager"))
+
+-- Ensure the engine runs the server-side modules that create shared remotes
+require(script:WaitForChild("UnitManager"))
+require(script:WaitForChild("HubServer"))
 
 local remoteFolder = ReplicatedStorage:FindFirstChild("GachaRemotes")
 if not remoteFolder then

@@ -1,4 +1,4 @@
-﻿local Players = game:GetService("Players")
+local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
 
 local FollowerManager = {}
@@ -8,7 +8,7 @@ local MAX_FOLLOWERS = 3
 local SCALE = 0.5
 local MOVE_SPEED = 12
 local TICK = 0.1
-local HIP_HEIGHT = 2.0 * SCALE  -- 1.0: bottom of HRP sits 1 stud above floor
+local HIP_HEIGHT = 0.3  -- Minimal offset above ground surface
 
 local SKIN  = Color3.fromRGB(255, 220, 185)
 local SHIRT = Color3.fromRGB(0, 120, 220)
@@ -52,8 +52,8 @@ local function buildR6(spawnCF)
 
     local humanoid = Instance.new("Humanoid")
     humanoid.WalkSpeed = MOVE_SPEED
-    humanoid.JumpPower = 0
-    humanoid.HipHeight = HIP_HEIGHT
+    humanoid.JumpPower = 25
+    humanoid.HipHeight = 0.1
     humanoid.MaxHealth = math.huge
     humanoid.Health = math.huge
     humanoid.Parent = model
@@ -118,7 +118,21 @@ function FollowerManager.SpawnFollower(player)
     local slot = #followers + 1
     local sideOffset = SLOT_OFFSETS[slot] or 0
 
-    local spawnCF = hrp.CFrame * CFrame.new(sideOffset, 0, 3)
+    -- Calculate spawn position relative to player
+    local spawnHorizontal = hrp.CFrame * CFrame.new(sideOffset, 0, 3)
+    local sx, sz = spawnHorizontal.Position.X, spawnHorizontal.Position.Z
+    
+    -- Raycast to find ground at spawn location
+    local rayParams = RaycastParams.new()
+    rayParams.FilterType = Enum.RaycastFilterType.Exclude
+    rayParams.FilterDescendantsInstances = {character}
+    
+    local rayOrigin = Vector3.new(sx, 100, sz)
+    local rayResult = Workspace:Raycast(rayOrigin, Vector3.new(0, -200, 0), rayParams)
+    local spawnY = rayResult and rayResult.Position.Y or 0
+    
+    -- Spawn on ground
+    local spawnCF = CFrame.new(sx, spawnY, sz)
 
     local follower, fHumanoid, fAnimator = buildR6(spawnCF)
     follower.Parent = Workspace
@@ -129,12 +143,28 @@ function FollowerManager.SpawnFollower(player)
 
         local moveParams = RaycastParams.new()
         moveParams.FilterType = Enum.RaycastFilterType.Exclude
-        moveParams.FilterDescendantsInstances = {character, follower}
+        moveParams.FilterDescendantsInstances = {character}
 
         local walkTrack = loadTrack(fAnimator, ANIM_WALK, true)
         local idleTrack = loadTrack(fAnimator, ANIM_IDLE, true)
         idleTrack:Play()
         local isWalking = false
+        local lastJumpTime = 0
+        local JUMP_COOLDOWN = 0.3
+
+        -- Listen for player jumping to make follower jump too
+        local playerHumanoid = character:FindFirstChild("Humanoid")
+        if playerHumanoid then
+            playerHumanoid.StateChanged:Connect(function(oldState, newState)
+                if newState == Enum.HumanoidStateType.Jumping and follower.Parent then
+                    local currentTime = tick()
+                    if (currentTime - lastJumpTime) >= JUMP_COOLDOWN then
+                        fHumanoid.Jump = true
+                        lastJumpTime = currentTime
+                    end
+                end
+            end)
+        end
 
         while follower.Parent and player:IsDescendantOf(game) do
             local char = player.Character
@@ -143,19 +173,34 @@ function FollowerManager.SpawnFollower(player)
                 if charHRP then
                     local fHRP = follower.PrimaryPart
                     if fHRP then
-                        local targetCF = charHRP.CFrame * CFrame.new(sideOffset, 0, 2.5)
-                        local tx, tz = targetCF.Position.X, targetCF.Position.Z
-
-                        local gr = Workspace:Raycast(
-                            Vector3.new(tx, charHRP.Position.Y + 10, tz),
-                            Vector3.new(0, -60, 0),
-                            moveParams
-                        )
-                        local groundY = gr and gr.Position.Y or fHRP.Position.Y
-                        fHumanoid:MoveTo(Vector3.new(tx, groundY + HIP_HEIGHT, tz))
-
+                        -- Calculate target position relative to player
+                        local targetHorizontal = charHRP.CFrame * CFrame.new(sideOffset, 0, 2.5)
+                        local tx, tz = targetHorizontal.Position.X, targetHorizontal.Position.Z
+                        
+                        -- Check if close enough to target
                         local xzDist = Vector3.new(tx - fHRP.Position.X, 0, tz - fHRP.Position.Z).Magnitude
-                        local moving = xzDist > 1
+                        local moving = xzDist > 1.5
+                        
+                        -- Raycast from high above to find actual ground
+                        local rayOrigin = Vector3.new(tx, 100, tz)
+                        local rayDirection = Vector3.new(0, -200, 0)
+                        local rayResult = Workspace:Raycast(rayOrigin, rayDirection, moveParams)
+                        
+                        -- Use ground level if found, otherwise use current Y
+                        local groundY = rayResult and rayResult.Position.Y or fHRP.Position.Y
+                        
+                        -- Move to target position on ground
+                        fHumanoid:MoveTo(Vector3.new(tx, groundY, tz))
+                        
+                        -- Only try to climb if actively moving toward player and there's a significant height difference
+                        local heightDiff = groundY - fHRP.Position.Y
+                        local currentTime = tick()
+                        if moving and heightDiff > 0.8 and (currentTime - lastJumpTime) >= JUMP_COOLDOWN then
+                            fHumanoid.Jump = true
+                            lastJumpTime = currentTime
+                        end
+                        
+                        -- Switch between walk and idle animations
                         if moving and not isWalking then
                             idleTrack:Stop()
                             walkTrack:Play()
@@ -192,3 +237,4 @@ Players.PlayerRemoving:Connect(function(player)
 end)
 
 return FollowerManager
+
