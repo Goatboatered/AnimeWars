@@ -50,6 +50,29 @@ unitMenuButton.TextScaled = true
 unitMenuButton.Text = "U"
 unitMenuButton.Parent = screenGui
 
+local playButton = Instance.new("TextButton")
+playButton.Name = "PlayButton"
+playButton.Size = UDim2.fromOffset(320, 64)
+playButton.Position = UDim2.new(0.5, 0, 1, -96)
+playButton.AnchorPoint = Vector2.new(0.5, 1)
+playButton.BackgroundColor3 = Color3.fromRGB(255, 191, 64)
+playButton.BorderSizePixel = 0
+playButton.TextColor3 = Color3.fromRGB(25, 25, 35)
+playButton.Font = Enum.Font.GothamBlack
+playButton.TextScaled = true
+playButton.Text = "PLAY"
+playButton.Parent = screenGui
+
+local playCorner = Instance.new("UICorner")
+playCorner.CornerRadius = UDim.new(0, 18)
+playCorner.Parent = playButton
+
+local playStroke = Instance.new("UIStroke")
+playStroke.Color = Color3.fromRGB(255, 255, 255)
+playStroke.Thickness = 2
+playStroke.Transparency = 0.15
+playStroke.Parent = playButton
+
 local function showMessage(text)
 	messageLabel.Text = text
 	messageLabel.Visible = true
@@ -62,9 +85,10 @@ end
 
 local summonRequest = remotes:WaitForChild("SummonRequest")
 
-summonButton.MouseButton1Click:Connect(function()
+local function performSummon()
 	summonButton.Active = false
 	summonButton.Text = "Summoning..."
+
 	local success, result = pcall(function()
 		return summonRequest:InvokeServer()
 	end)
@@ -77,6 +101,11 @@ summonButton.MouseButton1Click:Connect(function()
 
 	summonButton.Text = "S"
 	summonButton.Active = true
+end
+
+summonButton.MouseButton1Click:Connect(performSummon)
+playButton.MouseButton1Click:Connect(function()
+	-- Placeholder for future play logic; do nothing for now.
 end)
 
 local unitRequest = remotes:WaitForChild("GetUnits")
