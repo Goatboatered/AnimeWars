@@ -50,6 +50,19 @@ unitMenuButton.TextScaled = true
 unitMenuButton.Text = "U"
 unitMenuButton.Parent = screenGui
 
+local mailButton = Instance.new("TextButton")
+mailButton.Name = "MailButton"
+mailButton.Size = UDim2.fromOffset(56, 56)
+mailButton.Position = UDim2.new(0, 16, 0.5, 72)
+mailButton.AnchorPoint = Vector2.new(0, 0)
+mailButton.BackgroundColor3 = Color3.fromRGB(210, 150, 40)
+mailButton.BorderSizePixel = 0
+mailButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+mailButton.Font = Enum.Font.GothamBold
+mailButton.TextScaled = true
+mailButton.Text = "M"
+mailButton.Parent = screenGui
+
 local playButton = Instance.new("TextButton")
 playButton.Name = "PlayButton"
 playButton.Size = UDim2.fromOffset(320, 64)
@@ -601,5 +614,195 @@ end)
 summonResult.OnClientEvent:Connect(function(result)
 	if result then
 		showMessage("Unit summoned: " .. result.DisplayName)
+	end
+end)
+
+local mailOverlay = Instance.new("Frame")
+mailOverlay.Name = "MailOverlay"
+mailOverlay.Size = UDim2.fromScale(1, 1)
+mailOverlay.Position = UDim2.fromScale(0, 0)
+mailOverlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+mailOverlay.BackgroundTransparency = 0.65
+mailOverlay.Active = true
+mailOverlay.Visible = false
+mailOverlay.Parent = screenGui
+
+local mailPanel = Instance.new("Frame")
+mailPanel.Name = "MailPanel"
+mailPanel.Size = UDim2.fromOffset(460, 340)
+mailPanel.Position = UDim2.new(0.5, -230, 0.5, -170)
+mailPanel.BackgroundColor3 = Color3.fromRGB(21, 21, 29)
+mailPanel.BorderSizePixel = 0
+mailPanel.Visible = true
+mailPanel.Parent = mailOverlay
+
+local mailPanelCorner = Instance.new("UICorner")
+mailPanelCorner.CornerRadius = UDim.new(0, 12)
+mailPanelCorner.Parent = mailPanel
+
+local mailHeader = Instance.new("Frame")
+mailHeader.Name = "MailHeader"
+mailHeader.Size = UDim2.fromOffset(460, 64)
+mailHeader.BackgroundColor3 = Color3.fromRGB(33, 33, 44)
+mailHeader.BorderSizePixel = 0
+mailHeader.Parent = mailPanel
+
+local mailHeaderCorner = Instance.new("UICorner")
+mailHeaderCorner.CornerRadius = UDim.new(0, 12)
+mailHeaderCorner.Parent = mailHeader
+
+local mailPanelTitle = Instance.new("TextLabel")
+mailPanelTitle.Size = UDim2.fromScale(0.7, 1)
+mailPanelTitle.Position = UDim2.fromOffset(16, 0)
+mailPanelTitle.BackgroundTransparency = 1
+mailPanelTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+mailPanelTitle.Font = Enum.Font.GothamBold
+mailPanelTitle.TextScaled = true
+mailPanelTitle.Text = "Mail"
+mailPanelTitle.TextXAlignment = Enum.TextXAlignment.Left
+mailPanelTitle.Parent = mailHeader
+
+local mailCloseButton = Instance.new("TextButton")
+mailCloseButton.Name = "MailCloseButton"
+mailCloseButton.Size = UDim2.fromOffset(56, 56)
+mailCloseButton.AnchorPoint = Vector2.new(1, 0.5)
+mailCloseButton.Position = UDim2.new(1, -12, 0.5, 0)
+mailCloseButton.BackgroundColor3 = Color3.fromRGB(183, 62, 62)
+mailCloseButton.BorderSizePixel = 0
+mailCloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+mailCloseButton.Font = Enum.Font.GothamBold
+mailCloseButton.TextScaled = true
+mailCloseButton.Text = "X"
+mailCloseButton.Parent = mailHeader
+
+local starterCard = Instance.new("Frame")
+starterCard.Name = "StarterCard"
+starterCard.Size = UDim2.fromOffset(440, 246)
+starterCard.Position = UDim2.fromOffset(10, 74)
+starterCard.BackgroundColor3 = Color3.fromRGB(30, 30, 42)
+starterCard.BorderSizePixel = 0
+starterCard.Parent = mailPanel
+
+local starterCardCorner = Instance.new("UICorner")
+starterCardCorner.CornerRadius = UDim.new(0, 10)
+starterCardCorner.Parent = starterCard
+
+local starterCardTitle = Instance.new("TextLabel")
+starterCardTitle.Size = UDim2.new(1, -16, 0, 30)
+starterCardTitle.Position = UDim2.fromOffset(12, 12)
+starterCardTitle.BackgroundTransparency = 1
+starterCardTitle.TextColor3 = Color3.fromRGB(255, 215, 80)
+starterCardTitle.Font = Enum.Font.GothamBold
+starterCardTitle.TextScaled = true
+starterCardTitle.Text = "Starter Pack"
+starterCardTitle.TextXAlignment = Enum.TextXAlignment.Left
+starterCardTitle.Parent = starterCard
+
+local starterCardDesc = Instance.new("TextLabel")
+starterCardDesc.Size = UDim2.new(1, -16, 0, 22)
+starterCardDesc.Position = UDim2.fromOffset(12, 46)
+starterCardDesc.BackgroundTransparency = 1
+starterCardDesc.TextColor3 = Color3.fromRGB(170, 170, 170)
+starterCardDesc.Font = Enum.Font.Gotham
+starterCardDesc.TextScaled = true
+starterCardDesc.Text = "Welcome to Anime Wars! Claim your starter units."
+starterCardDesc.TextXAlignment = Enum.TextXAlignment.Left
+starterCardDesc.Parent = starterCard
+
+local starterUnitPreviews = {
+	{text = "★★★  Water Fairy",    color = Color3.fromRGB(100, 180, 255)},
+	{text = "★★    Fire Hound",    color = Color3.fromRGB(255, 120,  60)},
+	{text = "★★    Wind Vagabond", color = Color3.fromRGB(100, 220, 140)},
+}
+
+for i, preview in ipairs(starterUnitPreviews) do
+	local label = Instance.new("TextLabel")
+	label.Size = UDim2.new(1, -16, 0, 26)
+	label.Position = UDim2.fromOffset(12, 74 + (i - 1) * 30)
+	label.BackgroundTransparency = 1
+	label.TextColor3 = preview.color
+	label.Font = Enum.Font.GothamMedium
+	label.TextScaled = true
+	label.Text = preview.text
+	label.TextXAlignment = Enum.TextXAlignment.Left
+	label.Parent = starterCard
+end
+
+local claimButton = Instance.new("TextButton")
+claimButton.Name = "ClaimButton"
+claimButton.Size = UDim2.fromOffset(120, 40)
+claimButton.Position = UDim2.new(1, -132, 1, -52)
+claimButton.BackgroundColor3 = Color3.fromRGB(76, 196, 132)
+claimButton.BorderSizePixel = 0
+claimButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+claimButton.Font = Enum.Font.GothamBold
+claimButton.TextScaled = true
+claimButton.Text = "Claim"
+claimButton.Parent = starterCard
+
+local claimButtonCorner = Instance.new("UICorner")
+claimButtonCorner.CornerRadius = UDim.new(0, 10)
+claimButtonCorner.Parent = claimButton
+
+local function setClaimedState()
+	claimButton.Text = "Claimed"
+	claimButton.BackgroundColor3 = Color3.fromRGB(70, 70, 80)
+	claimButton.Active = false
+end
+
+local function openMailPanel()
+	mailOverlay.Visible = true
+
+	local mailStatusRemote = remotes:WaitForChild("MailStatus", 10)
+	if not mailStatusRemote then
+		claimButton.Text = "Claim"
+		claimButton.BackgroundColor3 = Color3.fromRGB(76, 196, 132)
+		claimButton.Active = true
+		return
+	end
+
+	local success, status = pcall(function()
+		return mailStatusRemote:InvokeServer()
+	end)
+
+	if success and status and status.starterPackClaimed then
+		setClaimedState()
+	else
+		claimButton.Text = "Claim"
+		claimButton.BackgroundColor3 = Color3.fromRGB(76, 196, 132)
+		claimButton.Active = true
+	end
+end
+
+mailButton.MouseButton1Click:Connect(openMailPanel)
+
+mailCloseButton.MouseButton1Click:Connect(function()
+	mailOverlay.Visible = false
+end)
+
+mailOverlay.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		mailOverlay.Visible = false
+	end
+end)
+
+claimButton.MouseButton1Click:Connect(function()
+	if not claimButton.Active then return end
+
+	claimButton.Active = false
+	claimButton.Text = "..."
+
+	local claimRemote = remotes:WaitForChild("ClaimStarterPack", 10)
+	local success, claimed = pcall(function()
+		return claimRemote and claimRemote:InvokeServer()
+	end)
+
+	if success and claimed then
+		setClaimedState()
+		showMessage("Starter Pack claimed! Check your units.")
+	else
+		claimButton.Text = "Claim"
+		claimButton.Active = true
+		showMessage("Could not claim. Try again.")
 	end
 end)

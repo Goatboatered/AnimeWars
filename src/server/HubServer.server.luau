@@ -1,10 +1,24 @@
 local Workspace = game:GetService("Workspace")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local DataStoreService = game:GetService("DataStoreService")
+local Players = game:GetService("Players")
 
 local Shared = ReplicatedStorage:WaitForChild("Shared")
 local GachaLibrary = require(Shared:WaitForChild("GachaLibrary"))
 local UnitManager = require(Shared:WaitForChild("UnitManager"))
 local FollowerManager = require(script.Parent:WaitForChild("FollowerManager"))
+
+local StarterPackStore = nil
+pcall(function()
+	StarterPackStore = DataStoreService:GetDataStore("StarterClaim_v1")
+end)
+local claimedPacks = {}
+
+local STARTER_UNITS = {
+	{ Name = "Water Fairy",   DisplayName = "Water Fairy",   Type = "Water", Rarity = "Rare",   Stars = 3, Attack = 95, Defense = 80, CritChance = 0.10, CritDamage = 1.65 },
+	{ Name = "Fire Hound",    DisplayName = "Fire Hound",    Type = "Fire",  Rarity = "Common", Stars = 2, Attack = 85, Defense = 65, CritChance = 0.08, CritDamage = 1.5  },
+	{ Name = "Wind Vagabond", DisplayName = "Wind Vagabond", Type = "Wind",  Rarity = "Common", Stars = 2, Attack = 80, Defense = 70, CritChance = 0.09, CritDamage = 1.55 },
+}
 
 local remoteFolder = ReplicatedStorage:FindFirstChild("GachaRemotes")
 if not remoteFolder then
@@ -46,6 +60,63 @@ if not attackRequest then
 	attackRequest = Instance.new("RemoteFunction")
 	attackRequest.Name = "AttackRequest"
 	attackRequest.Parent = remoteFolder
+end
+
+local mailStatus = remoteFolder:FindFirstChild("MailStatus")
+if not mailStatus then
+	mailStatus = Instance.new("RemoteFunction")
+	mailStatus.Name = "MailStatus"
+	mailStatus.Parent = remoteFolder
+end
+
+local claimStarterPack = remoteFolder:FindFirstChild("ClaimStarterPack")
+if not claimStarterPack then
+	claimStarterPack = Instance.new("RemoteFunction")
+	claimStarterPack.Name = "ClaimStarterPack"
+	claimStarterPack.Parent = remoteFolder
+end
+
+Players.PlayerAdded:Connect(function(player)
+	UnitManager.InitializePlayer(player)
+	local success, claimed = pcall(function()
+		return StarterPackStore:GetAsync("starterClaim_" .. player.UserId)
+	end)
+	claimedPacks[player.UserId] = success and claimed == true
+end)
+
+Players.PlayerRemoving:Connect(function(player)
+	UnitManager.ClearPlayer(player)
+	claimedPacks[player.UserId] = nil
+end)
+
+for _, player in Players:GetPlayers() do
+	UnitManager.InitializePlayer(player)
+	local success, claimed = pcall(function()
+		return StarterPackStore:GetAsync("starterClaim_" .. player.UserId)
+	end)
+	claimedPacks[player.UserId] = success and claimed == true
+end
+
+function mailStatus.OnServerInvoke(player)
+	return { starterPackClaimed = claimedPacks[player.UserId] == true }
+end
+
+function claimStarterPack.OnServerInvoke(player)
+	if claimedPacks[player.UserId] == true then
+		return false
+	end
+
+	for _, unitData in ipairs(STARTER_UNITS) do
+		UnitManager.AddUnit(player, unitData)
+	end
+
+	claimedPacks[player.UserId] = true
+	pcall(function()
+		StarterPackStore:SetAsync("starterClaim_" .. player.UserId, true)
+	end)
+
+	unitsUpdated:FireClient(player, UnitManager.GetUnits(player))
+	return true
 end
 
 function summonRequest.OnServerInvoke(player)
