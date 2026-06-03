@@ -1086,9 +1086,24 @@ bpHeader.BackgroundColor3 = Color3.fromRGB(20, 23, 36)
 bpHeader.BorderSizePixel = 0
 bpHeader.Parent = battlePrepScreen
 
+local bpBackBtn = Instance.new("TextButton")
+bpBackBtn.Size = UDim2.fromOffset(90, 38)
+bpBackBtn.Position = UDim2.new(0, 8, 0.5, -19)
+bpBackBtn.BackgroundColor3 = Color3.fromRGB(40, 45, 65)
+bpBackBtn.BorderSizePixel = 0
+bpBackBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+bpBackBtn.Font = Enum.Font.GothamBold
+bpBackBtn.TextScaled = true
+bpBackBtn.Text = "← Back"
+bpBackBtn.Parent = bpHeader
+
+local bpBackCorner = Instance.new("UICorner")
+bpBackCorner.CornerRadius = UDim.new(0, 8)
+bpBackCorner.Parent = bpBackBtn
+
 local bpTitle = Instance.new("TextLabel")
-bpTitle.Size = UDim2.new(1, -16, 1, 0)
-bpTitle.Position = UDim2.fromOffset(16, 0)
+bpTitle.Size = UDim2.new(1, -116, 1, 0)
+bpTitle.Position = UDim2.fromOffset(106, 0)
 bpTitle.BackgroundTransparency = 1
 bpTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 bpTitle.Font = Enum.Font.GothamBold
@@ -1096,6 +1111,11 @@ bpTitle.TextScaled = true
 bpTitle.Text = "Battle Preparation"
 bpTitle.TextXAlignment = Enum.TextXAlignment.Left
 bpTitle.Parent = bpHeader
+
+bpBackBtn.MouseButton1Click:Connect(function()
+	battlePrepScreen.Visible = false
+	stageMenu.Visible = true
+end)
 
 -- Battle area
 local bpBattleArea = Instance.new("Frame")
@@ -1187,6 +1207,22 @@ bpEnemyLabel.TextScaled = true
 bpEnemyLabel.Text = "?"
 bpEnemyLabel.Parent = bpEnemySlot
 
+local bpBeginBtn = Instance.new("TextButton")
+bpBeginBtn.Size = UDim2.fromOffset(120, 40)
+bpBeginBtn.Position = UDim2.new(0.78, -60, 0, 200)
+bpBeginBtn.BackgroundColor3 = Color3.fromRGB(38, 40, 55)
+bpBeginBtn.BorderSizePixel = 0
+bpBeginBtn.TextColor3 = Color3.fromRGB(75, 80, 105)
+bpBeginBtn.Font = Enum.Font.GothamBlack
+bpBeginBtn.TextScaled = true
+bpBeginBtn.Text = "Begin"
+bpBeginBtn.Active = false
+bpBeginBtn.Parent = bpBattleArea
+
+local bpBeginCorner = Instance.new("UICorner")
+bpBeginCorner.CornerRadius = UDim.new(0, 10)
+bpBeginCorner.Parent = bpBeginBtn
+
 -- Unit scroll bar (bottom, above buttons)
 local bpUnitBarBg = Instance.new("Frame")
 bpUnitBarBg.Size = UDim2.new(1, 0, 0, 148)
@@ -1254,6 +1290,25 @@ bpCancelCorner.Parent = bpCancelBtn
 local selectedBattleUnit = nil
 local selectedBattleCard = nil
 
+local function updateBeginBtn()
+	local hasUnit = false
+	for i = 1, 4 do
+		if battleSlots[i].unit then
+			hasUnit = true
+			break
+		end
+	end
+	if hasUnit then
+		bpBeginBtn.BackgroundColor3 = Color3.fromRGB(80, 200, 120)
+		bpBeginBtn.TextColor3 = Color3.fromRGB(15, 20, 25)
+		bpBeginBtn.Active = true
+	else
+		bpBeginBtn.BackgroundColor3 = Color3.fromRGB(38, 40, 55)
+		bpBeginBtn.TextColor3 = Color3.fromRGB(75, 80, 105)
+		bpBeginBtn.Active = false
+	end
+end
+
 local function clearBattleSlot(i)
 	local s = battleSlots[i]
 	if s.unit then
@@ -1270,6 +1325,7 @@ local function clearBattleSlot(i)
 	s.label.Text = "+"
 	s.label.TextColor3 = Color3.fromRGB(70, 90, 130)
 	s.stroke.Color = Color3.fromRGB(55, 75, 120)
+	updateBeginBtn()
 end
 
 -- Slot buttons
@@ -1301,6 +1357,7 @@ for i = 1, 4 do
 			end
 			selectedBattleUnit = nil
 			selectedBattleCard = nil
+			updateBeginBtn()
 		end
 	end)
 end
@@ -1408,6 +1465,12 @@ openBattlePrep = function(areaName, stageName)
 	end)
 	populateBpUnits(ok and units or {})
 end
+
+bpBeginBtn.MouseButton1Click:Connect(function()
+	if not bpBeginBtn.Active then return end
+	showMessage("Battle starting! (coming soon)")
+	battlePrepScreen.Visible = false
+end)
 
 bpCancelBtn.MouseButton1Click:Connect(function()
 	battlePrepScreen.Visible = false
