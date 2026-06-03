@@ -90,8 +90,19 @@ if not displayUnit then
 	displayUnit.Parent = remoteFolder
 end
 
-displayUnit.OnServerEvent:Connect(function(player, unitType, displayName)
-	FollowerManager.SpawnFollower(player, unitType, displayName)
+displayUnit.OnServerEvent:Connect(function(player, unitType, displayName, unitId)
+	FollowerManager.SpawnFollower(player, unitType, displayName, unitId)
+end)
+
+local undisplayUnit = remoteFolder:FindFirstChild("UndisplayUnit")
+if not undisplayUnit then
+	undisplayUnit = Instance.new("RemoteEvent")
+	undisplayUnit.Name = "UndisplayUnit"
+	undisplayUnit.Parent = remoteFolder
+end
+
+undisplayUnit.OnServerEvent:Connect(function(player, unitId)
+	FollowerManager.RemoveFollower(player, unitId)
 end)
 
 Players.PlayerAdded:Connect(function(player)

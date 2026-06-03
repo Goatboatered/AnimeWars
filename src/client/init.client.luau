@@ -604,6 +604,7 @@ local deleteButton  = makeDetailButton("Delete",  184, Color3.fromRGB(183, 62, 6
 local backButton    = makeDetailButton("← Back",  351, Color3.fromRGB(55, 65, 85))
 
 local selectedUnit = nil
+local displayedUnits = {}
 local openUnitMenu -- forward declaration
 
 local function openUnitDetail(unit)
@@ -613,6 +614,13 @@ local function openUnitDetail(unit)
 	detailStarsLabel.Text  = string.rep("★", unit.Stars) .. string.rep("☆", math.max(0, 5 - unit.Stars))
 	detailInfoLabel.Text   = unit.Type .. "  ·  " .. unit.Rarity
 	detailStatsLabel.Text  = string.format("ATK %d   DEF %d", unit.Attack, unit.Defense)
+	if displayedUnits[unit.Id] then
+		displayButton.Text = "Undisplay"
+		displayButton.BackgroundColor3 = Color3.fromRGB(100, 80, 160)
+	else
+		displayButton.Text = "Display"
+		displayButton.BackgroundColor3 = Color3.fromRGB(60, 130, 220)
+	end
 	unitPanel.Visible = false
 	unitDetailPanel.Visible = true
 end
@@ -686,9 +694,22 @@ confirmDeleteBtnCorner.Parent = confirmDeleteBtn
 
 displayButton.MouseButton1Click:Connect(function()
 	if not selectedUnit then return end
-	local displayUnitRemote = remotes:FindFirstChild("DisplayUnit")
-	if displayUnitRemote then
-		displayUnitRemote:FireServer(selectedUnit.Type, selectedUnit.DisplayName)
+	if displayButton.Text == "Undisplay" then
+		local undisplayRemote = remotes:FindFirstChild("UndisplayUnit")
+		if undisplayRemote then
+			undisplayRemote:FireServer(selectedUnit.Id)
+		end
+		displayedUnits[selectedUnit.Id] = nil
+		displayButton.Text = "Display"
+		displayButton.BackgroundColor3 = Color3.fromRGB(60, 130, 220)
+	else
+		local displayUnitRemote = remotes:FindFirstChild("DisplayUnit")
+		if displayUnitRemote then
+			displayUnitRemote:FireServer(selectedUnit.Type, selectedUnit.DisplayName, selectedUnit.Id)
+		end
+		displayedUnits[selectedUnit.Id] = true
+		displayButton.Text = "Undisplay"
+		displayButton.BackgroundColor3 = Color3.fromRGB(100, 80, 160)
 	end
 end)
 
@@ -704,6 +725,14 @@ confirmDeleteBtn.MouseButton1Click:Connect(function()
 	if not selectedUnit then return end
 	confirmFrame.Visible = false
 	unitDetailPanel.Visible = false
+
+	if displayedUnits[selectedUnit.Id] then
+		local undisplayRemote = remotes:FindFirstChild("UndisplayUnit")
+		if undisplayRemote then
+			undisplayRemote:FireServer(selectedUnit.Id)
+		end
+		displayedUnits[selectedUnit.Id] = nil
+	end
 
 	local deleteRemote = remotes:WaitForChild("DeleteUnit", 5)
 	if deleteRemote then

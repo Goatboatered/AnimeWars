@@ -139,7 +139,7 @@ local function loadTrack(animator, id, looped)
 	return track
 end
 
-function FollowerManager.SpawnFollower(player, unitType, displayName)
+function FollowerManager.SpawnFollower(player, unitType, displayName, unitId)
 	local character = player.Character
 	if not character then
 		return
@@ -178,6 +178,9 @@ function FollowerManager.SpawnFollower(player, unitType, displayName)
 
 	local shortName = displayName and (displayName:match("%S+%s+(.+)") or displayName) or nil
 	local follower, fHumanoid, fAnimator = buildR6(spawnCF, SHIRT_COLORS[unitType], shortName)
+	if unitId then
+		follower:SetAttribute("UnitId", unitId)
+	end
 	follower.Parent = Workspace
 	table.insert(followers, follower)
 
@@ -264,6 +267,20 @@ function FollowerManager.SpawnFollower(player, unitType, displayName)
 		walkTrack:Stop()
 		idleTrack:Stop()
 	end)
+end
+
+function FollowerManager.RemoveFollower(player, unitId)
+	local followers = playerFollowers[player.UserId]
+	if not followers then return end
+	for i, f in ipairs(followers) do
+		if f:GetAttribute("UnitId") == unitId then
+			if f.Parent then
+				f:Destroy()
+			end
+			table.remove(followers, i)
+			return
+		end
+	end
 end
 
 function FollowerManager.ClearFollowers(player)
