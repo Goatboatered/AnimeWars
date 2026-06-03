@@ -508,8 +508,8 @@ noUnitsLabel.Visible = false
 
 local unitDetailPanel = Instance.new("Frame")
 unitDetailPanel.Name = "UnitDetailPanel"
-unitDetailPanel.Size = UDim2.fromOffset(520, 300)
-unitDetailPanel.Position = UDim2.new(0.5, -260, 0.5, -150)
+unitDetailPanel.Size = UDim2.fromOffset(520, 390)
+unitDetailPanel.Position = UDim2.new(0.5, -260, 0.5, -195)
 unitDetailPanel.BackgroundColor3 = Color3.fromRGB(21, 21, 29)
 unitDetailPanel.BorderSizePixel = 0
 unitDetailPanel.Visible = false
@@ -583,11 +583,44 @@ detailStatsLabel.TextScaled = true
 detailStatsLabel.Text = ""
 detailStatsLabel.TextXAlignment = Enum.TextXAlignment.Left
 detailStatsLabel.Parent = unitDetailPanel
+detailStatsLabel.Visible = false
+
+-- 8-stat grid (2 columns, 4 rows)
+local detailStatLabels = {}
+local statPositions = {
+	{16, 158}, {268, 158},
+	{16, 196}, {268, 196},
+	{16, 234}, {268, 234},
+	{16, 272}, {268, 272},
+}
+local statColors = {
+	Color3.fromRGB(100, 220, 100),
+	Color3.fromRGB(255, 130, 80),
+	Color3.fromRGB(80, 160, 255),
+	Color3.fromRGB(220, 215, 80),
+	Color3.fromRGB(255, 190, 80),
+	Color3.fromRGB(255, 140, 60),
+	Color3.fromRGB(185, 145, 225),
+	Color3.fromRGB(160, 220, 255),
+}
+for i = 1, 8 do
+	local lbl = Instance.new("TextLabel")
+	lbl.Size = UDim2.fromOffset(236, 30)
+	lbl.Position = UDim2.fromOffset(statPositions[i][1], statPositions[i][2])
+	lbl.BackgroundTransparency = 1
+	lbl.TextColor3 = statColors[i]
+	lbl.Font = Enum.Font.GothamMedium
+	lbl.TextScaled = true
+	lbl.Text = ""
+	lbl.TextXAlignment = Enum.TextXAlignment.Left
+	lbl.Parent = unitDetailPanel
+	detailStatLabels[i] = lbl
+end
 
 local function makeDetailButton(text, xPos, color)
 	local btn = Instance.new("TextButton")
 	btn.Size = UDim2.fromOffset(150, 50)
-	btn.Position = UDim2.fromOffset(xPos, 210)
+	btn.Position = UDim2.fromOffset(xPos, 318)
 	btn.BackgroundColor3 = color
 	btn.BorderSizePixel = 0
 	btn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -615,7 +648,17 @@ local function openUnitDetail(unit)
 	detailRarityLabel.Text = unit.Rarity
 	detailStarsLabel.Text  = string.rep("★", unit.Stars) .. string.rep("☆", math.max(0, 5 - unit.Stars))
 	detailInfoLabel.Text   = unit.Type .. "  ·  " .. unit.Rarity
-	detailStatsLabel.Text  = string.format("ATK %d   DEF %d", unit.Attack, unit.Defense)
+	local function fmtPct(v)
+		return string.format("%.0f%%", (v or 0) * 100)
+	end
+	detailStatLabels[1].Text = "HP: " .. (unit.HP or 0)
+	detailStatLabels[2].Text = "ATK: " .. (unit.Attack or 0)
+	detailStatLabels[3].Text = "DEF: " .. (unit.Defense or 0)
+	detailStatLabels[4].Text = "SPD: " .. (unit.Speed or 0)
+	detailStatLabels[5].Text = "Crit Rate: " .. fmtPct(unit.CritChance)
+	detailStatLabels[6].Text = "Crit DMG: " .. fmtPct((unit.CritDamage or 1.5) - 1)
+	detailStatLabels[7].Text = "Resistance: " .. fmtPct(unit.Resistance)
+	detailStatLabels[8].Text = "Accuracy: " .. fmtPct(unit.Accuracy)
 	if displayedUnits[unit.Id] then
 		displayButton.Text = "Undisplay"
 		displayButton.BackgroundColor3 = Color3.fromRGB(100, 80, 160)

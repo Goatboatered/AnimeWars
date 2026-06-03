@@ -15,9 +15,9 @@ end)
 local claimedPacks = {}
 
 local STARTER_UNITS = {
-	{ Name = "Water Fairy",   DisplayName = "Water Fairy",   Type = "Water", Rarity = "Rare",   Stars = 3, Attack = 95, Defense = 80, CritChance = 0.10, CritDamage = 1.65 },
-	{ Name = "Fire Hound",    DisplayName = "Fire Hound",    Type = "Fire",  Rarity = "Common", Stars = 2, Attack = 85, Defense = 65, CritChance = 0.08, CritDamage = 1.5  },
-	{ Name = "Wind Vagabond", DisplayName = "Wind Vagabond", Type = "Wind",  Rarity = "Common", Stars = 2, Attack = 80, Defense = 70, CritChance = 0.09, CritDamage = 1.55 },
+	{ Name = "Water Fairy",   DisplayName = "Water Fairy",   Type = "Water", Rarity = "Rare",   Stars = 3, HP = 1815, Attack = 107, Defense = 136, Speed = 103, CritChance = 0.15, CritDamage = 1.5, Resistance = 0.15, Accuracy = 0.0 },
+	{ Name = "Fire Hellhound", DisplayName = "Fire Hellhound", Type = "Fire",  Rarity = "Common", Stars = 2, HP = 1725, Attack = 227, Defense = 112, Speed = 115, CritChance = 0.15, CritDamage = 1.5, Resistance = 0.15, Accuracy = 0.0 },
+	{ Name = "Wind Vagabond", DisplayName = "Wind Vagabond", Type = "Wind",  Rarity = "Common", Stars = 2, HP = 1905, Attack = 117, Defense = 134, Speed = 97, CritChance = 0.15, CritDamage = 1.5, Resistance = 0.15, Accuracy = 0.0 },
 }
 
 local remoteFolder = ReplicatedStorage:FindFirstChild("GachaRemotes")

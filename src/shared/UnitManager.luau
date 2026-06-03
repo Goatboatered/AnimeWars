@@ -14,6 +14,10 @@ local function cloneUnit(unit)
 		CritDamage = unit.CritDamage,
 		DisplayName = unit.DisplayName,
 		Level = unit.Level or 1,
+		HP = unit.HP or 0,
+		Speed = unit.Speed or 0,
+		Resistance = unit.Resistance or 0,
+		Accuracy = unit.Accuracy or 0,
 	}
 end
 
@@ -56,6 +60,10 @@ function UnitManager.AddUnit(player, unitData)
 		CritDamage = unitData.CritDamage or 1.5,
 		DisplayName = unitData.DisplayName or unitData.CharacterName or unitData.Name or "Unknown",
 		Level = unitData.Level or 1,
+		HP = unitData.HP or 0,
+		Speed = unitData.Speed or 0,
+		Resistance = unitData.Resistance or 0,
+		Accuracy = unitData.Accuracy or 0,
 	}
 
 	table.insert(units, entry)
