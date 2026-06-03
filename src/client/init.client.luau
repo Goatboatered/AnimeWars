@@ -688,7 +688,7 @@ displayButton.MouseButton1Click:Connect(function()
 	if not selectedUnit then return end
 	local displayUnitRemote = remotes:FindFirstChild("DisplayUnit")
 	if displayUnitRemote then
-		displayUnitRemote:FireServer(selectedUnit.Type)
+		displayUnitRemote:FireServer(selectedUnit.Type, selectedUnit.DisplayName)
 	end
 end)
 

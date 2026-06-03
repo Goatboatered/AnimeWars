@@ -90,8 +90,8 @@ if not displayUnit then
 	displayUnit.Parent = remoteFolder
 end
 
-displayUnit.OnServerEvent:Connect(function(player, unitType)
-	FollowerManager.SpawnFollower(player, unitType)
+displayUnit.OnServerEvent:Connect(function(player, unitType, displayName)
+	FollowerManager.SpawnFollower(player, unitType, displayName)
 end)
 
 Players.PlayerAdded:Connect(function(player)

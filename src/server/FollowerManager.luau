@@ -45,10 +45,10 @@ local function makeMotor(parent, name, p0, p1, c0, c1)
 	m.Parent = parent
 end
 
-local function buildR6(spawnCF, shirtColor)
+local function buildR6(spawnCF, shirtColor, unitName)
 	local S = SCALE
 	local model = Instance.new("Model")
-	model.Name = "UnitFollower"
+	model.Name = unitName or "UnitFollower"
 
 	local hrp = makePart(model, "HumanoidRootPart", Vector3.new(2 * S, 2 * S, S), Color3.new(1, 1, 1), false)
 	hrp.Transparency = 1
@@ -139,7 +139,7 @@ local function loadTrack(animator, id, looped)
 	return track
 end
 
-function FollowerManager.SpawnFollower(player, unitType)
+function FollowerManager.SpawnFollower(player, unitType, displayName)
 	local character = player.Character
 	if not character then
 		return
@@ -176,7 +176,8 @@ function FollowerManager.SpawnFollower(player, unitType)
 	-- Spawn on ground
 	local spawnCF = CFrame.new(sx, spawnY, sz)
 
-	local follower, fHumanoid, fAnimator = buildR6(spawnCF, SHIRT_COLORS[unitType])
+	local shortName = displayName and (displayName:match("%S+%s+(.+)") or displayName) or nil
+	local follower, fHumanoid, fAnimator = buildR6(spawnCF, SHIRT_COLORS[unitType], shortName)
 	follower.Parent = Workspace
 	table.insert(followers, follower)
 
