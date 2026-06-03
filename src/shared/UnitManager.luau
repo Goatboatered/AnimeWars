@@ -60,6 +60,22 @@ function UnitManager.AddUnit(player, unitData)
 	return entry
 end
 
+function UnitManager.RemoveUnit(player, unitId)
+	if not player or not player.UserId then return false end
+	local units = playerUnits[player.UserId]
+	if not units then return false end
+	for i, unit in ipairs(units) do
+		if unit.Id == unitId then
+			table.remove(units, i)
+			for j = i, #units do
+				units[j].Id = j
+			end
+			return true
+		end
+	end
+	return false
+end
+
 function UnitManager.GetUnits(player)
 	if not player or not player.UserId then
 		return {}

@@ -10,9 +10,15 @@ local MOVE_SPEED = 12
 local TICK = 0.1
 local HIP_HEIGHT = 0.3 -- Minimal offset above ground surface
 
-local SKIN = Color3.fromRGB(255, 220, 185)
+local SKIN  = Color3.fromRGB(255, 220, 185)
 local SHIRT = Color3.fromRGB(0, 120, 220)
 local PANTS = Color3.fromRGB(30, 50, 110)
+
+local SHIRT_COLORS = {
+	Water = Color3.fromRGB(40,  120, 220),
+	Fire  = Color3.fromRGB(210,  55,  40),
+	Wind  = Color3.fromRGB(220, 185,  40),
+}
 
 local SLOT_OFFSETS = { -2, 0, 2 }
 
@@ -39,7 +45,7 @@ local function makeMotor(parent, name, p0, p1, c0, c1)
 	m.Parent = parent
 end
 
-local function buildR6(spawnCF)
+local function buildR6(spawnCF, shirtColor)
 	local S = SCALE
 	local model = Instance.new("Model")
 	model.Name = "UnitFollower"
@@ -61,7 +67,7 @@ local function buildR6(spawnCF)
 	local animator = Instance.new("Animator")
 	animator.Parent = humanoid
 
-	local torso = makePart(model, "Torso", Vector3.new(2 * S, 2 * S, S), SHIRT, true)
+	local torso = makePart(model, "Torso", Vector3.new(2 * S, 2 * S, S), shirtColor or SHIRT, true)
 	local head = makePart(model, "Head", Vector3.new(2 * S, S, S), SKIN, false)
 	local leftArm = makePart(model, "Left Arm", Vector3.new(S, 2 * S, S), SKIN, false)
 	local rightArm = makePart(model, "Right Arm", Vector3.new(S, 2 * S, S), SKIN, false)
@@ -133,7 +139,7 @@ local function loadTrack(animator, id, looped)
 	return track
 end
 
-function FollowerManager.SpawnFollower(player)
+function FollowerManager.SpawnFollower(player, unitType)
 	local character = player.Character
 	if not character then
 		return
@@ -170,7 +176,7 @@ function FollowerManager.SpawnFollower(player)
 	-- Spawn on ground
 	local spawnCF = CFrame.new(sx, spawnY, sz)
 
-	local follower, fHumanoid, fAnimator = buildR6(spawnCF)
+	local follower, fHumanoid, fAnimator = buildR6(spawnCF, SHIRT_COLORS[unitType])
 	follower.Parent = Workspace
 	table.insert(followers, follower)
 

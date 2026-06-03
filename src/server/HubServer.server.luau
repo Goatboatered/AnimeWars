@@ -76,6 +76,24 @@ if not claimStarterPack then
 	claimStarterPack.Parent = remoteFolder
 end
 
+local deleteUnit = remoteFolder:FindFirstChild("DeleteUnit")
+if not deleteUnit then
+	deleteUnit = Instance.new("RemoteFunction")
+	deleteUnit.Name = "DeleteUnit"
+	deleteUnit.Parent = remoteFolder
+end
+
+local displayUnit = remoteFolder:FindFirstChild("DisplayUnit")
+if not displayUnit then
+	displayUnit = Instance.new("RemoteEvent")
+	displayUnit.Name = "DisplayUnit"
+	displayUnit.Parent = remoteFolder
+end
+
+displayUnit.OnServerEvent:Connect(function(player, unitType)
+	FollowerManager.SpawnFollower(player, unitType)
+end)
+
 Players.PlayerAdded:Connect(function(player)
 	UnitManager.InitializePlayer(player)
 	local success, claimed = pcall(function()
@@ -148,6 +166,14 @@ function getUnits.OnServerInvoke(player)
 		return {}
 	end
 	return UnitManager.GetUnits(player)
+end
+
+function deleteUnit.OnServerInvoke(player, unitId)
+	local removed = UnitManager.RemoveUnit(player, unitId)
+	if removed then
+		unitsUpdated:FireClient(player, UnitManager.GetUnits(player))
+	end
+	return removed
 end
 
 function attackRequest.OnServerInvoke(player, attackerData, defenderData)

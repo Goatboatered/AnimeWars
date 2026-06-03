@@ -603,7 +603,11 @@ local displayButton = makeDetailButton("Display", 17,  Color3.fromRGB(60, 130, 2
 local deleteButton  = makeDetailButton("Delete",  184, Color3.fromRGB(183, 62, 62))
 local backButton    = makeDetailButton("← Back",  351, Color3.fromRGB(55, 65, 85))
 
+local selectedUnit = nil
+local openUnitMenu -- forward declaration
+
 local function openUnitDetail(unit)
+	selectedUnit = unit
 	detailNameLabel.Text  = unit.DisplayName
 	detailRarityLabel.Text = unit.Rarity
 	detailStarsLabel.Text  = string.rep("★", unit.Stars) .. string.rep("☆", math.max(0, 5 - unit.Stars))
@@ -616,6 +620,100 @@ end
 backButton.MouseButton1Click:Connect(function()
 	unitDetailPanel.Visible = false
 	unitPanel.Visible = true
+end)
+
+-- Delete confirmation dialog
+local confirmFrame = Instance.new("Frame")
+confirmFrame.Name = "ConfirmFrame"
+confirmFrame.Size = UDim2.fromScale(1, 1)
+confirmFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+confirmFrame.BackgroundTransparency = 0.55
+confirmFrame.Active = true
+confirmFrame.Visible = false
+confirmFrame.Parent = screenGui
+
+local confirmPanel = Instance.new("Frame")
+confirmPanel.Size = UDim2.fromOffset(420, 190)
+confirmPanel.Position = UDim2.new(0.5, -210, 0.5, -95)
+confirmPanel.BackgroundColor3 = Color3.fromRGB(21, 21, 29)
+confirmPanel.BorderSizePixel = 0
+confirmPanel.Parent = confirmFrame
+
+local confirmPanelCorner = Instance.new("UICorner")
+confirmPanelCorner.CornerRadius = UDim.new(0, 12)
+confirmPanelCorner.Parent = confirmPanel
+
+local confirmText = Instance.new("TextLabel")
+confirmText.Size = UDim2.new(1, -32, 0, 80)
+confirmText.Position = UDim2.fromOffset(16, 16)
+confirmText.BackgroundTransparency = 1
+confirmText.TextColor3 = Color3.fromRGB(255, 255, 255)
+confirmText.Font = Enum.Font.GothamMedium
+confirmText.TextScaled = true
+confirmText.TextWrapped = true
+confirmText.Text = "Are you sure you want to delete this unit?"
+confirmText.Parent = confirmPanel
+
+local confirmNoBtn = Instance.new("TextButton")
+confirmNoBtn.Size = UDim2.fromOffset(180, 52)
+confirmNoBtn.Position = UDim2.fromOffset(16, 118)
+confirmNoBtn.BackgroundColor3 = Color3.fromRGB(55, 65, 85)
+confirmNoBtn.BorderSizePixel = 0
+confirmNoBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+confirmNoBtn.Font = Enum.Font.GothamBold
+confirmNoBtn.TextScaled = true
+confirmNoBtn.Text = "NO"
+confirmNoBtn.Parent = confirmPanel
+
+local confirmNoBtnCorner = Instance.new("UICorner")
+confirmNoBtnCorner.CornerRadius = UDim.new(0, 10)
+confirmNoBtnCorner.Parent = confirmNoBtn
+
+local confirmDeleteBtn = Instance.new("TextButton")
+confirmDeleteBtn.Size = UDim2.fromOffset(180, 52)
+confirmDeleteBtn.Position = UDim2.fromOffset(224, 118)
+confirmDeleteBtn.BackgroundColor3 = Color3.fromRGB(183, 62, 62)
+confirmDeleteBtn.BorderSizePixel = 0
+confirmDeleteBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+confirmDeleteBtn.Font = Enum.Font.GothamBold
+confirmDeleteBtn.TextScaled = true
+confirmDeleteBtn.Text = "Delete"
+confirmDeleteBtn.Parent = confirmPanel
+
+local confirmDeleteBtnCorner = Instance.new("UICorner")
+confirmDeleteBtnCorner.CornerRadius = UDim.new(0, 10)
+confirmDeleteBtnCorner.Parent = confirmDeleteBtn
+
+displayButton.MouseButton1Click:Connect(function()
+	if not selectedUnit then return end
+	local displayUnitRemote = remotes:FindFirstChild("DisplayUnit")
+	if displayUnitRemote then
+		displayUnitRemote:FireServer(selectedUnit.Type)
+	end
+end)
+
+deleteButton.MouseButton1Click:Connect(function()
+	confirmFrame.Visible = true
+end)
+
+confirmNoBtn.MouseButton1Click:Connect(function()
+	confirmFrame.Visible = false
+end)
+
+confirmDeleteBtn.MouseButton1Click:Connect(function()
+	if not selectedUnit then return end
+	confirmFrame.Visible = false
+	unitDetailPanel.Visible = false
+
+	local deleteRemote = remotes:WaitForChild("DeleteUnit", 5)
+	if deleteRemote then
+		pcall(function()
+			deleteRemote:InvokeServer(selectedUnit.Id)
+		end)
+	end
+
+	selectedUnit = nil
+	openUnitMenu()
 end)
 
 local function clearUnitList()
@@ -702,7 +800,7 @@ local function populateUnitList(units)
 	unitList.CanvasSize = UDim2.fromOffset(0, listLayout.AbsoluteContentSize.Y + 16)
 end
 
-local function openUnitMenu()
+openUnitMenu = function()
 	local success, units = pcall(function()
 		return unitRequest:InvokeServer()
 	end)
