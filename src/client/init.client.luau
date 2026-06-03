@@ -353,6 +353,8 @@ backToModes.MouseButton1Click:Connect(function()
 	modeMenu.Visible = true
 end)
 
+local openBattlePrep -- forward declaration
+
 local function createStageButton(text)
 	local button = Instance.new("TextButton")
 	button.Name = text .. "Button"
@@ -371,7 +373,7 @@ local function createStageButton(text)
 
 	button.MouseButton1Click:Connect(function()
 		stageMenu.Visible = false
-		showMessage(selectedArea .. " · " .. text .. " selected")
+		openBattlePrep(selectedArea, text)
 	end)
 
 	return button
@@ -1056,4 +1058,363 @@ claimButton.MouseButton1Click:Connect(function()
 		claimButton.Active = true
 		showMessage("Could not claim. Try again.")
 	end
+end)
+
+-- ================================================
+-- BATTLE PREP SCREEN
+-- ================================================
+
+local BATTLE_COLORS = {
+	Water = Color3.fromRGB(50, 100, 200),
+	Fire  = Color3.fromRGB(200, 55, 35),
+	Wind  = Color3.fromRGB(185, 160, 30),
+}
+local BATTLE_DEFAULT_COLOR = Color3.fromRGB(75, 55, 110)
+
+local battlePrepScreen = Instance.new("Frame")
+battlePrepScreen.Name = "BattlePrepScreen"
+battlePrepScreen.Size = UDim2.fromScale(1, 1)
+battlePrepScreen.BackgroundColor3 = Color3.fromRGB(14, 16, 26)
+battlePrepScreen.BorderSizePixel = 0
+battlePrepScreen.Visible = false
+battlePrepScreen.Parent = screenGui
+
+-- Header
+local bpHeader = Instance.new("Frame")
+bpHeader.Size = UDim2.new(1, 0, 0, 52)
+bpHeader.BackgroundColor3 = Color3.fromRGB(20, 23, 36)
+bpHeader.BorderSizePixel = 0
+bpHeader.Parent = battlePrepScreen
+
+local bpTitle = Instance.new("TextLabel")
+bpTitle.Size = UDim2.new(1, -16, 1, 0)
+bpTitle.Position = UDim2.fromOffset(16, 0)
+bpTitle.BackgroundTransparency = 1
+bpTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+bpTitle.Font = Enum.Font.GothamBold
+bpTitle.TextScaled = true
+bpTitle.Text = "Battle Preparation"
+bpTitle.TextXAlignment = Enum.TextXAlignment.Left
+bpTitle.Parent = bpHeader
+
+-- Battle area
+local bpBattleArea = Instance.new("Frame")
+bpBattleArea.Size = UDim2.new(1, 0, 0, 260)
+bpBattleArea.Position = UDim2.fromOffset(0, 52)
+bpBattleArea.BackgroundColor3 = Color3.fromRGB(18, 21, 33)
+bpBattleArea.BorderSizePixel = 0
+bpBattleArea.Parent = battlePrepScreen
+
+-- Player slots (2x2 grid, left)
+local bpPlayerSection = Instance.new("Frame")
+bpPlayerSection.Size = UDim2.fromOffset(216, 216)
+bpPlayerSection.Position = UDim2.new(0.08, 0, 0.5, -108)
+bpPlayerSection.BackgroundTransparency = 1
+bpPlayerSection.Parent = bpBattleArea
+
+local battleSlots = {}
+local slotGridPos = {
+	UDim2.fromOffset(0,   0),
+	UDim2.fromOffset(112, 0),
+	UDim2.fromOffset(0,   112),
+	UDim2.fromOffset(112, 112),
+}
+
+for i = 1, 4 do
+	local sf = Instance.new("Frame")
+	sf.Size = UDim2.fromOffset(104, 104)
+	sf.Position = slotGridPos[i]
+	sf.BackgroundColor3 = Color3.fromRGB(28, 32, 48)
+	sf.BorderSizePixel = 0
+	sf.Parent = bpPlayerSection
+
+	local sc = Instance.new("UICorner")
+	sc.CornerRadius = UDim.new(0, 10)
+	sc.Parent = sf
+
+	local ss = Instance.new("UIStroke")
+	ss.Color = Color3.fromRGB(55, 75, 120)
+	ss.Thickness = 2
+	ss.Parent = sf
+
+	local sl = Instance.new("TextLabel")
+	sl.Size = UDim2.fromScale(1, 1)
+	sl.BackgroundTransparency = 1
+	sl.TextColor3 = Color3.fromRGB(70, 90, 130)
+	sl.Font = Enum.Font.GothamBold
+	sl.TextScaled = true
+	sl.Text = "+"
+	sl.TextWrapped = true
+	sl.Parent = sf
+
+	battleSlots[i] = { unit = nil, frame = sf, label = sl, stroke = ss }
+end
+
+-- VS label
+local bpVS = Instance.new("TextLabel")
+bpVS.Size = UDim2.fromOffset(70, 50)
+bpVS.Position = UDim2.new(0.5, -35, 0.5, -25)
+bpVS.BackgroundTransparency = 1
+bpVS.TextColor3 = Color3.fromRGB(255, 255, 255)
+bpVS.Font = Enum.Font.GothamBlack
+bpVS.TextScaled = true
+bpVS.Text = "VS"
+bpVS.Parent = bpBattleArea
+
+-- Enemy slot (right, blank for now)
+local bpEnemySlot = Instance.new("Frame")
+bpEnemySlot.Size = UDim2.fromOffset(120, 120)
+bpEnemySlot.Position = UDim2.new(0.78, -60, 0.5, -60)
+bpEnemySlot.BackgroundColor3 = Color3.fromRGB(35, 18, 18)
+bpEnemySlot.BorderSizePixel = 0
+bpEnemySlot.Parent = bpBattleArea
+
+local bpEnemyCorner = Instance.new("UICorner")
+bpEnemyCorner.CornerRadius = UDim.new(0, 10)
+bpEnemyCorner.Parent = bpEnemySlot
+
+local bpEnemyStroke = Instance.new("UIStroke")
+bpEnemyStroke.Color = Color3.fromRGB(140, 50, 50)
+bpEnemyStroke.Thickness = 2
+bpEnemyStroke.Parent = bpEnemySlot
+
+local bpEnemyLabel = Instance.new("TextLabel")
+bpEnemyLabel.Size = UDim2.fromScale(1, 1)
+bpEnemyLabel.BackgroundTransparency = 1
+bpEnemyLabel.TextColor3 = Color3.fromRGB(140, 70, 70)
+bpEnemyLabel.Font = Enum.Font.GothamBold
+bpEnemyLabel.TextScaled = true
+bpEnemyLabel.Text = "?"
+bpEnemyLabel.Parent = bpEnemySlot
+
+-- Unit scroll bar (bottom, above buttons)
+local bpUnitBarBg = Instance.new("Frame")
+bpUnitBarBg.Size = UDim2.new(1, 0, 0, 148)
+bpUnitBarBg.Position = UDim2.new(0, 0, 1, -212)
+bpUnitBarBg.BackgroundColor3 = Color3.fromRGB(16, 18, 28)
+bpUnitBarBg.BorderSizePixel = 0
+bpUnitBarBg.Parent = battlePrepScreen
+
+local bpUnitScroll = Instance.new("ScrollingFrame")
+bpUnitScroll.Size = UDim2.new(1, -8, 1, -10)
+bpUnitScroll.Position = UDim2.fromOffset(4, 5)
+bpUnitScroll.BackgroundTransparency = 1
+bpUnitScroll.BorderSizePixel = 0
+bpUnitScroll.ScrollBarThickness = 4
+bpUnitScroll.ScrollingDirection = Enum.ScrollingDirection.X
+bpUnitScroll.CanvasSize = UDim2.fromOffset(0, 0)
+bpUnitScroll.Parent = bpUnitBarBg
+
+local bpScrollLayout = Instance.new("UIListLayout")
+bpScrollLayout.Padding = UDim.new(0, 6)
+bpScrollLayout.FillDirection = Enum.FillDirection.Horizontal
+bpScrollLayout.SortOrder = Enum.SortOrder.LayoutOrder
+bpScrollLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+bpScrollLayout.Parent = bpUnitScroll
+
+-- Bottom buttons
+local bpButtonBar = Instance.new("Frame")
+bpButtonBar.Size = UDim2.new(1, 0, 0, 64)
+bpButtonBar.Position = UDim2.new(0, 0, 1, -64)
+bpButtonBar.BackgroundColor3 = Color3.fromRGB(14, 16, 26)
+bpButtonBar.BorderSizePixel = 0
+bpButtonBar.Parent = battlePrepScreen
+
+local bpStartBtn = Instance.new("TextButton")
+bpStartBtn.Size = UDim2.fromOffset(200, 48)
+bpStartBtn.Position = UDim2.new(0.5, 8, 0.5, -24)
+bpStartBtn.BackgroundColor3 = Color3.fromRGB(255, 191, 64)
+bpStartBtn.BorderSizePixel = 0
+bpStartBtn.TextColor3 = Color3.fromRGB(20, 20, 30)
+bpStartBtn.Font = Enum.Font.GothamBlack
+bpStartBtn.TextScaled = true
+bpStartBtn.Text = "Start Battle"
+bpStartBtn.Parent = bpButtonBar
+
+local bpStartCorner = Instance.new("UICorner")
+bpStartCorner.CornerRadius = UDim.new(0, 12)
+bpStartCorner.Parent = bpStartBtn
+
+local bpCancelBtn = Instance.new("TextButton")
+bpCancelBtn.Size = UDim2.fromOffset(120, 48)
+bpCancelBtn.Position = UDim2.new(0.5, -136, 0.5, -24)
+bpCancelBtn.BackgroundColor3 = Color3.fromRGB(55, 35, 35)
+bpCancelBtn.BorderSizePixel = 0
+bpCancelBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+bpCancelBtn.Font = Enum.Font.GothamBold
+bpCancelBtn.TextScaled = true
+bpCancelBtn.Text = "Cancel"
+bpCancelBtn.Parent = bpButtonBar
+
+local bpCancelCorner = Instance.new("UICorner")
+bpCancelCorner.CornerRadius = UDim.new(0, 12)
+bpCancelCorner.Parent = bpCancelBtn
+
+-- State
+local selectedBattleUnit = nil
+local selectedBattleCard = nil
+
+local function clearBattleSlot(i)
+	local s = battleSlots[i]
+	if s.unit then
+		local uid = s.unit.Id
+		for _, ch in ipairs(bpUnitScroll:GetChildren()) do
+			if ch:IsA("Frame") and ch:GetAttribute("UnitId") == uid then
+				ch:SetAttribute("InSlot", false)
+				ch.BackgroundTransparency = 0
+			end
+		end
+		s.unit = nil
+	end
+	s.frame.BackgroundColor3 = Color3.fromRGB(28, 32, 48)
+	s.label.Text = "+"
+	s.label.TextColor3 = Color3.fromRGB(70, 90, 130)
+	s.stroke.Color = Color3.fromRGB(55, 75, 120)
+end
+
+-- Slot buttons
+for i = 1, 4 do
+	local slotBtn = Instance.new("TextButton")
+	slotBtn.Size = UDim2.fromScale(1, 1)
+	slotBtn.BackgroundTransparency = 1
+	slotBtn.Text = ""
+	slotBtn.ZIndex = 2
+	slotBtn.Parent = battleSlots[i].frame
+
+	slotBtn.MouseButton1Click:Connect(function()
+		local s = battleSlots[i]
+		if s.unit then
+			clearBattleSlot(i)
+		elseif selectedBattleUnit then
+			s.unit = selectedBattleUnit
+			s.frame.BackgroundColor3 = BATTLE_COLORS[selectedBattleUnit.Type] or BATTLE_DEFAULT_COLOR
+			s.label.Text = selectedBattleUnit.DisplayName
+			s.label.TextColor3 = Color3.fromRGB(255, 255, 255)
+			s.stroke.Color = Color3.fromRGB(180, 200, 255)
+			if selectedBattleCard then
+				selectedBattleCard:SetAttribute("InSlot", true)
+				selectedBattleCard.BackgroundTransparency = 0.6
+				local stroke = selectedBattleCard:FindFirstChildOfClass("UIStroke")
+				if stroke then
+					stroke.Thickness = 0
+				end
+			end
+			selectedBattleUnit = nil
+			selectedBattleCard = nil
+		end
+	end)
+end
+
+local function populateBpUnits(units)
+	for _, ch in ipairs(bpUnitScroll:GetChildren()) do
+		if ch:IsA("Frame") then ch:Destroy() end
+	end
+	selectedBattleUnit = nil
+	selectedBattleCard = nil
+
+	for _, unit in ipairs(units) do
+		local card = Instance.new("Frame")
+		card.Size = UDim2.fromOffset(118, 130)
+		card.BackgroundColor3 = BATTLE_COLORS[unit.Type] or BATTLE_DEFAULT_COLOR
+		card.BorderSizePixel = 0
+		card:SetAttribute("UnitId", unit.Id)
+		card:SetAttribute("InSlot", false)
+		card.Parent = bpUnitScroll
+
+		local cc = Instance.new("UICorner")
+		cc.CornerRadius = UDim.new(0, 8)
+		cc.Parent = card
+
+		local cs = Instance.new("UIStroke")
+		cs.Color = Color3.fromRGB(255, 255, 255)
+		cs.Thickness = 0
+		cs.Parent = card
+
+		local starsLbl = Instance.new("TextLabel")
+		starsLbl.Size = UDim2.new(1, -6, 0, 22)
+		starsLbl.Position = UDim2.fromOffset(3, 5)
+		starsLbl.BackgroundTransparency = 1
+		starsLbl.TextColor3 = Color3.fromRGB(255, 215, 80)
+		starsLbl.Font = Enum.Font.GothamBold
+		starsLbl.TextScaled = true
+		starsLbl.Text = string.rep("★", unit.Stars)
+		starsLbl.Parent = card
+
+		local nameLbl = Instance.new("TextLabel")
+		nameLbl.Size = UDim2.new(1, -8, 0, 64)
+		nameLbl.Position = UDim2.new(0, 4, 0.5, -32)
+		nameLbl.BackgroundTransparency = 1
+		nameLbl.TextColor3 = Color3.fromRGB(255, 255, 255)
+		nameLbl.Font = Enum.Font.GothamBold
+		nameLbl.TextScaled = true
+		nameLbl.TextWrapped = true
+		nameLbl.Text = unit.DisplayName
+		nameLbl.Parent = card
+
+		local cardBtn = Instance.new("TextButton")
+		cardBtn.Size = UDim2.fromScale(1, 1)
+		cardBtn.BackgroundTransparency = 1
+		cardBtn.Text = ""
+		cardBtn.ZIndex = 2
+		cardBtn.Parent = card
+
+		cardBtn.MouseButton1Click:Connect(function()
+			if card:GetAttribute("InSlot") then return end
+			if selectedBattleCard == card then
+				cs.Thickness = 0
+				selectedBattleUnit = nil
+				selectedBattleCard = nil
+			else
+				if selectedBattleCard then
+					local prev = selectedBattleCard:FindFirstChildOfClass("UIStroke")
+					if prev then
+						prev.Thickness = 0
+					end
+				end
+				selectedBattleCard = card
+				selectedBattleUnit = unit
+				cs.Thickness = 3
+			end
+		end)
+	end
+
+	-- Empty filler boxes up to 50 total
+	for _ = 1, math.max(0, 50 - #units) do
+		local empty = Instance.new("Frame")
+		empty.Size = UDim2.fromOffset(118, 130)
+		empty.BackgroundColor3 = Color3.fromRGB(24, 26, 40)
+		empty.BorderSizePixel = 0
+		empty.Parent = bpUnitScroll
+		local ec = Instance.new("UICorner")
+		ec.CornerRadius = UDim.new(0, 8)
+		ec.Parent = empty
+		local es = Instance.new("UIStroke")
+		es.Color = Color3.fromRGB(38, 42, 62)
+		es.Thickness = 1
+		es.Parent = empty
+	end
+
+	bpUnitScroll.CanvasSize = UDim2.fromOffset(bpScrollLayout.AbsoluteContentSize.X + 12, 0)
+end
+
+openBattlePrep = function(areaName, stageName)
+	bpTitle.Text = areaName .. "  —  " .. stageName
+	for i = 1, 4 do
+		clearBattleSlot(i)
+	end
+	battlePrepScreen.Visible = true
+	local ok, units = pcall(function()
+		return unitRequest:InvokeServer()
+	end)
+	populateBpUnits(ok and units or {})
+end
+
+bpCancelBtn.MouseButton1Click:Connect(function()
+	battlePrepScreen.Visible = false
+	stageMenu.Visible = true
+end)
+
+bpStartBtn.MouseButton1Click:Connect(function()
+	showMessage("Battle starting! (coming soon)")
+	battlePrepScreen.Visible = false
 end)
