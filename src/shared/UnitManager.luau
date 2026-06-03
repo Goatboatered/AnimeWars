@@ -13,6 +13,7 @@ local function cloneUnit(unit)
 		CritChance = unit.CritChance,
 		CritDamage = unit.CritDamage,
 		DisplayName = unit.DisplayName,
+		Level = unit.Level or 1,
 	}
 end
 
@@ -54,6 +55,7 @@ function UnitManager.AddUnit(player, unitData)
 		CritChance = unitData.CritChance or 0,
 		CritDamage = unitData.CritDamage or 1.5,
 		DisplayName = unitData.DisplayName or unitData.CharacterName or unitData.Name or "Unknown",
+		Level = unitData.Level or 1,
 	}
 
 	table.insert(units, entry)

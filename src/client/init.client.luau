@@ -807,7 +807,7 @@ local function populateUnitList(units)
 		rarityLabel.Parent = row
 
 		local statsLabel = Instance.new("TextLabel")
-		statsLabel.Size = UDim2.fromScale(0.65, 0.28)
+		statsLabel.Size = UDim2.fromScale(0.55, 0.28)
 		statsLabel.Position = UDim2.fromOffset(145, 48)
 		statsLabel.BackgroundTransparency = 1
 		statsLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
@@ -816,6 +816,17 @@ local function populateUnitList(units)
 		statsLabel.Text = string.format("%d★  ATK %d  DEF %d", unit.Stars, unit.Attack, unit.Defense)
 		statsLabel.TextXAlignment = Enum.TextXAlignment.Left
 		statsLabel.Parent = row
+
+		local levelLabel = Instance.new("TextLabel")
+		levelLabel.Size = UDim2.fromOffset(80, 22)
+		levelLabel.Position = UDim2.fromOffset(404, 50)
+		levelLabel.BackgroundTransparency = 1
+		levelLabel.TextColor3 = Color3.fromRGB(120, 210, 140)
+		levelLabel.Font = Enum.Font.GothamBold
+		levelLabel.TextScaled = true
+		levelLabel.Text = "Lvl " .. (unit.Level or 1)
+		levelLabel.TextXAlignment = Enum.TextXAlignment.Right
+		levelLabel.Parent = row
 
 		local rowButton = Instance.new("TextButton")
 		rowButton.Size = UDim2.fromScale(1, 1)
@@ -1407,6 +1418,21 @@ local function populateBpUnits(units)
 		nameLbl.TextWrapped = true
 		nameLbl.Text = unit.DisplayName
 		nameLbl.Parent = card
+
+		local lvlBadge = Instance.new("TextLabel")
+		lvlBadge.Size = UDim2.fromOffset(32, 20)
+		lvlBadge.Position = UDim2.new(1, -34, 1, -22)
+		lvlBadge.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		lvlBadge.BackgroundTransparency = 0.35
+		lvlBadge.TextColor3 = Color3.fromRGB(255, 255, 255)
+		lvlBadge.Font = Enum.Font.GothamBold
+		lvlBadge.TextScaled = true
+		lvlBadge.Text = tostring(unit.Level or 1)
+		lvlBadge.Parent = card
+
+		local lvlBadgeCorner = Instance.new("UICorner")
+		lvlBadgeCorner.CornerRadius = UDim.new(0, 4)
+		lvlBadgeCorner.Parent = lvlBadge
 
 		local cardBtn = Instance.new("TextButton")
 		cardBtn.Size = UDim2.fromScale(1, 1)
