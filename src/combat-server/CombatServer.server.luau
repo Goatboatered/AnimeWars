@@ -329,95 +329,228 @@ local function tickCooldowns(unit)
 end
 
 local function applyAction(battle, actor, action)
-	local ability   = actor.Abilities and actor.Abilities[action.abilityIndex]
-	local targetList = actor.IsEnemy and battle.playerUnits or battle.enemyUnits
+	local ability    = actor.Abilities and actor.Abilities[action.abilityIndex]
+	local targetSide = actor.IsEnemy and battle.playerUnits or battle.enemyUnits
+	local allySide   = actor.IsEnemy and battle.enemyUnits  or battle.playerUnits
 
-	local target
-	for _, u in ipairs(targetList) do
-		if u.Id == action.targetId and u.HP > 0 then target = u; break end
+	-- Resolve primary target
+	local primaryTarget
+	for _, u in ipairs(targetSide) do
+		if u.Id == action.targetId and u.HP > 0 then primaryTarget = u; break end
 	end
-	if not target then
-		for _, u in ipairs(targetList) do
-			if u.HP > 0 then target = u; break end
+	if not primaryTarget then
+		for _, u in ipairs(targetSide) do
+			if u.HP > 0 then primaryTarget = u; break end
 		end
 	end
-	if not target then return end
 
-	if ability and ability.Cooldown and ability.Cooldown > 0 then
+	-- Set cooldown before executing
+	if ability and (ability.Cooldown or 0) > 0 then
 		actor.CooldownsRemaining[action.abilityIndex] = ability.Cooldown
 	end
 
 	local abilityName = ability and ability.Name or "Basic Attack"
 
-	if ability then
-		if ability.Name == "Aqua Hurricane" then
-			local total = 0
-			for _ = 1, 3 do
-				local dmg = CombatLibrary.CalculateDamageFromStats(actor, target)
-				total = total + math.floor(dmg * 1.2)
+	-- Passives don't act — use basic attack instead
+	if ability and ability.Type == "Passive" then
+		ability = nil
+	end
+
+	-- Pure healing ability
+	if ability and ability.Heals then
+		local lowestFrac, lowestAlly = 2, nil
+		for _, u in ipairs(allySide) do
+			if u.HP > 0 then
+				local frac = u.HP / u.MaxHP
+				if frac < lowestFrac then lowestFrac = frac; lowestAlly = u end
 			end
-			target.HP = math.max(0, target.HP - total)
-			addLog(battle, actor.Name .. " → Aqua Hurricane on " .. target.Name .. " (" .. total .. " dmg)")
-			return
-		elseif ability.Name == "Purify" then
-			addLog(battle, actor.Name .. " uses Purify (ally heals — coming soon)")
-			return
-		elseif ability.Name == "Bite" then
-			local dmg = math.floor(CombatLibrary.CalculateDamageFromStats(actor, target) * 3.6)
-			target.HP = math.max(0, target.HP - dmg)
-			addLog(battle, actor.Name .. " → Bite on " .. target.Name .. " (" .. dmg .. " dmg)")
-			return
-		elseif ability.Name == "Double Attack" then
-			local total = 0
-			for _ = 1, 2 do
-				total = total + math.floor(CombatLibrary.CalculateDamageFromStats(actor, target) * 3.7)
+		end
+		if lowestAlly then
+			local mult   = ability.Multiplier or 0
+			local scales = ability.ScalesWith or "ATK"
+			local healAmt
+			if mult > 0 then
+				if scales == "HP" then
+					healAmt = math.floor(lowestAlly.MaxHP * math.min(mult, 1.0))
+				else
+					healAmt = math.floor(actor.Attack * mult)
+				end
+			else
+				healAmt = math.floor(lowestAlly.MaxHP * 0.25)
 			end
-			target.HP = math.max(0, target.HP - total)
-			addLog(battle, actor.Name .. " → Double Attack on " .. target.Name .. " (" .. total .. " dmg)")
-			return
-		elseif ability.Name == "Slash Rocks" then
-			local bonus = math.floor(actor.MaxHP * 0.18)
-			local base  = CombatLibrary.CalculateDamageFromStats(actor, target)
-			local dmg   = math.floor(base + bonus)
-			target.HP   = math.max(0, target.HP - dmg)
-			addLog(battle, actor.Name .. " → Slash Rocks on " .. target.Name .. " (" .. dmg .. " dmg)")
-			return
-		elseif ability.Name == "Slash Waves" then
-			local total = 0
-			for _ = 1, 2 do
-				local bonus = math.floor(actor.MaxHP * 0.12)
-				total = total + math.floor(CombatLibrary.CalculateDamageFromStats(actor, target) + bonus)
+			lowestAlly.HP = math.min(lowestAlly.MaxHP, lowestAlly.HP + healAmt)
+			addLog(battle, actor.Name .. " → " .. abilityName .. " heals " .. lowestAlly.Name .. " (+" .. healAmt .. " HP)")
+		else
+			addLog(battle, actor.Name .. " → " .. abilityName .. " (no ally to heal)")
+		end
+		return
+	end
+
+	-- Damage ability (or basic attack when ability is nil)
+	if not primaryTarget then return end
+
+	local multiplier = (ability and ability.Multiplier) or 3.5
+	if multiplier <= 0 then multiplier = 3.5 end
+	local hits       = math.max(1, (ability and ability.Hits) or 1)
+	local isAoE      = ability and ability.AoE
+	local scalesWith = (ability and ability.ScalesWith) or "ATK"
+	local lifeSteal  = ability and ability.LifeSteal
+
+	local targets = {}
+	if isAoE then
+		for _, u in ipairs(targetSide) do
+			if u.HP > 0 then table.insert(targets, u) end
+		end
+	else
+		table.insert(targets, primaryTarget)
+	end
+
+	if #targets == 0 then return end
+
+	local totalDmg = 0
+	local lastHt   = "Normal"
+
+	for _ = 1, hits do
+		for _, t in ipairs(targets) do
+			if t.HP <= 0 then continue end
+			local dmg, ht
+			if scalesWith == "HP" then
+				local ratio = 1000 / (1000 + (t.Defense or 0))
+				dmg = math.floor(actor.MaxHP * multiplier * ratio)
+				ht  = "Normal"
+			elseif scalesWith == "DEF" then
+				local ratio = 1000 / (1000 + (t.Defense or 0))
+				dmg = math.floor(actor.Defense * multiplier * ratio)
+				ht  = "Normal"
+			else
+				local raw, rawHt = CombatLibrary.CalculateDamageFromStats(actor, t)
+				dmg = math.floor(raw * multiplier)
+				ht  = rawHt
 			end
-			target.HP = math.max(0, target.HP - total)
-			addLog(battle, actor.Name .. " → Slash Waves on " .. target.Name .. " (" .. total .. " dmg)")
-			return
-		elseif ability.Name == "Dash" then
-			local dmg = math.floor(CombatLibrary.CalculateDamageFromStats(actor, target) * 3.5)
-			target.HP = math.max(0, target.HP - dmg)
-			addLog(battle, actor.Name .. " → Dash on " .. target.Name .. " (" .. dmg .. " dmg)")
-			return
+			t.HP      = math.max(0, t.HP - dmg)
+			totalDmg += dmg
+			lastHt    = ht
 		end
 	end
 
-	-- Fallback: basic attack
-	local dmg, ht = CombatLibrary.CalculateDamageFromStats(actor, target)
-	target.HP = math.max(0, target.HP - dmg)
-	addLog(battle, actor.Name .. " → " .. abilityName .. " on " .. target.Name .. " (" .. dmg .. ", " .. ht .. ")")
+	-- Log
+	if isAoE then
+		addLog(battle, actor.Name .. " → " .. abilityName .. " AoE (" .. totalDmg .. " dmg)")
+	elseif hits > 1 then
+		addLog(battle, actor.Name .. " → " .. abilityName .. " x" .. hits .. " on " .. primaryTarget.Name .. " (" .. totalDmg .. " dmg)")
+	else
+		addLog(battle, actor.Name .. " → " .. abilityName .. " on " .. primaryTarget.Name .. " (" .. totalDmg .. ", " .. tostring(lastHt) .. ")")
+	end
+
+	-- Lifesteal: heal attacker for 30% of damage dealt
+	if lifeSteal and totalDmg > 0 then
+		local heal = math.floor(totalDmg * 0.3)
+		actor.HP   = math.min(actor.MaxHP, actor.HP + heal)
+		addLog(battle, actor.Name .. " lifesteals +" .. heal .. " HP")
+	end
 end
 
 local function enemyAI(battle, enemy)
-	local target
+	-- Find all alive player targets; pick lowest HP fraction
+	local targets = {}
 	for _, u in ipairs(battle.playerUnits) do
-		if u.HP > 0 then target = u; break end
+		if u.HP > 0 then table.insert(targets, u) end
 	end
-	if not target then return end
-	if enemy.Abilities and #enemy.Abilities > 0 then
-		applyAction(battle, enemy, { abilityIndex = 1, targetId = target.Id })
+	if #targets == 0 then return end
+
+	local target = targets[1]
+	local bestFrac = target.HP / target.MaxHP
+	for _, u in ipairs(targets) do
+		local f = u.HP / u.MaxHP
+		if f < bestFrac then bestFrac = f; target = u end
+	end
+
+	-- Pick best available (off-cooldown) active ability; prefer higher index (more powerful)
+	local bestIdx = nil
+	if enemy.Abilities then
+		for i = #enemy.Abilities, 1, -1 do
+			local ab = enemy.Abilities[i]
+			if ab and ab.Type ~= "Passive" then
+				local cd = enemy.CooldownsRemaining[i] or 0
+				if cd <= 0 then bestIdx = i; break end
+			end
+		end
+		if not bestIdx then
+			-- All on cooldown — fall through to first active ability anyway
+			for i = 1, #enemy.Abilities do
+				if enemy.Abilities[i] and enemy.Abilities[i].Type ~= "Passive" then
+					bestIdx = i; break
+				end
+			end
+		end
+	end
+
+	if bestIdx then
+		applyAction(battle, enemy, { abilityIndex = bestIdx, targetId = target.Id })
 	else
 		local dmg, ht = CombatLibrary.CalculateDamageFromStats(enemy, target)
 		target.HP = math.max(0, target.HP - dmg)
-		addLog(battle, enemy.Name .. " attacks " .. target.Name .. " (" .. dmg .. ", " .. ht .. ")")
+		addLog(battle, enemy.Name .. " attacks " .. target.Name .. " (" .. dmg .. ", " .. tostring(ht) .. ")")
 	end
+end
+
+-- ─── UNIT FACTORY HELPERS ─────────────────────────────────────────────
+local function makePlayerUnit(data, slot)
+	local lv   = data.Level or 1
+	local base = data.DisplayName or data.CharacterName or "Unit"
+	return {
+		Id     = "p"..slot, IsEnemy = false,
+		Name   = "Lv." .. lv .. " " .. base,
+		Type   = data.Type or "Neutral",
+		MaxHP  = data.HP or 100, HP = data.HP or 100,
+		Attack = data.Attack or 10, Defense = data.Defense or 10,
+		Speed  = data.Speed or 50, CritChance = data.CritChance or 0.05,
+		CritDamage = data.CritDamage or 1.5, Resistance = data.Resistance or 0,
+		Accuracy = data.Accuracy or 0, Abilities = data.Abilities or {},
+		CooldownsRemaining = {}, model = nil, hpBar = nil,
+	}
+end
+
+local function makeEnemyUnit(data, slot)
+	local lv = data.Level or 1
+	return {
+		Id     = "e"..slot, IsEnemy = true,
+		Name   = "Lv." .. lv .. " " .. data.Name,
+		Type   = data.Type or "Neutral",
+		MaxHP  = data.HP, HP = data.HP,
+		Attack = data.Attack, Defense = data.Defense,
+		Speed  = data.Speed, CritChance = data.CritChance or 0.05,
+		CritDamage = data.CritDamage or 1.5, Resistance = data.Resistance or 0,
+		Accuracy = data.Accuracy or 0, Abilities = data.Abilities or {},
+		CooldownsRemaining = {}, model = nil, hpBar = nil,
+	}
+end
+
+-- ─── WAVE SPAWNER ─────────────────────────────────────────────────────
+local function spawnNextWave(battle)
+	local eFolder = arenaFolder and arenaFolder:FindFirstChild("EnemyUnits")
+	if eFolder then
+		for _, child in ipairs(eFolder:GetChildren()) do
+			child:Destroy()
+		end
+	end
+
+	battle.currentWaveIndex += 1
+	local waveData = battle.allWaves[battle.currentWaveIndex]
+	local enemies  = waveData and waveData.enemies or {}
+
+	battle.enemyUnits = {}
+	for i, e in ipairs(enemies) do
+		local unit = makeEnemyUnit(e, i)
+		local pos  = ENEMY_SLOTS[i] or ENEMY_SLOTS[1]
+		local model, bar = spawnEnemyModel(unit, pos)
+		unit.model = model
+		unit.hpBar  = bar
+		table.insert(battle.enemyUnits, unit)
+	end
+
+	addLog(battle, "⚡ Wave " .. battle.currentWaveIndex .. " of " .. #battle.allWaves .. "!")
+	ModelsSpawned:FireClient(battle.player)
 end
 
 -- ─── BATTLE LOOP ──────────────────────────────────────────────────────
@@ -427,16 +560,31 @@ local function runBattle(player, battle)
 		addLog(battle, "  P" .. i .. ": " .. u.Name .. " HP=" .. tostring(u.HP))
 	end
 	task.wait(0.8)
-	addLog(battle, "⚔ Battle begins!")
+	addLog(battle, "⚔ Battle begins! (" .. #battle.allWaves .. " wave" .. (#battle.allWaves == 1 and "" or "s") .. ")")
 	snapshot(battle)
 
 	while true do
 		if allDead(battle.enemyUnits) then
+			if battle.currentWaveIndex < #battle.allWaves then
+				-- More waves remain — clear and spawn next
+				battle.phase = "wave_transition"
+				addLog(battle, "✓ Wave cleared!")
+				snapshot(battle)
+				task.wait(1.2)
+				spawnNextWave(battle)
+				battle.phase = "resolving"
+				snapshot(battle)
+				task.wait(0.5)
+				continue
+			end
+			-- All waves cleared — victory
 			battle.phase = "victory"
 			addLog(battle, "🏆 Victory!")
 			snapshot(battle)
 			task.wait(2)
-			BattleEnd:FireClient(player, { victory = true })
+			local pIds = {}
+			for _, u in ipairs(battle.playerUnits) do table.insert(pIds, u.Id) end
+			BattleEnd:FireClient(player, { victory = true, xp = battle.stageXP, unitIds = pIds })
 			break
 		end
 		if allDead(battle.playerUnits) then
@@ -503,71 +651,54 @@ local function runBattle(player, battle)
 	activeBattles[player.UserId] = nil
 end
 
--- ─── UNIT FACTORY HELPERS ─────────────────────────────────────────────
-local function makePlayerUnit(data, slot)
-	return {
-		Id = "p"..slot, IsEnemy = false,
-		Name = data.DisplayName or data.CharacterName or "Unit",
-		Type = data.Type or "Neutral",
-		MaxHP = data.HP or 100, HP = data.HP or 100,
-		Attack = data.Attack or 10, Defense = data.Defense or 10,
-		Speed = data.Speed or 50, CritChance = data.CritChance or 0.05,
-		CritDamage = data.CritDamage or 1.5, Resistance = data.Resistance or 0,
-		Accuracy = data.Accuracy or 0, Abilities = data.Abilities or {},
-		CooldownsRemaining = {}, model = nil, hpBar = nil,
-	}
-end
-
-local function makeEnemyUnit(data, slot)
-	return {
-		Id = "e"..slot, IsEnemy = true,
-		Name = data.Name, Type = data.Type or "Neutral",
-		MaxHP = data.HP, HP = data.HP,
-		Attack = data.Attack, Defense = data.Defense,
-		Speed = data.Speed, CritChance = data.CritChance or 0.05,
-		CritDamage = data.CritDamage or 1.5, Resistance = data.Resistance or 0,
-		Accuracy = data.Accuracy or 0, Abilities = data.Abilities or {},
-		CooldownsRemaining = {}, model = nil, hpBar = nil,
-	}
-end
-
 -- ─── REMOTE HANDLERS ──────────────────────────────────────────────────
 local STUDIO_TEST_UNITS = {
-	{ CharacterName = "Water Fairy", DisplayName = "Water Fairy", Type = "Water",
+	{ CharacterName = "Water Fairy", DisplayName = "Water Fairy", Type = "Water", Level = 30,
 	  HP = 1815, Attack = 107, Defense = 136, Speed = 103,
 	  CritChance = 0.15, CritDamage = 1.5, Resistance = 0.15, Accuracy = 0,
 	  Abilities = {
-		{ Name = "Aqua Hurricane", Type = "Active", Cooldown = 0, Description = "Attacks 3x. 120% ATK x3." },
-		{ Name = "Purify",         Type = "Active", Cooldown = 3, Description = "Remove debuffs and heal ally." },
+		{ Name = "Aqua Hurricane", Type = "Active", Cooldown = 0, Multiplier = 1.2, Hits = 3 },
+		{ Name = "Purify",         Type = "Active", Cooldown = 3, Multiplier = 0.2, Heals = true },
 	  } },
-	{ CharacterName = "Fire Hellhound", DisplayName = "Fire Hellhound", Type = "Fire",
+	{ CharacterName = "Fire Hellhound", DisplayName = "Fire Hellhound", Type = "Fire", Level = 30,
 	  HP = 1725, Attack = 227, Defense = 112, Speed = 115,
 	  CritChance = 0.15, CritDamage = 1.5, Resistance = 0.15, Accuracy = 0,
 	  Abilities = {
-		{ Name = "Bite",          Type = "Active", Cooldown = 0, Description = "Bite, heal 30% of damage. 360% ATK." },
-		{ Name = "Double Attack", Type = "Active", Cooldown = 3, Description = "Bite 2x. 370% ATK x2." },
+		{ Name = "Bite",          Type = "Active", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
+		{ Name = "Double Attack", Type = "Active", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 	  } },
 }
 
-local function startBattle(player, unitList, areaId)
+local function startBattle(player, unitList, areaInfo)
 	if activeBattles[player.UserId] then return end
 
-	-- In Studio always override with known-good test data
-	if RunService:IsStudio() then
+	-- In Studio, fall back to test units if none were sent by the picker
+	if RunService:IsStudio() and (not unitList or #unitList == 0) then
 		unitList = STUDIO_TEST_UNITS
-		areaId   = "area1"
 	end
 
 	if not unitList or #unitList == 0 then return end
-	print("[startBattle]", player.Name, #unitList, "units, area:", areaId)
+	areaInfo = areaInfo or {}
+	print("[startBattle]", player.Name, #unitList, "units, area:", areaInfo.num, areaInfo.difficulty, areaInfo.stage)
 
-	local area = EnemyPool[areaId] or EnemyPool.area1
+	local stageData = EnemyPool.GetStage(areaInfo.num or 1, areaInfo.difficulty or "normal", areaInfo.stage or 1)
+	local area = stageData or EnemyPool.area1
+	local stageXP  = area.xp or 0
+	local allWaves = area.waves or {}
+
+	-- Fallback: if API data missing, build a single wave from legacy area.enemies
+	if #allWaves == 0 and area.enemies then
+		allWaves = { { enemies = area.enemies } }
+	end
+
 	local playerUnits, enemyUnits = {}, {}
 
 	for i, u in ipairs(unitList) do
 		table.insert(playerUnits, makePlayerUnit(u, i))
 	end
-	for i, e in ipairs(area.enemies) do
+
+	local firstWaveEnemies = allWaves[1] and allWaves[1].enemies or {}
+	for i, e in ipairs(firstWaveEnemies) do
 		table.insert(enemyUnits, makeEnemyUnit(e, i))
 	end
 
@@ -588,29 +719,18 @@ local function startBattle(player, unitList, areaId)
 
 	local battle = {
 		player = player, playerUnits = playerUnits, enemyUnits = enemyUnits,
+		allWaves = allWaves, currentWaveIndex = 1,
 		activeTurnId = nil, log = {}, phase = "starting",
 		waitingForAction = false, pendingAction = nil,
+		stageXP = stageXP,
 	}
 	activeBattles[player.UserId] = battle
 	task.spawn(runBattle, player, battle)
 end
 
-SendUnitData.OnServerEvent:Connect(function(player, unitList, areaId)
-	startBattle(player, unitList, areaId)
+SendUnitData.OnServerEvent:Connect(function(player, unitList, areaInfo)
+	startBattle(player, unitList, areaInfo)
 end)
-
--- In Studio, auto-start battle — handle both players already in and ones joining later
-if RunService:IsStudio() then
-	local function autoStart(player)
-		task.delay(2, function()
-			startBattle(player, STUDIO_TEST_UNITS, "area1")
-		end)
-	end
-	Players.PlayerAdded:Connect(autoStart)
-	for _, p in ipairs(Players:GetPlayers()) do
-		autoStart(p)
-	end
-end
 
 PlayerAction.OnServerEvent:Connect(function(player, action)
 	local battle = activeBattles[player.UserId]

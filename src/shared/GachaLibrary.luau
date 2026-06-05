@@ -23,18 +23,11 @@ end
 
 function GachaLibrary.GetTypeHitModifiers(attackerType, defenderType)
 	if GachaLibrary.HasElementAdvantage(attackerType, defenderType) then
-		return {
-			critRateBonus = 0.15,
-			crushingChance = 0.15,
-			crushingDamageMultiplier = 1.3,
-		}
+		return { critRateBonus = 0.15, crushingChance = 0.15, glancingChance = 0 }
+	elseif GachaLibrary.HasElementAdvantage(defenderType, attackerType) then
+		return { critRateBonus = -0.15, crushingChance = 0, glancingChance = 0.50 }
 	end
-
-	return {
-		critRateBonus = 0,
-		crushingChance = 0,
-		crushingDamageMultiplier = 1.3,
-	}
+	return { critRateBonus = 0, crushingChance = 0, glancingChance = 0 }
 end
 
 function GachaLibrary.CalculateDamage(
@@ -49,18 +42,22 @@ function GachaLibrary.CalculateDamage(
 	critDamageMultiplier = critDamageMultiplier or 1.5
 	defenseMultiplier = defenseMultiplier or 1
 
-	local modifiers = GachaLibrary.GetTypeHitModifiers(attackerType, defenderType)
+	local modifiers       = GachaLibrary.GetTypeHitModifiers(attackerType, defenderType)
 	local totalCritChance = math.clamp(critChance + modifiers.critRateBonus, 0, 1)
-	local hitRoll = random:NextNumber()
-	local hitType = "Normal"
-	local damage = baseDamage * defenseMultiplier
+	local damage          = baseDamage * defenseMultiplier
+	local hitType         = "Normal"
 
-	if hitRoll <= modifiers.crushingChance then
-		hitType = "Crushing"
-		damage *= modifiers.crushingDamageMultiplier
-	elseif hitRoll <= totalCritChance then
+	-- SW hit order: Glancing → Crit → Crushing → Normal
+	-- Each is an independent roll so they are truly mutually exclusive
+	if modifiers.glancingChance > 0 and random:NextNumber() < modifiers.glancingChance then
+		hitType = "Glancing"
+		damage *= 0.7
+	elseif random:NextNumber() < totalCritChance then
 		hitType = "Critical"
 		damage *= critDamageMultiplier
+	elseif modifiers.crushingChance > 0 and random:NextNumber() < modifiers.crushingChance then
+		hitType = "Crushing"
+		damage *= 1.3
 	end
 
 	return damage, hitType

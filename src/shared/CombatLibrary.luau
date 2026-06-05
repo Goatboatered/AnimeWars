@@ -3,18 +3,12 @@ local GachaLibrary = require(ReplicatedStorage.Shared:WaitForChild("GachaLibrary
 
 local CombatLibrary = {}
 
-local function clamp(value, minValue, maxValue)
-	if value < minValue then
-		return minValue
-	elseif value > maxValue then
-		return maxValue
-	end
-	return value
-end
+local DEF_CONSTANT = 1000
 
-local function calculateDefenseMultiplier(attackerAttack, defenderDefense)
-	local raw = defenderDefense / (attackerAttack + defenderDefense + 20)
-	return clamp(1 - raw, 0.2, 1)
+local function calculateDefenseMultiplier(defenderDefense)
+	-- SW-standard: higher DEF asymptotically reduces damage toward 0
+	-- DEF 500 → 67% through, DEF 1000 → 50%, DEF 2000 → 33%
+	return DEF_CONSTANT / (DEF_CONSTANT + defenderDefense)
 end
 
 function CombatLibrary.CalculateDamageFromStats(attacker, defender)
@@ -23,7 +17,7 @@ function CombatLibrary.CalculateDamageFromStats(attacker, defender)
 	end
 
 	local baseDamage = attacker.Attack or 10
-	local defenseMultiplier = calculateDefenseMultiplier(baseDamage, defender.Defense or 0)
+	local defenseMultiplier = calculateDefenseMultiplier(defender.Defense or 0)
 	local critChance = attacker.CritChance or 0
 	local critDamageMultiplier = attacker.CritDamage or 1.5
 

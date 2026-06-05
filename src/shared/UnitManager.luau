@@ -1,6 +1,16 @@
 local UnitManager = {}
 local playerUnits = {}
 
+local MAX_LEVEL = 40
+
+local function xpToNextLevel(level)
+	if level >= MAX_LEVEL then return math.huge end
+	return math.floor(250 * level * level)
+end
+
+UnitManager.MAX_LEVEL     = MAX_LEVEL
+UnitManager.XPToNextLevel = xpToNextLevel
+
 local UNIT_ABILITIES = {
 	["Fire Maned Boar"] = {
 		{
@@ -79,6 +89,7 @@ local function cloneUnit(unit)
 		CritDamage = unit.CritDamage,
 		DisplayName = unit.DisplayName,
 		Level = unit.Level or 1,
+		XP    = unit.XP    or 0,
 		HP = unit.HP or 0,
 		Speed = unit.Speed or 0,
 		Resistance = unit.Resistance or 0,
@@ -127,6 +138,7 @@ function UnitManager.AddUnit(player, unitData)
 		CritDamage = unitData.CritDamage or 1.5,
 		DisplayName = unitData.DisplayName or unitData.CharacterName or unitData.Name or "Unknown",
 		Level = unitData.Level or 1,
+		XP    = unitData.XP    or 0,
 		HP = unitData.HP or 0,
 		Speed = unitData.Speed or 0,
 		Resistance = unitData.Resistance or 0,
@@ -136,6 +148,31 @@ function UnitManager.AddUnit(player, unitData)
 
 	table.insert(units, entry)
 	return entry
+end
+
+function UnitManager.AddXP(player, unitId, xpAmount)
+	local units = playerUnits[player.UserId]
+	if not units then return false, 0 end
+	local unit
+	for _, u in ipairs(units) do
+		if u.Id == unitId then unit = u; break end
+	end
+	if not unit then return false, 0 end
+	if (unit.Level or 1) >= MAX_LEVEL then return false, 0 end
+	unit.XP = (unit.XP or 0) + xpAmount
+	local levelsGained = 0
+	while (unit.Level or 1) < MAX_LEVEL do
+		local needed = xpToNextLevel(unit.Level or 1)
+		if unit.XP >= needed then
+			unit.XP    -= needed
+			unit.Level  = (unit.Level or 1) + 1
+			levelsGained += 1
+		else
+			break
+		end
+	end
+	if (unit.Level or 1) >= MAX_LEVEL then unit.XP = 0 end
+	return levelsGained > 0, levelsGained
 end
 
 function UnitManager.RemoveUnit(player, unitId)

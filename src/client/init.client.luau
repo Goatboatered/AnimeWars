@@ -1,5 +1,6 @@
-local Players = game:GetService("Players")
+local Players           = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TeleportService   = game:GetService("TeleportService")
 
 local player = Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
@@ -204,7 +205,9 @@ areaList.Parent = areaScroll
 areaList.HorizontalAlignment = Enum.HorizontalAlignment.Center
 areaList.VerticalAlignment = Enum.VerticalAlignment.Top
 
-local selectedArea = ""
+local selectedArea    = ""
+local selectedAreaNum = 1
+local selectedDiff    = "normal"
 
 local stageMenu = Instance.new("Frame")
 stageMenu.Name = "StageMenu"
@@ -300,7 +303,95 @@ createModeButton("PvP", function()
 	showMessage("PvP mode selected")
 end)
 
-local function createAreaButton(text)
+-- ─── DIFFICULTY MENU ──────────────────────────────────────────────────
+local diffMenu = Instance.new("Frame")
+diffMenu.Name = "DifficultyMenu"
+diffMenu.Size = UDim2.fromOffset(340, 220)
+diffMenu.Position = UDim2.new(0.5, -170, 1, -172)
+diffMenu.AnchorPoint = Vector2.new(0.5, 1)
+diffMenu.BackgroundColor3 = Color3.fromRGB(17, 19, 28)
+diffMenu.BorderSizePixel = 0
+diffMenu.Visible = false
+diffMenu.Parent = screenGui
+local diffCorner = Instance.new("UICorner")
+diffCorner.CornerRadius = UDim.new(0, 18)
+diffCorner.Parent = diffMenu
+local diffStroke = Instance.new("UIStroke")
+diffStroke.Color = Color3.fromRGB(95, 121, 255)
+diffStroke.Thickness = 2
+diffStroke.Transparency = 0.15
+diffStroke.Parent = diffMenu
+local diffTitle = Instance.new("TextLabel")
+diffTitle.Size = UDim2.new(1, -24, 0, 36)
+diffTitle.Position = UDim2.fromOffset(12, 8)
+diffTitle.BackgroundTransparency = 1
+diffTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+diffTitle.Font = Enum.Font.GothamBold
+diffTitle.TextScaled = true
+diffTitle.Text = "Choose Difficulty"
+diffTitle.TextXAlignment = Enum.TextXAlignment.Left
+diffTitle.Parent = diffMenu
+local diffList = Instance.new("UIListLayout")
+diffList.Padding = UDim.new(0, 8)
+diffList.SortOrder = Enum.SortOrder.LayoutOrder
+diffList.HorizontalAlignment = Enum.HorizontalAlignment.Center
+diffList.VerticalAlignment = Enum.VerticalAlignment.Top
+diffList.Parent = diffMenu
+
+local DIFF_DATA = {
+	{ label = "Normal", key = "normal", color = Color3.fromRGB(60, 130, 60) },
+	{ label = "Hard",   key = "hard",   color = Color3.fromRGB(160, 100, 20) },
+	{ label = "Hell",   key = "hell",   color = Color3.fromRGB(160, 30, 30) },
+}
+for _, d in ipairs(DIFF_DATA) do
+	local btn = Instance.new("TextButton")
+	btn.Size = UDim2.new(1, -24, 0, 42)
+	btn.BackgroundColor3 = d.color
+	btn.BorderSizePixel = 0
+	btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+	btn.Font = Enum.Font.GothamBold
+	btn.TextScaled = true
+	btn.Text = d.label
+	btn.LayoutOrder = 1
+	btn.Parent = diffMenu
+	local bc = Instance.new("UICorner")
+	bc.CornerRadius = UDim.new(0, 10)
+	bc.Parent = btn
+	local dk = d.key
+	btn.MouseButton1Click:Connect(function()
+		selectedDiff = dk
+		stageTitle.Text = selectedArea .. " — " .. d.label .. " Stages"
+		diffMenu.Visible = false
+		stageMenu.Visible = true
+	end)
+end
+local diffBack = Instance.new("TextButton")
+diffBack.Size = UDim2.new(1, -24, 0, 34)
+diffBack.Position = UDim2.new(0, 12, 1, -42)
+diffBack.BackgroundColor3 = Color3.fromRGB(55, 65, 85)
+diffBack.BorderSizePixel = 0
+diffBack.TextColor3 = Color3.fromRGB(190, 200, 220)
+diffBack.Font = Enum.Font.GothamMedium
+diffBack.TextScaled = true
+diffBack.Text = "← Back"
+diffBack.Parent = diffMenu
+local diffBackCorner = Instance.new("UICorner")
+diffBackCorner.CornerRadius = UDim.new(0, 10)
+diffBackCorner.Parent = diffBack
+diffBack.MouseButton1Click:Connect(function()
+	diffMenu.Visible = false
+	areaMenu.Visible = true
+end)
+
+-- ─── AREA BUTTONS (13 SW campaign areas) ──────────────────────────────
+local SW_AREAS = {
+	"Garen Forest", "Mt. Siz", "Kabir Ruins", "Mt. White Ragon",
+	"Telain Forest", "Hydeni Ruins", "Tamor Desert", "Vrofagus Ruins",
+	"Faimon Volcano", "Aiden Forest", "Ferun Castle", "Mt. Runar",
+	"Charuka Remains",
+}
+
+local function createAreaButton(num, text)
 	local button = Instance.new("TextButton")
 	button.Name = text .. "Button"
 	button.Size = UDim2.new(1, -24, 0, 40)
@@ -309,28 +400,26 @@ local function createAreaButton(text)
 	button.TextColor3 = Color3.fromRGB(255, 255, 255)
 	button.Font = Enum.Font.GothamMedium
 	button.TextScaled = true
-	button.Text = text
+	button.Text = num .. ". " .. text
 	button.Parent = areaScroll
-
 	local buttonCorner = Instance.new("UICorner")
 	buttonCorner.CornerRadius = UDim.new(0, 10)
 	buttonCorner.Parent = button
-
 	button.MouseButton1Click:Connect(function()
 		areaMenu.Visible = false
-		selectedArea = text
-		stageTitle.Text = text .. " — Stages"
-		stageMenu.Visible = true
+		selectedArea    = text
+		selectedAreaNum = num
+		diffTitle.Text  = text .. " — Difficulty"
+		diffMenu.Visible = true
 	end)
-
 	return button
 end
 
-for i = 1, 8 do
-	createAreaButton("Area " .. i)
+for i, name in ipairs(SW_AREAS) do
+	createAreaButton(i, name)
 end
 
-areaScroll.CanvasSize = UDim2.fromOffset(0, 8 * 40 + 7 * 6)
+areaScroll.CanvasSize = UDim2.fromOffset(0, #SW_AREAS * 40 + (#SW_AREAS - 1) * 6)
 
 local backToModes = Instance.new("TextButton")
 backToModes.Name = "BackButton"
@@ -355,7 +444,7 @@ end)
 
 local openBattlePrep -- forward declaration
 
-local function createStageButton(text)
+local function createStageButton(stageNum, text)
 	local button = Instance.new("TextButton")
 	button.Name = text .. "Button"
 	button.Size = UDim2.new(1, -24, 0, 40)
@@ -373,14 +462,14 @@ local function createStageButton(text)
 
 	button.MouseButton1Click:Connect(function()
 		stageMenu.Visible = false
-		openBattlePrep(selectedArea, text)
+		openBattlePrep(selectedArea, text, selectedAreaNum, selectedDiff, stageNum)
 	end)
 
 	return button
 end
 
 for i = 1, 7 do
-	createStageButton("Stage " .. i)
+	createStageButton(i, "Stage " .. i)
 end
 
 stageScroll.CanvasSize = UDim2.fromOffset(0, 7 * 40 + 6 * 6)
@@ -403,7 +492,7 @@ stageBackCorner.Parent = stageBackButton
 
 stageBackButton.MouseButton1Click:Connect(function()
 	stageMenu.Visible = false
-	areaMenu.Visible = true
+	diffMenu.Visible = true
 end)
 
 playButton.MouseButton1Click:Connect(function()
@@ -508,8 +597,8 @@ noUnitsLabel.Visible = false
 
 local unitDetailPanel = Instance.new("Frame")
 unitDetailPanel.Name = "UnitDetailPanel"
-unitDetailPanel.Size = UDim2.fromOffset(520, 510)
-unitDetailPanel.Position = UDim2.new(0.5, -260, 0.5, -255)
+unitDetailPanel.Size = UDim2.fromOffset(520, 570)
+unitDetailPanel.Position = UDim2.new(0.5, -260, 0.5, -285)
 unitDetailPanel.BackgroundColor3 = Color3.fromRGB(21, 21, 29)
 unitDetailPanel.BorderSizePixel = 0
 unitDetailPanel.Visible = false
@@ -678,10 +767,59 @@ for i = 1, 2 do
 	abilityRows[i] = { frame = rowFrame, nameLabel = abilityNameLabel, badge = abilityBadge }
 end
 
+-- XP bar section
+local xpSeparator = Instance.new("Frame")
+xpSeparator.Size = UDim2.fromOffset(488, 1)
+xpSeparator.Position = UDim2.fromOffset(16, 440)
+xpSeparator.BackgroundColor3 = Color3.fromRGB(55, 55, 72)
+xpSeparator.BorderSizePixel = 0
+xpSeparator.Parent = unitDetailPanel
+
+local xpHeaderLabel = Instance.new("TextLabel")
+xpHeaderLabel.Size = UDim2.fromOffset(488, 22)
+xpHeaderLabel.Position = UDim2.fromOffset(16, 446)
+xpHeaderLabel.BackgroundTransparency = 1
+xpHeaderLabel.TextColor3 = Color3.fromRGB(130, 140, 165)
+xpHeaderLabel.Font = Enum.Font.GothamBold
+xpHeaderLabel.TextScaled = true
+xpHeaderLabel.Text = "EXPERIENCE"
+xpHeaderLabel.TextXAlignment = Enum.TextXAlignment.Left
+xpHeaderLabel.Parent = unitDetailPanel
+
+local xpBarBg = Instance.new("Frame")
+xpBarBg.Size = UDim2.fromOffset(488, 18)
+xpBarBg.Position = UDim2.fromOffset(16, 472)
+xpBarBg.BackgroundColor3 = Color3.fromRGB(28, 30, 44)
+xpBarBg.BorderSizePixel = 0
+xpBarBg.Parent = unitDetailPanel
+local xpBarBgCorner = Instance.new("UICorner")
+xpBarBgCorner.CornerRadius = UDim.new(0, 6)
+xpBarBgCorner.Parent = xpBarBg
+
+local xpBarFill = Instance.new("Frame")
+xpBarFill.Size = UDim2.fromScale(0, 1)
+xpBarFill.BackgroundColor3 = Color3.fromRGB(80, 200, 120)
+xpBarFill.BorderSizePixel = 0
+xpBarFill.Parent = xpBarBg
+local xpBarFillCorner = Instance.new("UICorner")
+xpBarFillCorner.CornerRadius = UDim.new(0, 6)
+xpBarFillCorner.Parent = xpBarFill
+
+local xpTextLabel = Instance.new("TextLabel")
+xpTextLabel.Size = UDim2.fromOffset(488, 22)
+xpTextLabel.Position = UDim2.fromOffset(16, 493)
+xpTextLabel.BackgroundTransparency = 1
+xpTextLabel.TextColor3 = Color3.fromRGB(160, 210, 160)
+xpTextLabel.Font = Enum.Font.Gotham
+xpTextLabel.TextScaled = true
+xpTextLabel.Text = ""
+xpTextLabel.TextXAlignment = Enum.TextXAlignment.Left
+xpTextLabel.Parent = unitDetailPanel
+
 local function makeDetailButton(text, xPos, color)
 	local btn = Instance.new("TextButton")
 	btn.Size = UDim2.fromOffset(150, 50)
-	btn.Position = UDim2.fromOffset(xPos, 450)
+	btn.Position = UDim2.fromOffset(xPos, 510)
 	btn.BackgroundColor3 = color
 	btn.BorderSizePixel = 0
 	btn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -792,6 +930,20 @@ local function openUnitDetail(unit)
 	detailStatLabels[6].Text = "Crit DMG: " .. fmtPct((unit.CritDamage or 1.5) - 1)
 	detailStatLabels[7].Text = "Resistance: " .. fmtPct(unit.Resistance)
 	detailStatLabels[8].Text = "Accuracy: " .. fmtPct(unit.Accuracy)
+	local MAX_LEVEL = 40
+	local function xpToNext(lv)
+		return math.floor(250 * lv * lv)
+	end
+	local lvl = unit.Level or 1
+	local xp  = unit.XP or 0
+	if lvl >= MAX_LEVEL then
+		xpBarFill.Size = UDim2.fromScale(1, 1)
+		xpTextLabel.Text = "Lvl " .. lvl .. "  —  MAX LEVEL"
+	else
+		local needed = xpToNext(lvl)
+		xpBarFill.Size = UDim2.fromScale(math.clamp(xp / needed, 0, 1), 1)
+		xpTextLabel.Text = "Lvl " .. lvl .. "  —  " .. xp .. " / " .. needed .. " XP"
+	end
 	if displayedUnits[unit.Id] then
 		displayButton.Text = "Undisplay"
 		displayButton.BackgroundColor3 = Color3.fromRGB(100, 80, 160)
@@ -1501,7 +1653,9 @@ bpCancelCorner.Parent = bpCancelBtn
 -- State
 local selectedBattleUnit = nil
 local selectedBattleCard = nil
-local currentAreaId      = "area1"
+local currentAreaNum  = 1
+local currentDiff     = "normal"
+local currentStage    = 1
 
 local function updateBeginBtn()
 	local hasUnit = false
@@ -1682,8 +1836,10 @@ local function populateBpUnits(units)
 	bpUnitScroll.CanvasSize = UDim2.fromOffset(bpScrollLayout.AbsoluteContentSize.X + 12, 0)
 end
 
-openBattlePrep = function(areaName, stageName, areaId)
-	currentAreaId = areaId or "area1"
+openBattlePrep = function(areaName, stageName, areaNum, diff, stageNum)
+	currentAreaNum = areaNum  or 1
+	currentDiff    = diff     or "normal"
+	currentStage   = stageNum or 1
 	bpTitle.Text = areaName .. "  —  " .. stageName
 	for i = 1, 4 do
 		clearBattleSlot(i)
@@ -1711,7 +1867,7 @@ bpBeginBtn.MouseButton1Click:Connect(function()
 
 	local beginRemote = remotes:FindFirstChild("BeginBattle")
 	if beginRemote then
-		beginRemote:FireServer(selectedIds, currentAreaId or "area1")
+		beginRemote:FireServer(selectedIds, currentAreaNum, currentDiff, currentStage)
 	else
 		showMessage("Could not start battle — remote missing.")
 		bpBeginBtn.Active = true
@@ -1729,3 +1885,14 @@ bpStartBtn.MouseButton1Click:Connect(function()
 	bpBeginBtn:GetPropertyChangedSignal("Active"):Wait()
 	bpBeginBtn.MouseButton1Click:Fire()
 end)
+
+-- Apply XP earned in the last battle (passed back via teleport data)
+local tpOk, tpData = pcall(function()
+	return TeleportService:GetLocalPlayerTeleportData()
+end)
+if tpOk and type(tpData) == "table" and tpData.xpRewards then
+	local applyRemote = remotes:WaitForChild("ApplyBattleRewards", 5)
+	if applyRemote then
+		applyRemote:FireServer(tpData.xpRewards)
+	end
+end

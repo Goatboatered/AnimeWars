@@ -212,7 +212,7 @@ function attackRequest.OnServerInvoke(player, attackerData, defenderData)
 	}
 end
 
-beginBattle.OnServerEvent:Connect(function(player, selectedUnitIds, areaId)
+beginBattle.OnServerEvent:Connect(function(player, selectedUnitIds, areaNum, difficulty, stageNum)
 	if COMBAT_PLACE_ID == 0 then
 		warn("[HubServer] COMBAT_PLACE_ID not set — cannot teleport")
 		return
@@ -229,17 +229,40 @@ beginBattle.OnServerEvent:Connect(function(player, selectedUnitIds, areaId)
 		end
 	end
 
-	-- Reserve a private server so each battle is its own isolated instance
 	local ok, result = pcall(function()
 		local code = TeleportService:ReserveServer(COMBAT_PLACE_ID)
 		local opts = Instance.new("TeleportOptions")
-		opts:SetTeleportData({ selectedUnits = selectedUnits, areaId = areaId or "area1" })
+		opts:SetTeleportData({
+			selectedUnits = selectedUnits,
+			areaNum       = areaNum    or 1,
+			difficulty    = difficulty or "normal",
+			stage         = stageNum   or 1,
+		})
 		TeleportService:TeleportToPrivateServer(COMBAT_PLACE_ID, code, { player }, nil, opts)
 	end)
 
 	if not ok then
 		warn("[HubServer] Teleport failed:", result)
 	end
+end)
+
+local applyRewards = remoteFolder:FindFirstChild("ApplyBattleRewards")
+if not applyRewards then
+	applyRewards = Instance.new("RemoteEvent")
+	applyRewards.Name   = "ApplyBattleRewards"
+	applyRewards.Parent = remoteFolder
+end
+
+applyRewards.OnServerEvent:Connect(function(player, xpRewards)
+	if type(xpRewards) ~= "table" then return end
+	local allUnits = UnitManager.GetUnits(player)
+	for _, unit in ipairs(allUnits) do
+		local xp = xpRewards[tostring(unit.Id)]
+		if xp and xp > 0 then
+			UnitManager.AddXP(player, unit.Id, xp)
+		end
+	end
+	unitsUpdated:FireClient(player, UnitManager.GetUnits(player))
 end)
 
 local function createFountain()

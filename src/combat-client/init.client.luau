@@ -21,7 +21,7 @@ local ModelsSpawned = remotes:WaitForChild("ModelsSpawned", 10)
 local tpData = TeleportService:GetLocalPlayerTeleportData()
 if not tpData or not tpData.selectedUnits or #tpData.selectedUnits == 0 then
 	tpData = {
-		areaId = "area1",
+		areaNum = 1, difficulty = "normal", stage = 1,
 		selectedUnits = {
 			{
 				CharacterName = "Water Fairy", DisplayName = "Water Fairy",
@@ -51,9 +51,129 @@ if not tpData or not tpData.selectedUnits or #tpData.selectedUnits == 0 then
 	}
 end
 
-task.delay(1, function()
-	SendUnitData:FireServer(tpData.selectedUnits, tpData.areaId or "area1")
-end)
+local SW_AREAS = {
+	"Garen Forest","Mt. Siz","Kabir Ruins","Mt. White Ragon",
+	"Telain Forest","Hydeni Ruins","Tamor Desert","Vrofagus Ruins",
+	"Faimon Volcano","Aiden Forest","Ferun Castle","Mt. Runar","Charuka Remains",
+}
+
+if RunService:IsStudio() then
+	-- ── Studio level picker ────────────────────────────────────────────
+	local sg = Instance.new("ScreenGui")
+	sg.Name = "StudioLevelPicker"; sg.ResetOnSpawn = false; sg.Parent = playerGui
+
+	local panel = Instance.new("Frame")
+	panel.Size = UDim2.fromOffset(320, 220)
+	panel.Position = UDim2.new(0.5, -160, 0.5, -110)
+	panel.BackgroundColor3 = Color3.fromRGB(17, 19, 28)
+	panel.BorderSizePixel = 0; panel.Parent = sg
+	Instance.new("UICorner", panel).CornerRadius = UDim.new(0, 14)
+
+	local title = Instance.new("TextLabel")
+	title.Size = UDim2.new(1, 0, 0, 36); title.BackgroundTransparency = 1
+	title.TextColor3 = Color3.fromRGB(255, 255, 255); title.Font = Enum.Font.GothamBold
+	title.TextScaled = true; title.Text = "Studio Level Picker"; title.Parent = panel
+
+	local function makeRow(labelText, yPos)
+		local lbl = Instance.new("TextLabel")
+		lbl.Size = UDim2.fromOffset(90, 30); lbl.Position = UDim2.fromOffset(10, yPos)
+		lbl.BackgroundTransparency = 1; lbl.TextColor3 = Color3.fromRGB(160, 170, 200)
+		lbl.Font = Enum.Font.GothamMedium; lbl.TextScaled = true
+		lbl.Text = labelText; lbl.TextXAlignment = Enum.TextXAlignment.Left; lbl.Parent = panel
+
+		local valLbl = Instance.new("TextLabel")
+		valLbl.Size = UDim2.fromOffset(110, 30); valLbl.Position = UDim2.fromOffset(100, yPos)
+		valLbl.BackgroundTransparency = 1; valLbl.TextColor3 = Color3.fromRGB(255, 220, 80)
+		valLbl.Font = Enum.Font.GothamBold; valLbl.TextScaled = true
+		valLbl.Text = ""; valLbl.Parent = panel
+
+		local function makeArrow(text, xPos, onClick)
+			local btn = Instance.new("TextButton")
+			btn.Size = UDim2.fromOffset(26, 26); btn.Position = UDim2.fromOffset(xPos, yPos + 2)
+			btn.BackgroundColor3 = Color3.fromRGB(40, 48, 70); btn.BorderSizePixel = 0
+			btn.TextColor3 = Color3.fromRGB(255,255,255); btn.Font = Enum.Font.GothamBold
+			btn.TextScaled = true; btn.Text = text; btn.Parent = panel
+			Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
+			btn.MouseButton1Click:Connect(onClick)
+		end
+
+		return valLbl, makeArrow
+	end
+
+	local areaIdx = 1; local diff = "Normal"; local stageIdx = 1
+	local areaVal, makeAreaArrow = makeRow("Area:", 44)
+	local diffVal                = Instance.new("TextLabel")
+	local stageVal, makeStageArrow = makeRow("Stage:", 110)
+
+	-- Difficulty row
+	local diffLbl = Instance.new("TextLabel")
+	diffLbl.Size = UDim2.fromOffset(90, 30); diffLbl.Position = UDim2.fromOffset(10, 77)
+	diffLbl.BackgroundTransparency = 1; diffLbl.TextColor3 = Color3.fromRGB(160,170,200)
+	diffLbl.Font = Enum.Font.GothamMedium; diffLbl.TextScaled = true
+	diffLbl.Text = "Diff:"; diffLbl.TextXAlignment = Enum.TextXAlignment.Left; diffLbl.Parent = panel
+	diffVal.Size = UDim2.fromOffset(90, 26); diffVal.Position = UDim2.fromOffset(100, 79)
+	diffVal.BackgroundTransparency = 1; diffVal.TextColor3 = Color3.fromRGB(255,220,80)
+	diffVal.Font = Enum.Font.GothamBold; diffVal.TextScaled = true
+	diffVal.Text = ""; diffVal.Parent = panel
+
+	local DIFFS = {"Normal","Hard","Hell"}
+	local diffIdx = 1
+	local function cycleDiff(delta)
+		diffIdx = ((diffIdx - 1 + delta) % 3) + 1
+		diff = DIFFS[diffIdx]
+		diffVal.Text = diff
+	end
+
+	local function refresh()
+		areaVal.Text  = areaIdx .. ". " .. (SW_AREAS[areaIdx] or "?")
+		diffVal.Text  = diff
+		stageVal.Text = "Stage " .. stageIdx
+	end
+
+	makeAreaArrow("◀", 214, function() areaIdx = math.max(1, areaIdx-1); refresh() end)
+	makeAreaArrow("▶", 244, function() areaIdx = math.min(13, areaIdx+1); refresh() end)
+	makeStageArrow("◀", 214, function() stageIdx = math.max(1, stageIdx-1); refresh() end)
+	makeStageArrow("▶", 244, function() stageIdx = math.min(7, stageIdx+1); refresh() end)
+
+	-- Manual diff arrows
+	local dPrev = Instance.new("TextButton")
+	dPrev.Size = UDim2.fromOffset(26,26); dPrev.Position = UDim2.fromOffset(214, 79)
+	dPrev.BackgroundColor3 = Color3.fromRGB(40,48,70); dPrev.BorderSizePixel = 0
+	dPrev.TextColor3 = Color3.fromRGB(255,255,255); dPrev.Font = Enum.Font.GothamBold
+	dPrev.TextScaled = true; dPrev.Text = "◀"; dPrev.Parent = panel
+	Instance.new("UICorner", dPrev).CornerRadius = UDim.new(0,6)
+	dPrev.MouseButton1Click:Connect(function() cycleDiff(-1); refresh() end)
+	local dNext = Instance.new("TextButton")
+	dNext.Size = UDim2.fromOffset(26,26); dNext.Position = UDim2.fromOffset(244, 79)
+	dNext.BackgroundColor3 = Color3.fromRGB(40,48,70); dNext.BorderSizePixel = 0
+	dNext.TextColor3 = Color3.fromRGB(255,255,255); dNext.Font = Enum.Font.GothamBold
+	dNext.TextScaled = true; dNext.Text = "▶"; dNext.Parent = panel
+	Instance.new("UICorner", dNext).CornerRadius = UDim.new(0,6)
+	dNext.MouseButton1Click:Connect(function() cycleDiff(1); refresh() end)
+
+	local startBtn = Instance.new("TextButton")
+	startBtn.Size = UDim2.fromOffset(280, 46); startBtn.Position = UDim2.fromOffset(20, 156)
+	startBtn.BackgroundColor3 = Color3.fromRGB(255,191,64); startBtn.BorderSizePixel = 0
+	startBtn.TextColor3 = Color3.fromRGB(20,20,30); startBtn.Font = Enum.Font.GothamBlack
+	startBtn.TextScaled = true; startBtn.Text = "Start Battle"; startBtn.Parent = panel
+	Instance.new("UICorner", startBtn).CornerRadius = UDim.new(0,12)
+
+	refresh()
+
+	startBtn.MouseButton1Click:Connect(function()
+		sg:Destroy()
+		local areaInfo = { num = areaIdx, difficulty = diff:lower(), stage = stageIdx }
+		SendUnitData:FireServer(tpData.selectedUnits, areaInfo)
+	end)
+else
+	-- Normal game: auto-fire with teleport data
+	task.delay(1, function()
+		local areaInfo = { num = tpData.areaNum or 1, difficulty = tpData.difficulty or "normal", stage = tpData.stage or 1 }
+		SendUnitData:FireServer(tpData.selectedUnits, areaInfo)
+	end)
+end
+
+local pendingXPRewards = nil
 
 -- ─── CAMERA ───────────────────────────────────────────────────────────
 camera.CameraType = Enum.CameraType.Scriptable
@@ -191,11 +311,36 @@ local function buildAbilityButtons(unit)
 	table.insert(abilityButtons, basic)
 end
 
+-- ─── TYPE MATCHUP ─────────────────────────────────────────────────────
+local TYPE_BEATS = {
+	Fire  = { Wind  = true },
+	Water = { Fire  = true },
+	Wind  = { Water = true },
+	Light = { Dark  = true },
+	Dark  = { Light = true },
+}
+
+local MATCHUP_COLOR = {
+	good    = Color3.fromRGB(80,  220,  90),   -- green  – attacker has advantage
+	neutral = Color3.fromRGB(255, 200,  40),   -- yellow – no advantage either way
+	bad     = Color3.fromRGB(230,  65,  65),   -- red    – defender has advantage
+}
+
+local function getMatchupKey(attackerType, defenderType)
+	if TYPE_BEATS[attackerType] and TYPE_BEATS[attackerType][defenderType] then
+		return "good"
+	elseif TYPE_BEATS[defenderType] and TYPE_BEATS[defenderType][attackerType] then
+		return "bad"
+	end
+	return "neutral"
+end
+
 -- ─── ARROW BILLBOARDS ─────────────────────────────────────────────────
-local arrowBills   = {}   -- enemyId → BillboardGui
-local arrowLabels  = {}   -- enemyId → TextLabel (the ▼)
-local arrowT       = 0
-local arrowsActive = false
+local arrowBills         = {}   -- enemyId → BillboardGui
+local arrowLabels        = {}   -- enemyId → TextLabel (the ▼)
+local arrowMatchupColors = {}   -- enemyId → Color3 (set each player turn)
+local arrowT             = 0
+local arrowsActive       = false
 
 RunService.Heartbeat:Connect(function(dt)
 	if not arrowsActive then return end
@@ -213,12 +358,26 @@ local function setArrowsVisible(visible)
 	end
 end
 
+local function updateArrowColors(activeType, enemyUnits)
+	table.clear(arrowMatchupColors)
+	for _, e in ipairs(enemyUnits) do
+		arrowMatchupColors[e.Id] = MATCHUP_COLOR[getMatchupKey(activeType, e.Type)]
+	end
+	for id, lbl in pairs(arrowLabels) do
+		lbl.TextColor3 = arrowMatchupColors[id] or MATCHUP_COLOR.neutral
+	end
+end
+
 local function highlightArrow(enemyId)
 	for id, lbl in pairs(arrowLabels) do
-		lbl.TextColor3 = id == enemyId
-			and Color3.fromRGB(255, 255, 80)
-			or  Color3.fromRGB(255, 185, 30)
-		lbl.TextStrokeTransparency = id == enemyId and 0.3 or 1
+		local base = arrowMatchupColors[id] or MATCHUP_COLOR.neutral
+		if id == enemyId then
+			lbl.TextColor3             = base
+			lbl.TextStrokeTransparency = 0.2
+		else
+			lbl.TextColor3             = Color3.new(base.R * 0.55, base.G * 0.55, base.B * 0.55)
+			lbl.TextStrokeTransparency = 1
+		end
 	end
 end
 
@@ -284,6 +443,8 @@ BattleState.OnClientEvent:Connect(function(state)
 			buildAbilityButtons(activeUnit)
 			setArrowsVisible(true)
 			abilityBar.Visible = true
+
+			updateArrowColors(activeUnit.Type, state.enemyUnits)
 
 			-- Auto-select the first alive enemy so buttons fire immediately
 			selectedEnemyId[1] = nil
@@ -355,19 +516,31 @@ returnBtn.MouseButton1Click:Connect(function()
 	returnBtn.Active = false
 	returnBtn.Text   = "Returning..."
 	if HUB_PLACE_ID ~= 0 then
-		TeleportService:Teleport(HUB_PLACE_ID, player)
+		local opts = Instance.new("TeleportOptions")
+		opts:SetTeleportData({ xpRewards = pendingXPRewards })
+		TeleportService:Teleport(HUB_PLACE_ID, player, opts)
 	end
 end)
 
 BattleEnd.OnClientEvent:Connect(function(result)
 	setArrowsVisible(false)
-	abilityBar.Visible  = false
-	endOverlay.Visible  = true
+	abilityBar.Visible = false
+	endOverlay.Visible = true
 	if result.victory then
-		endTitle.Text       = "🏆  Victory!"
 		endTitle.TextColor3 = Color3.fromRGB(255, 215, 80)
+		if result.xp and result.unitIds and #result.unitIds > 0 then
+			local xpEach = math.floor(result.xp / #result.unitIds)
+			pendingXPRewards = {}
+			for _, uid in ipairs(result.unitIds) do
+				pendingXPRewards[tostring(uid)] = xpEach
+			end
+			endTitle.Text = "Victory!\n+" .. result.xp .. " XP"
+		else
+			endTitle.Text = "Victory!"
+		end
 	else
-		endTitle.Text       = "💀  Defeated"
+		pendingXPRewards   = nil
+		endTitle.Text       = "Defeated"
 		endTitle.TextColor3 = Color3.fromRGB(220, 80, 80)
 	end
 end)

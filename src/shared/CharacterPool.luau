@@ -1,97 +1,55 @@
+-- Auto-generated — do not edit by hand.
 local CharacterPool = {}
 
-CharacterPool.pools = {
-	normal = {
-		{
-			Name = "Fire Maned Boar",
-			Type = "Fire",
-			Rarity = "Common",
-			Stars = 2,
-			Weight = 120,
-			HP = 1170,
-			Attack = 73,
-			Defense = 64,
-			Speed = 93,
-			CritChance = 0.15,
-			CritDamage = 1.5,
-			Resistance = 0.15,
-			Accuracy = 0.0,
-		},
-		{
-			Name = "Wind Maned Boar",
-			Type = "Wind",
-			Rarity = "Common",
-			Stars = 2,
-			Weight = 120,
-			HP = 1170,
-			Attack = 73,
-			Defense = 64,
-			Speed = 93,
-			CritChance = 0.15,
-			CritDamage = 1.5,
-			Resistance = 0.15,
-			Accuracy = 0.0,
-		},
-		{
-			Name = "Flame Ronin",
-			Type = "Fire",
-			Rarity = "Rare",
-			Stars = 3,
-			Weight = 60,
-			Attack = 120,
-			Defense = 80,
-			CritChance = 0.12,
-			CritDamage = 1.75,
-		},
-		{
-			Name = "Aqua Sorcerer",
-			Type = "Water",
-			Rarity = "Rare",
-			Stars = 3,
-			Weight = 60,
-			Attack = 110,
-			Defense = 85,
-			CritChance = 0.10,
-			CritDamage = 1.7,
-		},
-		{
-			Name = "Wind Duelist",
-			Type = "Wind",
-			Rarity = "Epic",
-			Stars = 4,
-			Weight = 25,
-			Attack = 115,
-			Defense = 75,
-			CritChance = 0.14,
-			CritDamage = 1.8,
-		},
-		{
-			Name = "Thunder Valkyrie",
-			Type = "Light",
-			Rarity = "Legendary",
-			Stars = 5,
-			Weight = 10,
-			Attack = 140,
-			Defense = 90,
-			CritChance = 0.18,
-			CritDamage = 2.0,
-		},
-		{
-			Name = "Shadow Samurai",
-			Type = "Dark",
-			Rarity = "Legendary",
-			Stars = 5,
-			Weight = 5,
-			Attack = 145,
-			Defense = 80,
-			CritChance = 0.16,
-			CritDamage = 2.0,
-		},
-	},
-}
+local function buildPool()
+	local pool = {}
+	local CharacterPool_FireA = require(script.Parent:WaitForChild("CharacterPool_FireA"))
+	local CharacterPool_FireB1 = require(script.Parent:WaitForChild("CharacterPool_FireB1"))
+	local CharacterPool_FireB2 = require(script.Parent:WaitForChild("CharacterPool_FireB2"))
+	local CharacterPool_WaterA = require(script.Parent:WaitForChild("CharacterPool_WaterA"))
+	local CharacterPool_WaterB1 = require(script.Parent:WaitForChild("CharacterPool_WaterB1"))
+	local CharacterPool_WaterB2 = require(script.Parent:WaitForChild("CharacterPool_WaterB2"))
+	local CharacterPool_WindA = require(script.Parent:WaitForChild("CharacterPool_WindA"))
+	local CharacterPool_WindB1 = require(script.Parent:WaitForChild("CharacterPool_WindB1"))
+	local CharacterPool_WindB2 = require(script.Parent:WaitForChild("CharacterPool_WindB2"))
+	local CharacterPool_LightA = require(script.Parent:WaitForChild("CharacterPool_LightA"))
+	local CharacterPool_LightB1 = require(script.Parent:WaitForChild("CharacterPool_LightB1"))
+	local CharacterPool_LightB2 = require(script.Parent:WaitForChild("CharacterPool_LightB2"))
+	local CharacterPool_DarkA = require(script.Parent:WaitForChild("CharacterPool_DarkA"))
+	local CharacterPool_DarkB1 = require(script.Parent:WaitForChild("CharacterPool_DarkB1"))
+	local CharacterPool_DarkB2 = require(script.Parent:WaitForChild("CharacterPool_DarkB2"))
+	for _, v in ipairs(CharacterPool_FireA.entries) do table.insert(pool, v) end
+	for _, v in ipairs(CharacterPool_FireB1.entries) do table.insert(pool, v) end
+	for _, v in ipairs(CharacterPool_FireB2.entries) do table.insert(pool, v) end
+	for _, v in ipairs(CharacterPool_WaterA.entries) do table.insert(pool, v) end
+	for _, v in ipairs(CharacterPool_WaterB1.entries) do table.insert(pool, v) end
+	for _, v in ipairs(CharacterPool_WaterB2.entries) do table.insert(pool, v) end
+	for _, v in ipairs(CharacterPool_WindA.entries) do table.insert(pool, v) end
+	for _, v in ipairs(CharacterPool_WindB1.entries) do table.insert(pool, v) end
+	for _, v in ipairs(CharacterPool_WindB2.entries) do table.insert(pool, v) end
+	for _, v in ipairs(CharacterPool_LightA.entries) do table.insert(pool, v) end
+	for _, v in ipairs(CharacterPool_LightB1.entries) do table.insert(pool, v) end
+	for _, v in ipairs(CharacterPool_LightB2.entries) do table.insert(pool, v) end
+	for _, v in ipairs(CharacterPool_DarkA.entries) do table.insert(pool, v) end
+	for _, v in ipairs(CharacterPool_DarkB1.entries) do table.insert(pool, v) end
+	for _, v in ipairs(CharacterPool_DarkB2.entries) do table.insert(pool, v) end
+	return pool
+end
+
+local poolCache = nil
+
+CharacterPool.pools = setmetatable({}, {
+	__index = function(_, key)
+		if key == "normal" then
+			if not poolCache then poolCache = buildPool() end
+			return poolCache
+		end
+		return {}
+	end,
+})
 
 function CharacterPool.GetPool(poolName)
-	return CharacterPool.pools[poolName] or CharacterPool.pools.normal
+	return CharacterPool.pools[poolName] or {}
 end
 
 return CharacterPool
