@@ -1,0 +1,29 @@
+{
+  "name": "AnimeWarsCombat",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "Shared": {
+        "$path": "src/shared"
+      },
+      "CombatShared": {
+        "$path": "src/combat-shared"
+      }
+    },
+
+    "ServerScriptService": {
+      "CombatServer": {
+        "$path": "src/combat-server"
+      }
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "CombatClient": {
+          "$path": "src/combat-client"
+        }
+      }
+    }
+  }
+}

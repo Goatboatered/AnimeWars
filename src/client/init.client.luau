@@ -508,8 +508,8 @@ noUnitsLabel.Visible = false
 
 local unitDetailPanel = Instance.new("Frame")
 unitDetailPanel.Name = "UnitDetailPanel"
-unitDetailPanel.Size = UDim2.fromOffset(520, 390)
-unitDetailPanel.Position = UDim2.new(0.5, -260, 0.5, -195)
+unitDetailPanel.Size = UDim2.fromOffset(520, 510)
+unitDetailPanel.Position = UDim2.new(0.5, -260, 0.5, -255)
 unitDetailPanel.BackgroundColor3 = Color3.fromRGB(21, 21, 29)
 unitDetailPanel.BorderSizePixel = 0
 unitDetailPanel.Visible = false
@@ -617,10 +617,71 @@ for i = 1, 8 do
 	detailStatLabels[i] = lbl
 end
 
+-- Abilities section
+local abilitySeparator = Instance.new("Frame")
+abilitySeparator.Size = UDim2.fromOffset(488, 1)
+abilitySeparator.Position = UDim2.fromOffset(16, 308)
+abilitySeparator.BackgroundColor3 = Color3.fromRGB(55, 55, 72)
+abilitySeparator.BorderSizePixel = 0
+abilitySeparator.Parent = unitDetailPanel
+
+local abilitiesHeaderLabel = Instance.new("TextLabel")
+abilitiesHeaderLabel.Size = UDim2.fromOffset(488, 22)
+abilitiesHeaderLabel.Position = UDim2.fromOffset(16, 314)
+abilitiesHeaderLabel.BackgroundTransparency = 1
+abilitiesHeaderLabel.TextColor3 = Color3.fromRGB(130, 140, 165)
+abilitiesHeaderLabel.Font = Enum.Font.GothamBold
+abilitiesHeaderLabel.TextScaled = true
+abilitiesHeaderLabel.Text = "ABILITIES"
+abilitiesHeaderLabel.TextXAlignment = Enum.TextXAlignment.Left
+abilitiesHeaderLabel.Parent = unitDetailPanel
+
+local abilityRows = {}
+local abilityRowYPositions = {340, 390}
+for i = 1, 2 do
+	local rowFrame = Instance.new("Frame")
+	rowFrame.Size = UDim2.fromOffset(488, 42)
+	rowFrame.Position = UDim2.fromOffset(16, abilityRowYPositions[i])
+	rowFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 42)
+	rowFrame.BorderSizePixel = 0
+	rowFrame.Visible = false
+	rowFrame.Parent = unitDetailPanel
+	local rowCorner = Instance.new("UICorner")
+	rowCorner.CornerRadius = UDim.new(0, 8)
+	rowCorner.Parent = rowFrame
+
+	local abilityNameLabel = Instance.new("TextLabel")
+	abilityNameLabel.Size = UDim2.fromOffset(360, 42)
+	abilityNameLabel.Position = UDim2.fromOffset(12, 0)
+	abilityNameLabel.BackgroundTransparency = 1
+	abilityNameLabel.TextColor3 = Color3.fromRGB(220, 220, 240)
+	abilityNameLabel.Font = Enum.Font.GothamMedium
+	abilityNameLabel.TextScaled = true
+	abilityNameLabel.Text = ""
+	abilityNameLabel.TextXAlignment = Enum.TextXAlignment.Left
+	abilityNameLabel.Parent = rowFrame
+
+	local abilityBadge = Instance.new("TextLabel")
+	abilityBadge.Size = UDim2.fromOffset(100, 26)
+	abilityBadge.Position = UDim2.fromOffset(376, 8)
+	abilityBadge.BackgroundColor3 = Color3.fromRGB(45, 55, 80)
+	abilityBadge.BorderSizePixel = 0
+	abilityBadge.TextColor3 = Color3.fromRGB(170, 195, 255)
+	abilityBadge.Font = Enum.Font.GothamMedium
+	abilityBadge.TextScaled = true
+	abilityBadge.Text = ""
+	abilityBadge.Parent = rowFrame
+	local badgeCorner = Instance.new("UICorner")
+	badgeCorner.CornerRadius = UDim.new(0, 6)
+	badgeCorner.Parent = abilityBadge
+
+	abilityRows[i] = { frame = rowFrame, nameLabel = abilityNameLabel, badge = abilityBadge }
+end
+
 local function makeDetailButton(text, xPos, color)
 	local btn = Instance.new("TextButton")
 	btn.Size = UDim2.fromOffset(150, 50)
-	btn.Position = UDim2.fromOffset(xPos, 318)
+	btn.Position = UDim2.fromOffset(xPos, 450)
 	btn.BackgroundColor3 = color
 	btn.BorderSizePixel = 0
 	btn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -637,6 +698,78 @@ end
 local displayButton = makeDetailButton("Display", 17,  Color3.fromRGB(60, 130, 220))
 local deleteButton  = makeDetailButton("Delete",  184, Color3.fromRGB(183, 62, 62))
 local backButton    = makeDetailButton("← Back",  351, Color3.fromRGB(55, 65, 85))
+
+-- Ability hover tooltip
+local abilityTooltip = Instance.new("Frame")
+abilityTooltip.Name = "AbilityTooltip"
+abilityTooltip.Size = UDim2.fromOffset(290, 170)
+abilityTooltip.Position = UDim2.new(0.5, 270, 0.5, -130)
+abilityTooltip.BackgroundColor3 = Color3.fromRGB(18, 18, 26)
+abilityTooltip.BorderSizePixel = 0
+abilityTooltip.Visible = false
+abilityTooltip.ZIndex = 20
+abilityTooltip.Parent = screenGui
+local tooltipCorner = Instance.new("UICorner")
+tooltipCorner.CornerRadius = UDim.new(0, 10)
+tooltipCorner.Parent = abilityTooltip
+local tooltipBorder = Instance.new("UIStroke")
+tooltipBorder.Color = Color3.fromRGB(70, 90, 140)
+tooltipBorder.Thickness = 1.5
+tooltipBorder.Parent = abilityTooltip
+
+local tooltipTitleLabel = Instance.new("TextLabel")
+tooltipTitleLabel.Size = UDim2.fromOffset(270, 28)
+tooltipTitleLabel.Position = UDim2.fromOffset(10, 10)
+tooltipTitleLabel.BackgroundTransparency = 1
+tooltipTitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+tooltipTitleLabel.Font = Enum.Font.GothamBold
+tooltipTitleLabel.TextScaled = true
+tooltipTitleLabel.Text = ""
+tooltipTitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+tooltipTitleLabel.ZIndex = 20
+tooltipTitleLabel.Parent = abilityTooltip
+
+local tooltipTypeLabel = Instance.new("TextLabel")
+tooltipTypeLabel.Size = UDim2.fromOffset(270, 22)
+tooltipTypeLabel.Position = UDim2.fromOffset(10, 42)
+tooltipTypeLabel.BackgroundTransparency = 1
+tooltipTypeLabel.TextColor3 = Color3.fromRGB(140, 170, 220)
+tooltipTypeLabel.Font = Enum.Font.GothamMedium
+tooltipTypeLabel.TextScaled = true
+tooltipTypeLabel.Text = ""
+tooltipTypeLabel.TextXAlignment = Enum.TextXAlignment.Left
+tooltipTypeLabel.ZIndex = 20
+tooltipTypeLabel.Parent = abilityTooltip
+
+local tooltipDivider = Instance.new("Frame")
+tooltipDivider.Size = UDim2.fromOffset(270, 1)
+tooltipDivider.Position = UDim2.fromOffset(10, 68)
+tooltipDivider.BackgroundColor3 = Color3.fromRGB(55, 70, 110)
+tooltipDivider.BorderSizePixel = 0
+tooltipDivider.ZIndex = 20
+tooltipDivider.Parent = abilityTooltip
+
+local tooltipDescLabel = Instance.new("TextLabel")
+tooltipDescLabel.Size = UDim2.fromOffset(270, 92)
+tooltipDescLabel.Position = UDim2.fromOffset(10, 74)
+tooltipDescLabel.BackgroundTransparency = 1
+tooltipDescLabel.TextColor3 = Color3.fromRGB(200, 205, 220)
+tooltipDescLabel.Font = Enum.Font.Gotham
+tooltipDescLabel.TextScaled = true
+tooltipDescLabel.Text = ""
+tooltipDescLabel.TextXAlignment = Enum.TextXAlignment.Left
+tooltipDescLabel.TextYAlignment = Enum.TextYAlignment.Top
+tooltipDescLabel.TextWrapped = true
+tooltipDescLabel.ZIndex = 20
+tooltipDescLabel.Parent = abilityTooltip
+
+local abilityHoverConnections = {}
+local function clearAbilityConnections()
+	for _, conn in ipairs(abilityHoverConnections) do
+		conn:Disconnect()
+	end
+	table.clear(abilityHoverConnections)
+end
 
 local selectedUnit = nil
 local displayedUnits = {}
@@ -666,11 +799,36 @@ local function openUnitDetail(unit)
 		displayButton.Text = "Display"
 		displayButton.BackgroundColor3 = Color3.fromRGB(60, 130, 220)
 	end
+	clearAbilityConnections()
+	local abilities = unit.Abilities or {}
+	for i = 1, 2 do
+		local row = abilityRows[i]
+		local ability = abilities[i]
+		if ability then
+			row.nameLabel.Text = ability.Name
+			row.badge.Text = ability.Cooldown > 0 and ("CD: " .. ability.Cooldown) or "Active"
+			row.frame.Visible = true
+			table.insert(abilityHoverConnections, row.frame.MouseEnter:Connect(function()
+				tooltipTitleLabel.Text = ability.Name
+				tooltipTypeLabel.Text = ability.Cooldown > 0
+					and (ability.Type .. "  ·  Cooldown: " .. ability.Cooldown .. " turns")
+					or ability.Type
+				tooltipDescLabel.Text = ability.Description
+				abilityTooltip.Visible = true
+			end))
+			table.insert(abilityHoverConnections, row.frame.MouseLeave:Connect(function()
+				abilityTooltip.Visible = false
+			end))
+		else
+			row.frame.Visible = false
+		end
+	end
 	unitPanel.Visible = false
 	unitDetailPanel.Visible = true
 end
 
 backButton.MouseButton1Click:Connect(function()
+	abilityTooltip.Visible = false
 	unitDetailPanel.Visible = false
 	unitPanel.Visible = true
 end)
@@ -1343,6 +1501,7 @@ bpCancelCorner.Parent = bpCancelBtn
 -- State
 local selectedBattleUnit = nil
 local selectedBattleCard = nil
+local currentAreaId      = "area1"
 
 local function updateBeginBtn()
 	local hasUnit = false
@@ -1523,7 +1682,8 @@ local function populateBpUnits(units)
 	bpUnitScroll.CanvasSize = UDim2.fromOffset(bpScrollLayout.AbsoluteContentSize.X + 12, 0)
 end
 
-openBattlePrep = function(areaName, stageName)
+openBattlePrep = function(areaName, stageName, areaId)
+	currentAreaId = areaId or "area1"
 	bpTitle.Text = areaName .. "  —  " .. stageName
 	for i = 1, 4 do
 		clearBattleSlot(i)
@@ -1537,8 +1697,26 @@ end
 
 bpBeginBtn.MouseButton1Click:Connect(function()
 	if not bpBeginBtn.Active then return end
-	showMessage("Battle starting! (coming soon)")
-	battlePrepScreen.Visible = false
+
+	local selectedIds = {}
+	for i = 1, 4 do
+		if battleSlots[i].unit then
+			table.insert(selectedIds, battleSlots[i].unit.Id)
+		end
+	end
+	if #selectedIds == 0 then return end
+
+	bpBeginBtn.Active = false
+	bpBeginBtn.Text   = "Starting..."
+
+	local beginRemote = remotes:FindFirstChild("BeginBattle")
+	if beginRemote then
+		beginRemote:FireServer(selectedIds, currentAreaId or "area1")
+	else
+		showMessage("Could not start battle — remote missing.")
+		bpBeginBtn.Active = true
+		bpBeginBtn.Text   = "Begin"
+	end
 end)
 
 bpCancelBtn.MouseButton1Click:Connect(function()
@@ -1547,6 +1725,7 @@ bpCancelBtn.MouseButton1Click:Connect(function()
 end)
 
 bpStartBtn.MouseButton1Click:Connect(function()
-	showMessage("Battle starting! (coming soon)")
-	battlePrepScreen.Visible = false
+	if not bpBeginBtn.Active then return end
+	bpBeginBtn:GetPropertyChangedSignal("Active"):Wait()
+	bpBeginBtn.MouseButton1Click:Fire()
 end)

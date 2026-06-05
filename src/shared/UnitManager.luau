@@ -1,7 +1,72 @@
 local UnitManager = {}
 local playerUnits = {}
 
+local UNIT_ABILITIES = {
+	["Fire Maned Boar"] = {
+		{
+			Name = "Dash",
+			Type = "Active",
+			Cooldown = 0,
+			Description = "Attacks one enemy with a 15% chance to Stun for 1 turn.\nMultiplier: 350% ATK.",
+		},
+	},
+	["Wind Maned Boar"] = {
+		{
+			Name = "Dash",
+			Type = "Active",
+			Cooldown = 0,
+			Description = "Attacks one enemy with a 15% chance to Stun for 1 turn.\nMultiplier: 350% ATK.",
+		},
+	},
+	["Wind Vagabond"] = {
+		{
+			Name = "Slash Rocks",
+			Type = "Active",
+			Cooldown = 0,
+			Description = "Swings a giant sword to deal damage.\n40% chance to decrease Defense for 2 turns.\nMultiplier: ATK + 18% Max HP.",
+		},
+		{
+			Name = "Slash Waves",
+			Type = "Active",
+			Cooldown = 4,
+			Description = "Attacks the enemy 2 times.\nEach hit has a 50% chance to decrease Attack Power for 2 turns.\nMultiplier: ATK + 12% Max HP × 2.\nCooldown: 4 turns.",
+		},
+	},
+	["Fire Hellhound"] = {
+		{
+			Name = "Bite",
+			Type = "Active",
+			Cooldown = 0,
+			Description = "Bites the enemy and heals himself for 30% of the damage dealt.\nMultiplier: 360% ATK.",
+		},
+		{
+			Name = "Double Attack",
+			Type = "Active",
+			Cooldown = 3,
+			Description = "Bites the enemy 2 times to deal big damage.\nMultiplier: 370% ATK × 2.\nCooldown: 3 turns.",
+		},
+	},
+	["Water Fairy"] = {
+		{
+			Name = "Aqua Hurricane",
+			Type = "Active",
+			Cooldown = 0,
+			Description = "Attacks the enemy 3 times.\nEach hit has a 20% chance to Freeze for 1 turn.\nDamage Multiplier: 120% ATK × 3.",
+		},
+		{
+			Name = "Purify",
+			Type = "Active",
+			Cooldown = 3,
+			Description = "Removes harmful effects from an ally and heals them.\nHealing scales with the Water Fairy's ATK.\nCooldown: 3 turns.",
+		},
+	},
+}
+
 local function cloneUnit(unit)
+	local abilitiesCopy = {}
+	for i, ab in ipairs(unit.Abilities or {}) do
+		abilitiesCopy[i] = { Name = ab.Name, Type = ab.Type, Cooldown = ab.Cooldown, Description = ab.Description }
+	end
 	return {
 		Id = unit.Id,
 		CharacterName = unit.CharacterName,
@@ -18,6 +83,7 @@ local function cloneUnit(unit)
 		Speed = unit.Speed or 0,
 		Resistance = unit.Resistance or 0,
 		Accuracy = unit.Accuracy or 0,
+		Abilities = abilitiesCopy,
 	}
 end
 
@@ -48,9 +114,10 @@ function UnitManager.AddUnit(player, unitData)
 		playerUnits[player.UserId] = units
 	end
 
+	local charName = unitData.CharacterName or unitData.Name or "Unknown"
 	local entry = {
 		Id = #units + 1,
-		CharacterName = unitData.CharacterName or unitData.Name or "Unknown",
+		CharacterName = charName,
 		Type = unitData.Type or "Neutral",
 		Rarity = unitData.Rarity or "Common",
 		Stars = unitData.Stars or 1,
@@ -64,6 +131,7 @@ function UnitManager.AddUnit(player, unitData)
 		Speed = unitData.Speed or 0,
 		Resistance = unitData.Resistance or 0,
 		Accuracy = unitData.Accuracy or 0,
+		Abilities = UNIT_ABILITIES[charName] or {},
 	}
 
 	table.insert(units, entry)

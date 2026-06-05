@@ -1,7 +1,11 @@
+-- !! FILL THIS IN after creating places in Roblox Studio !!
+local COMBAT_PLACE_ID = 80557121116209
+
 local Workspace = game:GetService("Workspace")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local DataStoreService = game:GetService("DataStoreService")
 local Players = game:GetService("Players")
+local TeleportService = game:GetService("TeleportService")
 
 local Shared = ReplicatedStorage:WaitForChild("Shared")
 local GachaLibrary = require(Shared:WaitForChild("GachaLibrary"))
@@ -83,6 +87,13 @@ if not deleteUnit then
 	deleteUnit.Parent = remoteFolder
 end
 
+local beginBattle = remoteFolder:FindFirstChild("BeginBattle")
+if not beginBattle then
+	beginBattle = Instance.new("RemoteEvent")
+	beginBattle.Name = "BeginBattle"
+	beginBattle.Parent = remoteFolder
+end
+
 local displayUnit = remoteFolder:FindFirstChild("DisplayUnit")
 if not displayUnit then
 	displayUnit = Instance.new("RemoteEvent")
@@ -161,8 +172,12 @@ function summonRequest.OnServerInvoke(player)
 		Stars = result.Stars,
 		Attack = result.Attack,
 		Defense = result.Defense,
+		HP = result.HP or 0,
+		Speed = result.Speed or 0,
 		CritChance = result.CritChance,
 		CritDamage = result.CritDamage,
+		Resistance = result.Resistance or 0,
+		Accuracy = result.Accuracy or 0,
 		DisplayName = GachaLibrary.FormatResult(result),
 	}
 
@@ -196,6 +211,36 @@ function attackRequest.OnServerInvoke(player, attackerData, defenderData)
 		Details = details,
 	}
 end
+
+beginBattle.OnServerEvent:Connect(function(player, selectedUnitIds, areaId)
+	if COMBAT_PLACE_ID == 0 then
+		warn("[HubServer] COMBAT_PLACE_ID not set — cannot teleport")
+		return
+	end
+
+	local allUnits = UnitManager.GetUnits(player)
+	local selectedUnits = {}
+	for _, id in ipairs(selectedUnitIds) do
+		for _, unit in ipairs(allUnits) do
+			if unit.Id == id then
+				table.insert(selectedUnits, unit)
+				break
+			end
+		end
+	end
+
+	-- Reserve a private server so each battle is its own isolated instance
+	local ok, result = pcall(function()
+		local code = TeleportService:ReserveServer(COMBAT_PLACE_ID)
+		local opts = Instance.new("TeleportOptions")
+		opts:SetTeleportData({ selectedUnits = selectedUnits, areaId = areaId or "area1" })
+		TeleportService:TeleportToPrivateServer(COMBAT_PLACE_ID, code, { player }, nil, opts)
+	end)
+
+	if not ok then
+		warn("[HubServer] Teleport failed:", result)
+	end
+end)
 
 local function createFountain()
 	local hub = Workspace:FindFirstChild("SummoningHub")
