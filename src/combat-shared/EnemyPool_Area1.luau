@@ -391,7 +391,7 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -408,7 +408,7 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 					},
@@ -429,7 +429,7 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -446,7 +446,7 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 					},
@@ -467,7 +467,7 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -484,7 +484,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -501,7 +501,7 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 					},
@@ -678,7 +678,7 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 					},
@@ -699,7 +699,7 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -716,7 +716,7 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 					},
@@ -1372,7 +1372,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -1389,7 +1389,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 					},
@@ -1410,7 +1410,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -1427,7 +1427,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -1444,7 +1444,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 					},
@@ -1465,7 +1465,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -1482,7 +1482,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -1499,7 +1499,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 					},
@@ -1676,7 +1676,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -1693,7 +1693,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -1710,7 +1710,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 					},
@@ -1731,7 +1731,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -2421,7 +2421,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -2438,7 +2438,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 					},
@@ -2459,7 +2459,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -2476,7 +2476,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -2493,7 +2493,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 					},
@@ -2514,7 +2514,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -2531,7 +2531,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -2548,7 +2548,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 					},
@@ -2725,7 +2725,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -2780,7 +2780,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -2797,7 +2797,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 						{
@@ -2814,7 +2814,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5 },
 							},
 						},
 					},

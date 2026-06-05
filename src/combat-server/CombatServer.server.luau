@@ -10,6 +10,21 @@ local Shared        = ReplicatedStorage:WaitForChild("Shared")
 local CombatShared  = ReplicatedStorage:WaitForChild("CombatShared")
 local CombatLibrary = require(Shared:WaitForChild("CombatLibrary"))
 local EnemyPool     = require(CombatShared:WaitForChild("EnemyPool"))
+local CharacterPool = require(Shared:WaitForChild("CharacterPool"))
+
+-- Cache of CharacterName → full ability list from CharacterPool
+local cpAbilityCache = {}
+local function getCharacterAbilities(charName)
+	if not charName or charName == "" then return nil end
+	if cpAbilityCache[charName] then return cpAbilityCache[charName] end
+	for _, entry in ipairs(CharacterPool.GetPool("normal")) do
+		if entry.Name == charName then
+			cpAbilityCache[charName] = entry.Abilities or {}
+			return cpAbilityCache[charName]
+		end
+	end
+	return nil
+end
 
 -- ─── REMOTES ──────────────────────────────────────────────────────────
 local remotes = Instance.new("Folder")
@@ -558,7 +573,17 @@ local function autoPlayerAI(battle, unit)
 	if lowestFrac < 0.4 then
 		for i, ab in ipairs(abilities) do
 			if (ab.Heals or ab.SelfHeal) and ab.Type ~= "Passive" and (cds[i] or 0) <= 0 then
-				return { abilityIndex = i, targetId = targetEnemy.Id }
+				-- Find the lowest-HP ally to target
+				local healTarget, lf2 = nil, 2
+				for _, u in ipairs(allies) do
+					local f = u.HP / u.MaxHP
+					if f < lf2 then lf2 = f; healTarget = u end
+				end
+				local tid = (ab.SelfHeal and unit.Id)
+					or (healTarget and healTarget.Id)
+					or (allies[1] and allies[1].Id)
+					or unit.Id
+				return { abilityIndex = i, targetId = tid }
 			end
 		end
 	end
@@ -590,6 +615,10 @@ end
 local function makePlayerUnit(data, slot)
 	local lv   = data.Level or 1
 	local base = data.DisplayName or data.CharacterName or "Unit"
+	-- UnitManager strips Heals/SelfHeal/LifeSteal/TargetType/Multiplier/Hits when cloning.
+	-- Always pull authoritative ability data from CharacterPool so combat behavior is correct.
+	local charName = data.CharacterName or data.DisplayName or ""
+	local abilities = getCharacterAbilities(charName) or data.Abilities or {}
 	return {
 		Id     = "p"..slot, IsEnemy = false,
 		Name   = "Lv." .. lv .. " " .. base,
@@ -598,7 +627,7 @@ local function makePlayerUnit(data, slot)
 		Attack = data.Attack or 10, Defense = data.Defense or 10,
 		Speed  = data.Speed or 50, CritChance = data.CritChance or 0.05,
 		CritDamage = data.CritDamage or 1.5, Resistance = data.Resistance or 0,
-		Accuracy = data.Accuracy or 0, Abilities = data.Abilities or {},
+		Accuracy = data.Accuracy or 0, Abilities = abilities,
 		CooldownsRemaining = {}, model = nil, hpBar = nil,
 	}
 end
