@@ -241,7 +241,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -259,7 +259,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -277,7 +277,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -422,7 +422,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -483,7 +483,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -577,7 +577,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -635,7 +635,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -653,7 +653,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -697,7 +697,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -732,7 +732,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -750,7 +750,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -806,7 +806,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -824,7 +824,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -846,7 +846,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -881,7 +881,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -899,7 +899,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1108,7 +1108,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Lightning Spear", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Heart Pierce", Cooldown = 3, Multiplier = 5.2 },
-								{ Name = "Hurricane Swing", Cooldown = 4, Multiplier = 4.4, AoE = true },
+								{ Name = "Hurricane Swing", Cooldown = 4, Multiplier = 4.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1186,7 +1186,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1298,7 +1298,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1333,7 +1333,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1351,7 +1351,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1377,7 +1377,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1413,7 +1413,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1431,7 +1431,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1453,7 +1453,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1489,7 +1489,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1507,7 +1507,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1777,7 +1777,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1884,7 +1884,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1940,7 +1940,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1958,7 +1958,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2001,7 +2001,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2019,7 +2019,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2171,7 +2171,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2189,7 +2189,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2207,7 +2207,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2233,7 +2233,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2340,7 +2340,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2379,7 +2379,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2397,7 +2397,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2415,7 +2415,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2643,7 +2643,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Lightning Spear", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Heart Pierce", Cooldown = 3, Multiplier = 5.2 },
-								{ Name = "Hurricane Swing", Cooldown = 4, Multiplier = 4.4, AoE = true },
+								{ Name = "Hurricane Swing", Cooldown = 4, Multiplier = 4.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2737,7 +2737,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2759,7 +2759,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2795,7 +2795,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2870,7 +2870,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3003,7 +3003,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3021,7 +3021,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3039,7 +3039,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3326,7 +3326,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3382,7 +3382,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3400,7 +3400,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3435,7 +3435,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3457,7 +3457,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3475,7 +3475,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3493,7 +3493,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3511,7 +3511,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3573,7 +3573,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3689,7 +3689,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3725,7 +3725,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3743,7 +3743,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3841,7 +3841,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3859,7 +3859,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3949,7 +3949,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3967,7 +3967,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Body Bump", Cooldown = 0, Multiplier = 3.6 },
-								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true },
+								{ Name = "Ultrasonic Wave", Cooldown = 4, Multiplier = 3.2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -4176,7 +4176,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Lightning Spear", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Heart Pierce", Cooldown = 3, Multiplier = 5.2 },
-								{ Name = "Hurricane Swing", Cooldown = 4, Multiplier = 4.4, AoE = true },
+								{ Name = "Hurricane Swing", Cooldown = 4, Multiplier = 4.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4254,7 +4254,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4328,7 +4328,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4402,7 +4402,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4445,7 +4445,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4481,7 +4481,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4499,7 +4499,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -4539,7 +4539,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4557,7 +4557,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Poisonous Teeth", Cooldown = 0, Multiplier = 0.8, Hits = 2 },
-								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true },
+								{ Name = "Poisonous Whirlwind", Cooldown = 4, Multiplier = 2.7, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{

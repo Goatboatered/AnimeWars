@@ -21,11 +21,13 @@ local function makeEvent(name)
 	e.Name = name; e.Parent = remotes; return e
 end
 
-local SendUnitData  = makeEvent("SendUnitData")
-local BattleState   = makeEvent("BattleState")
-local PlayerAction  = makeEvent("PlayerAction")
-local BattleEnd     = makeEvent("BattleEnd")
-local ModelsSpawned = makeEvent("ModelsSpawned")
+local SendUnitData   = makeEvent("SendUnitData")
+local BattleState    = makeEvent("BattleState")
+local PlayerAction   = makeEvent("PlayerAction")
+local BattleEnd      = makeEvent("BattleEnd")
+local ModelsSpawned  = makeEvent("ModelsSpawned")
+local SetAutoMode    = makeEvent("SetAutoMode")
+local SetBattleSpeed = makeEvent("SetBattleSpeed")
 
 -- ─── CONSTANTS ────────────────────────────────────────────────────────
 local PLAYER_SLOTS = {
@@ -61,7 +63,6 @@ local function part(parent, name, size, pos, color, mat, anchored, collide)
 end
 
 local function buildArea1()
-	-- Remove default Roblox baseplate/spawn so the arena is visible
 	local bp = Workspace:FindFirstChild("Baseplate")
 	if bp then bp:Destroy() end
 	local sp = Workspace:FindFirstChild("SpawnLocation")
@@ -77,17 +78,14 @@ local function buildArea1()
 	local eFolder = Instance.new("Folder")
 	eFolder.Name = "EnemyUnits"; eFolder.Parent = arenaFolder
 
-	-- Ground
-	local ground = part(arenaFolder, "Ground",
+	part(arenaFolder, "Ground",
 		Vector3.new(72, 1, 58), Vector3.new(0, -0.5, 0),
 		Color3.fromRGB(108, 130, 65), Enum.Material.Grass, true, true)
 
-	-- Player-side lighter patch
 	part(arenaFolder, "PlayerPatch",
 		Vector3.new(34, 0.3, 18), Vector3.new(-1, 0.15, 12),
 		Color3.fromRGB(128, 156, 76), Enum.Material.Grass)
 
-	-- Background treeline
 	local trees = {
 		{-22,-26},{-14,-27},{-6,-28},{2,-28},{10,-27},{18,-26},{24,-24},
 		{-25,-18},{22,-18},
@@ -95,8 +93,6 @@ local function buildArea1()
 	for _, td in ipairs(trees) do
 		local x, z  = td[1], td[2]
 		local h     = 11 + math.random(0, 4)
-
-		-- trunk (cylinder laid on its side is the Roblox default for cylinders)
 		local trunk = Instance.new("Part")
 		trunk.Shape    = Enum.PartType.Cylinder
 		trunk.Size     = Vector3.new(h, 1.4, 1.4)
@@ -116,18 +112,14 @@ local function buildArea1()
 		leaves.Parent  = arenaFolder
 	end
 
-	-- Scattered rocks
 	local rocks = { {10,4},{-11,2},{13,-5},{-9,-6},{6,-7},{-3,7} }
 	for _, rd in ipairs(rocks) do
-		local r = part(arenaFolder, "Rock",
+		part(arenaFolder, "Rock",
 			Vector3.new(1.4 + math.random(), 1 + math.random() * 0.5, 1.4 + math.random()),
 			Vector3.new(rd[1], 0.4, rd[2]),
 			Color3.fromRGB(118, 118, 124), Enum.Material.Rock)
-		local rc = Instance.new("UICorner"); rc.Parent = r  -- ignored on Parts, harmless
-		_ = rc
 	end
 
-	-- Thin dividing line (subtle, decorative)
 	part(arenaFolder, "Divider",
 		Vector3.new(40, 0.2, 0.5), Vector3.new(0, 0.2, 0),
 		Color3.fromRGB(90, 110, 55), Enum.Material.Grass)
@@ -163,8 +155,8 @@ local function addHPBar(primaryPart, studOffset)
 	return bar
 end
 
--- ─── HUMANOID MODEL BUILDER (same style as hub followers) ─────────────
-local HS   = 0.5  -- humanoid scale
+-- ─── HUMANOID MODEL BUILDER ───────────────────────────────────────────
+local HS   = 0.5
 local SKIN_COL    = Color3.fromRGB(255, 220, 185)
 local PANTS_PLAYER = Color3.fromRGB(30,  50, 110)
 local PANTS_ENEMY  = Color3.fromRGB(70,  25,  25)
@@ -230,6 +222,11 @@ local function spawnPlayerModel(unit, pos)
 	local model, torso = buildHumanoid(pos, 0, shirt, PANTS_PLAYER, SKIN_COL, unit.Name)
 	model:SetAttribute("UnitId", unit.Id)
 	model:SetAttribute("IsEnemy", false)
+
+	-- ClickDetector for ally-targeting skills
+	local cd = Instance.new("ClickDetector")
+	cd.MaxActivationDistance = 200; cd.Parent = torso
+
 	model.Parent = arenaFolder:FindFirstChild("PlayerUnits")
 	local bar = addHPBar(torso, 2)
 	return model, bar
@@ -238,14 +235,12 @@ end
 local function spawnEnemyModel(unit, pos)
 	local shirt    = SHIRT_COLORS[unit.Type] or Color3.fromRGB(120, 120, 130)
 	local maneCol  = MANE_COLORS2[unit.Type] or Color3.fromRGB(200, 180, 50)
-	-- enemies get a neon glowing head for the mane effect
 	local model, torso, head = buildHumanoid(pos, math.pi, shirt, PANTS_ENEMY, maneCol, unit.Name)
 	head.Material = Enum.Material.Neon
 
 	model:SetAttribute("UnitId", unit.Id)
 	model:SetAttribute("IsEnemy", true)
 
-	-- ClickDetector on torso for targeting
 	local cd = Instance.new("ClickDetector")
 	cd.MaxActivationDistance = 200; cd.Parent = torso
 
@@ -265,6 +260,11 @@ end
 local function addLog(battle, msg)
 	table.insert(battle.log, msg)
 	if #battle.log > 12 then table.remove(battle.log, 1) end
+end
+
+-- Speed-aware wait: divides delay by battle.speed (1/2/3×)
+local function bwait(battle, t)
+	task.wait(t / math.max(1, battle.speed or 1))
 end
 
 local function updateHPBars(battle)
@@ -319,6 +319,8 @@ local function snapshot(battle)
 		activeTurnId = battle.activeTurnId,
 		log          = battle.log,
 		phase        = battle.phase,
+		autoMode     = battle.autoMode,
+		speed        = battle.speed,
 	})
 end
 
@@ -328,12 +330,13 @@ local function tickCooldowns(unit)
 	end
 end
 
+-- ─── APPLY ACTION ─────────────────────────────────────────────────────
 local function applyAction(battle, actor, action)
 	local ability    = actor.Abilities and actor.Abilities[action.abilityIndex]
 	local targetSide = actor.IsEnemy and battle.playerUnits or battle.enemyUnits
 	local allySide   = actor.IsEnemy and battle.enemyUnits  or battle.playerUnits
 
-	-- Resolve primary target
+	-- Resolve primary enemy/ally target by Id, then first alive fallback
 	local primaryTarget
 	for _, u in ipairs(targetSide) do
 		if u.Id == action.targetId and u.HP > 0 then primaryTarget = u; break end
@@ -344,19 +347,34 @@ local function applyAction(battle, actor, action)
 		end
 	end
 
-	-- Set cooldown before executing
+	-- Ally target (for AllySingle skills sent from client)
+	local allyTarget
+	for _, u in ipairs(allySide) do
+		if u.Id == action.targetId and u.HP > 0 then allyTarget = u; break end
+	end
+
+	-- Set cooldown
 	if ability and (ability.Cooldown or 0) > 0 then
 		actor.CooldownsRemaining[action.abilityIndex] = ability.Cooldown
 	end
 
 	local abilityName = ability and ability.Name or "Basic Attack"
 
-	-- Passives don't act — use basic attack instead
+	-- Passives skip — fall through to basic attack
 	if ability and ability.Type == "Passive" then
 		ability = nil
 	end
 
-	-- Pure healing ability
+	-- Self-heal (non-damage self-recovery, e.g. Crouch)
+	if ability and ability.SelfHeal then
+		local mult    = ability.Multiplier or 0
+		local healAmt = mult > 0 and math.floor(actor.MaxHP * math.min(mult, 1.0)) or math.floor(actor.MaxHP * 0.25)
+		actor.HP = math.min(actor.MaxHP, actor.HP + healAmt)
+		addLog(battle, actor.Name .. " → " .. abilityName .. " recovers (+" .. healAmt .. " HP)")
+		return
+	end
+
+	-- Pure ally heal
 	if ability and ability.Heals then
 		local mult   = ability.Multiplier or 0
 		local scales = ability.ScalesWith or "ATK"
@@ -385,19 +403,23 @@ local function applyAction(battle, actor, action)
 			end
 			addLog(battle, actor.Name .. " → " .. abilityName .. " heals all allies (+" .. total .. " HP total)")
 		else
-			local lowestFrac, lowestAlly = 2, nil
-			for _, u in ipairs(allySide) do
-				if u.HP > 0 then
-					local frac = u.HP / u.MaxHP
-					if frac < lowestFrac then
-						lowestFrac = frac
-						lowestAlly = u
+			-- Use explicitly targeted ally, or find lowest HP fraction
+			local healTarget = allyTarget
+			if not healTarget then
+				local lowestFrac = 2
+				for _, u in ipairs(allySide) do
+					if u.HP > 0 then
+						local frac = u.HP / u.MaxHP
+						if frac < lowestFrac then
+							lowestFrac = frac
+							healTarget = u
+						end
 					end
 				end
 			end
-			if lowestAlly then
-				local healAmt = healUnit(lowestAlly)
-				addLog(battle, actor.Name .. " → " .. abilityName .. " heals " .. lowestAlly.Name .. " (+" .. healAmt .. " HP)")
+			if healTarget then
+				local healAmt = healUnit(healTarget)
+				addLog(battle, actor.Name .. " → " .. abilityName .. " heals " .. healTarget.Name .. " (+" .. healAmt .. " HP)")
 			else
 				addLog(battle, actor.Name .. " → " .. abilityName .. " (no ally to heal)")
 			end
@@ -452,7 +474,6 @@ local function applyAction(battle, actor, action)
 		end
 	end
 
-	-- Log
 	if isAoE then
 		addLog(battle, actor.Name .. " → " .. abilityName .. " AoE (" .. totalDmg .. " dmg)")
 	elseif hits > 1 then
@@ -461,7 +482,6 @@ local function applyAction(battle, actor, action)
 		addLog(battle, actor.Name .. " → " .. abilityName .. " on " .. primaryTarget.Name .. " (" .. totalDmg .. ", " .. tostring(lastHt) .. ")")
 	end
 
-	-- Lifesteal: heal attacker for 30% of damage dealt
 	if lifeSteal and totalDmg > 0 then
 		local heal = math.floor(totalDmg * 0.3)
 		actor.HP   = math.min(actor.MaxHP, actor.HP + heal)
@@ -469,8 +489,8 @@ local function applyAction(battle, actor, action)
 	end
 end
 
+-- ─── ENEMY AI ─────────────────────────────────────────────────────────
 local function enemyAI(battle, enemy)
-	-- Find all alive player targets; pick lowest HP fraction
 	local targets = {}
 	for _, u in ipairs(battle.playerUnits) do
 		if u.HP > 0 then table.insert(targets, u) end
@@ -484,7 +504,6 @@ local function enemyAI(battle, enemy)
 		if f < bestFrac then bestFrac = f; target = u end
 	end
 
-	-- Pick best available (off-cooldown) active ability; prefer higher index (more powerful)
 	local bestIdx = nil
 	if enemy.Abilities then
 		for i = #enemy.Abilities, 1, -1 do
@@ -495,7 +514,6 @@ local function enemyAI(battle, enemy)
 			end
 		end
 		if not bestIdx then
-			-- All on cooldown — fall through to first active ability anyway
 			for i = 1, #enemy.Abilities do
 				if enemy.Abilities[i] and enemy.Abilities[i].Type ~= "Passive" then
 					bestIdx = i; break
@@ -513,7 +531,62 @@ local function enemyAI(battle, enemy)
 	end
 end
 
--- ─── UNIT FACTORY HELPERS ─────────────────────────────────────────────
+-- ─── AUTO PLAYER AI ───────────────────────────────────────────────────
+local function autoPlayerAI(battle, unit)
+	local abilities = unit.Abilities or {}
+	local cds       = unit.CooldownsRemaining or {}
+
+	local enemies, allies = {}, {}
+	for _, u in ipairs(battle.enemyUnits) do if u.HP > 0 then table.insert(enemies, u) end end
+	for _, u in ipairs(battle.playerUnits) do if u.HP > 0 then table.insert(allies, u) end end
+	if #enemies == 0 then return nil end
+
+	-- Target: lowest HP fraction enemy
+	local targetEnemy = enemies[1]
+	for _, u in ipairs(enemies) do
+		if (u.HP / u.MaxHP) < (targetEnemy.HP / targetEnemy.MaxHP) then targetEnemy = u end
+	end
+
+	-- Lowest HP fraction ally
+	local lowestFrac = 2
+	for _, u in ipairs(allies) do
+		local f = u.HP / u.MaxHP
+		if f < lowestFrac then lowestFrac = f end
+	end
+
+	-- Priority 1: heal if any ally below 40% HP
+	if lowestFrac < 0.4 then
+		for i, ab in ipairs(abilities) do
+			if (ab.Heals or ab.SelfHeal) and ab.Type ~= "Passive" and (cds[i] or 0) <= 0 then
+				return { abilityIndex = i, targetId = targetEnemy.Id }
+			end
+		end
+	end
+
+	-- Priority 2: AoE when 2+ enemies alive
+	if #enemies >= 2 then
+		for i, ab in ipairs(abilities) do
+			if ab.AoE and not ab.Heals and ab.Type ~= "Passive" and (cds[i] or 0) <= 0 then
+				return { abilityIndex = i, targetId = targetEnemy.Id }
+			end
+		end
+	end
+
+	-- Priority 3: best off-cooldown damage skill (highest effective damage)
+	local bestIdx, bestEff = nil, 0
+	for i, ab in ipairs(abilities) do
+		if ab.Type ~= "Passive" and not ab.Heals and not ab.SelfHeal and (cds[i] or 0) <= 0 then
+			local eff = (ab.Multiplier or 3.5) * math.max(1, ab.Hits or 1)
+			if eff > bestEff then bestEff = eff; bestIdx = i end
+		end
+	end
+	if bestIdx then return { abilityIndex = bestIdx, targetId = targetEnemy.Id } end
+
+	-- Fallback: basic attack
+	return { abilityIndex = 0, targetId = targetEnemy.Id }
+end
+
+-- ─── UNIT FACTORIES ───────────────────────────────────────────────────
 local function makePlayerUnit(data, slot)
 	local lv   = data.Level or 1
 	local base = data.DisplayName or data.CharacterName or "Unit"
@@ -578,29 +651,27 @@ local function runBattle(player, battle)
 	for i, u in ipairs(battle.playerUnits) do
 		addLog(battle, "  P" .. i .. ": " .. u.Name .. " HP=" .. tostring(u.HP))
 	end
-	task.wait(0.8)
+	bwait(battle, 0.8)
 	addLog(battle, "⚔ Battle begins! (" .. #battle.allWaves .. " wave" .. (#battle.allWaves == 1 and "" or "s") .. ")")
 	snapshot(battle)
 
 	while true do
 		if allDead(battle.enemyUnits) then
 			if battle.currentWaveIndex < #battle.allWaves then
-				-- More waves remain — clear and spawn next
 				battle.phase = "wave_transition"
 				addLog(battle, "✓ Wave cleared!")
 				snapshot(battle)
-				task.wait(1.2)
+				bwait(battle, 1.2)
 				spawnNextWave(battle)
 				battle.phase = "resolving"
 				snapshot(battle)
-				task.wait(0.5)
+				bwait(battle, 0.5)
 				continue
 			end
-			-- All waves cleared — victory
 			battle.phase = "victory"
 			addLog(battle, "🏆 Victory!")
 			snapshot(battle)
-			task.wait(2)
+			bwait(battle, 2)
 			local pIds = {}
 			for _, u in ipairs(battle.playerUnits) do table.insert(pIds, u.Id) end
 			BattleEnd:FireClient(player, { victory = true, xp = battle.stageXP, unitIds = pIds })
@@ -608,9 +679,9 @@ local function runBattle(player, battle)
 		end
 		if allDead(battle.playerUnits) then
 			battle.phase = "defeat"
-			addLog(battle, "💀 DEFEAT v3 — " .. #battle.playerUnits .. " player units")
+			addLog(battle, "💀 DEFEAT")
 			snapshot(battle)
-			task.wait(2)
+			bwait(battle, 2)
 			BattleEnd:FireClient(player, { victory = false })
 			break
 		end
@@ -626,41 +697,53 @@ local function runBattle(player, battle)
 			tickCooldowns(unit)
 
 			if not unit.IsEnemy then
-				battle.phase            = "player_action"
-				battle.waitingForAction = true
-				battle.pendingAction    = nil
-				snapshot(battle)
-
-				local elapsed = 0
-				while battle.waitingForAction and elapsed < 30 do
-					task.wait(0.1); elapsed += 0.1
-				end
-
-				if battle.pendingAction then
-					applyAction(battle, unit, battle.pendingAction)
-				else
-					local firstEnemy
-					for _, e in ipairs(battle.enemyUnits) do
-						if e.HP > 0 then firstEnemy = e; break end
+				if battle.autoMode then
+					-- Auto: AI picks action for player unit
+					battle.phase = "auto_action"
+					snapshot(battle)
+					bwait(battle, 0.8)
+					local action = autoPlayerAI(battle, unit)
+					if action then
+						applyAction(battle, unit, action)
 					end
-					if firstEnemy then
-						local dmg, ht = CombatLibrary.CalculateDamageFromStats(unit, firstEnemy)
-						firstEnemy.HP = math.max(0, firstEnemy.HP - dmg)
-						addLog(battle, unit.Name .. " auto-attacks " .. firstEnemy.Name .. " (" .. dmg .. ", " .. ht .. ")")
+				else
+					-- Manual: wait for player input
+					battle.phase            = "player_action"
+					battle.waitingForAction = true
+					battle.pendingAction    = nil
+					snapshot(battle)
+
+					local elapsed = 0
+					while battle.waitingForAction and elapsed < 30 do
+						task.wait(0.05); elapsed += 0.05
+					end
+
+					if battle.pendingAction then
+						applyAction(battle, unit, battle.pendingAction)
+					else
+						local firstEnemy
+						for _, e in ipairs(battle.enemyUnits) do
+							if e.HP > 0 then firstEnemy = e; break end
+						end
+						if firstEnemy then
+							local dmg, ht = CombatLibrary.CalculateDamageFromStats(unit, firstEnemy)
+							firstEnemy.HP = math.max(0, firstEnemy.HP - dmg)
+							addLog(battle, unit.Name .. " auto-attacks " .. firstEnemy.Name .. " (" .. dmg .. ", " .. ht .. ")")
+						end
 					end
 				end
 				battle.waitingForAction = false
 				battle.phase = "resolving"
 				snapshot(battle)
-				task.wait(0.6)
+				bwait(battle, 0.5)
 			else
 				battle.phase = "enemy_action"
 				snapshot(battle)
-				task.wait(1.2)
+				bwait(battle, 1.0)
 				enemyAI(battle, unit)
 				battle.phase = "resolving"
 				snapshot(battle)
-				task.wait(0.6)
+				bwait(battle, 0.5)
 			end
 
 			if allDead(battle.enemyUnits) or allDead(battle.playerUnits) then break end
@@ -676,22 +759,25 @@ local STUDIO_TEST_UNITS = {
 	  HP = 1815, Attack = 107, Defense = 136, Speed = 103,
 	  CritChance = 0.15, CritDamage = 1.5, Resistance = 0.15, Accuracy = 0,
 	  Abilities = {
-		{ Name = "Aqua Hurricane", Type = "Active", Cooldown = 0, Multiplier = 1.2, Hits = 3 },
-		{ Name = "Purify",         Type = "Active", Cooldown = 3, Multiplier = 0.2, Heals = true },
+		{ Name = "Aqua Hurricane", Type = "Active", Cooldown = 0, Multiplier = 1.2, Hits = 3,
+		  AoE = false, Heals = false, SelfHeal = false, LifeSteal = false, TargetType = "EnemySingle" },
+		{ Name = "Purify", Type = "Active", Cooldown = 3, Multiplier = 4, ScalesWith = "ATK",
+		  Hits = 1, AoE = false, Heals = true, SelfHeal = false, LifeSteal = false, TargetType = "AllySingle" },
 	  } },
 	{ CharacterName = "Fire Hellhound", DisplayName = "Fire Hellhound", Type = "Fire", Level = 30,
 	  HP = 1725, Attack = 227, Defense = 112, Speed = 115,
 	  CritChance = 0.15, CritDamage = 1.5, Resistance = 0.15, Accuracy = 0,
 	  Abilities = {
-		{ Name = "Bite",          Type = "Active", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
-		{ Name = "Double Attack", Type = "Active", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
+		{ Name = "Bite", Type = "Active", Cooldown = 0, Multiplier = 3.6, Hits = 1,
+		  AoE = false, Heals = false, SelfHeal = false, LifeSteal = true, TargetType = "EnemySingle" },
+		{ Name = "Double Attack", Type = "Active", Cooldown = 3, Multiplier = 3.7, Hits = 2,
+		  AoE = false, Heals = false, SelfHeal = false, LifeSteal = false, TargetType = "EnemySingle" },
 	  } },
 }
 
 local function startBattle(player, unitList, areaInfo)
 	if activeBattles[player.UserId] then return end
 
-	-- In Studio, fall back to test units if none were sent by the picker
 	if RunService:IsStudio() and (not unitList or #unitList == 0) then
 		unitList = STUDIO_TEST_UNITS
 	end
@@ -705,7 +791,6 @@ local function startBattle(player, unitList, areaInfo)
 	local stageXP  = area.xp or 0
 	local allWaves = area.waves or {}
 
-	-- Fallback: if API data missing, build a single wave from legacy area.enemies
 	if #allWaves == 0 and area.enemies then
 		allWaves = { { enemies = area.enemies } }
 	end
@@ -742,6 +827,7 @@ local function startBattle(player, unitList, areaInfo)
 		activeTurnId = nil, log = {}, phase = "starting",
 		waitingForAction = false, pendingAction = nil,
 		stageXP = stageXP,
+		autoMode = false, speed = 1,
 	}
 	activeBattles[player.UserId] = battle
 	task.spawn(runBattle, player, battle)
@@ -754,8 +840,58 @@ end)
 PlayerAction.OnServerEvent:Connect(function(player, action)
 	local battle = activeBattles[player.UserId]
 	if not battle or not battle.waitingForAction then return end
+	if not action or action.abilityIndex == nil then return end
+
+	-- Find acting unit
+	local actingUnit
+	for _, u in ipairs(battle.playerUnits) do
+		if u.Id == battle.activeTurnId then actingUnit = u; break end
+	end
+	if not actingUnit then return end
+
+	-- Validate cooldown
+	if action.abilityIndex > 0 then
+		local ab = actingUnit.Abilities[action.abilityIndex]
+		if not ab then return end
+		local cd = actingUnit.CooldownsRemaining[action.abilityIndex] or 0
+		if cd > 0 then return end
+
+		-- Validate target side based on TargetType
+		local tt = ab.TargetType or "EnemySingle"
+		if tt == "EnemySingle" then
+			local ok = false
+			for _, u in ipairs(battle.enemyUnits) do
+				if u.Id == action.targetId and u.HP > 0 then ok = true; break end
+			end
+			if not ok then return end
+		elseif tt == "AllySingle" then
+			local ok = false
+			for _, u in ipairs(battle.playerUnits) do
+				if u.Id == action.targetId and u.HP > 0 then ok = true; break end
+			end
+			if not ok then return end
+		end
+		-- EnemyAll / AllyAll / Self / Passive: no target validation needed
+	end
+
 	battle.pendingAction    = action
 	battle.waitingForAction = false
+end)
+
+SetAutoMode.OnServerEvent:Connect(function(player, enabled)
+	local battle = activeBattles[player.UserId]
+	if not battle then return end
+	battle.autoMode = enabled == true
+	-- If toggling auto ON while waiting for action, immediately unblock
+	if battle.autoMode and battle.waitingForAction then
+		battle.waitingForAction = false
+	end
+end)
+
+SetBattleSpeed.OnServerEvent:Connect(function(player, speed)
+	local battle = activeBattles[player.UserId]
+	if not battle then return end
+	battle.speed = math.clamp(speed, 1, 3)
 end)
 
 Players.PlayerRemoving:Connect(function(player)

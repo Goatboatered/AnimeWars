@@ -456,7 +456,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -474,7 +474,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -530,7 +530,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -548,7 +548,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -566,7 +566,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -588,7 +588,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -606,7 +606,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -624,7 +624,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -889,7 +889,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -983,7 +983,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1005,7 +1005,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1023,7 +1023,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1085,7 +1085,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -1197,7 +1197,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -1237,7 +1237,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -1299,7 +1299,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1375,7 +1375,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1411,7 +1411,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1452,7 +1452,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Trample", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Squall", Cooldown = 3, Multiplier = 3.5 },
-								{ Name = "Lightning", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Lightning", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1470,7 +1470,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1916,7 +1916,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1934,7 +1934,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -1952,7 +1952,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1970,7 +1970,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -2026,7 +2026,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2044,7 +2044,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -2066,7 +2066,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -2084,7 +2084,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2102,7 +2102,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2425,7 +2425,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2461,7 +2461,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2501,7 +2501,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2519,7 +2519,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2599,7 +2599,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -2621,7 +2621,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -2715,7 +2715,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -2759,7 +2759,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2795,7 +2795,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2835,7 +2835,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2871,7 +2871,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2889,7 +2889,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2930,7 +2930,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Trample", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Squall", Cooldown = 3, Multiplier = 3.5 },
-								{ Name = "Lightning", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Lightning", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2948,7 +2948,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3394,7 +3394,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -3412,7 +3412,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -3502,7 +3502,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -3520,7 +3520,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -3542,7 +3542,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3560,7 +3560,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3578,7 +3578,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3843,7 +3843,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3901,7 +3901,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3959,7 +3959,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3977,7 +3977,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4075,7 +4075,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -4133,7 +4133,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -4151,7 +4151,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -4173,7 +4173,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -4191,7 +4191,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -4209,7 +4209,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -4253,7 +4253,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4347,7 +4347,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4406,7 +4406,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Trample", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Squall", Cooldown = 3, Multiplier = 3.5 },
-								{ Name = "Lightning", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Lightning", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4424,7 +4424,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true },
+								{ Name = "Roar", Cooldown = 5, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},

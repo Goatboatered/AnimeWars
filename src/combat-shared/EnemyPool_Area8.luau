@@ -1457,7 +1457,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Fire Smash", Cooldown = 0, Multiplier = 3.9 },
-								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true },
+								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1475,8 +1475,8 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Fire Smash", Cooldown = 0, Multiplier = 3.9 },
-								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true },
-								{ Name = "Meteor", Cooldown = 5, Multiplier = 3.9, AoE = true },
+								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true, TargetType = "EnemyAll" },
+								{ Name = "Meteor", Cooldown = 5, Multiplier = 3.9, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1494,7 +1494,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Fire Smash", Cooldown = 0, Multiplier = 3.9 },
-								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true },
+								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2958,7 +2958,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Fire Smash", Cooldown = 0, Multiplier = 3.9 },
-								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true },
+								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2976,8 +2976,8 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Fire Smash", Cooldown = 0, Multiplier = 3.9 },
-								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true },
-								{ Name = "Meteor", Cooldown = 5, Multiplier = 3.9, AoE = true },
+								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true, TargetType = "EnemyAll" },
+								{ Name = "Meteor", Cooldown = 5, Multiplier = 3.9, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2995,7 +2995,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Fire Smash", Cooldown = 0, Multiplier = 3.9 },
-								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true },
+								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -4459,7 +4459,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Fire Smash", Cooldown = 0, Multiplier = 3.9 },
-								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true },
+								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4477,8 +4477,8 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Fire Smash", Cooldown = 0, Multiplier = 3.9 },
-								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true },
-								{ Name = "Meteor", Cooldown = 5, Multiplier = 3.9, AoE = true },
+								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true, TargetType = "EnemyAll" },
+								{ Name = "Meteor", Cooldown = 5, Multiplier = 3.9, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4496,7 +4496,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Fire Smash", Cooldown = 0, Multiplier = 3.9 },
-								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true },
+								{ Name = "Hell Fire", Cooldown = 4, Multiplier = 2.7, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},

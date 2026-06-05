@@ -21,7 +21,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -56,7 +56,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -74,7 +74,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -130,7 +130,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -169,7 +169,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -204,7 +204,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -247,7 +247,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -265,7 +265,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -283,7 +283,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -411,7 +411,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -429,7 +429,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -546,7 +546,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -621,7 +621,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -700,7 +700,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -719,7 +719,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -776,7 +776,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -812,7 +812,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -831,7 +831,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -889,7 +889,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -1249,7 +1249,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -1268,7 +1268,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -1309,7 +1309,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -1465,7 +1465,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -1484,7 +1484,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -1521,7 +1521,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -1544,7 +1544,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -1609,7 +1609,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1644,7 +1644,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1700,7 +1700,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1718,7 +1718,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1736,7 +1736,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1758,7 +1758,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1793,7 +1793,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1853,7 +1853,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1888,7 +1888,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1910,7 +1910,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1928,7 +1928,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1946,7 +1946,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2002,7 +2002,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2020,7 +2020,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2137,7 +2137,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2172,7 +2172,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2229,7 +2229,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2265,7 +2265,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2291,7 +2291,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -2327,7 +2327,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -2346,7 +2346,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -2404,7 +2404,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -2461,7 +2461,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -2480,7 +2480,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -2748,7 +2748,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -2767,7 +2767,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -2803,7 +2803,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -2844,7 +2844,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -2881,7 +2881,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -2983,7 +2983,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -3020,7 +3020,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -3039,7 +3039,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -3062,7 +3062,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -3081,7 +3081,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -3118,7 +3118,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -3141,7 +3141,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -3240,7 +3240,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3279,7 +3279,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3314,7 +3314,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3332,7 +3332,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3371,7 +3371,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3389,7 +3389,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3466,7 +3466,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3611,7 +3611,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3629,7 +3629,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3655,7 +3655,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3691,7 +3691,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3709,7 +3709,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3731,7 +3731,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3749,7 +3749,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3767,7 +3767,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3940,7 +3940,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -4016,7 +4016,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -4057,7 +4057,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -4076,7 +4076,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -4453,7 +4453,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -4626,7 +4626,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -4685,7 +4685,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},
@@ -4726,7 +4726,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Pulverize", Cooldown = 0, Multiplier = 2 },
-								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true },
+								{ Name = "Spinning Smash", Cooldown = 5, Multiplier = 3, ScalesWith = "DEF", AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Thunder Strike", Cooldown = 5, Multiplier = 3 },
 							},
 						},

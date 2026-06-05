@@ -313,7 +313,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -349,7 +349,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -440,7 +440,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -467,7 +467,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -486,7 +486,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -543,7 +543,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -562,7 +562,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -619,7 +619,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -655,7 +655,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -674,7 +674,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -701,7 +701,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -737,7 +737,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -777,7 +777,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -796,7 +796,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -832,7 +832,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -855,7 +855,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -891,7 +891,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -910,7 +910,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -937,7 +937,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -956,7 +956,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -975,7 +975,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -994,7 +994,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -1017,7 +1017,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1036,7 +1036,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -1055,7 +1055,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -1074,7 +1074,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -1097,7 +1097,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1133,7 +1133,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1152,7 +1152,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1179,7 +1179,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1232,7 +1232,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1255,7 +1255,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1274,7 +1274,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1293,7 +1293,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1312,7 +1312,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1369,7 +1369,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -1388,7 +1388,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1415,7 +1415,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -1434,7 +1434,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -1453,7 +1453,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1472,7 +1472,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1495,7 +1495,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1514,7 +1514,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -1533,7 +1533,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1552,7 +1552,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -1575,7 +1575,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -1594,7 +1594,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Deadly Blow", Cooldown = 0, Multiplier = 1.4 },
-								{ Name = "Deadly Wave", Cooldown = 4, Multiplier = 3.5, AoE = true },
+								{ Name = "Deadly Wave", Cooldown = 4, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Decline", Cooldown = 5, Multiplier = 0 },
 							},
 						},
@@ -1613,7 +1613,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -1879,7 +1879,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -1915,7 +1915,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -1989,7 +1989,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -2063,7 +2063,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -2124,7 +2124,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -2164,7 +2164,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -2183,7 +2183,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -2202,7 +2202,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -2221,7 +2221,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -2261,7 +2261,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -2280,7 +2280,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -2299,7 +2299,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -2343,7 +2343,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -2362,7 +2362,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -2402,7 +2402,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -2476,7 +2476,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -2512,7 +2512,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -2556,7 +2556,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -2609,7 +2609,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -2649,7 +2649,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -2668,7 +2668,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -2708,7 +2708,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -2727,7 +2727,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -2746,7 +2746,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -2790,7 +2790,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -2826,7 +2826,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -2845,7 +2845,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -2902,7 +2902,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -2959,7 +2959,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -2978,7 +2978,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -3022,7 +3022,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -3041,7 +3041,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -3060,7 +3060,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -3079,7 +3079,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -3102,7 +3102,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -3121,7 +3121,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -3140,7 +3140,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -3159,7 +3159,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -3182,7 +3182,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -3201,7 +3201,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Deadly Blow", Cooldown = 0, Multiplier = 1.4 },
-								{ Name = "Deadly Wave", Cooldown = 4, Multiplier = 3.5, AoE = true },
+								{ Name = "Deadly Wave", Cooldown = 4, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Decline", Cooldown = 5, Multiplier = 0 },
 							},
 						},
@@ -3220,7 +3220,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -3558,7 +3558,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -3691,7 +3691,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -3710,7 +3710,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -3729,7 +3729,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -3786,7 +3786,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -3877,7 +3877,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -3921,7 +3921,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -3974,7 +3974,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4014,7 +4014,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4088,7 +4088,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4107,7 +4107,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -4185,7 +4185,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4225,7 +4225,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4244,7 +4244,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4263,7 +4263,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -4303,7 +4303,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4339,7 +4339,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -4383,7 +4383,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -4402,7 +4402,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -4421,7 +4421,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -4440,7 +4440,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -4535,7 +4535,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -4571,7 +4571,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4590,7 +4590,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -4617,7 +4617,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -4636,7 +4636,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4655,7 +4655,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4674,7 +4674,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},
@@ -4697,7 +4697,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4716,7 +4716,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4735,7 +4735,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4754,7 +4754,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4777,7 +4777,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Plague", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Frozen Soul", Cooldown = 5, Multiplier = 6.1 },
 							},
 						},
@@ -4796,7 +4796,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Deadly Blow", Cooldown = 0, Multiplier = 1.4 },
-								{ Name = "Deadly Wave", Cooldown = 4, Multiplier = 3.5, AoE = true },
+								{ Name = "Deadly Wave", Cooldown = 4, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Decline", Cooldown = 5, Multiplier = 0 },
 							},
 						},
@@ -4815,7 +4815,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Grim Scythe", Cooldown = 0, Multiplier = 3.2 },
-								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true },
+								{ Name = "Deadly Swing", Cooldown = 4, Multiplier = 2.2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Death Penalty", Cooldown = 4, Multiplier = 3.5, Hits = 3 },
 							},
 						},

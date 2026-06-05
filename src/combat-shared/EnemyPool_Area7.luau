@@ -21,7 +21,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -56,7 +56,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -95,7 +95,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -168,7 +168,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -231,7 +231,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -250,7 +250,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -269,7 +269,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -288,7 +288,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -311,7 +311,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -330,7 +330,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -349,7 +349,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -368,7 +368,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -391,7 +391,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -410,7 +410,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -429,7 +429,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -617,7 +617,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -711,7 +711,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -750,7 +750,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -768,7 +768,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -824,7 +824,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -842,7 +842,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -869,7 +869,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -888,7 +888,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -907,7 +907,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -926,7 +926,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -949,7 +949,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -968,7 +968,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -987,7 +987,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1006,7 +1006,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1029,7 +1029,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1067,7 +1067,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1094,7 +1094,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1263,7 +1263,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1282,7 +1282,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1309,7 +1309,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1327,7 +1327,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1345,7 +1345,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1363,7 +1363,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1386,7 +1386,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1405,7 +1405,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1423,7 +1423,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1442,7 +1442,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1465,7 +1465,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1503,7 +1503,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1531,7 +1531,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1566,7 +1566,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1622,7 +1622,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1640,7 +1640,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1679,7 +1679,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1742,7 +1742,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1761,7 +1761,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1780,7 +1780,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1799,7 +1799,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1822,7 +1822,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1841,7 +1841,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1860,7 +1860,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1879,7 +1879,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1902,7 +1902,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1921,7 +1921,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1940,7 +1940,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2128,7 +2128,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2188,7 +2188,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2244,7 +2244,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2279,7 +2279,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2335,7 +2335,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2379,7 +2379,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2398,7 +2398,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2417,7 +2417,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2436,7 +2436,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2459,7 +2459,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2478,7 +2478,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2497,7 +2497,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2516,7 +2516,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2539,7 +2539,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2577,7 +2577,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2622,7 +2622,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2641,7 +2641,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2681,7 +2681,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2717,7 +2717,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2736,7 +2736,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2776,7 +2776,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2795,7 +2795,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2821,7 +2821,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2840,7 +2840,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2859,7 +2859,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2877,7 +2877,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2899,7 +2899,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2918,7 +2918,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2937,7 +2937,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2955,7 +2955,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2978,7 +2978,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3016,7 +3016,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3116,7 +3116,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3151,7 +3151,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3169,7 +3169,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3227,7 +3227,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3254,7 +3254,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3273,7 +3273,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3292,7 +3292,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3311,7 +3311,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3334,7 +3334,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3353,7 +3353,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3372,7 +3372,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3391,7 +3391,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3414,7 +3414,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3433,7 +3433,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3452,7 +3452,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3640,7 +3640,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3717,7 +3717,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3845,7 +3845,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3889,7 +3889,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3908,7 +3908,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3927,7 +3927,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3946,7 +3946,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3969,7 +3969,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3988,7 +3988,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4007,7 +4007,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4026,7 +4026,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -4049,7 +4049,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4087,7 +4087,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -4114,7 +4114,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4151,7 +4151,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4170,7 +4170,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -4193,7 +4193,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4288,7 +4288,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4307,7 +4307,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Snatch", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Body Slam", Cooldown = 3, Multiplier = 5.1 },
-								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Tailwind", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -4333,7 +4333,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4352,7 +4352,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4370,7 +4370,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4389,7 +4389,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -4412,7 +4412,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4430,7 +4430,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4448,7 +4448,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4466,7 +4466,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Sonic Boom", Cooldown = 0, Multiplier = 4 },
-								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true },
+								{ Name = "Thunder Blast", Cooldown = 3, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -4489,7 +4489,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4527,7 +4527,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},

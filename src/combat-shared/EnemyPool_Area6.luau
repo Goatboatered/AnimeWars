@@ -407,7 +407,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
-								{ Name = "Remove! Heal!", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Remove! Heal!", Cooldown = 5, Multiplier = 0, Heals = true, TargetType = "AllySingle" },
 							},
 						},
 						{
@@ -1479,7 +1479,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Ice Drop", Cooldown = 0, Multiplier = 4.1 },
-								{ Name = "Aqua Frenzy", Cooldown = 4, Multiplier = 2.8, AoE = true },
+								{ Name = "Aqua Frenzy", Cooldown = 4, Multiplier = 2.8, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Revive", Cooldown = 7, Multiplier = 3.5 },
 							},
 						},
@@ -1912,7 +1912,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
-								{ Name = "Remove! Heal!", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Remove! Heal!", Cooldown = 5, Multiplier = 0, Heals = true, TargetType = "AllySingle" },
 							},
 						},
 						{
@@ -2984,7 +2984,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Ice Drop", Cooldown = 0, Multiplier = 4.1 },
-								{ Name = "Aqua Frenzy", Cooldown = 4, Multiplier = 2.8, AoE = true },
+								{ Name = "Aqua Frenzy", Cooldown = 4, Multiplier = 2.8, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Revive", Cooldown = 7, Multiplier = 3.5 },
 							},
 						},
@@ -3417,7 +3417,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
-								{ Name = "Remove! Heal!", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Remove! Heal!", Cooldown = 5, Multiplier = 0, Heals = true, TargetType = "AllySingle" },
 							},
 						},
 						{
@@ -4489,7 +4489,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Ice Drop", Cooldown = 0, Multiplier = 4.1 },
-								{ Name = "Aqua Frenzy", Cooldown = 4, Multiplier = 2.8, AoE = true },
+								{ Name = "Aqua Frenzy", Cooldown = 4, Multiplier = 2.8, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Revive", Cooldown = 7, Multiplier = 3.5 },
 							},
 						},

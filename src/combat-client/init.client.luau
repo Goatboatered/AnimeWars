@@ -9,15 +9,17 @@ local player    = Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 local camera    = workspace.CurrentCamera
 
--- Wait for remotes
-local remotes       = ReplicatedStorage:WaitForChild("CombatRemotes", 15)
-local SendUnitData  = remotes:WaitForChild("SendUnitData",  10)
-local BattleState   = remotes:WaitForChild("BattleState",   10)
-local PlayerAction  = remotes:WaitForChild("PlayerAction",  10)
-local BattleEnd     = remotes:WaitForChild("BattleEnd",     10)
-local ModelsSpawned = remotes:WaitForChild("ModelsSpawned", 10)
+-- ─── REMOTES ──────────────────────────────────────────────────────────
+local remotes        = ReplicatedStorage:WaitForChild("CombatRemotes", 15)
+local SendUnitData   = remotes:WaitForChild("SendUnitData",   10)
+local BattleState    = remotes:WaitForChild("BattleState",    10)
+local PlayerAction   = remotes:WaitForChild("PlayerAction",   10)
+local BattleEnd      = remotes:WaitForChild("BattleEnd",      10)
+local ModelsSpawned  = remotes:WaitForChild("ModelsSpawned",  10)
+local SetAutoMode    = remotes:WaitForChild("SetAutoMode",    10)
+local SetBattleSpeed = remotes:WaitForChild("SetBattleSpeed", 10)
 
--- Teleport data — falls back to test units when opened directly in Studio
+-- ─── TELEPORT DATA ────────────────────────────────────────────────────
 local tpData = TeleportService:GetLocalPlayerTeleportData()
 if not tpData or not tpData.selectedUnits or #tpData.selectedUnits == 0 then
 	tpData = {
@@ -29,10 +31,10 @@ if not tpData or not tpData.selectedUnits or #tpData.selectedUnits == 0 then
 				Speed = 103, CritChance = 0.15, CritDamage = 1.5,
 				Resistance = 0.15, Accuracy = 0,
 				Abilities = {
-					{ Name = "Aqua Hurricane", Type = "Active", Cooldown = 0,
-					  Description = "Attacks 3×, 20% Freeze. 120% ATK×3." },
-					{ Name = "Purify", Type = "Active", Cooldown = 3,
-					  Description = "Remove debuffs from ally and heal." },
+					{ Name = "Aqua Hurricane", Type = "Active", Cooldown = 0, TargetType = "EnemySingle",
+					  Description = "Attacks 3x. 1.2x ATK each hit." },
+					{ Name = "Purify", Type = "Active", Cooldown = 3, TargetType = "AllySingle",
+					  Description = "Remove debuffs, heal ally for 4x ATK." },
 				},
 			},
 			{
@@ -41,10 +43,10 @@ if not tpData or not tpData.selectedUnits or #tpData.selectedUnits == 0 then
 				Speed = 115, CritChance = 0.15, CritDamage = 1.5,
 				Resistance = 0.15, Accuracy = 0,
 				Abilities = {
-					{ Name = "Bite", Type = "Active", Cooldown = 0,
-					  Description = "Bite enemy, heal 30% of damage. 360% ATK." },
-					{ Name = "Double Attack", Type = "Active", Cooldown = 3,
-					  Description = "Bite 2×. 370% ATK×2." },
+					{ Name = "Bite", Type = "Active", Cooldown = 0, TargetType = "EnemySingle",
+					  Description = "Bite enemy. Heal 30% of damage dealt. 3.6x ATK." },
+					{ Name = "Double Attack", Type = "Active", Cooldown = 3, TargetType = "EnemySingle",
+					  Description = "Attacks twice. 3.7x ATK x2." },
 				},
 			},
 		},
@@ -58,7 +60,6 @@ local SW_AREAS = {
 }
 
 if RunService:IsStudio() then
-	-- ── Studio level picker ────────────────────────────────────────────
 	local sg = Instance.new("ScreenGui")
 	sg.Name = "StudioLevelPicker"; sg.ResetOnSpawn = false; sg.Parent = playerGui
 
@@ -96,7 +97,6 @@ if RunService:IsStudio() then
 			Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
 			btn.MouseButton1Click:Connect(onClick)
 		end
-
 		return valLbl, makeArrow
 	end
 
@@ -105,7 +105,6 @@ if RunService:IsStudio() then
 	local diffVal                = Instance.new("TextLabel")
 	local stageVal, makeStageArrow = makeRow("Stage:", 110)
 
-	-- Difficulty row
 	local diffLbl = Instance.new("TextLabel")
 	diffLbl.Size = UDim2.fromOffset(90, 30); diffLbl.Position = UDim2.fromOffset(10, 77)
 	diffLbl.BackgroundTransparency = 1; diffLbl.TextColor3 = Color3.fromRGB(160,170,200)
@@ -116,14 +115,11 @@ if RunService:IsStudio() then
 	diffVal.Font = Enum.Font.GothamBold; diffVal.TextScaled = true
 	diffVal.Text = ""; diffVal.Parent = panel
 
-	local DIFFS = {"Normal","Hard","Hell"}
-	local diffIdx = 1
+	local DIFFS = {"Normal","Hard","Hell"}; local diffIdx = 1
 	local function cycleDiff(delta)
 		diffIdx = ((diffIdx - 1 + delta) % 3) + 1
-		diff = DIFFS[diffIdx]
-		diffVal.Text = diff
+		diff = DIFFS[diffIdx]; diffVal.Text = diff
 	end
-
 	local function refresh()
 		areaVal.Text  = areaIdx .. ". " .. (SW_AREAS[areaIdx] or "?")
 		diffVal.Text  = diff
@@ -135,7 +131,6 @@ if RunService:IsStudio() then
 	makeStageArrow("◀", 214, function() stageIdx = math.max(1, stageIdx-1); refresh() end)
 	makeStageArrow("▶", 244, function() stageIdx = math.min(7, stageIdx+1); refresh() end)
 
-	-- Manual diff arrows
 	local dPrev = Instance.new("TextButton")
 	dPrev.Size = UDim2.fromOffset(26,26); dPrev.Position = UDim2.fromOffset(214, 79)
 	dPrev.BackgroundColor3 = Color3.fromRGB(40,48,70); dPrev.BorderSizePixel = 0
@@ -157,16 +152,13 @@ if RunService:IsStudio() then
 	startBtn.TextColor3 = Color3.fromRGB(20,20,30); startBtn.Font = Enum.Font.GothamBlack
 	startBtn.TextScaled = true; startBtn.Text = "Start Battle"; startBtn.Parent = panel
 	Instance.new("UICorner", startBtn).CornerRadius = UDim.new(0,12)
-
 	refresh()
-
 	startBtn.MouseButton1Click:Connect(function()
 		sg:Destroy()
 		local areaInfo = { num = areaIdx, difficulty = diff:lower(), stage = stageIdx }
 		SendUnitData:FireServer(tpData.selectedUnits, areaInfo)
 	end)
 else
-	-- Normal game: auto-fire with teleport data
 	task.delay(1, function()
 		local areaInfo = { num = tpData.areaNum or 1, difficulty = tpData.difficulty or "normal", stage = tpData.stage or 1 }
 		SendUnitData:FireServer(tpData.selectedUnits, areaInfo)
@@ -178,7 +170,6 @@ local pendingXPRewards = nil
 -- ─── CAMERA ───────────────────────────────────────────────────────────
 camera.CameraType = Enum.CameraType.Scriptable
 local CAMERA_CF   = CFrame.new(Vector3.new(-15, 20, 26), Vector3.new(1, 1, -4))
-
 RunService.RenderStepped:Connect(function()
 	camera.CFrame = CAMERA_CF
 end)
@@ -196,8 +187,7 @@ logBg.Size             = UDim2.new(0.38, 0, 0, 100)
 logBg.Position         = UDim2.new(0, 8, 1, -108)
 logBg.BackgroundColor3 = Color3.fromRGB(8, 10, 18)
 logBg.BackgroundTransparency = 0.25
-logBg.BorderSizePixel  = 0
-logBg.Parent           = screenGui
+logBg.BorderSizePixel  = 0; logBg.Parent = screenGui
 Instance.new("UICorner", logBg).CornerRadius = UDim.new(0, 8)
 
 local logLabel = Instance.new("TextLabel")
@@ -210,8 +200,7 @@ logLabel.TextSize           = 13
 logLabel.TextXAlignment     = Enum.TextXAlignment.Left
 logLabel.TextYAlignment     = Enum.TextYAlignment.Bottom
 logLabel.TextWrapped        = true
-logLabel.Text               = ""
-logLabel.Parent             = logBg
+logLabel.Text               = ""; logLabel.Parent = logBg
 
 -- ─── TURN LABEL ───────────────────────────────────────────────────────
 local turnBg = Instance.new("Frame")
@@ -219,8 +208,7 @@ turnBg.Size             = UDim2.fromOffset(300, 36)
 turnBg.Position         = UDim2.new(0.5, -150, 0, 8)
 turnBg.BackgroundColor3 = Color3.fromRGB(14, 16, 26)
 turnBg.BackgroundTransparency = 0.2
-turnBg.BorderSizePixel  = 0
-turnBg.Parent           = screenGui
+turnBg.BorderSizePixel  = 0; turnBg.Parent = screenGui
 Instance.new("UICorner", turnBg).CornerRadius = UDim.new(0, 8)
 
 local turnLabel = Instance.new("TextLabel")
@@ -229,87 +217,7 @@ turnLabel.BackgroundTransparency = 1
 turnLabel.TextColor3        = Color3.fromRGB(255, 215, 80)
 turnLabel.Font              = Enum.Font.GothamBold
 turnLabel.TextScaled        = true
-turnLabel.Text              = ""
-turnLabel.Parent            = turnBg
-
--- ─── ABILITY BAR ──────────────────────────────────────────────────────
-local abilityBar = Instance.new("Frame")
-abilityBar.Size             = UDim2.new(1, 0, 0, 72)
-abilityBar.Position         = UDim2.new(0, 0, 1, -72)
-abilityBar.BackgroundColor3 = Color3.fromRGB(10, 12, 22)
-abilityBar.BackgroundTransparency = 0.15
-abilityBar.BorderSizePixel  = 0
-abilityBar.Visible          = false
-abilityBar.Parent           = screenGui
-
-local abilityLayout = Instance.new("UIListLayout")
-abilityLayout.FillDirection       = Enum.FillDirection.Horizontal
-abilityLayout.Padding             = UDim.new(0, 10)
-abilityLayout.VerticalAlignment   = Enum.VerticalAlignment.Center
-abilityLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-abilityLayout.Parent              = abilityBar
-
-local abilityButtons = {}
-local selectedEnemyId = { nil }
-
-local function clearAbilityButtons()
-	for _, b in ipairs(abilityButtons) do b:Destroy() end
-	table.clear(abilityButtons)
-end
-
-local function buildAbilityButtons(unit)
-	clearAbilityButtons()
-	local cds = unit.CooldownsRemaining or {}
-
-	for i, ab in ipairs(unit.Abilities or {}) do
-		local cd  = cds[i] or 0
-		local btn = Instance.new("TextButton")
-		btn.Size             = UDim2.fromOffset(190, 52)
-		btn.BackgroundColor3 = cd > 0
-			and Color3.fromRGB(42, 44, 58) or Color3.fromRGB(45, 105, 185)
-		btn.BorderSizePixel  = 0
-		btn.TextColor3       = cd > 0
-			and Color3.fromRGB(80, 80, 100) or Color3.fromRGB(255, 255, 255)
-		btn.Font             = Enum.Font.GothamBold
-		btn.TextScaled       = true
-		btn.Text             = cd > 0 and (ab.Name .. "  CD:" .. cd) or ab.Name
-		btn.Active           = cd <= 0
-		btn.Parent           = abilityBar
-		Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 8)
-
-		if cd <= 0 then
-			btn.MouseButton1Click:Connect(function()
-				local tid = selectedEnemyId[1]
-				if not tid then return end
-				PlayerAction:FireServer({ abilityIndex = i, targetId = tid })
-				abilityBar.Visible = false
-				clearAbilityButtons()
-			end)
-		end
-		table.insert(abilityButtons, btn)
-	end
-
-	-- Basic attack
-	local basic = Instance.new("TextButton")
-	basic.Size             = UDim2.fromOffset(150, 52)
-	basic.BackgroundColor3 = Color3.fromRGB(75, 50, 115)
-	basic.BorderSizePixel  = 0
-	basic.TextColor3       = Color3.fromRGB(255, 255, 255)
-	basic.Font             = Enum.Font.GothamBold
-	basic.TextScaled       = true
-	basic.Text             = "Basic Attack"
-	basic.Parent           = abilityBar
-	Instance.new("UICorner", basic).CornerRadius = UDim.new(0, 8)
-
-	basic.MouseButton1Click:Connect(function()
-		local tid = selectedEnemyId[1]
-		if not tid then return end
-		PlayerAction:FireServer({ abilityIndex = 0, targetId = tid })
-		abilityBar.Visible = false
-		clearAbilityButtons()
-	end)
-	table.insert(abilityButtons, basic)
-end
+turnLabel.Text              = ""; turnLabel.Parent = turnBg
 
 -- ─── TYPE MATCHUP ─────────────────────────────────────────────────────
 local TYPE_BEATS = {
@@ -319,43 +227,61 @@ local TYPE_BEATS = {
 	Light = { Dark  = true },
 	Dark  = { Light = true },
 }
-
 local MATCHUP_COLOR = {
-	good    = Color3.fromRGB(80,  220,  90),   -- green  – attacker has advantage
-	neutral = Color3.fromRGB(255, 200,  40),   -- yellow – no advantage either way
-	bad     = Color3.fromRGB(230,  65,  65),   -- red    – defender has advantage
+	good    = Color3.fromRGB(80,  220,  90),
+	neutral = Color3.fromRGB(255, 200,  40),
+	bad     = Color3.fromRGB(230,  65,  65),
 }
-
-local function getMatchupKey(attackerType, defenderType)
-	if TYPE_BEATS[attackerType] and TYPE_BEATS[attackerType][defenderType] then
-		return "good"
-	elseif TYPE_BEATS[defenderType] and TYPE_BEATS[defenderType][attackerType] then
-		return "bad"
-	end
+local function getMatchupKey(a, d)
+	if TYPE_BEATS[a] and TYPE_BEATS[a][d] then return "good" end
+	if TYPE_BEATS[d] and TYPE_BEATS[d][a] then return "bad"  end
 	return "neutral"
 end
 
--- ─── ARROW BILLBOARDS ─────────────────────────────────────────────────
-local arrowBills         = {}   -- enemyId → BillboardGui
-local arrowLabels        = {}   -- enemyId → TextLabel (the ▼)
-local arrowMatchupColors = {}   -- enemyId → Color3 (set each player turn)
+-- ─── TARGETING STATE ──────────────────────────────────────────────────
+local pendingAbilityIdx = nil   -- selected skill slot (nil = nothing selected)
+local pendingTargetType = nil   -- "EnemySingle"|"EnemyAll"|"AllySingle"|"AllyAll"|"Self"
+local cachedPlayerUnits = {}    -- latest player unit list from BattleState
+local cachedEnemyUnits  = {}    -- latest enemy unit list from BattleState
+local cachedActingUnit  = nil   -- unit currently taking its turn
+local autoEnabled       = false -- mirrors server autoMode
+local currentSpeed      = 1     -- 1 / 2 / 3
+local cancelBtn         = nil   -- forward ref; assigned in buildAbilityButtons
+
+-- ─── ARROW BILLBOARD SYSTEM ───────────────────────────────────────────
+local arrowBills         = {}   -- enemyId → BillboardGui  (red/yellow arrows)
+local arrowLabels        = {}   -- enemyId → TextLabel
+local arrowMatchupColors = {}
 local arrowT             = 0
 local arrowsActive       = false
 
+local allyArrowBills     = {}   -- unitId → BillboardGui   (green arrows)
+local allyArrowLabels    = {}   -- unitId → TextLabel
+local allyArrowT         = 0
+local allyArrowsActive   = false
+
 RunService.Heartbeat:Connect(function(dt)
-	if not arrowsActive then return end
-	arrowT = arrowT + dt
-	local offset = math.sin(arrowT * 4) * 0.45
-	for _, bill in pairs(arrowBills) do
-		bill.StudsOffset = Vector3.new(0, 7.5 + offset, 0)
+	arrowT = arrowT + dt; allyArrowT = allyArrowT + dt
+	if arrowsActive then
+		local off = math.sin(arrowT * 4) * 0.45
+		for _, b in pairs(arrowBills) do b.StudsOffset = Vector3.new(0, 7.5 + off, 0) end
+	end
+	if allyArrowsActive then
+		local off = math.sin(allyArrowT * 4) * 0.45
+		for _, b in pairs(allyArrowBills) do b.StudsOffset = Vector3.new(0, 7.5 + off, 0) end
 	end
 end)
 
-local function setArrowsVisible(visible)
-	arrowsActive = visible
-	for _, bill in pairs(arrowBills) do
-		bill.Enabled = visible
-	end
+local function setEnemyArrowsVisible(v)
+	arrowsActive = v
+	for _, b in pairs(arrowBills) do b.Enabled = v end
+end
+local function setAllyArrowsVisible(v)
+	allyArrowsActive = v
+	for _, b in pairs(allyArrowBills) do b.Enabled = v end
+end
+local function setArrowsVisible(v)
+	setEnemyArrowsVisible(v); setAllyArrowsVisible(v)
 end
 
 local function updateArrowColors(activeType, enemyUnits)
@@ -368,62 +294,324 @@ local function updateArrowColors(activeType, enemyUnits)
 	end
 end
 
-local function highlightArrow(enemyId)
+local function highlightEnemyArrow(enemyId)
 	for id, lbl in pairs(arrowLabels) do
 		local base = arrowMatchupColors[id] or MATCHUP_COLOR.neutral
 		if id == enemyId then
-			lbl.TextColor3             = base
-			lbl.TextStrokeTransparency = 0.2
+			lbl.TextColor3 = base; lbl.TextStrokeTransparency = 0.2
 		else
-			lbl.TextColor3             = Color3.new(base.R * 0.55, base.G * 0.55, base.B * 0.55)
+			lbl.TextColor3 = Color3.new(base.R * 0.5, base.G * 0.5, base.B * 0.5)
 			lbl.TextStrokeTransparency = 1
 		end
 	end
 end
 
--- ─── ATTACH TO ENEMY MODELS ───────────────────────────────────────────
+local function highlightAllyArrow(allyId)
+	for id, lbl in pairs(allyArrowLabels) do
+		if id == allyId then
+			lbl.TextColor3 = Color3.fromRGB(80, 240, 100); lbl.TextStrokeTransparency = 0.2
+		else
+			lbl.TextColor3 = Color3.fromRGB(25, 90, 35); lbl.TextStrokeTransparency = 1
+		end
+	end
+end
+
+-- ─── ABILITY BAR ──────────────────────────────────────────────────────
+local abilityBar = Instance.new("Frame")
+abilityBar.Size             = UDim2.new(1, 0, 0, 76)
+abilityBar.Position         = UDim2.new(0, 0, 1, -76)
+abilityBar.BackgroundColor3 = Color3.fromRGB(10, 12, 22)
+abilityBar.BackgroundTransparency = 0.15
+abilityBar.BorderSizePixel  = 0
+abilityBar.Visible          = false; abilityBar.Parent = screenGui
+
+local abilityLayout = Instance.new("UIListLayout")
+abilityLayout.FillDirection       = Enum.FillDirection.Horizontal
+abilityLayout.Padding             = UDim.new(0, 8)
+abilityLayout.VerticalAlignment   = Enum.VerticalAlignment.Center
+abilityLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+abilityLayout.Parent              = abilityBar
+
+local abilityButtons = {}
+
+local function clearAbilityButtons()
+	for _, b in ipairs(abilityButtons) do b:Destroy() end
+	table.clear(abilityButtons)
+	cancelBtn = nil
+end
+
+-- ─── SELECTION HELPERS ────────────────────────────────────────────────
+local function cancelSelection()
+	pendingAbilityIdx = nil; pendingTargetType = nil
+	setEnemyArrowsVisible(false); setAllyArrowsVisible(false)
+	if cancelBtn and cancelBtn.Parent then cancelBtn.Visible = false end
+end
+
+local function firePlayerAction(abilityIdx, targetId)
+	PlayerAction:FireServer({ abilityIndex = abilityIdx, targetId = targetId })
+	abilityBar.Visible = false
+	clearAbilityButtons()
+	cancelSelection()
+end
+
+local TARGET_LABELS = {
+	EnemySingle = "→ Enemy",
+	EnemyAll    = "→ All Enemies",
+	AllySingle  = "→ Ally",
+	AllyAll     = "→ All Allies",
+	Self        = "→ Self",
+	Passive     = "(Passive)",
+}
+local BTN_COLORS = {
+	EnemySingle = Color3.fromRGB(45, 105, 185),
+	EnemyAll    = Color3.fromRGB(160, 50, 45),
+	AllySingle  = Color3.fromRGB(35, 125, 60),
+	AllyAll     = Color3.fromRGB(25, 100, 50),
+	Self        = Color3.fromRGB(100, 55, 165),
+}
+
+local function enterSelectingMode(abilityIdx, targetType)
+	if pendingAbilityIdx ~= nil then return end -- guard double-click
+	pendingAbilityIdx = abilityIdx
+	pendingTargetType = targetType
+
+	-- AoE / no-pick skills: resolve target automatically and fire
+	if targetType == "EnemyAll" then
+		for _, e in ipairs(cachedEnemyUnits) do
+			if e.HP > 0 then firePlayerAction(abilityIdx, e.Id); return end
+		end; return
+	end
+	if targetType == "AllyAll" then
+		for _, u in ipairs(cachedPlayerUnits) do
+			if u.HP > 0 then firePlayerAction(abilityIdx, u.Id); return end
+		end; return
+	end
+	if targetType == "Self" then
+		if cachedActingUnit then firePlayerAction(abilityIdx, cachedActingUnit.Id) end
+		return
+	end
+
+	-- Single-target: show arrows and wait for click
+	if targetType == "EnemySingle" then
+		setAllyArrowsVisible(false); setEnemyArrowsVisible(true)
+		for _, e in ipairs(cachedEnemyUnits) do
+			if e.HP > 0 then highlightEnemyArrow(e.Id); break end
+		end
+	elseif targetType == "AllySingle" then
+		setEnemyArrowsVisible(false); setAllyArrowsVisible(true)
+		local lf, lid = 2, nil
+		for _, u in ipairs(cachedPlayerUnits) do
+			if u.HP > 0 then
+				local f = u.HP / u.MaxHP
+				if f < lf then lf = f; lid = u.Id end
+			end
+		end
+		if lid then highlightAllyArrow(lid) end
+	end
+	if cancelBtn and cancelBtn.Parent then cancelBtn.Visible = true end
+end
+
+local function buildAbilityButtons(unit)
+	clearAbilityButtons()
+	local cds = unit.CooldownsRemaining or {}
+
+	for i, ab in ipairs(unit.Abilities or {}) do
+		if ab.Type == "Passive" then continue end
+		local cd   = cds[i] or 0
+		local tt   = ab.TargetType or "EnemySingle"
+		local onCD = cd > 0
+
+		local btn = Instance.new("TextButton")
+		btn.Size             = UDim2.fromOffset(180, 58)
+		btn.BackgroundColor3 = onCD and Color3.fromRGB(35, 38, 50)
+		                            or (BTN_COLORS[tt] or Color3.fromRGB(45, 105, 185))
+		btn.BorderSizePixel  = 0
+		btn.TextColor3       = onCD and Color3.fromRGB(70, 70, 90)
+		                            or Color3.fromRGB(255, 255, 255)
+		btn.Font             = Enum.Font.GothamBold
+		btn.TextScaled       = false; btn.TextSize = 13
+		btn.Text             = (onCD and (ab.Name .. "  CD:" .. cd) or ab.Name)
+		                       .. "\n" .. (TARGET_LABELS[tt] or tt)
+		btn.Active           = not onCD; btn.Parent = abilityBar
+		Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 8)
+
+		if not onCD then
+			local ci, ct = i, tt
+			btn.MouseButton1Click:Connect(function() enterSelectingMode(ci, ct) end)
+		end
+		table.insert(abilityButtons, btn)
+	end
+
+	-- Basic Attack
+	local basic = Instance.new("TextButton")
+	basic.Size             = UDim2.fromOffset(140, 58)
+	basic.BackgroundColor3 = Color3.fromRGB(75, 50, 115)
+	basic.BorderSizePixel  = 0
+	basic.TextColor3       = Color3.fromRGB(255, 255, 255)
+	basic.Font             = Enum.Font.GothamBold
+	basic.TextScaled       = false; basic.TextSize = 13
+	basic.Text             = "Basic Attack\n→ Enemy"
+	basic.Parent           = abilityBar
+	Instance.new("UICorner", basic).CornerRadius = UDim.new(0, 8)
+	basic.MouseButton1Click:Connect(function() enterSelectingMode(0, "EnemySingle") end)
+	table.insert(abilityButtons, basic)
+
+	-- Cancel button (hidden until a skill is pending)
+	cancelBtn = Instance.new("TextButton")
+	cancelBtn.Size             = UDim2.fromOffset(90, 58)
+	cancelBtn.BackgroundColor3 = Color3.fromRGB(110, 30, 30)
+	cancelBtn.BorderSizePixel  = 0
+	cancelBtn.TextColor3       = Color3.fromRGB(255, 255, 255)
+	cancelBtn.Font             = Enum.Font.GothamBold
+	cancelBtn.TextScaled       = true
+	cancelBtn.Text             = "Cancel"
+	cancelBtn.Visible          = false; cancelBtn.Parent = abilityBar
+	Instance.new("UICorner", cancelBtn).CornerRadius = UDim.new(0, 8)
+	cancelBtn.MouseButton1Click:Connect(cancelSelection)
+	table.insert(abilityButtons, cancelBtn)
+end
+
+-- ─── SPEED + AUTO PANEL (top-right) ───────────────────────────────────
+local ctrlPanel = Instance.new("Frame")
+ctrlPanel.Size             = UDim2.fromOffset(254, 36)
+ctrlPanel.Position         = UDim2.new(1, -262, 0, 8)
+ctrlPanel.BackgroundColor3 = Color3.fromRGB(14, 16, 26)
+ctrlPanel.BackgroundTransparency = 0.2
+ctrlPanel.BorderSizePixel  = 0; ctrlPanel.Parent = screenGui
+Instance.new("UICorner", ctrlPanel).CornerRadius = UDim.new(0, 8)
+local ctrlLayout = Instance.new("UIListLayout")
+ctrlLayout.FillDirection       = Enum.FillDirection.Horizontal
+ctrlLayout.Padding             = UDim.new(0, 4)
+ctrlLayout.VerticalAlignment   = Enum.VerticalAlignment.Center
+ctrlLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+ctrlLayout.Parent = ctrlPanel
+
+local function makeCtrlBtn(text, w, col)
+	local b = Instance.new("TextButton")
+	b.Size             = UDim2.fromOffset(w, 28)
+	b.BackgroundColor3 = col
+	b.BorderSizePixel  = 0
+	b.TextColor3       = Color3.fromRGB(255, 255, 255)
+	b.Font             = Enum.Font.GothamBold
+	b.TextScaled       = true; b.Text = text; b.Parent = ctrlPanel
+	Instance.new("UICorner", b).CornerRadius = UDim.new(0, 6)
+	return b
+end
+
+local speedBtns  = {}
+local SPEEDS     = { 1, 2, 3 }
+local function refreshSpeedBtns()
+	for i, btn in ipairs(speedBtns) do
+		btn.BackgroundColor3 = SPEEDS[i] == currentSpeed
+			and Color3.fromRGB(80, 160, 255)
+			or  Color3.fromRGB(35, 40, 60)
+	end
+end
+for _, sp in ipairs(SPEEDS) do
+	local btn = makeCtrlBtn(sp .. "x", 50, Color3.fromRGB(35, 40, 60))
+	local cs  = sp
+	btn.MouseButton1Click:Connect(function()
+		currentSpeed = cs; refreshSpeedBtns()
+		SetBattleSpeed:FireServer(cs)
+	end)
+	table.insert(speedBtns, btn)
+end
+refreshSpeedBtns()
+
+local autoBtn
+local function refreshAutoBtn()
+	if not autoBtn then return end
+	autoBtn.BackgroundColor3 = autoEnabled
+		and Color3.fromRGB(45, 190, 85)
+		or  Color3.fromRGB(35, 40, 60)
+	autoBtn.Text = autoEnabled and "AUTO ON" or "AUTO"
+end
+autoBtn = makeCtrlBtn("AUTO", 76, Color3.fromRGB(35, 40, 60))
+autoBtn.MouseButton1Click:Connect(function()
+	autoEnabled = not autoEnabled
+	refreshAutoBtn()
+	SetAutoMode:FireServer(autoEnabled)
+	if autoEnabled then
+		-- Close ability bar immediately if auto is now on
+		abilityBar.Visible = false
+		clearAbilityButtons(); cancelSelection()
+	end
+end)
+refreshAutoBtn()
+
+-- ─── MODELS SPAWNED ───────────────────────────────────────────────────
 ModelsSpawned.OnClientEvent:Connect(function()
-	local arenaFolder  = workspace:WaitForChild("CombatArena", 10)
+	local arenaFolder = workspace:WaitForChild("CombatArena", 10)
 	if not arenaFolder then return end
+
+	table.clear(arrowBills); table.clear(arrowLabels); table.clear(arrowMatchupColors)
+	table.clear(allyArrowBills); table.clear(allyArrowLabels)
+
+	-- ── Enemy arrows (red/yellow per matchup) ──
 	local eFolder = arenaFolder:WaitForChild("EnemyUnits", 10)
-	if not eFolder then return end
+	if eFolder then
+		for _, model in ipairs(eFolder:GetChildren()) do
+			local uid = model:GetAttribute("UnitId")
+			if not uid then continue end
+			local body = model:FindFirstChild("Torso")
+			if not body then continue end
 
-	for _, model in ipairs(eFolder:GetChildren()) do
-		local unitId = model:GetAttribute("UnitId")
-		if not unitId then continue end
+			local bill = Instance.new("BillboardGui")
+			bill.Size = UDim2.fromOffset(32, 42); bill.StudsOffset = Vector3.new(0, 7.5, 0)
+			bill.AlwaysOnTop = false; bill.MaxDistance = 100
+			bill.Enabled = false; bill.Parent = body
 
-		local body = model:FindFirstChild("Torso")
-		if not body then continue end
+			local lbl = Instance.new("TextLabel")
+			lbl.Size = UDim2.fromScale(1,1); lbl.BackgroundTransparency = 1
+			lbl.TextColor3 = Color3.fromRGB(255, 185, 30); lbl.Font = Enum.Font.GothamBlack
+			lbl.TextScaled = true; lbl.Text = "▼"
+			lbl.TextStrokeTransparency = 1; lbl.Parent = bill
 
-		-- Arrow billboard
-		local bill = Instance.new("BillboardGui")
-		bill.Size        = UDim2.fromOffset(32, 42)
-		bill.StudsOffset = Vector3.new(0, 7.5, 0)
-		bill.AlwaysOnTop = false
-		bill.MaxDistance = 100
-		bill.Enabled     = false
-		bill.Parent      = body
+			arrowBills[uid] = bill; arrowLabels[uid] = lbl
 
-		local arrow = Instance.new("TextLabel")
-		arrow.Size               = UDim2.fromScale(1, 1)
-		arrow.BackgroundTransparency = 1
-		arrow.TextColor3         = Color3.fromRGB(255, 185, 30)
-		arrow.Font               = Enum.Font.GothamBlack
-		arrow.TextScaled         = true
-		arrow.Text               = "▼"
-		arrow.TextStrokeTransparency = 1
-		arrow.Parent             = bill
+			local cd = body:FindFirstChildOfClass("ClickDetector")
+			if cd then
+				cd.MouseClick:Connect(function()
+					if pendingAbilityIdx ~= nil and pendingTargetType == "EnemySingle" then
+						highlightEnemyArrow(uid)
+						firePlayerAction(pendingAbilityIdx, uid)
+					end
+				end)
+			end
+		end
+	end
 
-		arrowBills[unitId]  = bill
-		arrowLabels[unitId] = arrow
+	-- ── Ally arrows (green) ──
+	local pFolder = arenaFolder:WaitForChild("PlayerUnits", 10)
+	if pFolder then
+		for _, model in ipairs(pFolder:GetChildren()) do
+			local uid = model:GetAttribute("UnitId")
+			if not uid then continue end
+			local body = model:FindFirstChild("Torso")
+			if not body then continue end
 
-		-- ClickDetector → select this enemy as target
-		local cd = body:FindFirstChildOfClass("ClickDetector")
-		if cd then
-			cd.MouseClick:Connect(function()
-				selectedEnemyId[1] = unitId
-				highlightArrow(unitId)
-			end)
+			local bill = Instance.new("BillboardGui")
+			bill.Size = UDim2.fromOffset(32, 42); bill.StudsOffset = Vector3.new(0, 7.5, 0)
+			bill.AlwaysOnTop = false; bill.MaxDistance = 100
+			bill.Enabled = false; bill.Parent = body
+
+			local lbl = Instance.new("TextLabel")
+			lbl.Size = UDim2.fromScale(1,1); lbl.BackgroundTransparency = 1
+			lbl.TextColor3 = Color3.fromRGB(80, 240, 100); lbl.Font = Enum.Font.GothamBlack
+			lbl.TextScaled = true; lbl.Text = "▼"
+			lbl.TextStrokeTransparency = 1; lbl.Parent = bill
+
+			allyArrowBills[uid] = bill; allyArrowLabels[uid] = lbl
+
+			local cd = body:FindFirstChildOfClass("ClickDetector")
+			if cd then
+				cd.MouseClick:Connect(function()
+					if pendingAbilityIdx ~= nil and pendingTargetType == "AllySingle" then
+						highlightAllyArrow(uid)
+						firePlayerAction(pendingAbilityIdx, uid)
+					end
+				end)
+			end
 		end
 	end
 end)
@@ -432,42 +620,49 @@ end)
 BattleState.OnClientEvent:Connect(function(state)
 	logLabel.Text = table.concat(state.log, "\n")
 
-	if state.phase == "player_action" then
+	cachedPlayerUnits = state.playerUnits or {}
+	cachedEnemyUnits  = state.enemyUnits  or {}
+
+	if state.autoMode ~= nil then
+		autoEnabled = state.autoMode; refreshAutoBtn()
+	end
+
+	local phase = state.phase
+
+	if phase == "player_action" then
 		local activeUnit
-		for _, u in ipairs(state.playerUnits) do
+		for _, u in ipairs(cachedPlayerUnits) do
 			if u.Id == state.activeTurnId then activeUnit = u; break end
 		end
 		if activeUnit then
-			turnLabel.Text = "Your turn: " .. activeUnit.Name
-			clearAbilityButtons()
+			cachedActingUnit = activeUnit
+			turnLabel.Text   = "Your turn: " .. activeUnit.Name
+			cancelSelection(); clearAbilityButtons()
 			buildAbilityButtons(activeUnit)
-			setArrowsVisible(true)
+			setEnemyArrowsVisible(true); setAllyArrowsVisible(false)
 			abilityBar.Visible = true
-
-			updateArrowColors(activeUnit.Type, state.enemyUnits)
-
-			-- Auto-select the first alive enemy so buttons fire immediately
-			selectedEnemyId[1] = nil
-			for _, e in ipairs(state.enemyUnits) do
-				if e.HP > 0 then
-					selectedEnemyId[1] = e.Id
-					highlightArrow(e.Id)
-					break
-				end
+			updateArrowColors(activeUnit.Type, cachedEnemyUnits)
+			for _, e in ipairs(cachedEnemyUnits) do
+				if e.HP > 0 then highlightEnemyArrow(e.Id); break end
 			end
 		end
-	elseif state.phase == "enemy_action" then
+	elseif phase == "auto_action" then
+		local actName = ""
+		for _, u in ipairs(cachedPlayerUnits) do
+			if u.Id == state.activeTurnId then actName = u.Name; break end
+		end
+		turnLabel.Text = "Auto: " .. actName
+		setArrowsVisible(false); abilityBar.Visible = false
+		clearAbilityButtons(); cancelSelection()
+	elseif phase == "enemy_action" then
 		turnLabel.Text = "Enemy is acting..."
-		setArrowsVisible(false)
-		abilityBar.Visible = false
-		clearAbilityButtons()
-	elseif state.phase == "victory" or state.phase == "defeat" then
-		setArrowsVisible(false)
-		abilityBar.Visible = false
-		clearAbilityButtons()
+		setArrowsVisible(false); abilityBar.Visible = false
+		clearAbilityButtons(); cancelSelection()
+	elseif phase == "victory" or phase == "defeat" then
+		setArrowsVisible(false); abilityBar.Visible = false
+		clearAbilityButtons(); cancelSelection()
 	else
-		setArrowsVisible(false)
-		abilityBar.Visible = false
+		setArrowsVisible(false); abilityBar.Visible = false
 	end
 end)
 
@@ -476,16 +671,14 @@ local endOverlay = Instance.new("Frame")
 endOverlay.Size             = UDim2.fromScale(1, 1)
 endOverlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 endOverlay.BackgroundTransparency = 0.45
-endOverlay.Visible          = false
-endOverlay.ZIndex           = 50
+endOverlay.Visible          = false; endOverlay.ZIndex = 50
 endOverlay.Parent           = screenGui
 
 local endPanel = Instance.new("Frame")
 endPanel.Size             = UDim2.fromOffset(420, 200)
 endPanel.Position         = UDim2.new(0.5, -210, 0.5, -100)
 endPanel.BackgroundColor3 = Color3.fromRGB(16, 18, 30)
-endPanel.BorderSizePixel  = 0
-endPanel.ZIndex           = 51
+endPanel.BorderSizePixel  = 0; endPanel.ZIndex = 51
 endPanel.Parent           = endOverlay
 Instance.new("UICorner", endPanel).CornerRadius = UDim.new(0, 14)
 
@@ -495,8 +688,7 @@ endTitle.Position           = UDim2.fromOffset(10, 16)
 endTitle.BackgroundTransparency = 1
 endTitle.TextColor3         = Color3.fromRGB(255, 255, 255)
 endTitle.Font               = Enum.Font.GothamBlack
-endTitle.TextScaled         = true
-endTitle.ZIndex             = 51
+endTitle.TextScaled         = true; endTitle.ZIndex = 51
 endTitle.Parent             = endPanel
 
 local returnBtn = Instance.new("TextButton")
@@ -506,15 +698,11 @@ returnBtn.BackgroundColor3 = Color3.fromRGB(255, 191, 64)
 returnBtn.BorderSizePixel  = 0
 returnBtn.TextColor3       = Color3.fromRGB(18, 18, 28)
 returnBtn.Font             = Enum.Font.GothamBlack
-returnBtn.TextScaled       = true
-returnBtn.Text             = "Return to Hub"
-returnBtn.ZIndex           = 51
-returnBtn.Parent           = endPanel
+returnBtn.TextScaled       = true; returnBtn.Text = "Return to Hub"
+returnBtn.ZIndex           = 51; returnBtn.Parent = endPanel
 Instance.new("UICorner", returnBtn).CornerRadius = UDim.new(0, 10)
-
 returnBtn.MouseButton1Click:Connect(function()
-	returnBtn.Active = false
-	returnBtn.Text   = "Returning..."
+	returnBtn.Active = false; returnBtn.Text = "Returning..."
 	if HUB_PLACE_ID ~= 0 then
 		local opts = Instance.new("TeleportOptions")
 		opts:SetTeleportData({ xpRewards = pendingXPRewards })
@@ -523,8 +711,8 @@ returnBtn.MouseButton1Click:Connect(function()
 end)
 
 BattleEnd.OnClientEvent:Connect(function(result)
-	setArrowsVisible(false)
-	abilityBar.Visible = false
+	setArrowsVisible(false); abilityBar.Visible = false
+	clearAbilityButtons(); cancelSelection()
 	endOverlay.Visible = true
 	if result.victory then
 		endTitle.TextColor3 = Color3.fromRGB(255, 215, 80)
@@ -539,8 +727,8 @@ BattleEnd.OnClientEvent:Connect(function(result)
 			endTitle.Text = "Victory!"
 		end
 	else
-		pendingXPRewards   = nil
-		endTitle.Text       = "Defeated"
+		pendingXPRewards = nil
+		endTitle.Text     = "Defeated"
 		endTitle.TextColor3 = Color3.fromRGB(220, 80, 80)
 	end
 end)

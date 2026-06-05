@@ -495,7 +495,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -551,7 +551,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -658,7 +658,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -912,7 +912,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -1010,7 +1010,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -1028,7 +1028,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -1069,7 +1069,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -1087,7 +1087,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -1400,7 +1400,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -1476,7 +1476,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -1494,7 +1494,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -2003,7 +2003,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -2076,7 +2076,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -2111,7 +2111,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -2129,7 +2129,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -2202,7 +2202,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -2454,7 +2454,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -2472,7 +2472,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -2490,7 +2490,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -2508,7 +2508,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -2530,7 +2530,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -2567,7 +2567,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -2608,7 +2608,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -2922,7 +2922,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -2976,7 +2976,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -3034,7 +3034,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -3052,7 +3052,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -3543,7 +3543,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -3578,7 +3578,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -3634,7 +3634,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -3690,7 +3690,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -3994,7 +3994,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -4050,7 +4050,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -4091,7 +4091,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -4128,7 +4128,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},
@@ -4150,7 +4150,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -4168,7 +4168,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -4481,7 +4481,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -4499,7 +4499,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -4557,7 +4557,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 						{
@@ -4593,7 +4593,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, SelfHeal = true, TargetType = "Self" },
 							},
 						},
 					},

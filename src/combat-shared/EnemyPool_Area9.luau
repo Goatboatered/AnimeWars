@@ -210,7 +210,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
-								{ Name = "Begin Hunt", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Begin Hunt", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -309,7 +309,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -332,7 +332,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -489,7 +489,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -508,7 +508,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -527,7 +527,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -546,7 +546,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -569,7 +569,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -588,7 +588,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -607,7 +607,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -626,7 +626,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -649,7 +649,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -668,7 +668,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -687,7 +687,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -706,7 +706,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -733,7 +733,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -752,7 +752,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -771,7 +771,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -848,7 +848,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -889,7 +889,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -908,7 +908,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -927,7 +927,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1805,7 +1805,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
-								{ Name = "Begin Hunt", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Begin Hunt", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1850,7 +1850,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1869,7 +1869,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1906,7 +1906,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1929,7 +1929,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1948,7 +1948,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2025,7 +2025,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2088,7 +2088,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2107,7 +2107,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2126,7 +2126,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2145,7 +2145,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2168,7 +2168,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2187,7 +2187,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2206,7 +2206,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2225,7 +2225,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2248,7 +2248,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2267,7 +2267,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2286,7 +2286,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2305,7 +2305,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2332,7 +2332,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2369,7 +2369,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2428,7 +2428,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2447,7 +2447,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2524,7 +2524,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2543,7 +2543,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3403,7 +3403,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
-								{ Name = "Begin Hunt", Cooldown = 5, Multiplier = 0, AoE = true },
+								{ Name = "Begin Hunt", Cooldown = 5, Multiplier = 0, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3448,7 +3448,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3503,7 +3503,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3544,7 +3544,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3563,7 +3563,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3582,7 +3582,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3605,7 +3605,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3660,7 +3660,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Flame Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Stomp", Cooldown = 3, Multiplier = 2.4 },
-								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true },
+								{ Name = "Earthquake", Cooldown = 6, Multiplier = 2, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3687,7 +3687,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3706,7 +3706,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3725,7 +3725,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3744,7 +3744,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3767,7 +3767,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3786,7 +3786,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3805,7 +3805,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3824,7 +3824,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3847,7 +3847,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3866,7 +3866,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3885,7 +3885,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3904,7 +3904,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -4025,7 +4025,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4044,7 +4044,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4103,7 +4103,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4122,7 +4122,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -4141,7 +4141,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
+								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},

@@ -68,26 +68,42 @@ function parseFormula(formula) {
 }
 
 // Effect IDs from swarfarm.com/api/v2/skill-effects/
-// 35=Heal (ally), 36=Revive — true ally heals
-// 45=Self-Heal, 73=Vampire — caster heals themselves (lifesteal)
+// 35=Heal (ally)
+// 45=Self-Heal, 73=Vampire — caster heals themselves
 const HEAL_IDS     = new Set([35]);
-const LIFESTEAL_IDS = new Set([45, 73]);
+const SELFHEAL_IDS = new Set([45, 73]);
 
 function convertSkill(s) {
 	if (!s) return null;
 	const { multiplier, scalesWith } = parseFormula(s.multiplier_formula);
 	const effects = s.effects || [];
+	// hits=0 → no damage (pure heal/buff); hits>=1 → deals damage
+	const isDmg  = (s.hits || 0) >= 1;
+	const heals  = !isDmg && effects.some(e => HEAL_IDS.has(e.effect?.id) && !e.self_effect);
+	const selfHeal  = !isDmg && effects.some(e => SELFHEAL_IDS.has(e.effect?.id));
+	const lifeSteal = isDmg  && effects.some(e => SELFHEAL_IDS.has(e.effect?.id));
+	const passive = !!s.passive;
+	const aoe     = !!s.aoe;
+
+	let targetType = "EnemySingle";
+	if (passive)           targetType = "Passive";
+	else if (selfHeal)     targetType = "Self";
+	else if (heals && aoe) targetType = "AllyAll";
+	else if (heals)        targetType = "AllySingle";
+	else if (aoe)          targetType = "EnemyAll";
+
 	return {
 		Name:       s.name,
 		Cooldown:   s.cooltime || 0,
-		Type:       s.passive ? "Passive" : "Active",
+		Type:       passive ? "Passive" : "Active",
 		Multiplier: multiplier,
 		ScalesWith: scalesWith,
 		Hits:       s.hits || 1,
-		AoE:        !!s.aoe,
-		// hits=0 means no damage (pure heal/utility); hits>=1 means it attacks
-		Heals:      (s.hits || 0) === 0 && effects.some(e => HEAL_IDS.has(e.effect?.id) && !e.self_effect),
-		LifeSteal:  effects.some(e => LIFESTEAL_IDS.has(e.effect?.id)),
+		AoE:        aoe,
+		Heals:      heals,
+		SelfHeal:   selfHeal,
+		LifeSteal:  lifeSteal,
+		TargetType: targetType,
 	};
 }
 
@@ -126,11 +142,13 @@ function serializeEnemy(e) {
 				`Cooldown = ${a.Cooldown}`,
 				`Multiplier = ${a.Multiplier}`,
 			];
-			if (a.ScalesWith !== "ATK") parts.push(`ScalesWith = ${luauStr(a.ScalesWith)}`);
-			if (a.Hits > 1)             parts.push(`Hits = ${a.Hits}`);
-			if (a.AoE)                  parts.push(`AoE = true`);
-			if (a.Heals)                parts.push(`Heals = true`);
-			if (a.LifeSteal)            parts.push(`LifeSteal = true`);
+			if (a.ScalesWith !== "ATK")           parts.push(`ScalesWith = ${luauStr(a.ScalesWith)}`);
+			if (a.Hits > 1)                       parts.push(`Hits = ${a.Hits}`);
+			if (a.AoE)                            parts.push(`AoE = true`);
+			if (a.Heals)                          parts.push(`Heals = true`);
+			if (a.SelfHeal)                       parts.push(`SelfHeal = true`);
+			if (a.LifeSteal)                      parts.push(`LifeSteal = true`);
+			if (a.TargetType !== "EnemySingle")   parts.push(`TargetType = ${luauStr(a.TargetType)}`);
 			lines.push(`\t\t\t\t\t\t\t\t{ ${parts.join(", ")} },`);
 		}
 		lines.push("\t\t\t\t\t\t\t},");

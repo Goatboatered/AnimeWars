@@ -1233,8 +1233,8 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Windy Cut", Cooldown = 0, Multiplier = 3.7 },
-								{ Name = "Twister", Cooldown = 3, Multiplier = 2.6, AoE = true },
-								{ Name = "Force Field", Cooldown = 4, Multiplier = 3.5, AoE = true },
+								{ Name = "Twister", Cooldown = 3, Multiplier = 2.6, AoE = true, TargetType = "EnemyAll" },
+								{ Name = "Force Field", Cooldown = 4, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1252,7 +1252,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Spirit Throw", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Cyclone", Cooldown = 4, Multiplier = 1.3, Hits = 2, AoE = true },
+								{ Name = "Cyclone", Cooldown = 4, Multiplier = 1.3, Hits = 2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Airbender", Cooldown = 5, Multiplier = 8.4 },
 							},
 						},
@@ -2493,8 +2493,8 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Windy Cut", Cooldown = 0, Multiplier = 3.7 },
-								{ Name = "Twister", Cooldown = 3, Multiplier = 2.6, AoE = true },
-								{ Name = "Force Field", Cooldown = 4, Multiplier = 3.5, AoE = true },
+								{ Name = "Twister", Cooldown = 3, Multiplier = 2.6, AoE = true, TargetType = "EnemyAll" },
+								{ Name = "Force Field", Cooldown = 4, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2512,7 +2512,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Spirit Throw", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Cyclone", Cooldown = 4, Multiplier = 1.3, Hits = 2, AoE = true },
+								{ Name = "Cyclone", Cooldown = 4, Multiplier = 1.3, Hits = 2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Airbender", Cooldown = 5, Multiplier = 8.4 },
 							},
 						},
@@ -3753,8 +3753,8 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Windy Cut", Cooldown = 0, Multiplier = 3.7 },
-								{ Name = "Twister", Cooldown = 3, Multiplier = 2.6, AoE = true },
-								{ Name = "Force Field", Cooldown = 4, Multiplier = 3.5, AoE = true },
+								{ Name = "Twister", Cooldown = 3, Multiplier = 2.6, AoE = true, TargetType = "EnemyAll" },
+								{ Name = "Force Field", Cooldown = 4, Multiplier = 3.5, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3772,7 +3772,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Spirit Throw", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Cyclone", Cooldown = 4, Multiplier = 1.3, Hits = 2, AoE = true },
+								{ Name = "Cyclone", Cooldown = 4, Multiplier = 1.3, Hits = 2, AoE = true, TargetType = "EnemyAll" },
 								{ Name = "Airbender", Cooldown = 5, Multiplier = 8.4 },
 							},
 						},

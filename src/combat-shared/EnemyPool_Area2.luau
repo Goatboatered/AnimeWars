@@ -622,7 +622,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -706,7 +706,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -724,7 +724,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -742,65 +742,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
-							},
-						},
-					},
-				},
-				{
-					enemies = {
-						{
-							Name = "Golem",
-							Type = "Fire",
-							Stars = 2,
-							Level = 6,
-							HP = 960,
-							Attack = 37,
-							Defense = 67,
-							Speed = 88,
-							CritChance = 0.15,
-							CritDamage = 1.5,
-							Resistance = 0.15,
-							Accuracy = 0,
-							Abilities = {
-								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
-							},
-						},
-						{
-							Name = "Golem",
-							Type = "Fire",
-							Stars = 2,
-							Level = 6,
-							HP = 960,
-							Attack = 37,
-							Defense = 67,
-							Speed = 88,
-							CritChance = 0.15,
-							CritDamage = 1.5,
-							Resistance = 0.15,
-							Accuracy = 0,
-							Abilities = {
-								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
-							},
-						},
-						{
-							Name = "Golem",
-							Type = "Fire",
-							Stars = 2,
-							Level = 6,
-							HP = 960,
-							Attack = 37,
-							Defense = 67,
-							Speed = 88,
-							CritChance = 0.15,
-							CritDamage = 1.5,
-							Resistance = 0.15,
-							Accuracy = 0,
-							Abilities = {
-								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -822,7 +764,65 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
+							},
+						},
+						{
+							Name = "Golem",
+							Type = "Fire",
+							Stars = 2,
+							Level = 6,
+							HP = 960,
+							Attack = 37,
+							Defense = 67,
+							Speed = 88,
+							CritChance = 0.15,
+							CritDamage = 1.5,
+							Resistance = 0.15,
+							Accuracy = 0,
+							Abilities = {
+								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
+							},
+						},
+						{
+							Name = "Golem",
+							Type = "Fire",
+							Stars = 2,
+							Level = 6,
+							HP = 960,
+							Attack = 37,
+							Defense = 67,
+							Speed = 88,
+							CritChance = 0.15,
+							CritDamage = 1.5,
+							Resistance = 0.15,
+							Accuracy = 0,
+							Abilities = {
+								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
+							},
+						},
+					},
+				},
+				{
+					enemies = {
+						{
+							Name = "Golem",
+							Type = "Fire",
+							Stars = 2,
+							Level = 6,
+							HP = 960,
+							Attack = 37,
+							Defense = 67,
+							Speed = 88,
+							CritChance = 0.15,
+							CritDamage = 1.5,
+							Resistance = 0.15,
+							Accuracy = 0,
+							Abilities = {
+								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -840,7 +840,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -858,7 +858,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -884,7 +884,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -902,7 +902,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -941,7 +941,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -976,7 +976,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -998,7 +998,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1016,7 +1016,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Frost Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Frost Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1059,7 +1059,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1077,7 +1077,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1095,7 +1095,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1117,7 +1117,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1135,7 +1135,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1153,7 +1153,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1175,7 +1175,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1659,7 +1659,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1699,7 +1699,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1717,7 +1717,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1735,7 +1735,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1819,7 +1819,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1837,7 +1837,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1859,7 +1859,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1877,7 +1877,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1895,7 +1895,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -1917,7 +1917,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1935,7 +1935,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -1953,7 +1953,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2051,7 +2051,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2090,7 +2090,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Frost Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Frost Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2108,7 +2108,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2134,7 +2134,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2152,7 +2152,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2170,7 +2170,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2192,7 +2192,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2210,7 +2210,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2228,7 +2228,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2250,7 +2250,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2734,7 +2734,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2774,7 +2774,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2832,7 +2832,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2868,7 +2868,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2894,7 +2894,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2912,7 +2912,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2934,7 +2934,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2952,7 +2952,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -2970,7 +2970,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -2992,7 +2992,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3010,7 +3010,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3028,7 +3028,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3071,7 +3071,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3093,7 +3093,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3128,7 +3128,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3167,7 +3167,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Frost Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Frost Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3210,7 +3210,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3228,7 +3228,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3246,7 +3246,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3268,7 +3268,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3286,7 +3286,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 						{
@@ -3304,7 +3304,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
@@ -3326,7 +3326,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Impact", Cooldown = 0, Multiplier = 1.8 },
-								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true },
+								{ Name = "Lava Blow", Cooldown = 4, Multiplier = 1.8, AoE = true, TargetType = "EnemyAll" },
 							},
 						},
 					},
