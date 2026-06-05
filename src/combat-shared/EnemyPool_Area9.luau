@@ -56,7 +56,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -74,7 +74,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -150,7 +150,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -172,7 +172,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -190,7 +190,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -208,7 +208,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 								{ Name = "Begin Hunt", Cooldown = 5, Multiplier = 0, AoE = true },
 							},
@@ -227,7 +227,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -487,9 +487,9 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -506,9 +506,9 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -525,7 +525,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -544,7 +544,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -567,7 +567,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -586,7 +586,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -605,7 +605,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -624,9 +624,9 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 					},
@@ -647,7 +647,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -666,7 +666,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -685,7 +685,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -704,7 +704,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -731,9 +731,9 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -750,9 +750,9 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -769,7 +769,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -788,7 +788,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -810,7 +810,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -828,7 +828,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -846,9 +846,9 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -865,7 +865,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -887,7 +887,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -906,9 +906,9 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -925,9 +925,9 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -944,7 +944,7 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -1615,7 +1615,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -1633,7 +1633,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -1669,7 +1669,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -1709,7 +1709,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -1727,7 +1727,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -1767,7 +1767,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -1785,7 +1785,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -1803,7 +1803,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 								{ Name = "Begin Hunt", Cooldown = 5, Multiplier = 0, AoE = true },
 							},
@@ -1822,7 +1822,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -2086,7 +2086,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -2105,7 +2105,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -2124,9 +2124,9 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -2143,7 +2143,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -2166,7 +2166,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -2185,7 +2185,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -2204,7 +2204,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -2223,7 +2223,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -2246,9 +2246,9 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -2265,7 +2265,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -2284,7 +2284,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -2303,9 +2303,9 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 					},
@@ -2330,7 +2330,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -2349,7 +2349,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -2367,9 +2367,9 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -2386,7 +2386,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -2408,7 +2408,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -2426,7 +2426,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -2445,9 +2445,9 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -2464,7 +2464,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -2486,7 +2486,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -2504,7 +2504,7 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -2522,9 +2522,9 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -2541,9 +2541,9 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 					},
@@ -3213,7 +3213,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -3231,7 +3231,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -3249,7 +3249,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -3267,7 +3267,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -3289,7 +3289,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -3325,7 +3325,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -3383,7 +3383,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -3401,7 +3401,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 								{ Name = "Begin Hunt", Cooldown = 5, Multiplier = 0, AoE = true },
 							},
@@ -3420,7 +3420,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -3685,7 +3685,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -3704,9 +3704,9 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -3723,7 +3723,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -3742,7 +3742,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -3765,9 +3765,9 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -3784,7 +3784,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -3803,9 +3803,9 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -3822,9 +3822,9 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 					},
@@ -3845,7 +3845,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -3864,9 +3864,9 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -3883,7 +3883,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -3902,9 +3902,9 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 					},
@@ -3929,7 +3929,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -3947,7 +3947,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -3965,7 +3965,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -3983,7 +3983,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -4005,7 +4005,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -4023,9 +4023,9 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -4042,7 +4042,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -4061,7 +4061,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -4083,7 +4083,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, Heals = true },
+								{ Name = "Bite", Cooldown = 0, Multiplier = 3.6, LifeSteal = true },
 								{ Name = "Double Attack", Cooldown = 3, Multiplier = 3.7, Hits = 2 },
 							},
 						},
@@ -4101,7 +4101,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},
@@ -4120,9 +4120,9 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
-								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true, LifeSteal = true },
+								{ Name = "Night Hag's Scuttle", Cooldown = 5, Multiplier = 5, AoE = true },
 							},
 						},
 						{
@@ -4139,7 +4139,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9, LifeSteal = true },
+								{ Name = "Dreamy Invitation", Cooldown = 0, Multiplier = 3.9 },
 								{ Name = "Twisted Joy", Cooldown = 4, Multiplier = 3.5 },
 								{ Name = "Brutal End", Cooldown = 5, Multiplier = 4.5, AoE = true },
 							},

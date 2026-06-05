@@ -20,8 +20,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -38,8 +38,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -56,8 +56,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -74,8 +74,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -96,8 +96,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -114,8 +114,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -132,8 +132,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 					},
@@ -154,8 +154,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -172,8 +172,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -190,8 +190,8 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 								{ Name = "Dispel! Attack!", Cooldown = 5, Multiplier = 2.4 },
 							},
 						},
@@ -209,8 +209,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -235,8 +235,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -253,8 +253,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -271,8 +271,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -289,8 +289,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -311,8 +311,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -329,8 +329,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -347,8 +347,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -369,8 +369,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -387,8 +387,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -405,8 +405,8 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 								{ Name = "Remove! Heal!", Cooldown = 5, Multiplier = 0, Heals = true },
 							},
 						},
@@ -424,8 +424,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -450,8 +450,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -468,8 +468,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -486,8 +486,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -504,8 +504,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -526,8 +526,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -544,8 +544,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -562,8 +562,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -584,8 +584,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -602,8 +602,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -620,9 +620,9 @@ M.stages = {
 							Resistance = 0.18,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
-								{ Name = "Attack! Heal!", Cooldown = 5, Multiplier = 8.5, LifeSteal = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
+								{ Name = "Attack! Heal!", Cooldown = 5, Multiplier = 8.5 },
 							},
 						},
 						{
@@ -639,8 +639,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 					},
@@ -702,7 +702,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -720,7 +720,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 					},
@@ -742,7 +742,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -760,7 +760,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -818,7 +818,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -855,7 +855,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 					},
@@ -880,8 +880,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -934,8 +934,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -956,8 +956,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -992,8 +992,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -1188,8 +1188,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -1246,8 +1246,8 @@ M.stages = {
 							Resistance = 0.15,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -1385,7 +1385,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -1421,7 +1421,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -1479,7 +1479,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Ice Drop", Cooldown = 0, Multiplier = 4.1 },
-								{ Name = "Aqua Frenzy", Cooldown = 4, Multiplier = 2.8, AoE = true, LifeSteal = true },
+								{ Name = "Aqua Frenzy", Cooldown = 4, Multiplier = 2.8, AoE = true },
 								{ Name = "Revive", Cooldown = 7, Multiplier = 3.5 },
 							},
 						},
@@ -1525,8 +1525,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -1543,8 +1543,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -1561,8 +1561,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -1579,8 +1579,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -1601,8 +1601,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -1619,8 +1619,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -1637,8 +1637,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -1659,8 +1659,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -1677,8 +1677,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -1695,8 +1695,8 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 								{ Name = "Dispel! Attack!", Cooldown = 5, Multiplier = 2.4 },
 							},
 						},
@@ -1714,8 +1714,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 					},
@@ -1740,8 +1740,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -1758,8 +1758,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -1776,8 +1776,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -1794,8 +1794,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -1816,8 +1816,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -1834,8 +1834,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -1852,8 +1852,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -1874,8 +1874,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -1892,8 +1892,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -1910,8 +1910,8 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 								{ Name = "Remove! Heal!", Cooldown = 5, Multiplier = 0, Heals = true },
 							},
 						},
@@ -1929,8 +1929,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -1955,8 +1955,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -1973,8 +1973,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -1991,8 +1991,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -2009,8 +2009,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -2031,8 +2031,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -2049,8 +2049,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -2067,8 +2067,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 					},
@@ -2089,8 +2089,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -2107,8 +2107,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -2125,9 +2125,9 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
-								{ Name = "Attack! Heal!", Cooldown = 5, Multiplier = 8.5, LifeSteal = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
+								{ Name = "Attack! Heal!", Cooldown = 5, Multiplier = 8.5 },
 							},
 						},
 						{
@@ -2144,8 +2144,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -2189,7 +2189,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -2207,7 +2207,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -2225,7 +2225,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 					},
@@ -2323,7 +2323,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -2360,7 +2360,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 					},
@@ -2439,8 +2439,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -2461,8 +2461,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -2617,8 +2617,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -2635,8 +2635,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -2675,8 +2675,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -2733,8 +2733,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -2751,8 +2751,8 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -2984,7 +2984,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Ice Drop", Cooldown = 0, Multiplier = 4.1 },
-								{ Name = "Aqua Frenzy", Cooldown = 4, Multiplier = 2.8, AoE = true, LifeSteal = true },
+								{ Name = "Aqua Frenzy", Cooldown = 4, Multiplier = 2.8, AoE = true },
 								{ Name = "Revive", Cooldown = 7, Multiplier = 3.5 },
 							},
 						},
@@ -3030,8 +3030,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -3048,8 +3048,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3066,8 +3066,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -3084,8 +3084,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 					},
@@ -3106,8 +3106,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3124,8 +3124,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3142,8 +3142,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 					},
@@ -3164,8 +3164,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3182,8 +3182,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3200,8 +3200,8 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 								{ Name = "Dispel! Attack!", Cooldown = 5, Multiplier = 2.4 },
 							},
 						},
@@ -3219,8 +3219,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -3245,8 +3245,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3263,8 +3263,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3281,8 +3281,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3299,8 +3299,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -3321,8 +3321,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3339,8 +3339,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3357,8 +3357,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -3379,8 +3379,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3397,8 +3397,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3415,8 +3415,8 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 								{ Name = "Remove! Heal!", Cooldown = 5, Multiplier = 0, Heals = true },
 							},
 						},
@@ -3434,8 +3434,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -3460,8 +3460,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -3478,8 +3478,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3496,8 +3496,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -3514,8 +3514,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -3536,8 +3536,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3554,8 +3554,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3572,8 +3572,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 					},
@@ -3594,8 +3594,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
 							},
 						},
 						{
@@ -3612,8 +3612,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -3630,9 +3630,9 @@ M.stages = {
 							Resistance = 0.21,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0, Heals = true },
-								{ Name = "Attack! Heal!", Cooldown = 5, Multiplier = 8.5, LifeSteal = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Dispel!", Cooldown = 3, Multiplier = 0 },
+								{ Name = "Attack! Heal!", Cooldown = 5, Multiplier = 8.5 },
 							},
 						},
 						{
@@ -3649,8 +3649,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -3788,7 +3788,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 					},
@@ -4024,8 +4024,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -4104,8 +4104,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -4180,8 +4180,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 						{
@@ -4216,8 +4216,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -4292,8 +4292,8 @@ M.stages = {
 							Resistance = 0.17,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
-								{ Name = "Heal!", Cooldown = 4, Multiplier = 0, Heals = true },
+								{ Name = "Attack!", Cooldown = 0, Multiplier = 3.5 },
+								{ Name = "Heal!", Cooldown = 4, Multiplier = 0 },
 							},
 						},
 					},
@@ -4319,7 +4319,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -4395,7 +4395,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -4489,7 +4489,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Ice Drop", Cooldown = 0, Multiplier = 4.1 },
-								{ Name = "Aqua Frenzy", Cooldown = 4, Multiplier = 2.8, AoE = true, LifeSteal = true },
+								{ Name = "Aqua Frenzy", Cooldown = 4, Multiplier = 2.8, AoE = true },
 								{ Name = "Revive", Cooldown = 7, Multiplier = 3.5 },
 							},
 						},

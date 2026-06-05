@@ -39,7 +39,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -79,7 +79,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -115,7 +115,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -133,7 +133,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -191,7 +191,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -217,7 +217,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -235,7 +235,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -253,7 +253,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -275,7 +275,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -293,7 +293,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -311,7 +311,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -329,7 +329,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -351,7 +351,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -369,7 +369,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -387,7 +387,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -413,7 +413,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -431,7 +431,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -449,7 +449,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -471,7 +471,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -489,7 +489,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -507,7 +507,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -525,7 +525,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -547,7 +547,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -565,7 +565,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -583,7 +583,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -806,7 +806,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -824,7 +824,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -842,7 +842,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -864,7 +864,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -882,7 +882,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -900,7 +900,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -918,7 +918,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -940,7 +940,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -958,7 +958,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 								{ Name = "Frozen Field", Cooldown = 5, Multiplier = 1.4, Hits = 3, AoE = true },
 							},
 						},
@@ -977,7 +977,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -1276,7 +1276,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -1312,7 +1312,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -1417,7 +1417,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1457,7 +1457,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1475,7 +1475,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1493,7 +1493,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1511,7 +1511,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -1533,7 +1533,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1595,7 +1595,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1613,7 +1613,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1631,7 +1631,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -1653,7 +1653,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1671,7 +1671,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1689,7 +1689,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1707,7 +1707,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -1729,7 +1729,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1747,7 +1747,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1765,7 +1765,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -1791,7 +1791,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -1809,7 +1809,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -1827,7 +1827,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -1849,7 +1849,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -1867,7 +1867,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -1885,7 +1885,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -1903,7 +1903,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -1925,7 +1925,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -1943,7 +1943,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1961,7 +1961,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -2184,7 +2184,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2202,7 +2202,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2220,7 +2220,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -2242,7 +2242,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -2260,7 +2260,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2278,7 +2278,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -2296,7 +2296,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -2318,7 +2318,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -2336,7 +2336,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 								{ Name = "Frozen Field", Cooldown = 5, Multiplier = 1.4, Hits = 3, AoE = true },
 							},
 						},
@@ -2355,7 +2355,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -2578,7 +2578,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -2596,7 +2596,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -2672,7 +2672,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -2795,7 +2795,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2813,7 +2813,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -2835,7 +2835,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2853,7 +2853,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2889,7 +2889,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -2947,7 +2947,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -2973,7 +2973,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2991,7 +2991,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3009,7 +3009,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -3031,7 +3031,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3049,7 +3049,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3067,7 +3067,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3085,7 +3085,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -3107,7 +3107,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3125,7 +3125,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3143,7 +3143,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -3169,7 +3169,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -3187,7 +3187,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -3205,7 +3205,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -3227,7 +3227,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -3245,7 +3245,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -3263,7 +3263,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -3281,7 +3281,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -3303,7 +3303,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -3321,7 +3321,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3339,7 +3339,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -3562,7 +3562,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3580,7 +3580,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -3598,7 +3598,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -3620,7 +3620,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -3638,7 +3638,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3656,7 +3656,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3674,7 +3674,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -3696,7 +3696,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3714,7 +3714,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 								{ Name = "Frozen Field", Cooldown = 5, Multiplier = 1.4, Hits = 3, AoE = true },
 							},
 						},
@@ -3733,7 +3733,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},
@@ -3956,7 +3956,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -3974,7 +3974,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -4032,7 +4032,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 						{
@@ -4068,7 +4068,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Blackout Kick", Cooldown = 0, Multiplier = 1.9, Hits = 2 },
-								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3, Heals = true },
+								{ Name = "Deadly Dart", Cooldown = 4, Multiplier = 1.9, Hits = 3 },
 							},
 						},
 					},

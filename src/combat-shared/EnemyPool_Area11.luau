@@ -21,7 +21,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -56,7 +56,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -74,7 +74,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 					},
@@ -130,7 +130,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -169,7 +169,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -204,7 +204,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -247,7 +247,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -265,7 +265,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -283,7 +283,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -411,7 +411,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -429,7 +429,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -546,7 +546,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -621,7 +621,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -1609,7 +1609,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -1644,7 +1644,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -1700,7 +1700,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -1718,7 +1718,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -1736,7 +1736,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 					},
@@ -1758,7 +1758,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -1793,7 +1793,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -1853,7 +1853,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -1888,7 +1888,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 					},
@@ -1910,7 +1910,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -1928,7 +1928,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -1946,7 +1946,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -2002,7 +2002,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -2020,7 +2020,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -2137,7 +2137,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -2172,7 +2172,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -2229,7 +2229,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -2265,7 +2265,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 					},
@@ -3240,7 +3240,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -3279,7 +3279,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -3314,7 +3314,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -3332,7 +3332,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 					},
@@ -3371,7 +3371,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -3389,7 +3389,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -3466,7 +3466,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -3611,7 +3611,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -3629,7 +3629,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 					},
@@ -3655,7 +3655,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -3691,7 +3691,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -3709,7 +3709,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 					},
@@ -3731,7 +3731,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -3749,7 +3749,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{
@@ -3767,7 +3767,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Slashing Air", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true, Heals = true },
+								{ Name = "Spinning Slash", Cooldown = 4, Multiplier = 2.4, AoE = true },
 							},
 						},
 						{

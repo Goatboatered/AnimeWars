@@ -56,7 +56,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -78,7 +78,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -114,7 +114,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -132,7 +132,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -235,7 +235,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -252,7 +252,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -386,7 +386,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -404,7 +404,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -422,7 +422,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -466,7 +466,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -484,7 +484,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -618,7 +618,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -636,7 +636,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -698,7 +698,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -738,7 +738,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -756,7 +756,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -774,7 +774,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -796,7 +796,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -814,7 +814,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -850,7 +850,7 @@ M.stages = {
 							Resistance = 0.16,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -1047,7 +1047,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -1091,7 +1091,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -1185,7 +1185,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -1225,7 +1225,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -1753,7 +1753,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -1811,7 +1811,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -1870,7 +1870,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -1905,7 +1905,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -1923,7 +1923,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -1949,7 +1949,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -1967,7 +1967,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -1985,7 +1985,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -2007,7 +2007,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -2043,7 +2043,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -2083,7 +2083,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -2119,7 +2119,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -2163,7 +2163,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -2221,7 +2221,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -2257,7 +2257,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -2351,7 +2351,7 @@ M.stages = {
 							Resistance = 0.19,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -2548,7 +2548,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -2610,7 +2610,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -2628,7 +2628,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 					},
@@ -2668,7 +2668,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -2726,7 +2726,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -2744,7 +2744,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -3040,7 +3040,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3080,7 +3080,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3098,7 +3098,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3174,7 +3174,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3236,7 +3236,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3254,7 +3254,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3273,7 +3273,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 					},
@@ -3388,7 +3388,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3406,7 +3406,7 @@ M.stages = {
 							Resistance = 0.25,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3425,7 +3425,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 					},
@@ -3450,7 +3450,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3486,7 +3486,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3508,7 +3508,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3544,7 +3544,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3602,7 +3602,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3620,7 +3620,7 @@ M.stages = {
 							Resistance = 0.25,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3638,7 +3638,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3758,7 +3758,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -3798,7 +3798,7 @@ M.stages = {
 							Resistance = 0.22,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7, LifeSteal = true },
+								{ Name = "Merciless Claws", Cooldown = 0, Multiplier = 3.7 },
 								{ Name = "Surprise Attack", Cooldown = 4, Multiplier = 3.5, Hits = 2 },
 							},
 						},
@@ -4049,7 +4049,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -4093,7 +4093,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -4129,7 +4129,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 					},
@@ -4205,7 +4205,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 					},
@@ -4245,7 +4245,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{

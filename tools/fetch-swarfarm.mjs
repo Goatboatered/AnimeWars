@@ -56,13 +56,16 @@ function parseFormula(formula) {
 	return { multiplier: 3.5, scalesWith: "ATK" };
 }
 
+// Effect IDs from swarfarm.com/api/v2/skill-effects/
+// 35=Heal (ally), 36=Revive — true ally heals
+// 45=Self-Heal, 73=Vampire — caster heals themselves (lifesteal)
+const HEAL_IDS      = new Set([35]);
+const LIFESTEAL_IDS = new Set([45, 73]);
+
 function convertSkill(s) {
 	if (!s) return null;
-	const hasFormula = !!(s.multiplier_formula && s.multiplier_formula.trim());
 	const { multiplier, scalesWith } = parseFormula(s.multiplier_formula);
-	const desc = (s.description || "").toLowerCase();
-	const mentionsHeal = desc.includes("heal") || desc.includes("recover") || desc.includes("restore");
-	const mentionsAtk  = desc.includes("attacks") || desc.includes("deals damage") || desc.includes("strikes");
+	const effects = s.effects || [];
 	return {
 		Name:        s.name,
 		Description: s.description || "",
@@ -72,8 +75,9 @@ function convertSkill(s) {
 		ScalesWith:  scalesWith,
 		Hits:        s.hits || 1,
 		AoE:         !!s.aoe,
-		Heals:       mentionsHeal && !mentionsAtk,
-		LifeSteal:   hasFormula && mentionsHeal && mentionsAtk,
+		// hits=0 means no damage (pure heal/utility); hits>=1 means it attacks
+		Heals:       (s.hits || 0) === 0 && effects.some(e => HEAL_IDS.has(e.effect?.id) && !e.self_effect),
+		LifeSteal:   effects.some(e => LIFESTEAL_IDS.has(e.effect?.id)),
 	};
 }
 

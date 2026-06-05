@@ -358,30 +358,49 @@ local function applyAction(battle, actor, action)
 
 	-- Pure healing ability
 	if ability and ability.Heals then
-		local lowestFrac, lowestAlly = 2, nil
-		for _, u in ipairs(allySide) do
-			if u.HP > 0 then
-				local frac = u.HP / u.MaxHP
-				if frac < lowestFrac then lowestFrac = frac; lowestAlly = u end
-			end
-		end
-		if lowestAlly then
-			local mult   = ability.Multiplier or 0
-			local scales = ability.ScalesWith or "ATK"
+		local mult   = ability.Multiplier or 0
+		local scales = ability.ScalesWith or "ATK"
+
+		local function healUnit(u)
 			local healAmt
 			if mult > 0 then
 				if scales == "HP" then
-					healAmt = math.floor(lowestAlly.MaxHP * math.min(mult, 1.0))
+					healAmt = math.floor(u.MaxHP * math.min(mult, 1.0))
 				else
 					healAmt = math.floor(actor.Attack * mult)
 				end
 			else
-				healAmt = math.floor(lowestAlly.MaxHP * 0.25)
+				healAmt = math.floor(u.MaxHP * 0.25)
 			end
-			lowestAlly.HP = math.min(lowestAlly.MaxHP, lowestAlly.HP + healAmt)
-			addLog(battle, actor.Name .. " → " .. abilityName .. " heals " .. lowestAlly.Name .. " (+" .. healAmt .. " HP)")
+			u.HP = math.min(u.MaxHP, u.HP + healAmt)
+			return healAmt
+		end
+
+		if ability.AoE then
+			local total = 0
+			for _, u in ipairs(allySide) do
+				if u.HP > 0 then
+					total += healUnit(u)
+				end
+			end
+			addLog(battle, actor.Name .. " → " .. abilityName .. " heals all allies (+" .. total .. " HP total)")
 		else
-			addLog(battle, actor.Name .. " → " .. abilityName .. " (no ally to heal)")
+			local lowestFrac, lowestAlly = 2, nil
+			for _, u in ipairs(allySide) do
+				if u.HP > 0 then
+					local frac = u.HP / u.MaxHP
+					if frac < lowestFrac then
+						lowestFrac = frac
+						lowestAlly = u
+					end
+				end
+			end
+			if lowestAlly then
+				local healAmt = healUnit(lowestAlly)
+				addLog(battle, actor.Name .. " → " .. abilityName .. " heals " .. lowestAlly.Name .. " (+" .. healAmt .. " HP)")
+			else
+				addLog(battle, actor.Name .. " → " .. abilityName .. " (no ally to heal)")
+			end
 		end
 		return
 	end

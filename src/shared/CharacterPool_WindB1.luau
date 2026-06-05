@@ -50,7 +50,7 @@ M.entries = {
 					Hits = 1,
 					AoE = true,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 			},
 		},
@@ -131,7 +131,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = false,
-					Heals = true,
+					Heals = false,
 					LifeSteal = false,
 				},
 				{
@@ -144,7 +144,7 @@ M.entries = {
 					Hits = 1,
 					AoE = true,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Supply",
@@ -155,7 +155,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = false,
-					Heals = true,
+					Heals = false,
 					LifeSteal = false,
 				},
 			},
@@ -184,7 +184,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = false,
-					Heals = true,
+					Heals = false,
 					LifeSteal = false,
 				},
 				{
@@ -437,8 +437,8 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = false,
-					Heals = true,
-					LifeSteal = false,
+					Heals = false,
+					LifeSteal = true,
 				},
 				{
 					Name = "Spinning Slash",
@@ -650,7 +650,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Strike of Rejection",
@@ -662,7 +662,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Blooming Nightmare",
@@ -768,7 +768,7 @@ M.entries = {
 					Hits = 1,
 					AoE = true,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Force Field",
@@ -1073,7 +1073,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = false,
-					Heals = true,
+					Heals = false,
 					LifeSteal = false,
 				},
 				{
@@ -1168,7 +1168,7 @@ M.entries = {
 					Hits = 2,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Brand of Hell",
@@ -1379,7 +1379,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 2,
 					AoE = false,
-					Heals = true,
+					Heals = false,
 					LifeSteal = false,
 				},
 				{
@@ -1403,7 +1403,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = false,
-					Heals = true,
+					Heals = false,
 					LifeSteal = false,
 				},
 			},
@@ -2346,7 +2346,7 @@ M.entries = {
 					Hits = 2,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Perish!",
@@ -2452,7 +2452,7 @@ M.entries = {
 					Hits = 2,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Chivalry of the Dessert Kingdom",
@@ -2769,7 +2769,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = false,
-					Heals = true,
+					Heals = false,
 					LifeSteal = false,
 				},
 				{
@@ -2864,7 +2864,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Flame Burst",
@@ -2940,8 +2940,8 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = false,
-					Heals = true,
-					LifeSteal = false,
+					Heals = false,
+					LifeSteal = true,
 				},
 			},
 		},
@@ -3023,7 +3023,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Elemental Fragment",
@@ -3300,7 +3300,7 @@ M.entries = {
 					Hits = 1,
 					AoE = true,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Palisade Bite",
@@ -3406,7 +3406,7 @@ M.entries = {
 					Hits = 1,
 					AoE = true,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "White Tiger Crush",

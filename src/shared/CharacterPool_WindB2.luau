@@ -49,7 +49,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = false,
-					Heals = false,
+					Heals = true,
 					LifeSteal = false,
 				},
 			},
@@ -90,7 +90,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = false,
-					Heals = true,
+					Heals = false,
 					LifeSteal = false,
 				},
 				{
@@ -368,7 +368,7 @@ M.entries = {
 					Hits = 2,
 					AoE = true,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 			},
 		},
@@ -409,7 +409,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Stone Monkey (Passive)",
@@ -503,7 +503,7 @@ M.entries = {
 					Hits = 3,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Fate of Destruction",
@@ -1151,7 +1151,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Forest of Living",
@@ -1309,7 +1309,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = true,
-					Heals = true,
+					Heals = false,
 					LifeSteal = false,
 				},
 				{
@@ -1840,7 +1840,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Dance with the Elemental",
@@ -1905,7 +1905,7 @@ M.entries = {
 					Hits = 2,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Weakness Shot",
@@ -2034,7 +2034,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = false,
-					Heals = true,
+					Heals = false,
 					LifeSteal = false,
 				},
 			},
@@ -2117,7 +2117,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Love & Peace",
@@ -2128,7 +2128,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = true,
-					Heals = true,
+					Heals = false,
 					LifeSteal = false,
 				},
 				{
@@ -2276,7 +2276,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Soft Pudding",
@@ -2287,7 +2287,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = false,
-					Heals = true,
+					Heals = false,
 					LifeSteal = false,
 				},
 				{
@@ -2382,7 +2382,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Cursed Apple",
@@ -2435,7 +2435,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Consecutive Slash",
@@ -2541,7 +2541,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Control Sand",
@@ -2765,7 +2765,7 @@ M.entries = {
 					Hits = 2,
 					AoE = true,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Full of Spirit (Passive)",
@@ -3230,7 +3230,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Hairpin: 4 Nails",
@@ -3295,7 +3295,7 @@ M.entries = {
 					Hits = 2,
 					AoE = true,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Dragon Bombardment",
@@ -3442,7 +3442,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Multi Shuriken",
@@ -3677,7 +3677,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = false,
-					Heals = true,
+					Heals = false,
 					LifeSteal = false,
 				},
 				{
@@ -3848,7 +3848,7 @@ M.entries = {
 					ScalesWith = "ATK",
 					Hits = 1,
 					AoE = false,
-					Heals = true,
+					Heals = false,
 					LifeSteal = false,
 				},
 				{
@@ -3902,7 +3902,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 				{
 					Name = "Eternal Carapace",
@@ -4338,7 +4338,7 @@ M.entries = {
 					Hits = 1,
 					AoE = false,
 					Heals = false,
-					LifeSteal = true,
+					LifeSteal = false,
 				},
 			},
 		},

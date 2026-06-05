@@ -187,7 +187,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Lightning Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Sandstorm", Cooldown = 3, Multiplier = 2.5 },
-								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, Heals = true },
+								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -1048,7 +1048,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Lightning Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Sandstorm", Cooldown = 3, Multiplier = 2.5 },
-								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, Heals = true },
+								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -1484,7 +1484,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Lightning Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Sandstorm", Cooldown = 3, Multiplier = 2.5 },
-								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, Heals = true },
+								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -1698,7 +1698,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Lightning Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Sandstorm", Cooldown = 3, Multiplier = 2.5 },
-								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, Heals = true },
+								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -2558,7 +2558,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Lightning Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Sandstorm", Cooldown = 3, Multiplier = 2.5 },
-								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, Heals = true },
+								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -2997,7 +2997,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Lightning Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Sandstorm", Cooldown = 3, Multiplier = 2.5 },
-								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, Heals = true },
+								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3209,7 +3209,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Lightning Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Sandstorm", Cooldown = 3, Multiplier = 2.5 },
-								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, Heals = true },
+								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -4068,7 +4068,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Lightning Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Sandstorm", Cooldown = 3, Multiplier = 2.5 },
-								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, Heals = true },
+								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -4508,7 +4508,7 @@ M.stages = {
 							Abilities = {
 								{ Name = "Lightning Shock", Cooldown = 0, Multiplier = 3.5 },
 								{ Name = "Sandstorm", Cooldown = 3, Multiplier = 2.5 },
-								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, Heals = true },
+								{ Name = "Regenerate", Cooldown = 5, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{

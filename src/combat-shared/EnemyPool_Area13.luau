@@ -20,7 +20,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -92,7 +92,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -164,7 +164,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -181,7 +181,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -215,7 +215,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 					},
@@ -312,7 +312,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -329,7 +329,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -363,7 +363,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 					},
@@ -435,7 +435,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 					},
@@ -495,7 +495,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -551,7 +551,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -658,7 +658,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -719,7 +719,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -736,7 +736,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 					},
@@ -757,7 +757,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -850,7 +850,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -912,7 +912,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1010,7 +1010,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1028,7 +1028,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1069,7 +1069,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1087,7 +1087,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1188,7 +1188,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -1205,7 +1205,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 					},
@@ -1226,7 +1226,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -1281,7 +1281,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 					},
@@ -1302,7 +1302,7 @@ M.stages = {
 							Resistance = 0.24,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -1400,7 +1400,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1476,7 +1476,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1494,7 +1494,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -1562,7 +1562,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -1634,7 +1634,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -1668,7 +1668,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -1816,7 +1816,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -1854,7 +1854,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -1926,7 +1926,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -1943,7 +1943,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -1977,7 +1977,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 					},
@@ -2003,7 +2003,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2076,7 +2076,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2111,7 +2111,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2129,7 +2129,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -2202,7 +2202,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -2227,7 +2227,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -2302,7 +2302,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -2319,7 +2319,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -2376,7 +2376,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -2393,7 +2393,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -2428,7 +2428,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 					},
@@ -2454,7 +2454,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2472,7 +2472,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2490,7 +2490,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2508,7 +2508,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -2530,7 +2530,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2567,7 +2567,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2608,7 +2608,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2709,7 +2709,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -2745,7 +2745,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 					},
@@ -2766,7 +2766,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -2800,7 +2800,7 @@ M.stages = {
 							Resistance = 0.27,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -2922,7 +2922,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -2976,7 +2976,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -3034,7 +3034,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3052,7 +3052,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -3102,7 +3102,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3119,7 +3119,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3153,7 +3153,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 					},
@@ -3174,7 +3174,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3208,7 +3208,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3246,7 +3246,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3297,7 +3297,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 					},
@@ -3356,7 +3356,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3373,7 +3373,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 					},
@@ -3394,7 +3394,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3411,7 +3411,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3483,7 +3483,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3517,7 +3517,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 					},
@@ -3543,7 +3543,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3578,7 +3578,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3634,7 +3634,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3690,7 +3690,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -3784,7 +3784,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3801,7 +3801,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3840,7 +3840,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3857,7 +3857,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3914,7 +3914,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -3994,7 +3994,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -4050,7 +4050,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -4091,7 +4091,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -4128,7 +4128,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},
@@ -4150,7 +4150,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -4168,7 +4168,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -4286,7 +4286,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 					},
@@ -4326,7 +4326,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -4381,7 +4381,7 @@ M.stages = {
 							Resistance = 0.3,
 							Accuracy = 0,
 							Abilities = {
-								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, Heals = true },
+								{ Name = "Spore Shoot", Cooldown = 0, Multiplier = 3.5, LifeSteal = true },
 							},
 						},
 						{
@@ -4481,7 +4481,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -4499,7 +4499,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -4557,7 +4557,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 						{
@@ -4593,7 +4593,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Thrash", Cooldown = 0, Multiplier = 1.7 },
-								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, Heals = true },
+								{ Name = "Crouch", Cooldown = 5, Multiplier = 0, LifeSteal = true },
 							},
 						},
 					},

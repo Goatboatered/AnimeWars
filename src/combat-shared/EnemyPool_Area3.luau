@@ -939,7 +939,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -997,7 +997,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -1033,7 +1033,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 					},
@@ -1073,7 +1073,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -1091,7 +1091,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 					},
@@ -1117,7 +1117,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -1135,7 +1135,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -1175,7 +1175,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -1193,7 +1193,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -1233,7 +1233,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Windy Cut", Cooldown = 0, Multiplier = 3.7 },
-								{ Name = "Twister", Cooldown = 3, Multiplier = 2.6, AoE = true, LifeSteal = true },
+								{ Name = "Twister", Cooldown = 3, Multiplier = 2.6, AoE = true },
 								{ Name = "Force Field", Cooldown = 4, Multiplier = 3.5, AoE = true },
 							},
 						},
@@ -2333,7 +2333,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -2377,7 +2377,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -2413,7 +2413,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 					},
@@ -2435,7 +2435,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -2453,7 +2453,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -2493,7 +2493,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Windy Cut", Cooldown = 0, Multiplier = 3.7 },
-								{ Name = "Twister", Cooldown = 3, Multiplier = 2.6, AoE = true, LifeSteal = true },
+								{ Name = "Twister", Cooldown = 3, Multiplier = 2.6, AoE = true },
 								{ Name = "Force Field", Cooldown = 4, Multiplier = 3.5, AoE = true },
 							},
 						},
@@ -3459,7 +3459,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -3575,7 +3575,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -3593,7 +3593,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -3637,7 +3637,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -3713,7 +3713,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 						{
@@ -3731,7 +3731,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Cross Attack", Cooldown = 0, Multiplier = 3.8 },
-								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, Heals = true },
+								{ Name = "Soul Split", Cooldown = 3, Multiplier = 6.3, LifeSteal = true },
 							},
 						},
 					},
@@ -3753,7 +3753,7 @@ M.stages = {
 							Accuracy = 0,
 							Abilities = {
 								{ Name = "Windy Cut", Cooldown = 0, Multiplier = 3.7 },
-								{ Name = "Twister", Cooldown = 3, Multiplier = 2.6, AoE = true, LifeSteal = true },
+								{ Name = "Twister", Cooldown = 3, Multiplier = 2.6, AoE = true },
 								{ Name = "Force Field", Cooldown = 4, Multiplier = 3.5, AoE = true },
 							},
 						},
