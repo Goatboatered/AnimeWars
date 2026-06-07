@@ -1896,3 +1896,11 @@ if tpOk and type(tpData) == "table" and tpData.xpRewards then
 		applyRemote:FireServer(tpData.xpRewards)
 	end
 end
+if tpOk and type(tpData) == "table" and tpData.replayData then
+	local rd = tpData.replayData
+	local beginRemote = remotes:WaitForChild("BeginBattle", 5)
+	if beginRemote and rd.unitIds and #rd.unitIds > 0 then
+		task.wait(1)
+		beginRemote:FireServer(rd.unitIds, rd.areaNum, rd.difficulty, rd.stage)
+	end
+end

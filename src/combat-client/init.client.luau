@@ -32,9 +32,9 @@ if not tpData or not tpData.selectedUnits or #tpData.selectedUnits == 0 then
 				Resistance = 0.15, Accuracy = 0,
 				Abilities = {
 					{ Name = "Aqua Hurricane", Type = "Active", Cooldown = 0, TargetType = "EnemySingle",
-					  Description = "Attacks 3x. 1.2x ATK each hit." },
+					  Multiplier = 1.2, Hits = 3, AoE = false, Heals = false, SelfHeal = false, LifeSteal = false },
 					{ Name = "Purify", Type = "Active", Cooldown = 3, TargetType = "AllySingle",
-					  Description = "Remove debuffs, heal ally for 4x ATK." },
+					  Multiplier = 4, ScalesWith = "ATK", Hits = 1, AoE = false, Heals = true, SelfHeal = false, LifeSteal = false },
 				},
 			},
 			{
@@ -44,14 +44,16 @@ if not tpData or not tpData.selectedUnits or #tpData.selectedUnits == 0 then
 				Resistance = 0.15, Accuracy = 0,
 				Abilities = {
 					{ Name = "Bite", Type = "Active", Cooldown = 0, TargetType = "EnemySingle",
-					  Description = "Bite enemy. Heal 30% of damage dealt. 3.6x ATK." },
+					  Multiplier = 3.6, Hits = 1, AoE = false, Heals = false, SelfHeal = false, LifeSteal = true },
 					{ Name = "Double Attack", Type = "Active", Cooldown = 3, TargetType = "EnemySingle",
-					  Description = "Attacks twice. 3.7x ATK x2." },
+					  Multiplier = 3.7, Hits = 2, AoE = false, Heals = false, SelfHeal = false, LifeSteal = false },
 				},
 			},
 		},
 	}
 end
+
+local lastAreaInfo = nil  -- saved each time a battle starts, used by Replay in Studio
 
 local SW_AREAS = {
 	"Garen Forest","Mt. Siz","Kabir Ruins","Mt. White Ragon",
@@ -59,7 +61,7 @@ local SW_AREAS = {
 	"Faimon Volcano","Aiden Forest","Ferun Castle","Mt. Runar","Charuka Remains",
 }
 
-if RunService:IsStudio() then
+local function showStudioLevelPicker()
 	local sg = Instance.new("ScreenGui")
 	sg.Name = "StudioLevelPicker"; sg.ResetOnSpawn = false; sg.Parent = playerGui
 
@@ -155,13 +157,17 @@ if RunService:IsStudio() then
 	refresh()
 	startBtn.MouseButton1Click:Connect(function()
 		sg:Destroy()
-		local areaInfo = { num = areaIdx, difficulty = diff:lower(), stage = stageIdx }
-		SendUnitData:FireServer(tpData.selectedUnits, areaInfo)
+		lastAreaInfo = { num = areaIdx, difficulty = diff:lower(), stage = stageIdx }
+		SendUnitData:FireServer(tpData.selectedUnits, lastAreaInfo)
 	end)
+end
+
+if RunService:IsStudio() then
+	showStudioLevelPicker()
 else
 	task.delay(1, function()
-		local areaInfo = { num = tpData.areaNum or 1, difficulty = tpData.difficulty or "normal", stage = tpData.stage or 1 }
-		SendUnitData:FireServer(tpData.selectedUnits, areaInfo)
+		lastAreaInfo = { num = tpData.areaNum or 1, difficulty = tpData.difficulty or "normal", stage = tpData.stage or 1 }
+		SendUnitData:FireServer(tpData.selectedUnits, lastAreaInfo)
 	end)
 end
 
@@ -274,14 +280,31 @@ end)
 
 local function setEnemyArrowsVisible(v)
 	arrowsActive = v
-	for _, b in pairs(arrowBills) do b.Enabled = v end
+	if v then
+		local alive = {}
+		for _, e in ipairs(cachedEnemyUnits) do
+			if e.HP > 0 then
+				alive[e.Id] = true
+			end
+		end
+		for id, b in pairs(arrowBills) do
+			b.Enabled = alive[id] == true
+		end
+	else
+		for _, b in pairs(arrowBills) do
+			b.Enabled = false
+		end
+	end
 end
 local function setAllyArrowsVisible(v)
 	allyArrowsActive = v
-	for _, b in pairs(allyArrowBills) do b.Enabled = v end
+	for _, b in pairs(allyArrowBills) do
+		b.Enabled = v
+	end
 end
 local function setArrowsVisible(v)
-	setEnemyArrowsVisible(v); setAllyArrowsVisible(v)
+	setEnemyArrowsVisible(v)
+	setAllyArrowsVisible(v)
 end
 
 local function updateArrowColors(activeType, enemyUnits)
@@ -298,7 +321,8 @@ local function highlightEnemyArrow(enemyId)
 	for id, lbl in pairs(arrowLabels) do
 		local base = arrowMatchupColors[id] or MATCHUP_COLOR.neutral
 		if id == enemyId then
-			lbl.TextColor3 = base; lbl.TextStrokeTransparency = 0.2
+			lbl.TextColor3 = base
+			lbl.TextStrokeTransparency = 0.2
 		else
 			lbl.TextColor3 = Color3.new(base.R * 0.5, base.G * 0.5, base.B * 0.5)
 			lbl.TextStrokeTransparency = 1
@@ -309,9 +333,11 @@ end
 local function highlightAllyArrow(allyId)
 	for id, lbl in pairs(allyArrowLabels) do
 		if id == allyId then
-			lbl.TextColor3 = Color3.fromRGB(80, 240, 100); lbl.TextStrokeTransparency = 0.2
+			lbl.TextColor3 = Color3.fromRGB(80, 240, 100)
+			lbl.TextStrokeTransparency = 0.2
 		else
-			lbl.TextColor3 = Color3.fromRGB(25, 90, 35); lbl.TextStrokeTransparency = 1
+			lbl.TextColor3 = Color3.fromRGB(25, 90, 35)
+			lbl.TextStrokeTransparency = 1
 		end
 	end
 end
@@ -323,7 +349,8 @@ abilityBar.Position         = UDim2.new(0, 0, 1, -76)
 abilityBar.BackgroundColor3 = Color3.fromRGB(10, 12, 22)
 abilityBar.BackgroundTransparency = 0.15
 abilityBar.BorderSizePixel  = 0
-abilityBar.Visible          = false; abilityBar.Parent = screenGui
+abilityBar.Visible          = false
+abilityBar.Parent           = screenGui
 
 local abilityLayout = Instance.new("UIListLayout")
 abilityLayout.FillDirection       = Enum.FillDirection.Horizontal
@@ -348,6 +375,7 @@ local function cancelSelection()
 end
 
 local function firePlayerAction(abilityIdx, targetId)
+	print("[CombatClient] firePlayerAction: abilityIdx=", abilityIdx, "targetId=", targetId, "pendingAbilityIdx was=", pendingAbilityIdx)
 	PlayerAction:FireServer({ abilityIndex = abilityIdx, targetId = targetId })
 	abilityBar.Visible = false
 	clearAbilityButtons()
@@ -371,7 +399,8 @@ local BTN_COLORS = {
 }
 
 local function enterSelectingMode(abilityIdx, targetType)
-	if pendingAbilityIdx ~= nil then return end -- guard double-click
+	-- Reset any previous selection so switching abilities always works
+	cancelSelection()
 	pendingAbilityIdx = abilityIdx
 	pendingTargetType = targetType
 
@@ -415,9 +444,16 @@ local function buildAbilityButtons(unit)
 	clearAbilityButtons()
 	local cds = unit.CooldownsRemaining or {}
 
+	-- DEBUG: log what CD data the client actually sees
+	local cdParts = {}
+	for k, v in pairs(cds) do
+		table.insert(cdParts, tostring(k) .. "(" .. type(k) .. ")=" .. tostring(v))
+	end
+	print("[CombatClient] buildAbilityButtons:", unit.Name, "CDs: {", table.concat(cdParts, ", "), "}")
+
 	for i, ab in ipairs(unit.Abilities or {}) do
 		if ab.Type == "Passive" then continue end
-		local cd   = cds[i] or 0
+		local cd   = cds[i] or cds[tostring(i)] or 0
 		local tt   = ab.TargetType or "EnemySingle"
 		local onCD = cd > 0
 
@@ -437,24 +473,14 @@ local function buildAbilityButtons(unit)
 
 		if not onCD then
 			local ci, ct = i, tt
-			btn.MouseButton1Click:Connect(function() enterSelectingMode(ci, ct) end)
+			btn.MouseButton1Click:Connect(function()
+				print("[CombatClient] ability btn clicked: i=", ci)
+				enterSelectingMode(ci, ct)
+			end)
 		end
 		table.insert(abilityButtons, btn)
 	end
 
-	-- Basic Attack
-	local basic = Instance.new("TextButton")
-	basic.Size             = UDim2.fromOffset(140, 58)
-	basic.BackgroundColor3 = Color3.fromRGB(75, 50, 115)
-	basic.BorderSizePixel  = 0
-	basic.TextColor3       = Color3.fromRGB(255, 255, 255)
-	basic.Font             = Enum.Font.GothamBold
-	basic.TextScaled       = false; basic.TextSize = 13
-	basic.Text             = "Basic Attack\n→ Enemy"
-	basic.Parent           = abilityBar
-	Instance.new("UICorner", basic).CornerRadius = UDim.new(0, 8)
-	basic.MouseButton1Click:Connect(function() enterSelectingMode(0, "EnemySingle") end)
-	table.insert(abilityButtons, basic)
 
 	-- Cancel button (hidden until a skill is pending)
 	cancelBtn = Instance.new("TextButton")
@@ -639,8 +665,10 @@ BattleState.OnClientEvent:Connect(function(state)
 			turnLabel.Text   = "Your turn: " .. activeUnit.Name
 			cancelSelection(); clearAbilityButtons()
 			buildAbilityButtons(activeUnit)
-			setEnemyArrowsVisible(true); setAllyArrowsVisible(false)
+			setEnemyArrowsVisible(true)
+			setAllyArrowsVisible(false)
 			abilityBar.Visible = true
+			print("[CombatClient] abilityBar shown for", activeUnit.Name)
 			updateArrowColors(activeUnit.Type, cachedEnemyUnits)
 			for _, e in ipairs(cachedEnemyUnits) do
 				if e.HP > 0 then highlightEnemyArrow(e.Id); break end
@@ -675,8 +703,8 @@ endOverlay.Visible          = false; endOverlay.ZIndex = 50
 endOverlay.Parent           = screenGui
 
 local endPanel = Instance.new("Frame")
-endPanel.Size             = UDim2.fromOffset(420, 200)
-endPanel.Position         = UDim2.new(0.5, -210, 0.5, -100)
+endPanel.Size             = UDim2.fromOffset(420, 220)
+endPanel.Position         = UDim2.new(0.5, -210, 0.5, -110)
 endPanel.BackgroundColor3 = Color3.fromRGB(16, 18, 30)
 endPanel.BorderSizePixel  = 0; endPanel.ZIndex = 51
 endPanel.Parent           = endOverlay
@@ -691,19 +719,74 @@ endTitle.Font               = Enum.Font.GothamBlack
 endTitle.TextScaled         = true; endTitle.ZIndex = 51
 endTitle.Parent             = endPanel
 
-local returnBtn = Instance.new("TextButton")
-returnBtn.Size             = UDim2.fromOffset(220, 52)
-returnBtn.Position         = UDim2.new(0.5, -110, 1, -68)
-returnBtn.BackgroundColor3 = Color3.fromRGB(255, 191, 64)
-returnBtn.BorderSizePixel  = 0
-returnBtn.TextColor3       = Color3.fromRGB(18, 18, 28)
-returnBtn.Font             = Enum.Font.GothamBlack
-returnBtn.TextScaled       = true; returnBtn.Text = "Return to Hub"
-returnBtn.ZIndex           = 51; returnBtn.Parent = endPanel
-Instance.new("UICorner", returnBtn).CornerRadius = UDim.new(0, 10)
-returnBtn.MouseButton1Click:Connect(function()
-	returnBtn.Active = false; returnBtn.Text = "Returning..."
+local replayBtn = Instance.new("TextButton")
+replayBtn.Size             = UDim2.fromOffset(195, 52)
+replayBtn.Position         = UDim2.new(0, 10, 1, -68)
+replayBtn.BackgroundColor3 = Color3.fromRGB(60, 180, 90)
+replayBtn.BorderSizePixel  = 0
+replayBtn.TextColor3       = Color3.fromRGB(18, 18, 28)
+replayBtn.Font             = Enum.Font.GothamBlack
+replayBtn.TextScaled       = true
+replayBtn.Text             = "Replay"
+replayBtn.ZIndex           = 51
+replayBtn.Parent           = endPanel
+Instance.new("UICorner", replayBtn).CornerRadius = UDim.new(0, 10)
+replayBtn.MouseButton1Click:Connect(function()
+	replayBtn.Active = false
+	replayBtn.Text   = "Loading..."
+	if RunService:IsStudio() then
+		endOverlay.Visible = false
+		setArrowsVisible(false)
+		abilityBar.Visible = false
+		clearAbilityButtons()
+		cancelSelection()
+		if lastAreaInfo then
+			SendUnitData:FireServer(tpData.selectedUnits, lastAreaInfo)
+		end
+		replayBtn.Active = true
+		replayBtn.Text   = "Replay"
+		return
+	end
 	if HUB_PLACE_ID ~= 0 then
+		local unitIds = {}
+		for _, u in ipairs(tpData.selectedUnits or {}) do
+			if u.Id then
+				table.insert(unitIds, u.Id)
+			end
+		end
+		local opts = Instance.new("TeleportOptions")
+		opts:SetTeleportData({
+			xpRewards  = pendingXPRewards,
+			replayData = {
+				unitIds    = unitIds,
+				areaNum    = tpData.areaNum,
+				difficulty = tpData.difficulty,
+				stage      = tpData.stage,
+			},
+		})
+		TeleportService:Teleport(HUB_PLACE_ID, player, opts)
+	end
+end)
+
+local levelSelectBtn = Instance.new("TextButton")
+levelSelectBtn.Size             = UDim2.fromOffset(195, 52)
+levelSelectBtn.Position         = UDim2.new(0, 215, 1, -68)
+levelSelectBtn.BackgroundColor3 = Color3.fromRGB(255, 191, 64)
+levelSelectBtn.BorderSizePixel  = 0
+levelSelectBtn.TextColor3       = Color3.fromRGB(18, 18, 28)
+levelSelectBtn.Font             = Enum.Font.GothamBlack
+levelSelectBtn.TextScaled       = true
+levelSelectBtn.Text             = "Level Select"
+levelSelectBtn.ZIndex           = 51
+levelSelectBtn.Parent           = endPanel
+Instance.new("UICorner", levelSelectBtn).CornerRadius = UDim.new(0, 10)
+levelSelectBtn.MouseButton1Click:Connect(function()
+	levelSelectBtn.Active = false
+	levelSelectBtn.Text   = "Returning..."
+	if RunService:IsStudio() then
+		endOverlay.Visible = false
+		showStudioLevelPicker()
+	elseif HUB_PLACE_ID ~= 0 then
 		local opts = Instance.new("TeleportOptions")
 		opts:SetTeleportData({ xpRewards = pendingXPRewards })
 		TeleportService:Teleport(HUB_PLACE_ID, player, opts)
@@ -711,8 +794,14 @@ returnBtn.MouseButton1Click:Connect(function()
 end)
 
 BattleEnd.OnClientEvent:Connect(function(result)
-	setArrowsVisible(false); abilityBar.Visible = false
-	clearAbilityButtons(); cancelSelection()
+	setArrowsVisible(false)
+	abilityBar.Visible = false
+	clearAbilityButtons()
+	cancelSelection()
+	replayBtn.Active = true
+	replayBtn.Text   = "Replay"
+	levelSelectBtn.Active = true
+	levelSelectBtn.Text   = "Level Select"
 	endOverlay.Visible = true
 	if result.victory then
 		endTitle.TextColor3 = Color3.fromRGB(255, 215, 80)

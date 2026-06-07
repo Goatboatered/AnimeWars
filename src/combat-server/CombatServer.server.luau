@@ -95,49 +95,7 @@ local function buildArea1()
 
 	part(arenaFolder, "Ground",
 		Vector3.new(72, 1, 58), Vector3.new(0, -0.5, 0),
-		Color3.fromRGB(108, 130, 65), Enum.Material.Grass, true, true)
-
-	part(arenaFolder, "PlayerPatch",
-		Vector3.new(34, 0.3, 18), Vector3.new(-1, 0.15, 12),
-		Color3.fromRGB(128, 156, 76), Enum.Material.Grass)
-
-	local trees = {
-		{-22,-26},{-14,-27},{-6,-28},{2,-28},{10,-27},{18,-26},{24,-24},
-		{-25,-18},{22,-18},
-	}
-	for _, td in ipairs(trees) do
-		local x, z  = td[1], td[2]
-		local h     = 11 + math.random(0, 4)
-		local trunk = Instance.new("Part")
-		trunk.Shape    = Enum.PartType.Cylinder
-		trunk.Size     = Vector3.new(h, 1.4, 1.4)
-		trunk.CFrame   = CFrame.new(x, h * 0.5, z) * CFrame.Angles(0, 0, math.pi * 0.5)
-		trunk.Color    = Color3.fromRGB(100, 68, 30)
-		trunk.Material = Enum.Material.Wood
-		trunk.Anchored = true; trunk.CanCollide = false; trunk.CastShadow = false
-		trunk.Parent   = arenaFolder
-
-		local leaves = Instance.new("Part")
-		leaves.Shape   = Enum.PartType.Ball
-		leaves.Size    = Vector3.new(9, 9, 9)
-		leaves.Position = Vector3.new(x, h + 4, z)
-		leaves.Color   = Color3.fromRGB(62 + math.random(0,18), 108 + math.random(0,14), 34)
-		leaves.Material = Enum.Material.Grass
-		leaves.Anchored = true; leaves.CanCollide = false; leaves.CastShadow = false
-		leaves.Parent  = arenaFolder
-	end
-
-	local rocks = { {10,4},{-11,2},{13,-5},{-9,-6},{6,-7},{-3,7} }
-	for _, rd in ipairs(rocks) do
-		part(arenaFolder, "Rock",
-			Vector3.new(1.4 + math.random(), 1 + math.random() * 0.5, 1.4 + math.random()),
-			Vector3.new(rd[1], 0.4, rd[2]),
-			Color3.fromRGB(118, 118, 124), Enum.Material.Rock)
-	end
-
-	part(arenaFolder, "Divider",
-		Vector3.new(40, 0.2, 0.5), Vector3.new(0, 0.2, 0),
-		Color3.fromRGB(90, 110, 55), Enum.Material.Grass)
+		Color3.fromRGB(160, 160, 160), Enum.Material.SmoothPlastic, true, true)
 
 	arenaFolder.Parent = Workspace
 end
@@ -170,97 +128,86 @@ local function addHPBar(primaryPart, studOffset)
 	return bar
 end
 
--- ─── HUMANOID MODEL BUILDER ───────────────────────────────────────────
-local HS   = 0.5
-local SKIN_COL    = Color3.fromRGB(255, 220, 185)
-local PANTS_PLAYER = Color3.fromRGB(30,  50, 110)
-local PANTS_ENEMY  = Color3.fromRGB(70,  25,  25)
+-- ─── NPC MODEL BUILDER ───────────────────────────────────────────────
+local NOOB_YELLOW = Color3.fromRGB(245, 205,  48)
+local NOOB_GREEN  = Color3.fromRGB( 75, 151,  75)
 
 local SHIRT_COLORS = {
-	Water   = Color3.fromRGB(40,  120, 220),
+	Water   = Color3.fromRGB( 40, 120, 220),
 	Fire    = Color3.fromRGB(210,  55,  40),
-	Wind    = Color3.fromRGB(100, 190,  70),
-	Light   = Color3.fromRGB(240, 220,  80),
+	Wind    = Color3.fromRGB(240, 210,  50),
+	Light   = Color3.fromRGB(240, 240, 240),
 	Dark    = Color3.fromRGB(130,  60, 200),
 	Neutral = Color3.fromRGB(120, 120, 130),
 }
-local MANE_COLORS2 = {
-	Fire = Color3.fromRGB(255, 140, 20),
-	Wind = Color3.fromRGB(160, 255, 80),
-}
 
-local function hPart(model, name, size, color, canCollide)
-	local p = Instance.new("Part")
-	p.Name = name; p.Size = size; p.Color = color
-	p.CanCollide = canCollide == true; p.CastShadow = false; p.Parent = model
-	return p
-end
+local function buildHumanoid(pos, facingYRot, shirtCol, modelName)
+	local desc = Instance.new("HumanoidDescription")
+	desc.HeadColor     = NOOB_YELLOW
+	desc.TorsoColor    = shirtCol
+	desc.LeftArmColor  = NOOB_YELLOW
+	desc.RightArmColor = NOOB_YELLOW
+	desc.LeftLegColor  = NOOB_GREEN
+	desc.RightLegColor = NOOB_GREEN
 
-local function hMotor(parent, name, p0, p1, c0, c1)
-	local m = Instance.new("Motor6D")
-	m.Name = name; m.Part0 = p0; m.Part1 = p1; m.C0 = c0; m.C1 = c1; m.Parent = parent
-end
+	local ok, model = pcall(Players.CreateHumanoidModelFromDescription, Players, desc, Enum.HumanoidRigType.R6)
+	if not ok or not model then
+		warn("[CombatServer] buildHumanoid failed:", model)
+		return nil, nil
+	end
 
-local function buildHumanoid(pos, facingYRot, shirtCol, pantsCol, headCol, modelName)
-	local spawnCF = CFrame.new(pos + Vector3.new(0, 2, 0)) * CFrame.Angles(0, facingYRot, 0)
-	local model = Instance.new("Model")
 	model.Name = modelName or "CombatUnit"
 
-	local hrp = hPart(model, "HumanoidRootPart", Vector3.new(2*HS, 2*HS, HS), Color3.new(1,1,1), false)
-	hrp.Transparency = 1; hrp.Anchored = true; hrp.CFrame = spawnCF
-	model.PrimaryPart = hrp
+	local hrp = model.PrimaryPart
+	if hrp then
+		hrp.Anchored = true
+		hrp.CFrame = CFrame.new(pos.X, 4.5, pos.Z) * CFrame.Angles(0, facingYRot, 0)
+	end
 
-	local hum = Instance.new("Humanoid")
-	hum.WalkSpeed = 0; hum.JumpPower = 0; hum.HipHeight = 0.1
-	hum.MaxHealth = math.huge; hum.Health = math.huge; hum.Parent = model
+	local hum = model:FindFirstChildOfClass("Humanoid")
+	if hum then
+		hum.WalkSpeed = 0
+		hum.JumpPower = 0
+		hum.MaxHealth = math.huge
+		hum.Health    = math.huge
+	end
 
-	local torso    = hPart(model, "Torso",     Vector3.new(2*HS, 2*HS, HS), shirtCol, true)
-	local head     = hPart(model, "Head",      Vector3.new(2*HS, HS,   HS), headCol,  false)
-	local leftArm  = hPart(model, "Left Arm",  Vector3.new(HS,  2*HS, HS), SKIN_COL, false)
-	local rightArm = hPart(model, "Right Arm", Vector3.new(HS,  2*HS, HS), SKIN_COL, false)
-	local leftLeg  = hPart(model, "Left Leg",  Vector3.new(HS,  2*HS, HS), pantsCol, true)
-	local rightLeg = hPart(model, "Right Leg", Vector3.new(HS,  2*HS, HS), pantsCol, true)
-
-	hMotor(hrp,   "RootJoint",      hrp,   torso,    CFrame.new(0,-HS,0,-1,0,0,0,0,1,0,1,0),    CFrame.new(0,-HS,0,-1,0,0,0,0,1,0,1,0))
-	hMotor(torso, "Neck",           torso, head,     CFrame.new(0,HS,0,-1,0,0,0,0,1,0,1,0),     CFrame.new(0,-0.5*HS,0,-1,0,0,0,0,1,0,1,0))
-	hMotor(torso, "Right Shoulder", torso, rightArm, CFrame.new(HS,0.5*HS,0,0,0,1,0,1,0,-1,0,0),  CFrame.new(-0.5*HS,0.5*HS,0,0,0,1,0,1,0,-1,0,0))
-	hMotor(torso, "Left Shoulder",  torso, leftArm,  CFrame.new(-HS,0.5*HS,0,0,0,-1,0,1,0,1,0,0), CFrame.new(0.5*HS,0.5*HS,0,0,0,-1,0,1,0,1,0,0))
-	hMotor(torso, "Right Hip",      torso, rightLeg, CFrame.new(HS,-HS,0,0,0,1,0,1,0,-1,0,0),     CFrame.new(0.5*HS,HS,0,0,0,1,0,1,0,-1,0,0))
-	hMotor(torso, "Left Hip",       torso, leftLeg,  CFrame.new(-HS,-HS,0,0,0,-1,0,1,0,1,0,0),    CFrame.new(-0.5*HS,HS,0,0,0,-1,0,1,0,1,0,0))
-
-	return model, torso, head
+	local torso = model:FindFirstChild("Torso")
+	return model, torso
 end
 
 -- ─── MODEL SPAWNERS ────────────────────────────────────────────────────
 local function spawnPlayerModel(unit, pos)
 	local shirt = SHIRT_COLORS[unit.Type] or Color3.fromRGB(120, 120, 130)
-	local model, torso = buildHumanoid(pos, 0, shirt, PANTS_PLAYER, SKIN_COL, unit.Name)
+	local model, torso = buildHumanoid(pos, 0, shirt, unit.Name)
+	if not model or not torso then return nil, nil end
+
 	model:SetAttribute("UnitId", unit.Id)
 	model:SetAttribute("IsEnemy", false)
 
-	-- ClickDetector for ally-targeting skills
 	local cd = Instance.new("ClickDetector")
-	cd.MaxActivationDistance = 200; cd.Parent = torso
+	cd.MaxActivationDistance = 200
+	cd.Parent = torso
 
 	model.Parent = arenaFolder:FindFirstChild("PlayerUnits")
-	local bar = addHPBar(torso, 2)
+	local bar = addHPBar(torso, 3)
 	return model, bar
 end
 
 local function spawnEnemyModel(unit, pos)
-	local shirt    = SHIRT_COLORS[unit.Type] or Color3.fromRGB(120, 120, 130)
-	local maneCol  = MANE_COLORS2[unit.Type] or Color3.fromRGB(200, 180, 50)
-	local model, torso, head = buildHumanoid(pos, math.pi, shirt, PANTS_ENEMY, maneCol, unit.Name)
-	head.Material = Enum.Material.Neon
+	local shirt = SHIRT_COLORS[unit.Type] or Color3.fromRGB(120, 120, 130)
+	local model, torso = buildHumanoid(pos, math.pi, shirt, unit.Name)
+	if not model or not torso then return nil, nil end
 
 	model:SetAttribute("UnitId", unit.Id)
 	model:SetAttribute("IsEnemy", true)
 
 	local cd = Instance.new("ClickDetector")
-	cd.MaxActivationDistance = 200; cd.Parent = torso
+	cd.MaxActivationDistance = 200
+	cd.Parent = torso
 
 	model.Parent = arenaFolder:FindFirstChild("EnemyUnits")
-	local bar = addHPBar(torso, 2)
+	local bar = addHPBar(torso, 3)
 	return model, bar
 end
 
@@ -405,8 +352,9 @@ local function applyAction(battle, actor, action)
 			else
 				healAmt = math.floor(u.MaxHP * 0.25)
 			end
+			local before = u.HP
 			u.HP = math.min(u.MaxHP, u.HP + healAmt)
-			return healAmt
+			return u.HP - before
 		end
 
 		if ability.AoE then
@@ -497,7 +445,7 @@ local function applyAction(battle, actor, action)
 		addLog(battle, actor.Name .. " → " .. abilityName .. " on " .. primaryTarget.Name .. " (" .. totalDmg .. ", " .. tostring(lastHt) .. ")")
 	end
 
-	if lifeSteal and totalDmg > 0 then
+	if lifeSteal and totalDmg > 0 and not actor.IsEnemy then
 		local heal = math.floor(totalDmg * 0.3)
 		actor.HP   = math.min(actor.MaxHP, actor.HP + heal)
 		addLog(battle, actor.Name .. " lifesteals +" .. heal .. " HP")
@@ -505,6 +453,28 @@ local function applyAction(battle, actor, action)
 end
 
 -- ─── ENEMY AI ─────────────────────────────────────────────────────────
+-- Which element types does each attacker type have advantage against?
+local ELEMENT_ADVANTAGE = {
+	Water = { Fire = true },
+	Fire  = { Wind = true },
+	Wind  = { Water = true },
+	Light = { Dark = true },
+	Dark  = { Light = true },
+}
+
+local function pickLowestHP(list)
+	local best = list[1]
+	local bestFrac = best.HP / best.MaxHP
+	for _, u in ipairs(list) do
+		local f = u.HP / u.MaxHP
+		if f < bestFrac then
+				bestFrac = f
+				best = u
+			end
+	end
+	return best
+end
+
 local function enemyAI(battle, enemy)
 	local targets = {}
 	for _, u in ipairs(battle.playerUnits) do
@@ -512,12 +482,18 @@ local function enemyAI(battle, enemy)
 	end
 	if #targets == 0 then return end
 
-	local target = targets[1]
-	local bestFrac = target.HP / target.MaxHP
+	-- Prefer targets the enemy has elemental advantage against
+	local adv = ELEMENT_ADVANTAGE[enemy.Type] or {}
+	local advantaged, others = {}, {}
 	for _, u in ipairs(targets) do
-		local f = u.HP / u.MaxHP
-		if f < bestFrac then bestFrac = f; target = u end
+		if adv[u.Type] then
+			table.insert(advantaged, u)
+		else
+			table.insert(others, u)
+		end
 	end
+
+	local target = #advantaged > 0 and pickLowestHP(advantaged) or pickLowestHP(others)
 
 	local bestIdx = nil
 	if enemy.Abilities then
@@ -556,59 +532,70 @@ local function autoPlayerAI(battle, unit)
 	for _, u in ipairs(battle.playerUnits) do if u.HP > 0 then table.insert(allies, u) end end
 	if #enemies == 0 then return nil end
 
-	-- Target: lowest HP fraction enemy
+	-- Target: lowest HP% enemy
 	local targetEnemy = enemies[1]
 	for _, u in ipairs(enemies) do
 		if (u.HP / u.MaxHP) < (targetEnemy.HP / targetEnemy.MaxHP) then targetEnemy = u end
 	end
 
-	-- Lowest HP fraction ally
-	local lowestFrac = 2
+	-- Lowest HP% ally
+	local lowestAlly, lowestFrac = allies[1], 2
 	for _, u in ipairs(allies) do
 		local f = u.HP / u.MaxHP
-		if f < lowestFrac then lowestFrac = f end
-	end
-
-	-- Priority 1: heal if any ally below 40% HP
-	if lowestFrac < 0.4 then
-		for i, ab in ipairs(abilities) do
-			if (ab.Heals or ab.SelfHeal) and ab.Type ~= "Passive" and (cds[i] or 0) <= 0 then
-				-- Find the lowest-HP ally to target
-				local healTarget, lf2 = nil, 2
-				for _, u in ipairs(allies) do
-					local f = u.HP / u.MaxHP
-					if f < lf2 then lf2 = f; healTarget = u end
-				end
-				local tid = (ab.SelfHeal and unit.Id)
-					or (healTarget and healTarget.Id)
-					or (allies[1] and allies[1].Id)
-					or unit.Id
-				return { abilityIndex = i, targetId = tid }
-			end
+		if f < lowestFrac then
+			lowestFrac = f
+			lowestAlly = u
 		end
 	end
 
-	-- Priority 2: AoE when 2+ enemies alive
-	if #enemies >= 2 then
-		for i, ab in ipairs(abilities) do
-			if ab.AoE and not ab.Heals and ab.Type ~= "Passive" and (cds[i] or 0) <= 0 then
-				return { abilityIndex = i, targetId = targetEnemy.Id }
-			end
-		end
-	end
-
-	-- Priority 3: best off-cooldown damage skill (highest effective damage)
-	local bestIdx, bestEff = nil, 0
+	-- Score every off-cooldown non-passive ability and pick the best
+	local bestIdx, bestScore = nil, -1
 	for i, ab in ipairs(abilities) do
-		if ab.Type ~= "Passive" and not ab.Heals and not ab.SelfHeal and (cds[i] or 0) <= 0 then
+		if ab.Type == "Passive" then continue end
+		if (cds[i] or 0) > 0 then continue end
+
+		local score = 0
+
+		if ab.Heals or ab.SelfHeal then
+			-- Only heal when someone has lost at least 15% HP so heals are meaningful
+			local missingHP = 1 - lowestFrac
+			if missingHP > 0.15 then
+				score = missingHP * 100
+				if ab.AoE then
+					score = score * 1.5
+				end
+				if lowestFrac < 0.4 then
+					score = score + 100
+				end
+			end
+		else
+			-- Damage ability: score = effective total damage
 			local eff = (ab.Multiplier or 3.5) * math.max(1, ab.Hits or 1)
-			if eff > bestEff then bestEff = eff; bestIdx = i end
+			score = eff * 10
+			if ab.AoE and #enemies >= 2 then
+				score = score * #enemies
+			end
+		end
+
+		if score > bestScore then
+			bestScore = score
+			bestIdx = i
 		end
 	end
-	if bestIdx then return { abilityIndex = bestIdx, targetId = targetEnemy.Id } end
 
-	-- Fallback: basic attack
-	return { abilityIndex = 0, targetId = targetEnemy.Id }
+	if not bestIdx then return nil end
+
+	local ab = abilities[bestIdx]
+	local targetId
+	if ab.SelfHeal then
+		targetId = unit.Id
+	elseif ab.Heals then
+		targetId = (lowestAlly and lowestAlly.Id) or unit.Id
+	else
+		targetId = targetEnemy.Id
+	end
+
+	return { abilityIndex = bestIdx, targetId = targetId }
 end
 
 -- ─── UNIT FACTORIES ───────────────────────────────────────────────────
@@ -750,14 +737,20 @@ local function runBattle(player, battle)
 					if battle.pendingAction then
 						applyAction(battle, unit, battle.pendingAction)
 					else
+						-- Timeout: use slot 1 ability (always CD=0) against first alive enemy
 						local firstEnemy
 						for _, e in ipairs(battle.enemyUnits) do
 							if e.HP > 0 then firstEnemy = e; break end
 						end
 						if firstEnemy then
-							local dmg, ht = CombatLibrary.CalculateDamageFromStats(unit, firstEnemy)
-							firstEnemy.HP = math.max(0, firstEnemy.HP - dmg)
-							addLog(battle, unit.Name .. " auto-attacks " .. firstEnemy.Name .. " (" .. dmg .. ", " .. ht .. ")")
+							local fallbackIdx = 1
+							for i, ab in ipairs(unit.Abilities or {}) do
+								if ab.Type ~= "Passive" and not ab.Heals and not ab.SelfHeal then
+									fallbackIdx = i
+									break
+								end
+							end
+							applyAction(battle, unit, { abilityIndex = fallbackIdx, targetId = firstEnemy.Id })
 						end
 					end
 				end
@@ -806,6 +799,22 @@ local STUDIO_TEST_UNITS = {
 
 local function startBattle(player, unitList, areaInfo)
 	if activeBattles[player.UserId] then return end
+
+	-- Clear leftover models from any previous run
+	if arenaFolder then
+		local pf = arenaFolder:FindFirstChild("PlayerUnits")
+		local ef = arenaFolder:FindFirstChild("EnemyUnits")
+		if pf then
+			for _, c in ipairs(pf:GetChildren()) do
+				c:Destroy()
+			end
+		end
+		if ef then
+			for _, c in ipairs(ef:GetChildren()) do
+				c:Destroy()
+			end
+		end
+	end
 
 	if RunService:IsStudio() and (not unitList or #unitList == 0) then
 		unitList = STUDIO_TEST_UNITS
@@ -859,7 +868,16 @@ local function startBattle(player, unitList, areaInfo)
 		autoMode = false, speed = 1,
 	}
 	activeBattles[player.UserId] = battle
-	task.spawn(runBattle, player, battle)
+	task.spawn(function()
+		local ok, err = pcall(runBattle, player, battle)
+		if not ok then
+			warn("[CombatServer] runBattle crashed:", err)
+			if activeBattles[player.UserId] then
+				BattleEnd:FireClient(player, { victory = false })
+				activeBattles[player.UserId] = nil
+			end
+		end
+	end)
 end
 
 SendUnitData.OnServerEvent:Connect(function(player, unitList, areaInfo)
@@ -868,41 +886,83 @@ end)
 
 PlayerAction.OnServerEvent:Connect(function(player, action)
 	local battle = activeBattles[player.UserId]
-	if not battle or not battle.waitingForAction then return end
-	if not action or action.abilityIndex == nil then return end
+	if not battle or not battle.waitingForAction then
+		print("[PlayerAction] REJECT: not waiting (waitingForAction=", battle and battle.waitingForAction, ")")
+		return
+	end
+	if not action or action.abilityIndex == nil then
+		print("[PlayerAction] REJECT: nil action")
+		return
+	end
 
 	-- Find acting unit
 	local actingUnit
 	for _, u in ipairs(battle.playerUnits) do
 		if u.Id == battle.activeTurnId then actingUnit = u; break end
 	end
-	if not actingUnit then return end
+	if not actingUnit then
+		print("[PlayerAction] REJECT: no actingUnit for activeTurnId=", battle.activeTurnId)
+		return
+	end
 
 	-- Validate cooldown
 	if action.abilityIndex > 0 then
 		local ab = actingUnit.Abilities[action.abilityIndex]
-		if not ab then return end
+		if not ab then
+			print("[PlayerAction] REJECT: no ability at index", action.abilityIndex, "for", actingUnit.Name)
+			return
+		end
 		local cd = actingUnit.CooldownsRemaining[action.abilityIndex] or 0
-		if cd > 0 then return end
+		if cd > 0 then
+			print("[PlayerAction] REJECT: ability", ab.Name, "on cooldown", cd)
+			return
+		end
 
-		-- Validate target side based on TargetType
+		-- Validate and auto-correct target based on TargetType
 		local tt = ab.TargetType or "EnemySingle"
 		if tt == "EnemySingle" then
-			local ok = false
+			local found = false
 			for _, u in ipairs(battle.enemyUnits) do
-				if u.Id == action.targetId and u.HP > 0 then ok = true; break end
+				if u.Id == action.targetId and u.HP > 0 then
+					found = true
+					break
+				end
 			end
-			if not ok then return end
+			if not found then
+				-- target is dead or invalid — reroute to first alive enemy
+				for _, u in ipairs(battle.enemyUnits) do
+					if u.HP > 0 then
+						action.targetId = u.Id
+						found = true
+						break
+					end
+				end
+				if not found then return end
+			end
 		elseif tt == "AllySingle" then
-			local ok = false
+			local found = false
 			for _, u in ipairs(battle.playerUnits) do
-				if u.Id == action.targetId and u.HP > 0 then ok = true; break end
+				if u.Id == action.targetId and u.HP > 0 then
+					found = true
+					break
+				end
 			end
-			if not ok then return end
+			if not found then
+				-- target is dead or invalid — reroute to first alive ally
+				for _, u in ipairs(battle.playerUnits) do
+					if u.HP > 0 then
+						action.targetId = u.Id
+						found = true
+						break
+					end
+				end
+				if not found then return end
+			end
 		end
 		-- EnemyAll / AllyAll / Self / Passive: no target validation needed
 	end
 
+	print("[PlayerAction] ACCEPTED: unit=", actingUnit.Name, "abilityIdx=", action.abilityIndex, "targetId=", action.targetId)
 	battle.pendingAction    = action
 	battle.waitingForAction = false
 end)
