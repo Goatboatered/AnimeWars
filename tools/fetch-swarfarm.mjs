@@ -101,7 +101,6 @@ function convertSkill(s) {
 function convertMonster(m, skillMap) {
 	if (!m.obtainable)                           return null;
 	if (!ELEMENTS.includes(m.element))           return null;
-	if (m.awakens_from !== null)                 return null;
 	const stars = m.natural_stars;
 	if (!RARITY[stars])                          return null;
 
@@ -110,10 +109,16 @@ function convertMonster(m, skillMap) {
 	const def = m.max_lvl_defense || m.base_defense || 0;
 
 	return {
+		SourceId:   m.id,
 		Name:       m.name,
 		Type:       m.element,
 		Rarity:     RARITY[stars],
 		Stars:      stars,
+		BaseStars:   m.base_stars || stars,
+		AwakenLevel: m.awaken_level || 0,
+		AwakensFrom: m.awakens_from || 0,
+		AwakensTo:   m.awakens_to || 0,
+		AwakenBonus: m.awaken_bonus || "",
 		Weight:     WEIGHT[stars] || 10,
 		HP:         Math.round(hp),
 		Attack:     Math.round(atk),
@@ -140,10 +145,16 @@ function luauStr(s) {
 
 function serializeMonster(m) {
 	const lines = ["\t\t{"];
+	lines.push(`\t\t\tSourceId = ${m.SourceId},`);
 	lines.push(`\t\t\tName = ${luauStr(m.Name)},`);
 	lines.push(`\t\t\tType = ${luauStr(m.Type)},`);
 	lines.push(`\t\t\tRarity = ${luauStr(m.Rarity)},`);
 	lines.push(`\t\t\tStars = ${m.Stars},`);
+	lines.push(`\t\t\tBaseStars = ${m.BaseStars},`);
+	lines.push(`\t\t\tAwakenLevel = ${m.AwakenLevel},`);
+	lines.push(`\t\t\tAwakensFrom = ${m.AwakensFrom},`);
+	lines.push(`\t\t\tAwakensTo = ${m.AwakensTo},`);
+	lines.push(`\t\t\tAwakenBonus = ${luauStr(m.AwakenBonus)},`);
 	lines.push(`\t\t\tWeight = ${m.Weight},`);
 	lines.push(`\t\t\tHP = ${m.HP},`);
 	lines.push(`\t\t\tAttack = ${m.Attack},`);
@@ -261,7 +272,8 @@ async function main() {
 	const skillMap = new Map(rawSkills.map(s => [s.id, s]));
 
 	const monsters = rawMonsters.map(m => convertMonster(m, skillMap)).filter(Boolean);
-	console.log(`\nKept ${monsters.length} summonable base-form monsters.\n`);
+	const awakenedCount = monsters.filter(m => m.AwakenLevel > 0).length;
+	console.log(`\nKept ${monsters.length} summonable monsters (${awakenedCount} awakened forms).\n`);
 
 	// Group by element
 	const byElement = {};

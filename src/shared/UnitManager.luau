@@ -79,6 +79,7 @@ local function cloneUnit(unit)
 	end
 	return {
 		Id = unit.Id,
+		SourceId = unit.SourceId,
 		CharacterName = unit.CharacterName,
 		Type = unit.Type,
 		Rarity = unit.Rarity,
@@ -88,6 +89,8 @@ local function cloneUnit(unit)
 		CritChance = unit.CritChance,
 		CritDamage = unit.CritDamage,
 		DisplayName = unit.DisplayName,
+		AwakenLevel = unit.AwakenLevel or 0,
+		AwakenBonus = unit.AwakenBonus or "",
 		Level = unit.Level or 1,
 		XP    = unit.XP    or 0,
 		HP = unit.HP or 0,
@@ -128,6 +131,7 @@ function UnitManager.AddUnit(player, unitData)
 	local charName = unitData.CharacterName or unitData.Name or "Unknown"
 	local entry = {
 		Id = #units + 1,
+		SourceId = unitData.SourceId,
 		CharacterName = charName,
 		Type = unitData.Type or "Neutral",
 		Rarity = unitData.Rarity or "Common",
@@ -137,13 +141,15 @@ function UnitManager.AddUnit(player, unitData)
 		CritChance = unitData.CritChance or 0,
 		CritDamage = unitData.CritDamage or 1.5,
 		DisplayName = unitData.DisplayName or unitData.CharacterName or unitData.Name or "Unknown",
+		AwakenLevel = unitData.AwakenLevel or 0,
+		AwakenBonus = unitData.AwakenBonus or "",
 		Level = unitData.Level or 1,
 		XP    = unitData.XP    or 0,
 		HP = unitData.HP or 0,
 		Speed = unitData.Speed or 0,
 		Resistance = unitData.Resistance or 0,
 		Accuracy = unitData.Accuracy or 0,
-		Abilities = UNIT_ABILITIES[charName] or {},
+		Abilities = unitData.Abilities or UNIT_ABILITIES[charName] or {},
 	}
 
 	table.insert(units, entry)

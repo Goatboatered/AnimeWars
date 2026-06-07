@@ -14,13 +14,23 @@ local CharacterPool = require(Shared:WaitForChild("CharacterPool"))
 
 -- Cache of CharacterName → full ability list from CharacterPool
 local cpAbilityCache = {}
-local function getCharacterAbilities(charName)
+local function getCharacterAbilities(charName, sourceId)
+	local cacheKey = sourceId and tostring(sourceId) or charName
+	if not cacheKey or cacheKey == "" then return nil end
+	if cpAbilityCache[cacheKey] then return cpAbilityCache[cacheKey] end
+	if sourceId then
+		for _, entry in ipairs(CharacterPool.GetPool("normal")) do
+			if entry.SourceId == sourceId then
+				cpAbilityCache[cacheKey] = entry.Abilities or {}
+				return cpAbilityCache[cacheKey]
+			end
+		end
+	end
 	if not charName or charName == "" then return nil end
-	if cpAbilityCache[charName] then return cpAbilityCache[charName] end
 	for _, entry in ipairs(CharacterPool.GetPool("normal")) do
 		if entry.Name == charName then
-			cpAbilityCache[charName] = entry.Abilities or {}
-			return cpAbilityCache[charName]
+			cpAbilityCache[cacheKey] = entry.Abilities or {}
+			return cpAbilityCache[cacheKey]
 		end
 	end
 	return nil
@@ -605,9 +615,10 @@ local function makePlayerUnit(data, slot)
 	-- UnitManager strips Heals/SelfHeal/LifeSteal/TargetType/Multiplier/Hits when cloning.
 	-- Always pull authoritative ability data from CharacterPool so combat behavior is correct.
 	local charName = data.CharacterName or data.DisplayName or ""
-	local abilities = getCharacterAbilities(charName) or data.Abilities or {}
+	local abilities = getCharacterAbilities(charName, data.SourceId) or data.Abilities or {}
 	return {
 		Id     = "p"..slot, IsEnemy = false,
+		SourceId = data.SourceId,
 		Name   = "Lv." .. lv .. " " .. base,
 		Type   = data.Type or "Neutral",
 		MaxHP  = data.HP or 100, HP = data.HP or 100,

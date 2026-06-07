@@ -166,10 +166,13 @@ function summonRequest.OnServerInvoke(player)
 
 	local result = GachaLibrary.PickFromPool("normal")
 	local payload = {
+		SourceId = result.SourceId,
 		CharacterName = result.Name,
 		Type = result.Type,
 		Rarity = result.Rarity,
 		Stars = result.Stars,
+		AwakenLevel = result.AwakenLevel or 0,
+		AwakenBonus = result.AwakenBonus or "",
 		Attack = result.Attack,
 		Defense = result.Defense,
 		HP = result.HP or 0,
@@ -178,12 +181,13 @@ function summonRequest.OnServerInvoke(player)
 		CritDamage = result.CritDamage,
 		Resistance = result.Resistance or 0,
 		Accuracy = result.Accuracy or 0,
+		Abilities = result.Abilities or {},
 		DisplayName = GachaLibrary.FormatResult(result),
 	}
 
 	UnitManager.AddUnit(player, payload)
+	FollowerManager.ClearFollowers(player)
 	unitsUpdated:FireClient(player, UnitManager.GetUnits(player))
-	FollowerManager.SpawnFollower(player)
 	return payload
 end
 
@@ -422,20 +426,24 @@ local function createFountain()
 	prompt.Triggered:Connect(function(player)
 		local result = GachaLibrary.PickFromPool("normal")
 		local payload = {
+			SourceId = result.SourceId,
 			CharacterName = result.Name,
 			Type = result.Type,
 			Rarity = result.Rarity,
 			Stars = result.Stars,
+			AwakenLevel = result.AwakenLevel or 0,
+			AwakenBonus = result.AwakenBonus or "",
 			Attack = result.Attack,
 			Defense = result.Defense,
 			CritChance = result.CritChance,
 			CritDamage = result.CritDamage,
+			Abilities = result.Abilities or {},
 			DisplayName = GachaLibrary.FormatResult(result),
 		}
 
 		UnitManager.AddUnit(player, payload)
+		FollowerManager.ClearFollowers(player)
 		unitsUpdated:FireClient(player, UnitManager.GetUnits(player))
-		FollowerManager.SpawnFollower(player)
 		summonResult:FireClient(player, payload)
 		print(player.Name .. " summoned " .. payload.DisplayName)
 	end)

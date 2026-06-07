@@ -5,19 +5,19 @@ local FollowerManager = {}
 local playerFollowers = {}
 
 local MAX_FOLLOWERS = 3
-local SCALE = 0.5
 local MOVE_SPEED = 12
 local TICK = 0.1
-local HIP_HEIGHT = 0.3 -- Minimal offset above ground surface
 
-local SKIN  = Color3.fromRGB(255, 220, 185)
-local SHIRT = Color3.fromRGB(0, 120, 220)
-local PANTS = Color3.fromRGB(30, 50, 110)
+local NOOB_YELLOW = Color3.fromRGB(245, 205, 48)
+local NOOB_GREEN  = Color3.fromRGB(75, 151, 75)
 
 local SHIRT_COLORS = {
-	Water = Color3.fromRGB(40,  120, 220),
-	Fire  = Color3.fromRGB(210,  55,  40),
-	Wind  = Color3.fromRGB(220, 185,  40),
+	Water   = Color3.fromRGB(40, 120, 220),
+	Fire    = Color3.fromRGB(210, 55, 40),
+	Wind    = Color3.fromRGB(240, 210, 50),
+	Light   = Color3.fromRGB(240, 240, 240),
+	Dark    = Color3.fromRGB(130, 60, 200),
+	Neutral = Color3.fromRGB(120, 120, 130),
 }
 
 local SLOT_OFFSETS = { -2, 0, 2 }
@@ -25,108 +25,53 @@ local SLOT_OFFSETS = { -2, 0, 2 }
 local ANIM_WALK = "rbxassetid://180426354"
 local ANIM_IDLE = "rbxassetid://180435571"
 
-local function makePart(model, name, size, color, canCollide)
-	local p = Instance.new("Part")
-	p.Name = name
-	p.Size = size
-	p.Color = color
-	p.CanCollide = canCollide == true
-	p.Parent = model
-	return p
-end
+local function buildAvatar(spawnCF, shirtColor, unitName)
+	local desc = Instance.new("HumanoidDescription")
+	desc.HeadColor = NOOB_YELLOW
+	desc.TorsoColor = shirtColor or SHIRT_COLORS.Neutral
+	desc.LeftArmColor = NOOB_YELLOW
+	desc.RightArmColor = NOOB_YELLOW
+	desc.LeftLegColor = NOOB_GREEN
+	desc.RightLegColor = NOOB_GREEN
 
-local function makeMotor(parent, name, p0, p1, c0, c1)
-	local m = Instance.new("Motor6D")
-	m.Name = name
-	m.Part0 = p0
-	m.Part1 = p1
-	m.C0 = c0
-	m.C1 = c1
-	m.Parent = parent
-end
+	local ok, model = pcall(Players.CreateHumanoidModelFromDescription, Players, desc, Enum.HumanoidRigType.R6)
+	if not ok or not model then
+		warn("[FollowerManager] buildAvatar failed:", model)
+		return nil, nil, nil
+	end
 
-local function buildR6(spawnCF, shirtColor, unitName)
-	local S = SCALE
-	local model = Instance.new("Model")
 	model.Name = unitName or "UnitFollower"
+	local hrp = model.PrimaryPart or model:FindFirstChild("HumanoidRootPart")
+	if hrp then
+		model.PrimaryPart = hrp
+		model:PivotTo(spawnCF + Vector3.new(0, 3, 0))
+		hrp.Anchored = false
+	else
+		warn("[FollowerManager] generated avatar has no HumanoidRootPart")
+		model:Destroy()
+		return nil, nil, nil
+	end
 
-	local hrp = makePart(model, "HumanoidRootPart", Vector3.new(2 * S, 2 * S, S), Color3.new(1, 1, 1), false)
-	hrp.Transparency = 1
-	hrp.Anchored = false
-	hrp.CFrame = spawnCF
-	model.PrimaryPart = hrp
+	for _, part in ipairs(model:GetDescendants()) do
+		if part:IsA("BasePart") then
+			part.CanCollide = false
+		end
+	end
 
-	local humanoid = Instance.new("Humanoid")
-	humanoid.WalkSpeed = MOVE_SPEED
-	humanoid.JumpPower = 25
-	humanoid.HipHeight = 0.1
-	humanoid.MaxHealth = math.huge
-	humanoid.Health = math.huge
-	humanoid.Parent = model
+	local humanoid = model:FindFirstChildOfClass("Humanoid")
+	if humanoid then
+		humanoid.DisplayName = unitName or "UnitFollower"
+		humanoid.WalkSpeed = MOVE_SPEED
+		humanoid.JumpPower = 25
+		humanoid.MaxHealth = math.huge
+		humanoid.Health = math.huge
+	end
 
-	local animator = Instance.new("Animator")
-	animator.Parent = humanoid
-
-	local torso = makePart(model, "Torso", Vector3.new(2 * S, 2 * S, S), shirtColor or SHIRT, true)
-	local head = makePart(model, "Head", Vector3.new(2 * S, S, S), SKIN, false)
-	local leftArm = makePart(model, "Left Arm", Vector3.new(S, 2 * S, S), SKIN, false)
-	local rightArm = makePart(model, "Right Arm", Vector3.new(S, 2 * S, S), SKIN, false)
-	local leftLeg = makePart(model, "Left Leg", Vector3.new(S, 2 * S, S), PANTS, true)
-	local rightLeg = makePart(model, "Right Leg", Vector3.new(S, 2 * S, S), PANTS, true)
-
-	makeMotor(
-		hrp,
-		"RootJoint",
-		hrp,
-		torso,
-		CFrame.new(0, -S, 0, -1, 0, 0, 0, 0, 1, 0, 1, 0),
-		CFrame.new(0, -S, 0, -1, 0, 0, 0, 0, 1, 0, 1, 0)
-	)
-
-	makeMotor(
-		torso,
-		"Neck",
-		torso,
-		head,
-		CFrame.new(0, S, 0, -1, 0, 0, 0, 0, 1, 0, 1, 0),
-		CFrame.new(0, -0.5 * S, 0, -1, 0, 0, 0, 0, 1, 0, 1, 0)
-	)
-
-	makeMotor(
-		torso,
-		"Right Shoulder",
-		torso,
-		rightArm,
-		CFrame.new(S, 0.5 * S, 0, 0, 0, 1, 0, 1, 0, -1, 0, 0),
-		CFrame.new(-0.5 * S, 0.5 * S, 0, 0, 0, 1, 0, 1, 0, -1, 0, 0)
-	)
-
-	makeMotor(
-		torso,
-		"Left Shoulder",
-		torso,
-		leftArm,
-		CFrame.new(-S, 0.5 * S, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0),
-		CFrame.new(0.5 * S, 0.5 * S, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-	)
-
-	makeMotor(
-		torso,
-		"Right Hip",
-		torso,
-		rightLeg,
-		CFrame.new(S, -S, 0, 0, 0, 1, 0, 1, 0, -1, 0, 0),
-		CFrame.new(0.5 * S, S, 0, 0, 0, 1, 0, 1, 0, -1, 0, 0)
-	)
-
-	makeMotor(
-		torso,
-		"Left Hip",
-		torso,
-		leftLeg,
-		CFrame.new(-S, -S, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0),
-		CFrame.new(-0.5 * S, S, 0, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-	)
+	local animator = humanoid and humanoid:FindFirstChildOfClass("Animator")
+	if humanoid and not animator then
+		animator = Instance.new("Animator")
+		animator.Parent = humanoid
+	end
 
 	return model, humanoid, animator
 end
@@ -153,6 +98,13 @@ function FollowerManager.SpawnFollower(player, unitType, displayName, unitId)
 		playerFollowers[player.UserId] = {}
 	end
 	local followers = playerFollowers[player.UserId]
+	if unitId then
+		for _, follower in ipairs(followers) do
+			if follower:GetAttribute("UnitId") == unitId then
+				return
+			end
+		end
+	end
 	if #followers >= MAX_FOLLOWERS then
 		return
 	end
@@ -176,8 +128,11 @@ function FollowerManager.SpawnFollower(player, unitType, displayName, unitId)
 	-- Spawn on ground
 	local spawnCF = CFrame.new(sx, spawnY, sz)
 
-	local shortName = displayName and (displayName:match("%S+%s+(.+)") or displayName) or nil
-	local follower, fHumanoid, fAnimator = buildR6(spawnCF, SHIRT_COLORS[unitType], shortName)
+	local shortName = displayName and (displayName:match("^(.-)%s*%[") or displayName) or nil
+	local follower, fHumanoid, fAnimator = buildAvatar(spawnCF, SHIRT_COLORS[unitType] or SHIRT_COLORS.Neutral, shortName)
+	if not follower or not fHumanoid or not fAnimator then
+		return
+	end
 	if unitId then
 		follower:SetAttribute("UnitId", unitId)
 	end

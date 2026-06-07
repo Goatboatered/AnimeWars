@@ -35,20 +35,24 @@ function summonRequest.OnServerInvoke(player)
 
 	local result = GachaLibrary.PickFromPool("normal")
 	local payload = {
+		SourceId = result.SourceId,
 		CharacterName = result.Name,
 		Type = result.Type,
 		Rarity = result.Rarity,
 		Stars = result.Stars,
+		AwakenLevel = result.AwakenLevel or 0,
+		AwakenBonus = result.AwakenBonus or "",
 		Attack = result.Attack,
 		Defense = result.Defense,
 		CritChance = result.CritChance,
 		CritDamage = result.CritDamage,
+		Abilities = result.Abilities or {},
 		DisplayName = GachaLibrary.FormatResult(result),
 	}
 
 	UnitManager.AddUnit(player, payload)
+	FollowerManager.ClearFollowers(player)
 	unitsUpdated:FireClient(player, UnitManager.GetUnits(player))
-	FollowerManager.SpawnFollower(player)
 	return payload
 end
 

@@ -9,76 +9,116 @@ local summonResult = remotes:WaitForChild("SummonResult")
 
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "SummonHubUI"
+screenGui.ResetOnSpawn = false
+screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 screenGui.Parent = playerGui
 
+local COLORS = {
+	panel = Color3.fromRGB(15, 17, 27),
+	panel2 = Color3.fromRGB(23, 27, 42),
+	stroke = Color3.fromRGB(86, 110, 185),
+	text = Color3.fromRGB(245, 248, 255),
+	muted = Color3.fromRGB(155, 166, 196),
+	gold = Color3.fromRGB(255, 191, 64),
+	blue = Color3.fromRGB(62, 128, 235),
+	green = Color3.fromRGB(68, 176, 112),
+	red = Color3.fromRGB(190, 64, 64),
+}
+
+local function addCornerStroke(obj, radius, strokeColor, thickness, transparency)
+	local corner = Instance.new("UICorner")
+	corner.CornerRadius = UDim.new(0, radius or 8)
+	corner.Parent = obj
+
+	local stroke = Instance.new("UIStroke")
+	stroke.Color = strokeColor or COLORS.stroke
+	stroke.Thickness = thickness or 1
+	stroke.Transparency = transparency or 0.25
+	stroke.Parent = obj
+	return corner, stroke
+end
+
+local function styleTextButton(button, bg, fg, radius)
+	button.BackgroundColor3 = bg
+	button.BorderSizePixel = 0
+	button.TextColor3 = fg or COLORS.text
+	button.Font = Enum.Font.GothamBold
+	button.TextScaled = false
+	button.TextSize = 16
+	button.AutoButtonColor = true
+	addCornerStroke(button, radius or 8, Color3.fromRGB(255, 255, 255), 1, 0.82)
+	return button
+end
+
 local messageLabel = Instance.new("TextLabel")
-messageLabel.Size = UDim2.fromOffset(380, 80)
-messageLabel.Position = UDim2.fromScale(0.5, 0.05)
-messageLabel.BackgroundTransparency = 0.4
-messageLabel.BackgroundColor3 = Color3.fromRGB(15, 15, 25)
+messageLabel.Size = UDim2.fromOffset(460, 52)
+messageLabel.Position = UDim2.new(0.5, 0, 0, 24)
+messageLabel.AnchorPoint = Vector2.new(0.5, 0)
+messageLabel.BackgroundTransparency = 0.08
+messageLabel.BackgroundColor3 = COLORS.panel
 messageLabel.BorderSizePixel = 0
-messageLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-messageLabel.TextStrokeTransparency = 0.5
-messageLabel.TextScaled = true
-messageLabel.Font = Enum.Font.GothamMedium
+messageLabel.TextColor3 = COLORS.text
+messageLabel.TextStrokeTransparency = 1
+messageLabel.TextScaled = false
+messageLabel.TextSize = 16
+messageLabel.Font = Enum.Font.GothamBold
 messageLabel.Text = "Use the button to summon a Unit!"
 messageLabel.Parent = screenGui
 messageLabel.Visible = false
+addCornerStroke(messageLabel, 10, COLORS.stroke, 1, 0.25)
+
+local sideBar = Instance.new("Frame")
+sideBar.Name = "PrimaryActions"
+sideBar.Size = UDim2.fromOffset(170, 160)
+sideBar.Position = UDim2.new(0, 18, 0.5, -80)
+sideBar.BackgroundTransparency = 1
+sideBar.Parent = screenGui
+
+local sideLayout = Instance.new("UIListLayout")
+sideLayout.Padding = UDim.new(0, 8)
+sideLayout.SortOrder = Enum.SortOrder.LayoutOrder
+sideLayout.Parent = sideBar
 
 local summonButton = Instance.new("TextButton")
 summonButton.Name = "SummonButton"
-summonButton.Size = UDim2.fromOffset(56, 56)
-summonButton.Position = UDim2.new(0, 16, 0.5, -64)
-summonButton.AnchorPoint = Vector2.new(0, 0)
-summonButton.BackgroundColor3 = Color3.fromRGB(45, 110, 220)
-summonButton.BorderSizePixel = 0
-summonButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-summonButton.Font = Enum.Font.GothamBold
-summonButton.TextScaled = true
-summonButton.Text = "S"
-summonButton.Parent = screenGui
+summonButton.Size = UDim2.fromOffset(170, 46)
+summonButton.Text = "Summon"
+summonButton.LayoutOrder = 1
+summonButton.Parent = sideBar
+styleTextButton(summonButton, COLORS.blue, COLORS.text, 8)
 
 local unitMenuButton = Instance.new("TextButton")
 unitMenuButton.Name = "UnitMenuButton"
-unitMenuButton.Size = UDim2.fromOffset(56, 56)
-unitMenuButton.Position = UDim2.new(0, 16, 0.5, 8)
-unitMenuButton.AnchorPoint = Vector2.new(0, 0)
-unitMenuButton.BackgroundColor3 = Color3.fromRGB(76, 196, 132)
-unitMenuButton.BorderSizePixel = 0
-unitMenuButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-unitMenuButton.Font = Enum.Font.GothamBold
-unitMenuButton.TextScaled = true
-unitMenuButton.Text = "U"
-unitMenuButton.Parent = screenGui
+unitMenuButton.Size = UDim2.fromOffset(170, 46)
+unitMenuButton.Text = "Units"
+unitMenuButton.LayoutOrder = 2
+unitMenuButton.Parent = sideBar
+styleTextButton(unitMenuButton, COLORS.green, COLORS.text, 8)
 
 local mailButton = Instance.new("TextButton")
 mailButton.Name = "MailButton"
-mailButton.Size = UDim2.fromOffset(56, 56)
-mailButton.Position = UDim2.new(0, 16, 0.5, 72)
-mailButton.AnchorPoint = Vector2.new(0, 0)
-mailButton.BackgroundColor3 = Color3.fromRGB(210, 150, 40)
-mailButton.BorderSizePixel = 0
-mailButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-mailButton.Font = Enum.Font.GothamBold
-mailButton.TextScaled = true
-mailButton.Text = "M"
-mailButton.Parent = screenGui
+mailButton.Size = UDim2.fromOffset(170, 46)
+mailButton.Text = "Mail"
+mailButton.LayoutOrder = 3
+mailButton.Parent = sideBar
+styleTextButton(mailButton, Color3.fromRGB(202, 136, 42), COLORS.text, 8)
 
 local playButton = Instance.new("TextButton")
 playButton.Name = "PlayButton"
-playButton.Size = UDim2.fromOffset(320, 64)
-playButton.Position = UDim2.new(0.5, 0, 1, -96)
+playButton.Size = UDim2.fromOffset(280, 58)
+playButton.Position = UDim2.new(0.5, 0, 1, -72)
 playButton.AnchorPoint = Vector2.new(0.5, 1)
-playButton.BackgroundColor3 = Color3.fromRGB(255, 191, 64)
+playButton.BackgroundColor3 = COLORS.gold
 playButton.BorderSizePixel = 0
 playButton.TextColor3 = Color3.fromRGB(25, 25, 35)
 playButton.Font = Enum.Font.GothamBlack
-playButton.TextScaled = true
+playButton.TextScaled = false
+playButton.TextSize = 28
 playButton.Text = "PLAY"
 playButton.Parent = screenGui
 
 local playCorner = Instance.new("UICorner")
-playCorner.CornerRadius = UDim.new(0, 18)
+playCorner.CornerRadius = UDim.new(0, 12)
 playCorner.Parent = playButton
 
 local playStroke = Instance.new("UIStroke")
@@ -98,6 +138,7 @@ local function showMessage(text)
 end
 
 local summonRequest = remotes:WaitForChild("SummonRequest")
+local displayedUnits = {}
 
 local function performSummon()
 	summonButton.Active = false
@@ -108,12 +149,13 @@ local function performSummon()
 	end)
 
 	if success and result then
+		table.clear(displayedUnits)
 		showMessage("Unit summoned: " .. result.DisplayName)
 	else
 		showMessage("Summon failed. Try again.")
 	end
 
-	summonButton.Text = "S"
+	summonButton.Text = "Summon"
 	summonButton.Active = true
 end
 
@@ -121,31 +163,32 @@ summonButton.MouseButton1Click:Connect(performSummon)
 
 local modeMenu = Instance.new("Frame")
 modeMenu.Name = "ModeMenu"
-modeMenu.Size = UDim2.fromOffset(340, 260)
-modeMenu.Position = UDim2.new(0.5, -170, 1, -320)
+modeMenu.Size = UDim2.fromOffset(360, 268)
+modeMenu.Position = UDim2.new(0.5, -180, 1, -330)
 modeMenu.AnchorPoint = Vector2.new(0.5, 1)
-modeMenu.BackgroundColor3 = Color3.fromRGB(17, 19, 28)
+modeMenu.BackgroundColor3 = COLORS.panel
 modeMenu.BorderSizePixel = 0
 modeMenu.Visible = false
 modeMenu.Parent = screenGui
 
 local modeCorner = Instance.new("UICorner")
-modeCorner.CornerRadius = UDim.new(0, 18)
+modeCorner.CornerRadius = UDim.new(0, 10)
 modeCorner.Parent = modeMenu
 
 local modeStroke = Instance.new("UIStroke")
-modeStroke.Color = Color3.fromRGB(95, 121, 255)
-modeStroke.Thickness = 2
-modeStroke.Transparency = 0.15
+modeStroke.Color = COLORS.stroke
+modeStroke.Thickness = 1
+modeStroke.Transparency = 0.2
 modeStroke.Parent = modeMenu
 
 local modeTitle = Instance.new("TextLabel")
 modeTitle.Size = UDim2.new(1, -24, 0, 36)
 modeTitle.Position = UDim2.fromOffset(12, 10)
 modeTitle.BackgroundTransparency = 1
-modeTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+modeTitle.TextColor3 = COLORS.text
 modeTitle.Font = Enum.Font.GothamBold
-modeTitle.TextScaled = true
+modeTitle.TextScaled = false
+modeTitle.TextSize = 20
 modeTitle.Text = "Choose a Mode"
 modeTitle.TextXAlignment = Enum.TextXAlignment.Left
 modeTitle.Parent = modeMenu
@@ -162,28 +205,29 @@ areaMenu.Name = "AreaMenu"
 areaMenu.Size = UDim2.fromOffset(340, 280)
 areaMenu.Position = UDim2.new(0.5, -170, 1, -172)
 areaMenu.AnchorPoint = Vector2.new(0.5, 1)
-areaMenu.BackgroundColor3 = Color3.fromRGB(17, 19, 28)
+areaMenu.BackgroundColor3 = COLORS.panel
 areaMenu.BorderSizePixel = 0
 areaMenu.Visible = false
 areaMenu.Parent = screenGui
 
 local areaCorner = Instance.new("UICorner")
-areaCorner.CornerRadius = UDim.new(0, 18)
+areaCorner.CornerRadius = UDim.new(0, 10)
 areaCorner.Parent = areaMenu
 
 local areaStroke = Instance.new("UIStroke")
-areaStroke.Color = Color3.fromRGB(95, 121, 255)
-areaStroke.Thickness = 2
-areaStroke.Transparency = 0.15
+areaStroke.Color = COLORS.stroke
+areaStroke.Thickness = 1
+areaStroke.Transparency = 0.2
 areaStroke.Parent = areaMenu
 
 local areaTitle = Instance.new("TextLabel")
 areaTitle.Size = UDim2.new(1, -24, 0, 36)
 areaTitle.Position = UDim2.fromOffset(12, 8)
 areaTitle.BackgroundTransparency = 1
-areaTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+areaTitle.TextColor3 = COLORS.text
 areaTitle.Font = Enum.Font.GothamBold
-areaTitle.TextScaled = true
+areaTitle.TextScaled = false
+areaTitle.TextSize = 20
 areaTitle.Text = "Choose an Area"
 areaTitle.TextXAlignment = Enum.TextXAlignment.Left
 areaTitle.Parent = areaMenu
@@ -214,28 +258,29 @@ stageMenu.Name = "StageMenu"
 stageMenu.Size = UDim2.fromOffset(340, 280)
 stageMenu.Position = UDim2.new(0.5, -170, 1, -172)
 stageMenu.AnchorPoint = Vector2.new(0.5, 1)
-stageMenu.BackgroundColor3 = Color3.fromRGB(17, 19, 28)
+stageMenu.BackgroundColor3 = COLORS.panel
 stageMenu.BorderSizePixel = 0
 stageMenu.Visible = false
 stageMenu.Parent = screenGui
 
 local stageCorner = Instance.new("UICorner")
-stageCorner.CornerRadius = UDim.new(0, 18)
+stageCorner.CornerRadius = UDim.new(0, 10)
 stageCorner.Parent = stageMenu
 
 local stageStroke = Instance.new("UIStroke")
-stageStroke.Color = Color3.fromRGB(95, 121, 255)
-stageStroke.Thickness = 2
-stageStroke.Transparency = 0.15
+stageStroke.Color = COLORS.stroke
+stageStroke.Thickness = 1
+stageStroke.Transparency = 0.2
 stageStroke.Parent = stageMenu
 
 local stageTitle = Instance.new("TextLabel")
 stageTitle.Size = UDim2.new(1, -24, 0, 36)
 stageTitle.Position = UDim2.fromOffset(12, 8)
 stageTitle.BackgroundTransparency = 1
-stageTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+stageTitle.TextColor3 = COLORS.text
 stageTitle.Font = Enum.Font.GothamBold
-stageTitle.TextScaled = true
+stageTitle.TextScaled = false
+stageTitle.TextSize = 20
 stageTitle.Text = "Choose a Stage"
 stageTitle.TextXAlignment = Enum.TextXAlignment.Left
 stageTitle.Parent = stageMenu
@@ -261,17 +306,23 @@ local function createModeButton(text, onClick)
 	local button = Instance.new("TextButton")
 	button.Name = text .. "Button"
 	button.Size = UDim2.new(1, -24, 0, 44)
-	button.BackgroundColor3 = Color3.fromRGB(39, 47, 66)
+	button.BackgroundColor3 = COLORS.panel2
 	button.BorderSizePixel = 0
-	button.TextColor3 = Color3.fromRGB(255, 255, 255)
-	button.Font = Enum.Font.GothamMedium
-	button.TextScaled = true
+	button.TextColor3 = COLORS.text
+	button.Font = Enum.Font.GothamBold
+	button.TextScaled = false
+	button.TextSize = 16
 	button.Text = text
 	button.Parent = modeMenu
 
 	local buttonCorner = Instance.new("UICorner")
-	buttonCorner.CornerRadius = UDim.new(0, 12)
+	buttonCorner.CornerRadius = UDim.new(0, 8)
 	buttonCorner.Parent = button
+	local buttonStroke = Instance.new("UIStroke")
+	buttonStroke.Color = COLORS.stroke
+	buttonStroke.Thickness = 1
+	buttonStroke.Transparency = 0.65
+	buttonStroke.Parent = button
 
 	button.MouseButton1Click:Connect(function()
 		if onClick then
@@ -309,25 +360,26 @@ diffMenu.Name = "DifficultyMenu"
 diffMenu.Size = UDim2.fromOffset(340, 220)
 diffMenu.Position = UDim2.new(0.5, -170, 1, -172)
 diffMenu.AnchorPoint = Vector2.new(0.5, 1)
-diffMenu.BackgroundColor3 = Color3.fromRGB(17, 19, 28)
+diffMenu.BackgroundColor3 = COLORS.panel
 diffMenu.BorderSizePixel = 0
 diffMenu.Visible = false
 diffMenu.Parent = screenGui
 local diffCorner = Instance.new("UICorner")
-diffCorner.CornerRadius = UDim.new(0, 18)
+diffCorner.CornerRadius = UDim.new(0, 10)
 diffCorner.Parent = diffMenu
 local diffStroke = Instance.new("UIStroke")
-diffStroke.Color = Color3.fromRGB(95, 121, 255)
-diffStroke.Thickness = 2
-diffStroke.Transparency = 0.15
+diffStroke.Color = COLORS.stroke
+diffStroke.Thickness = 1
+diffStroke.Transparency = 0.2
 diffStroke.Parent = diffMenu
 local diffTitle = Instance.new("TextLabel")
 diffTitle.Size = UDim2.new(1, -24, 0, 36)
 diffTitle.Position = UDim2.fromOffset(12, 8)
 diffTitle.BackgroundTransparency = 1
-diffTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+diffTitle.TextColor3 = COLORS.text
 diffTitle.Font = Enum.Font.GothamBold
-diffTitle.TextScaled = true
+diffTitle.TextScaled = false
+diffTitle.TextSize = 20
 diffTitle.Text = "Choose Difficulty"
 diffTitle.TextXAlignment = Enum.TextXAlignment.Left
 diffTitle.Parent = diffMenu
@@ -348,15 +400,21 @@ for _, d in ipairs(DIFF_DATA) do
 	btn.Size = UDim2.new(1, -24, 0, 42)
 	btn.BackgroundColor3 = d.color
 	btn.BorderSizePixel = 0
-	btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+	btn.TextColor3 = COLORS.text
 	btn.Font = Enum.Font.GothamBold
-	btn.TextScaled = true
+	btn.TextScaled = false
+	btn.TextSize = 16
 	btn.Text = d.label
 	btn.LayoutOrder = 1
 	btn.Parent = diffMenu
 	local bc = Instance.new("UICorner")
-	bc.CornerRadius = UDim.new(0, 10)
+	bc.CornerRadius = UDim.new(0, 8)
 	bc.Parent = btn
+	local bs = Instance.new("UIStroke")
+	bs.Color = Color3.fromRGB(255, 255, 255)
+	bs.Thickness = 1
+	bs.Transparency = 0.8
+	bs.Parent = btn
 	local dk = d.key
 	btn.MouseButton1Click:Connect(function()
 		selectedDiff = dk
@@ -370,9 +428,10 @@ diffBack.Size = UDim2.new(1, -24, 0, 34)
 diffBack.Position = UDim2.new(0, 12, 1, -42)
 diffBack.BackgroundColor3 = Color3.fromRGB(55, 65, 85)
 diffBack.BorderSizePixel = 0
-diffBack.TextColor3 = Color3.fromRGB(190, 200, 220)
+diffBack.TextColor3 = Color3.fromRGB(205, 214, 235)
 diffBack.Font = Enum.Font.GothamMedium
-diffBack.TextScaled = true
+diffBack.TextScaled = false
+diffBack.TextSize = 15
 diffBack.Text = "← Back"
 diffBack.Parent = diffMenu
 local diffBackCorner = Instance.new("UICorner")
@@ -395,16 +454,22 @@ local function createAreaButton(num, text)
 	local button = Instance.new("TextButton")
 	button.Name = text .. "Button"
 	button.Size = UDim2.new(1, -24, 0, 40)
-	button.BackgroundColor3 = Color3.fromRGB(39, 47, 66)
+	button.BackgroundColor3 = COLORS.panel2
 	button.BorderSizePixel = 0
-	button.TextColor3 = Color3.fromRGB(255, 255, 255)
+	button.TextColor3 = COLORS.text
 	button.Font = Enum.Font.GothamMedium
-	button.TextScaled = true
+	button.TextScaled = false
+	button.TextSize = 15
 	button.Text = num .. ". " .. text
 	button.Parent = areaScroll
 	local buttonCorner = Instance.new("UICorner")
-	buttonCorner.CornerRadius = UDim.new(0, 10)
+	buttonCorner.CornerRadius = UDim.new(0, 8)
 	buttonCorner.Parent = button
+	local buttonStroke = Instance.new("UIStroke")
+	buttonStroke.Color = COLORS.stroke
+	buttonStroke.Thickness = 1
+	buttonStroke.Transparency = 0.72
+	buttonStroke.Parent = button
 	button.MouseButton1Click:Connect(function()
 		areaMenu.Visible = false
 		selectedArea    = text
@@ -427,9 +492,10 @@ backToModes.Size = UDim2.new(1, -24, 0, 36)
 backToModes.Position = UDim2.new(0, 12, 1, -44)
 backToModes.BackgroundColor3 = Color3.fromRGB(55, 65, 85)
 backToModes.BorderSizePixel = 0
-backToModes.TextColor3 = Color3.fromRGB(190, 200, 220)
+backToModes.TextColor3 = Color3.fromRGB(205, 214, 235)
 backToModes.Font = Enum.Font.GothamMedium
-backToModes.TextScaled = true
+backToModes.TextScaled = false
+backToModes.TextSize = 15
 backToModes.Text = "← Back"
 backToModes.Parent = areaMenu
 
@@ -448,17 +514,23 @@ local function createStageButton(stageNum, text)
 	local button = Instance.new("TextButton")
 	button.Name = text .. "Button"
 	button.Size = UDim2.new(1, -24, 0, 40)
-	button.BackgroundColor3 = Color3.fromRGB(39, 47, 66)
+	button.BackgroundColor3 = COLORS.panel2
 	button.BorderSizePixel = 0
-	button.TextColor3 = Color3.fromRGB(255, 255, 255)
+	button.TextColor3 = COLORS.text
 	button.Font = Enum.Font.GothamMedium
-	button.TextScaled = true
+	button.TextScaled = false
+	button.TextSize = 15
 	button.Text = text
 	button.Parent = stageScroll
 
 	local buttonCorner = Instance.new("UICorner")
-	buttonCorner.CornerRadius = UDim.new(0, 10)
+	buttonCorner.CornerRadius = UDim.new(0, 8)
 	buttonCorner.Parent = button
+	local buttonStroke = Instance.new("UIStroke")
+	buttonStroke.Color = COLORS.stroke
+	buttonStroke.Thickness = 1
+	buttonStroke.Transparency = 0.72
+	buttonStroke.Parent = button
 
 	button.MouseButton1Click:Connect(function()
 		stageMenu.Visible = false
@@ -480,9 +552,10 @@ stageBackButton.Size = UDim2.new(1, -24, 0, 36)
 stageBackButton.Position = UDim2.new(0, 12, 1, -44)
 stageBackButton.BackgroundColor3 = Color3.fromRGB(55, 65, 85)
 stageBackButton.BorderSizePixel = 0
-stageBackButton.TextColor3 = Color3.fromRGB(190, 200, 220)
+stageBackButton.TextColor3 = Color3.fromRGB(205, 214, 235)
 stageBackButton.Font = Enum.Font.GothamMedium
-stageBackButton.TextScaled = true
+stageBackButton.TextScaled = false
+stageBackButton.TextSize = 15
 stageBackButton.Text = "← Back"
 stageBackButton.Parent = stageMenu
 
@@ -499,6 +572,7 @@ playButton.MouseButton1Click:Connect(function()
 	modeMenu.Visible = not modeMenu.Visible
 	areaMenu.Visible = false
 	stageMenu.Visible = false
+	diffMenu.Visible = false
 end)
 
 local unitRequest = remotes:WaitForChild("GetUnits")
@@ -910,8 +984,30 @@ local function clearAbilityConnections()
 end
 
 local selectedUnit = nil
-local displayedUnits = {}
 local openUnitMenu -- forward declaration
+
+local function displayKey(unitOrId)
+	local id = typeof(unitOrId) == "table" and unitOrId.Id or unitOrId
+	return id and tostring(id) or nil
+end
+
+local function displayedCount()
+	local count = 0
+	for _ in pairs(displayedUnits) do
+		count += 1
+	end
+	return count
+end
+
+local function setDisplayButtonState(unit)
+	if displayedUnits[displayKey(unit)] then
+		displayButton.Text = "Undisplay"
+		displayButton.BackgroundColor3 = Color3.fromRGB(100, 80, 160)
+	else
+		displayButton.Text = "Display"
+		displayButton.BackgroundColor3 = Color3.fromRGB(60, 130, 220)
+	end
+end
 
 local function openUnitDetail(unit)
 	selectedUnit = unit
@@ -944,13 +1040,7 @@ local function openUnitDetail(unit)
 		xpBarFill.Size = UDim2.fromScale(math.clamp(xp / needed, 0, 1), 1)
 		xpTextLabel.Text = "Lvl " .. lvl .. "  —  " .. xp .. " / " .. needed .. " XP"
 	end
-	if displayedUnits[unit.Id] then
-		displayButton.Text = "Undisplay"
-		displayButton.BackgroundColor3 = Color3.fromRGB(100, 80, 160)
-	else
-		displayButton.Text = "Display"
-		displayButton.BackgroundColor3 = Color3.fromRGB(60, 130, 220)
-	end
+	setDisplayButtonState(unit)
 	clearAbilityConnections()
 	local abilities = unit.Abilities or {}
 	for i = 1, 2 do
@@ -1049,23 +1139,29 @@ confirmDeleteBtnCorner.Parent = confirmDeleteBtn
 
 displayButton.MouseButton1Click:Connect(function()
 	if not selectedUnit then return end
-	if displayButton.Text == "Undisplay" then
+	local key = displayKey(selectedUnit)
+	if not key then return end
+
+	if displayedUnits[key] then
 		local undisplayRemote = remotes:FindFirstChild("UndisplayUnit")
 		if undisplayRemote then
 			undisplayRemote:FireServer(selectedUnit.Id)
 		end
-		displayedUnits[selectedUnit.Id] = nil
-		displayButton.Text = "Display"
-		displayButton.BackgroundColor3 = Color3.fromRGB(60, 130, 220)
+		displayedUnits[key] = nil
 	else
+		if displayedCount() >= 3 then
+			showMessage("You can display up to 3 units.")
+			setDisplayButtonState(selectedUnit)
+			return
+		end
+
 		local displayUnitRemote = remotes:FindFirstChild("DisplayUnit")
 		if displayUnitRemote then
 			displayUnitRemote:FireServer(selectedUnit.Type, selectedUnit.DisplayName, selectedUnit.Id)
 		end
-		displayedUnits[selectedUnit.Id] = true
-		displayButton.Text = "Undisplay"
-		displayButton.BackgroundColor3 = Color3.fromRGB(100, 80, 160)
+		displayedUnits[key] = true
 	end
+	setDisplayButtonState(selectedUnit)
 end)
 
 deleteButton.MouseButton1Click:Connect(function()
@@ -1081,12 +1177,13 @@ confirmDeleteBtn.MouseButton1Click:Connect(function()
 	confirmFrame.Visible = false
 	unitDetailPanel.Visible = false
 
-	if displayedUnits[selectedUnit.Id] then
+	local selectedKey = displayKey(selectedUnit)
+	if displayedUnits[selectedKey] then
 		local undisplayRemote = remotes:FindFirstChild("UndisplayUnit")
 		if undisplayRemote then
 			undisplayRemote:FireServer(selectedUnit.Id)
 		end
-		displayedUnits[selectedUnit.Id] = nil
+		displayedUnits[selectedKey] = nil
 	end
 
 	local deleteRemote = remotes:WaitForChild("DeleteUnit", 5)
@@ -1230,6 +1327,7 @@ end)
 
 summonResult.OnClientEvent:Connect(function(result)
 	if result then
+		table.clear(displayedUnits)
 		showMessage("Unit summoned: " .. result.DisplayName)
 	end
 end)

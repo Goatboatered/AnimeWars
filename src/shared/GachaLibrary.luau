@@ -47,8 +47,7 @@ function GachaLibrary.CalculateDamage(
 	local damage          = baseDamage * defenseMultiplier
 	local hitType         = "Normal"
 
-	-- SW hit order: Glancing → Crit → Crushing → Normal
-	-- Each is an independent roll so they are truly mutually exclusive
+	-- SW hit order: Glancing -> Crit -> Crushing -> Normal.
 	if modifiers.glancingChance > 0 and random:NextNumber() < modifiers.glancingChance then
 		hitType = "Glancing"
 		damage *= 0.7
@@ -86,7 +85,13 @@ end
 
 function GachaLibrary.FormatResult(entry)
 	local element = entry.Type or "Neutral"
-	return string.format("%s [%s] (%s, %d★)", entry.Name, element, entry.Rarity, entry.Stars)
+	local awakenLabel = ""
+	if (entry.AwakenLevel or 0) == 1 then
+		awakenLabel = " Awakened"
+	elseif (entry.AwakenLevel or 0) >= 2 then
+		awakenLabel = " 2A"
+	end
+	return string.format("%s%s [%s] (%s, %d*)", entry.Name, awakenLabel, element, entry.Rarity, entry.Stars)
 end
 
 return GachaLibrary
