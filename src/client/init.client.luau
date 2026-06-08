@@ -1306,7 +1306,8 @@ openUnitMenu = function()
 	end
 end
 
-unitMenuButton.MouseButton1Click:Connect(openUnitMenu)
+-- Replaced by UnitViewer.client.luau. Keeping the legacy panel code above for now,
+-- but do not connect it or it will open behind the new unit viewer.
 closeButton.MouseButton1Click:Connect(function()
 	overlay.Visible = false
 	unitPanel.Visible = false
