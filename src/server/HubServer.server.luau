@@ -16,13 +16,90 @@ local StarterPackStore = nil
 pcall(function()
 	StarterPackStore = DataStoreService:GetDataStore("StarterClaim_v1")
 end)
+local UnitInventoryStore = nil
+pcall(function()
+	UnitInventoryStore = DataStoreService:GetDataStore("UnitInventory_v1")
+end)
 local claimedPacks = {}
+local loadedUnitData = {}
 
 local STARTER_UNITS = {
 	{ Name = "Water Fairy",   DisplayName = "Water Fairy",   Type = "Water", Rarity = "Rare",   Stars = 3, HP = 1815, Attack = 107, Defense = 136, Speed = 103, CritChance = 0.15, CritDamage = 1.5, Resistance = 0.15, Accuracy = 0.0 },
 	{ Name = "Fire Hellhound", DisplayName = "Fire Hellhound", Type = "Fire",  Rarity = "Common", Stars = 2, HP = 1725, Attack = 227, Defense = 112, Speed = 115, CritChance = 0.15, CritDamage = 1.5, Resistance = 0.15, Accuracy = 0.0 },
 	{ Name = "Wind Vagabond", DisplayName = "Wind Vagabond", Type = "Wind",  Rarity = "Common", Stars = 2, HP = 1905, Attack = 117, Defense = 134, Speed = 97, CritChance = 0.15, CritDamage = 1.5, Resistance = 0.15, Accuracy = 0.0 },
 }
+
+local function unitStoreKey(player)
+	return "units_" .. player.UserId
+end
+
+local function loadUnitData(player)
+	UnitManager.InitializePlayer(player)
+
+	if not UnitInventoryStore then
+		loadedUnitData[player.UserId] = false
+		warn("[HubServer] UnitInventoryStore unavailable; units will not persist for", player.Name)
+		return
+	end
+
+	local success, data = pcall(function()
+		return UnitInventoryStore:GetAsync(unitStoreKey(player))
+	end)
+
+	if not success then
+		loadedUnitData[player.UserId] = false
+		warn("[HubServer] Failed to load units for", player.Name, data)
+		return
+	end
+
+	if type(data) == "table" and type(data.units) == "table" then
+		UnitManager.SetUnits(player, data.units)
+	elseif type(data) == "table" then
+		UnitManager.SetUnits(player, data)
+	end
+
+	loadedUnitData[player.UserId] = true
+	print("[HubServer] Loaded", #UnitManager.GetUnits(player), "unit(s) for", player.Name)
+end
+
+local function saveUnitData(player, reason)
+	if not player or not player.UserId then
+		return false
+	end
+	if not UnitInventoryStore then
+		return false
+	end
+	if loadedUnitData[player.UserId] ~= true then
+		warn("[HubServer] Skipped unit save because inventory was not loaded for", player.Name, reason or "")
+		return false
+	end
+
+	local payload = {
+		version = 1,
+		updatedAt = os.time(),
+		units = UnitManager.GetUnits(player),
+	}
+
+	local success, err = pcall(function()
+		UnitInventoryStore:SetAsync(unitStoreKey(player), payload)
+	end)
+
+	if not success then
+		warn("[HubServer] Failed to save units for", player.Name, reason or "", err)
+		return false
+	end
+
+	print("[HubServer] Saved", #payload.units, "unit(s) for", player.Name, reason or "")
+	return true
+end
+
+local function canMutateUnits(player)
+	if UnitInventoryStore and loadedUnitData[player.UserId] ~= true then
+		warn("[HubServer] Unit mutation rejected because inventory was not loaded for", player.Name)
+		return false
+	end
+	return true
+end
 
 local remoteFolder = ReplicatedStorage:FindFirstChild("GachaRemotes")
 if not remoteFolder then
@@ -94,6 +171,13 @@ if not beginBattle then
 	beginBattle.Parent = remoteFolder
 end
 
+local beginBattleResult = remoteFolder:FindFirstChild("BeginBattleResult")
+if not beginBattleResult then
+	beginBattleResult = Instance.new("RemoteEvent")
+	beginBattleResult.Name = "BeginBattleResult"
+	beginBattleResult.Parent = remoteFolder
+end
+
 local displayUnit = remoteFolder:FindFirstChild("DisplayUnit")
 if not displayUnit then
 	displayUnit = Instance.new("RemoteEvent")
@@ -117,7 +201,7 @@ undisplayUnit.OnServerEvent:Connect(function(player, unitId)
 end)
 
 Players.PlayerAdded:Connect(function(player)
-	UnitManager.InitializePlayer(player)
+	loadUnitData(player)
 	local success, claimed = pcall(function()
 		return StarterPackStore:GetAsync("starterClaim_" .. player.UserId)
 	end)
@@ -125,12 +209,14 @@ Players.PlayerAdded:Connect(function(player)
 end)
 
 Players.PlayerRemoving:Connect(function(player)
+	saveUnitData(player, "player leaving")
 	UnitManager.ClearPlayer(player)
 	claimedPacks[player.UserId] = nil
+	loadedUnitData[player.UserId] = nil
 end)
 
 for _, player in Players:GetPlayers() do
-	UnitManager.InitializePlayer(player)
+	loadUnitData(player)
 	local success, claimed = pcall(function()
 		return StarterPackStore:GetAsync("starterClaim_" .. player.UserId)
 	end)
@@ -145,9 +231,17 @@ function claimStarterPack.OnServerInvoke(player)
 	if claimedPacks[player.UserId] == true then
 		return false
 	end
+	if not canMutateUnits(player) then
+		return false
+	end
 
+	local beforeUnits = UnitManager.GetUnits(player)
 	for _, unitData in ipairs(STARTER_UNITS) do
 		UnitManager.AddUnit(player, unitData)
+	end
+	if UnitInventoryStore and not saveUnitData(player, "starter pack claimed") then
+		UnitManager.SetUnits(player, beforeUnits)
+		return false
 	end
 
 	claimedPacks[player.UserId] = true
@@ -161,6 +255,9 @@ end
 
 function summonRequest.OnServerInvoke(player)
 	if not player then
+		return nil
+	end
+	if not canMutateUnits(player) then
 		return nil
 	end
 
@@ -185,7 +282,12 @@ function summonRequest.OnServerInvoke(player)
 		DisplayName = GachaLibrary.FormatResult(result),
 	}
 
+	local beforeUnits = UnitManager.GetUnits(player)
 	UnitManager.AddUnit(player, payload)
+	if UnitInventoryStore and not saveUnitData(player, "summon") then
+		UnitManager.SetUnits(player, beforeUnits)
+		return nil
+	end
 	FollowerManager.ClearFollowers(player)
 	unitsUpdated:FireClient(player, UnitManager.GetUnits(player))
 	return payload
@@ -199,8 +301,17 @@ function getUnits.OnServerInvoke(player)
 end
 
 function deleteUnit.OnServerInvoke(player, unitId)
+	if not canMutateUnits(player) then
+		return false
+	end
+
+	local beforeUnits = UnitManager.GetUnits(player)
 	local removed = UnitManager.RemoveUnit(player, unitId)
 	if removed then
+		if UnitInventoryStore and not saveUnitData(player, "delete unit") then
+			UnitManager.SetUnits(player, beforeUnits)
+			return false
+		end
 		unitsUpdated:FireClient(player, UnitManager.GetUnits(player))
 	end
 	return removed
@@ -217,8 +328,15 @@ function attackRequest.OnServerInvoke(player, attackerData, defenderData)
 end
 
 beginBattle.OnServerEvent:Connect(function(player, selectedUnitIds, areaNum, difficulty, stageNum)
+	if type(selectedUnitIds) ~= "table" or #selectedUnitIds == 0 then
+		warn("[HubServer] BeginBattle rejected: no selected units for", player.Name)
+		beginBattleResult:FireClient(player, false, "Select at least one unit first.")
+		return
+	end
+
 	if COMBAT_PLACE_ID == 0 then
 		warn("[HubServer] COMBAT_PLACE_ID not set — cannot teleport")
+		beginBattleResult:FireClient(player, false, "Combat place ID is not set.")
 		return
 	end
 
@@ -232,6 +350,17 @@ beginBattle.OnServerEvent:Connect(function(player, selectedUnitIds, areaNum, dif
 			end
 		end
 	end
+	if #selectedUnits == 0 then
+		warn("[HubServer] BeginBattle rejected: selected unit IDs did not match inventory for", player.Name)
+		beginBattleResult:FireClient(player, false, "Selected units were not found in your inventory.")
+		return
+	end
+
+	local unitNames = {}
+	for i, unit in ipairs(selectedUnits) do
+		unitNames[i] = tostring(unit.DisplayName or unit.CharacterName or unit.Name or unit.Id)
+	end
+	print("[HubServer] BeginBattle teleport payload:", player.Name, "area", areaNum or 1, "difficulty", difficulty or "normal", "stage", stageNum or 1, "units", table.concat(unitNames, ", "))
 
 	local ok, result = pcall(function()
 		local code = TeleportService:ReserveServer(COMBAT_PLACE_ID)
@@ -247,6 +376,7 @@ beginBattle.OnServerEvent:Connect(function(player, selectedUnitIds, areaNum, dif
 
 	if not ok then
 		warn("[HubServer] Teleport failed:", result)
+		beginBattleResult:FireClient(player, false, "Teleport failed: " .. tostring(result))
 	end
 end)
 
@@ -259,6 +389,9 @@ end
 
 applyRewards.OnServerEvent:Connect(function(player, xpRewards)
 	if type(xpRewards) ~= "table" then return end
+	if not canMutateUnits(player) then return end
+
+	local beforeUnits = UnitManager.GetUnits(player)
 	local allUnits = UnitManager.GetUnits(player)
 	for _, unit in ipairs(allUnits) do
 		local xp = xpRewards[tostring(unit.Id)]
@@ -266,7 +399,16 @@ applyRewards.OnServerEvent:Connect(function(player, xpRewards)
 			UnitManager.AddXP(player, unit.Id, xp)
 		end
 	end
+	if UnitInventoryStore and not saveUnitData(player, "battle rewards") then
+		UnitManager.SetUnits(player, beforeUnits)
+	end
 	unitsUpdated:FireClient(player, UnitManager.GetUnits(player))
+end)
+
+game:BindToClose(function()
+	for _, player in ipairs(Players:GetPlayers()) do
+		saveUnitData(player, "server closing")
+	end
 end)
 
 local function createFountain()
@@ -424,6 +566,10 @@ local function createFountain()
 	end
 
 	prompt.Triggered:Connect(function(player)
+		if not canMutateUnits(player) then
+			return
+		end
+
 		local result = GachaLibrary.PickFromPool("normal")
 		local payload = {
 			SourceId = result.SourceId,
@@ -441,7 +587,12 @@ local function createFountain()
 			DisplayName = GachaLibrary.FormatResult(result),
 		}
 
+		local beforeUnits = UnitManager.GetUnits(player)
 		UnitManager.AddUnit(player, payload)
+		if UnitInventoryStore and not saveUnitData(player, "fountain summon") then
+			UnitManager.SetUnits(player, beforeUnits)
+			return
+		end
 		FollowerManager.ClearFollowers(player)
 		unitsUpdated:FireClient(player, UnitManager.GetUnits(player))
 		summonResult:FireClient(player, payload)

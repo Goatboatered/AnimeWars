@@ -21,11 +21,15 @@ local SetBattleSpeed = remotes:WaitForChild("SetBattleSpeed", 10)
 
 -- ─── TELEPORT DATA ────────────────────────────────────────────────────
 local tpData = TeleportService:GetLocalPlayerTeleportData()
-if not tpData or not tpData.selectedUnits or #tpData.selectedUnits == 0 then
+local hasTeleportBattleData = type(tpData) == "table"
+	and type(tpData.selectedUnits) == "table"
+	and #tpData.selectedUnits > 0
+if not hasTeleportBattleData then
 	tpData = {
 		areaNum = 1, difficulty = "normal", stage = 1,
 		selectedUnits = {
 			{
+				Id = 1,
 				CharacterName = "Water Fairy", DisplayName = "Water Fairy",
 				Type = "Water", HP = 1815, Attack = 107, Defense = 136,
 				Speed = 103, CritChance = 0.15, CritDamage = 1.5,
@@ -38,6 +42,7 @@ if not tpData or not tpData.selectedUnits or #tpData.selectedUnits == 0 then
 				},
 			},
 			{
+				Id = 2,
 				CharacterName = "Fire Hellhound", DisplayName = "Fire Hellhound",
 				Type = "Fire", HP = 1725, Attack = 227, Defense = 112,
 				Speed = 115, CritChance = 0.15, CritDamage = 1.5,
@@ -54,6 +59,7 @@ if not tpData or not tpData.selectedUnits or #tpData.selectedUnits == 0 then
 end
 
 local lastAreaInfo = nil  -- saved each time a battle starts, used by Replay in Studio
+local setSetupSummary
 
 local SW_AREAS = {
 	"Garen Forest","Mt. Siz","Kabir Ruins","Mt. White Ragon",
@@ -158,15 +164,9 @@ local function showStudioLevelPicker()
 	startBtn.MouseButton1Click:Connect(function()
 		sg:Destroy()
 		lastAreaInfo = { num = areaIdx, difficulty = diff:lower(), stage = stageIdx }
-		SendUnitData:FireServer(tpData.selectedUnits, lastAreaInfo)
-	end)
-end
-
-if RunService:IsStudio() then
-	showStudioLevelPicker()
-else
-	task.delay(1, function()
-		lastAreaInfo = { num = tpData.areaNum or 1, difficulty = tpData.difficulty or "normal", stage = tpData.stage or 1 }
+		if setSetupSummary then
+			setSetupSummary("Studio fallback test setup", lastAreaInfo)
+		end
 		SendUnitData:FireServer(tpData.selectedUnits, lastAreaInfo)
 	end)
 end
@@ -186,6 +186,65 @@ screenGui.Name           = "CombatGui"
 screenGui.ResetOnSpawn   = false
 screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 screenGui.Parent         = playerGui
+
+local setupPanel = Instance.new("Frame")
+setupPanel.Name = "LoadedSetupPanel"
+setupPanel.Size = UDim2.fromOffset(360, 104)
+setupPanel.Position = UDim2.fromOffset(8, 48)
+setupPanel.BackgroundColor3 = hasTeleportBattleData and Color3.fromRGB(12, 30, 22) or Color3.fromRGB(42, 27, 16)
+setupPanel.BackgroundTransparency = 0.08
+setupPanel.BorderSizePixel = 0
+setupPanel.Parent = screenGui
+Instance.new("UICorner", setupPanel).CornerRadius = UDim.new(0, 8)
+
+local setupLabel = Instance.new("TextLabel")
+setupLabel.Size = UDim2.new(1, -16, 1, -12)
+setupLabel.Position = UDim2.fromOffset(8, 6)
+setupLabel.BackgroundTransparency = 1
+setupLabel.TextColor3 = Color3.fromRGB(235, 245, 235)
+setupLabel.Font = Enum.Font.GothamMedium
+setupLabel.TextSize = 13
+setupLabel.TextXAlignment = Enum.TextXAlignment.Left
+setupLabel.TextYAlignment = Enum.TextYAlignment.Top
+setupLabel.TextWrapped = true
+setupLabel.Parent = setupPanel
+
+local function formatLoadedUnits(units)
+	local names = {}
+	for i, unit in ipairs(units or {}) do
+		names[i] = unit.DisplayName or unit.CharacterName or unit.Name or ("Unit " .. i)
+	end
+	return table.concat(names, ", ")
+end
+
+setSetupSummary = function(sourceLabel, areaInfo)
+	local areaName = SW_AREAS[areaInfo.num or 1] or ("Area " .. tostring(areaInfo.num or 1))
+	setupLabel.Text = string.format(
+		"%s\n%s | %s | Stage %s\nUnits: %s",
+		sourceLabel,
+		areaName,
+		tostring(areaInfo.difficulty or "normal"),
+		tostring(areaInfo.stage or 1),
+		formatLoadedUnits(tpData.selectedUnits)
+	)
+end
+
+local function beginCombatFromTeleportData()
+	lastAreaInfo = {
+		num = tpData.areaNum or 1,
+		difficulty = tpData.difficulty or "normal",
+		stage = tpData.stage or 1,
+	}
+	setSetupSummary(hasTeleportBattleData and "Loaded from hub teleport data" or "Studio fallback test setup", lastAreaInfo)
+	SendUnitData:FireServer(tpData.selectedUnits, lastAreaInfo)
+end
+
+if RunService:IsStudio() and not hasTeleportBattleData then
+	setSetupSummary("Studio fallback test setup", { num = 1, difficulty = "normal", stage = 1 })
+	showStudioLevelPicker()
+else
+	task.delay(1, beginCombatFromTeleportData)
+end
 
 -- ─── BATTLE LOG ───────────────────────────────────────────────────────
 local logBg = Instance.new("Frame")

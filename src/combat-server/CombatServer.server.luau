@@ -618,6 +618,7 @@ local function makePlayerUnit(data, slot)
 	local abilities = getCharacterAbilities(charName, data.SourceId) or data.Abilities or {}
 	return {
 		Id     = "p"..slot, IsEnemy = false,
+		OriginalUnitId = data.Id,
 		SourceId = data.SourceId,
 		Name   = "Lv." .. lv .. " " .. base,
 		Type   = data.Type or "Neutral",
@@ -700,7 +701,7 @@ local function runBattle(player, battle)
 			snapshot(battle)
 			bwait(battle, 2)
 			local pIds = {}
-			for _, u in ipairs(battle.playerUnits) do table.insert(pIds, u.Id) end
+			for _, u in ipairs(battle.playerUnits) do table.insert(pIds, u.OriginalUnitId or u.Id) end
 			BattleEnd:FireClient(player, { victory = true, xp = battle.stageXP, unitIds = pIds })
 			break
 		end

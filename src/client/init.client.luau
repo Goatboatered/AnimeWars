@@ -1680,6 +1680,7 @@ bpBeginBtn.Font = Enum.Font.GothamBlack
 bpBeginBtn.TextScaled = true
 bpBeginBtn.Text = "Begin"
 bpBeginBtn.Active = false
+bpBeginBtn.Visible = false
 bpBeginBtn.Parent = bpBattleArea
 
 local bpBeginCorner = Instance.new("UICorner")
@@ -1728,6 +1729,8 @@ bpStartBtn.TextColor3 = Color3.fromRGB(20, 20, 30)
 bpStartBtn.Font = Enum.Font.GothamBlack
 bpStartBtn.TextScaled = true
 bpStartBtn.Text = "Start Battle"
+bpStartBtn.Active = false
+bpStartBtn.AutoButtonColor = false
 bpStartBtn.Parent = bpButtonBar
 
 local bpStartCorner = Instance.new("UICorner")
@@ -1765,13 +1768,15 @@ local function updateBeginBtn()
 		end
 	end
 	if hasUnit then
-		bpBeginBtn.BackgroundColor3 = Color3.fromRGB(80, 200, 120)
-		bpBeginBtn.TextColor3 = Color3.fromRGB(15, 20, 25)
-		bpBeginBtn.Active = true
+		bpStartBtn.BackgroundColor3 = Color3.fromRGB(255, 191, 64)
+		bpStartBtn.TextColor3 = Color3.fromRGB(20, 20, 30)
+		bpStartBtn.Active = true
+		bpStartBtn.AutoButtonColor = true
 	else
-		bpBeginBtn.BackgroundColor3 = Color3.fromRGB(38, 40, 55)
-		bpBeginBtn.TextColor3 = Color3.fromRGB(75, 80, 105)
-		bpBeginBtn.Active = false
+		bpStartBtn.BackgroundColor3 = Color3.fromRGB(38, 40, 55)
+		bpStartBtn.TextColor3 = Color3.fromRGB(75, 80, 105)
+		bpStartBtn.Active = false
+		bpStartBtn.AutoButtonColor = false
 	end
 end
 
@@ -1939,10 +1944,12 @@ openBattlePrep = function(areaName, stageName, areaNum, diff, stageNum)
 	currentAreaNum = areaNum  or 1
 	currentDiff    = diff     or "normal"
 	currentStage   = stageNum or 1
+	bpStartBtn.Text = "Start Battle"
 	bpTitle.Text = areaName .. "  —  " .. stageName
 	for i = 1, 4 do
 		clearBattleSlot(i)
 	end
+	updateBeginBtn()
 	battlePrepScreen.Visible = true
 	local ok, units = pcall(function()
 		return unitRequest:InvokeServer()
@@ -1950,8 +1957,8 @@ openBattlePrep = function(areaName, stageName, areaNum, diff, stageNum)
 	populateBpUnits(ok and units or {})
 end
 
-bpBeginBtn.MouseButton1Click:Connect(function()
-	if not bpBeginBtn.Active then return end
+local function startSelectedBattle()
+	if not bpStartBtn.Active then return end
 
 	local selectedIds = {}
 	for i = 1, 4 do
@@ -1961,18 +1968,33 @@ bpBeginBtn.MouseButton1Click:Connect(function()
 	end
 	if #selectedIds == 0 then return end
 
-	bpBeginBtn.Active = false
-	bpBeginBtn.Text   = "Starting..."
+	bpStartBtn.Active = false
+	bpStartBtn.AutoButtonColor = false
+	bpStartBtn.BackgroundColor3 = Color3.fromRGB(80, 200, 120)
+	bpStartBtn.TextColor3 = Color3.fromRGB(15, 20, 25)
+	bpStartBtn.Text = "Starting..."
 
 	local beginRemote = remotes:FindFirstChild("BeginBattle")
 	if beginRemote then
 		beginRemote:FireServer(selectedIds, currentAreaNum, currentDiff, currentStage)
 	else
 		showMessage("Could not start battle — remote missing.")
-		bpBeginBtn.Active = true
-		bpBeginBtn.Text   = "Begin"
+		bpStartBtn.Text = "Start Battle"
+		updateBeginBtn()
 	end
-end)
+end
+
+local beginBattleResult = remotes:WaitForChild("BeginBattleResult", 10)
+if beginBattleResult then
+	beginBattleResult.OnClientEvent:Connect(function(success, message)
+		if success then
+			return
+		end
+		showMessage(message or "Could not start battle.")
+		bpStartBtn.Text = "Start Battle"
+		updateBeginBtn()
+	end)
+end
 
 bpCancelBtn.MouseButton1Click:Connect(function()
 	battlePrepScreen.Visible = false
@@ -1980,9 +2002,7 @@ bpCancelBtn.MouseButton1Click:Connect(function()
 end)
 
 bpStartBtn.MouseButton1Click:Connect(function()
-	if not bpBeginBtn.Active then return end
-	bpBeginBtn:GetPropertyChangedSignal("Active"):Wait()
-	bpBeginBtn.MouseButton1Click:Fire()
+	startSelectedBattle()
 end)
 
 -- Apply XP earned in the last battle (passed back via teleport data)

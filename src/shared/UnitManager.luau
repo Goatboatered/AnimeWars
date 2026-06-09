@@ -117,6 +117,23 @@ function UnitManager.ClearPlayer(player)
 	playerUnits[player.UserId] = nil
 end
 
+function UnitManager.SetUnits(player, units)
+	if not player or not player.UserId then
+		return
+	end
+
+	playerUnits[player.UserId] = {}
+	if type(units) ~= "table" then
+		return
+	end
+
+	for _, unitData in ipairs(units) do
+		if type(unitData) == "table" then
+			UnitManager.AddUnit(player, unitData)
+		end
+	end
+end
+
 function UnitManager.AddUnit(player, unitData)
 	if not player or not player.UserId then
 		return nil

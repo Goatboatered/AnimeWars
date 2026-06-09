@@ -9,3 +9,7 @@ Packages/
 ServerPackages/
 sourcemap.json
 wally.lock
+
+# Local Rojo server logs
+*.log
+.rojo-serve.*.log
