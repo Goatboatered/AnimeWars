@@ -36,6 +36,25 @@ local function getCharacterAbilities(charName, sourceId)
 	return nil
 end
 
+-- ─── STATUS EFFECT DATA ───────────────────────────────────────────────
+-- Maps ability name → effects each hit may apply. chance 0–1, duration in turns.
+local ABILITY_EFFECTS = {
+	["Dash"]           = {{type = "Stun",    chance = 0.15, duration = 1}},
+	["Slash Rocks"]    = {{type = "DEFDown", chance = 0.40, duration = 2}},
+	["Slash Waves"]    = {{type = "ATKDown", chance = 0.50, duration = 2}},
+	["Aqua Hurricane"] = {{type = "Freeze",  chance = 0.20, duration = 1}},
+}
+
+-- Abilities that cleanse all harmful effects from the heal target
+local CLEANSING_ABILITIES = {["Purify"] = true}
+
+-- Harmful effect types: require Accuracy vs Resistance check, blocked by Glancing
+local HARMFUL_EFFECTS = {
+	Stun = true, Freeze = true, Sleep = true,
+	ATKDown = true, DEFDown = true, SPDDown = true,
+	GlancingHit = true, DoT = true,
+}
+
 -- ─── REMOTES ──────────────────────────────────────────────────────────
 local remotes = Instance.new("Folder")
 remotes.Name   = "CombatRemotes"
@@ -279,10 +298,15 @@ local function snapshot(battle)
 			Id = u.Id, Name = u.Name, Type = u.Type,
 			HP = u.HP, MaxHP = u.MaxHP,
 			Abilities = u.Abilities, CooldownsRemaining = u.CooldownsRemaining,
+			statusEffects = u.statusEffects or {},
 		})
 	end
 	for _, u in ipairs(battle.enemyUnits) do
-		table.insert(eSnap, { Id = u.Id, Name = u.Name, Type = u.Type, HP = u.HP, MaxHP = u.MaxHP })
+		table.insert(eSnap, {
+			Id = u.Id, Name = u.Name, Type = u.Type,
+			HP = u.HP, MaxHP = u.MaxHP,
+			statusEffects = u.statusEffects or {},
+		})
 	end
 	updateHPBars(battle)
 	BattleState:FireClient(battle.player, {
@@ -299,6 +323,177 @@ end
 local function tickCooldowns(unit)
 	for k, v in pairs(unit.CooldownsRemaining) do
 		if v > 0 then unit.CooldownsRemaining[k] = v - 1 end
+	end
+end
+
+-- ─── STATUS EFFECT HELPERS ────────────────────────────────────────────
+local function effectiveATK(unit)
+	local atk = unit.Attack
+	for _, e in ipairs(unit.statusEffects or {}) do
+		if e.type == "ATKDown" then atk = math.floor(atk * 0.7) end
+		if e.type == "ATKUp"   then atk = math.floor(atk * 1.5) end
+	end
+	return math.max(1, atk)
+end
+
+local function effectiveDEF(unit)
+	local def = unit.Defense
+	for _, e in ipairs(unit.statusEffects or {}) do
+		if e.type == "DEFDown" then def = math.floor(def * 0.5) end
+		if e.type == "DEFUp"   then def = math.floor(def * 1.5) end
+	end
+	return math.max(0, def)
+end
+
+local function effectiveStatsFor(unit)
+	return {
+		Name       = unit.Name,
+		Type       = unit.Type,
+		Attack     = effectiveATK(unit),
+		Defense    = effectiveDEF(unit),
+		MaxHP      = unit.MaxHP,
+		CritChance = unit.CritChance,
+		CritDamage = unit.CritDamage,
+		Accuracy   = unit.Accuracy,
+		Resistance = unit.Resistance,
+	}
+end
+
+local function processDoT(battle, unit)
+	local dotCount = 0
+	for _, e in ipairs(unit.statusEffects or {}) do
+		if e.type == "DoT" then dotCount += 1 end
+	end
+	if dotCount > 0 then
+		local dmg = math.floor(unit.MaxHP * 0.05 * dotCount)
+		unit.HP = math.max(0, unit.HP - dmg)
+		addLog(battle, unit.Name .. " takes " .. dmg .. " Continuous Damage ("
+			.. dotCount .. " stack" .. (dotCount > 1 and "s" or "") .. ")")
+	end
+end
+
+local function tickStatusEffects(unit)
+	local kept = {}
+	for _, e in ipairs(unit.statusEffects or {}) do
+		local dur = (e.duration or 1) - 1
+		if dur > 0 then
+			table.insert(kept, {type = e.type, duration = dur})
+		end
+	end
+	unit.statusEffects = kept
+end
+
+local function isIncapacitated(unit)
+	for _, e in ipairs(unit.statusEffects or {}) do
+		if e.type == "Stun" or e.type == "Freeze" or e.type == "Sleep" then
+			return true, e.type
+		end
+	end
+	return false
+end
+
+-- Parses status effects from an SW ability Description string.
+-- Returns an array of {type, chance, duration} or nil if no relevant effects.
+-- Results are cached by description string to avoid re-parsing.
+local _effectsCache = {}
+local function parseEffectsFromDescription(description)
+	if not description or description == "" then return nil end
+	local hit = _effectsCache[description]
+	if hit ~= nil then return hit or nil end
+
+	local desc = description:lower()
+	local effects = {}
+
+	-- Extract first "XX% chance" value found; default 1.0 (100%) when absent.
+	local function pct(text)
+		local s = text:match("(%d+)%% chance")
+		return s and (tonumber(s) / 100) or 1.0
+	end
+	-- Extract first "for X turn(s)" value found; default is `d`.
+	local function dur(text, d)
+		local s = text:match("for (%d+) turn")
+		return s and tonumber(s) or (d or 1)
+	end
+
+	-- Stun
+	if desc:find("stun") and not desc:find("stun%(passive%)") then
+		table.insert(effects, {type = "Stun", chance = pct(desc), duration = 1})
+	end
+	-- Freeze
+	if desc:find("freeze") and not desc:find("you are frozen") then
+		table.insert(effects, {type = "Freeze", chance = pct(desc), duration = dur(desc, 1)})
+	end
+	-- Sleep
+	if desc:find("sleep") and not desc:find("passive") then
+		table.insert(effects, {type = "Sleep", chance = pct(desc), duration = dur(desc, 1)})
+	end
+	-- Continuous Damage (DoT) — look for duration right after keyword
+	if desc:find("continuous damage") then
+		local dotPct = desc:match("(%d+)%% chance[^.]*continuous damage")
+			or desc:match("continuous damage[^.]*(%d+)%% chance")
+		local dotDur = desc:match("continuous damage for (%d+)") or desc:match("for (%d+) turn")
+		local c = dotPct and (tonumber(dotPct) / 100) or pct(desc)
+		table.insert(effects, {type = "DoT", chance = c, duration = tonumber(dotDur) or 2})
+	end
+	-- ATKDown — "attack power" decrease (not "attack bar"/"attack speed")
+	if desc:find("attack power")
+		and not desc:find("attack bar") and not desc:find("attack speed")
+		and (desc:find("decrease") or desc:find("reduce") or desc:find("weaken") or desc:find("lower")) then
+		local atkDur = desc:match("attack power for (%d+)") or desc:match("for (%d+) turn")
+		table.insert(effects, {type = "ATKDown", chance = pct(desc), duration = tonumber(atkDur) or 2})
+	end
+	-- DEFDown — "defense" decrease (not a self-buff like "increases.*defense")
+	if (desc:find("defense") or desc:find("defence"))
+		and not desc:find("increas.*defens") and not desc:find("own defense") and not desc:find("your defense")
+		and (desc:find("decrease") or desc:find("reduce") or desc:find("lower") or desc:find("reduces")) then
+		local defDur = desc:match("defens[ce]* for (%d+)") or desc:match("for (%d+) turn")
+		table.insert(effects, {type = "DEFDown", chance = pct(desc), duration = tonumber(defDur) or 2})
+	end
+	-- GlancingHit curse — "Glancing Hit" applied to enemy
+	if desc:find("glancing hit") and (desc:find("enemy") or desc:find("target")) then
+		local ghDur = desc:match("glancing hit[^.]*for (%d+)") or desc:match("for (%d+)[^.]*glancing hit")
+		table.insert(effects, {type = "GlancingHit", chance = pct(desc), duration = tonumber(ghDur) or 1})
+	end
+
+	local result = #effects > 0 and effects or false
+	_effectsCache[description] = result
+	return result or nil
+end
+
+local function tryApplyEffects(battle, attacker, target, abilityName, hitType)
+	if hitType == "Glancing" then return end
+	-- Static overrides first, then dynamic parse from the ability's Description
+	local effects = ABILITY_EFFECTS[abilityName]
+	if not effects and attacker.Abilities then
+		for _, ab in ipairs(attacker.Abilities) do
+			if ab.Name == abilityName then
+				effects = parseEffectsFromDescription(ab.Description)
+				break
+			end
+		end
+	end
+	if not effects then return end
+	for _, effectDef in ipairs(effects) do
+		if math.random() > (effectDef.chance or 1) then continue end
+		if HARMFUL_EFFECTS[effectDef.type] then
+			local acc = math.min(0.85, attacker.Accuracy or 0)
+			local resist = math.max(0.15, (target.Resistance or 0) - acc)
+			if math.random() < resist then continue end
+		end
+		local stacked = false
+		if effectDef.type ~= "DoT" then
+			for _, e in ipairs(target.statusEffects) do
+				if e.type == effectDef.type then
+					e.duration = math.max(e.duration, effectDef.duration or 1)
+					stacked = true
+					break
+				end
+			end
+		end
+		if not stacked then
+			table.insert(target.statusEffects, {type = effectDef.type, duration = effectDef.duration or 1})
+			addLog(battle, target.Name .. ": " .. effectDef.type .. "!")
+		end
 	end
 end
 
@@ -367,11 +562,26 @@ local function applyAction(battle, actor, action)
 			return u.HP - before
 		end
 
+		local function cleanseUnit(u)
+			if not CLEANSING_ABILITIES[abilityName] then return end
+			local kept = {}
+			for _, e in ipairs(u.statusEffects or {}) do
+				if not HARMFUL_EFFECTS[e.type] then
+					table.insert(kept, e)
+				end
+			end
+			if #kept < #(u.statusEffects or {}) then
+				u.statusEffects = kept
+				addLog(battle, u.Name .. " is Cleansed!")
+			end
+		end
+
 		if ability.AoE then
 			local total = 0
 			for _, u in ipairs(allySide) do
 				if u.HP > 0 then
 					total += healUnit(u)
+					cleanseUnit(u)
 				end
 			end
 			addLog(battle, actor.Name .. " → " .. abilityName .. " heals all allies (+" .. total .. " HP total)")
@@ -393,6 +603,7 @@ local function applyAction(battle, actor, action)
 			if healTarget then
 				local healAmt = healUnit(healTarget)
 				addLog(battle, actor.Name .. " → " .. abilityName .. " heals " .. healTarget.Name .. " (+" .. healAmt .. " HP)")
+				cleanseUnit(healTarget)
 			else
 				addLog(battle, actor.Name .. " → " .. abilityName .. " (no ally to heal)")
 			end
@@ -429,21 +640,24 @@ local function applyAction(battle, actor, action)
 			if t.HP <= 0 then continue end
 			local dmg, ht
 			if scalesWith == "HP" then
-				local ratio = 1000 / (1000 + (t.Defense or 0))
+				local def   = effectiveDEF(t)
+				local ratio = 1000 / (1140 + 3.5 * def)
 				dmg = math.floor(actor.MaxHP * multiplier * ratio)
 				ht  = "Normal"
 			elseif scalesWith == "DEF" then
-				local ratio = 1000 / (1000 + (t.Defense or 0))
-				dmg = math.floor(actor.Defense * multiplier * ratio)
+				local def   = effectiveDEF(t)
+				local ratio = 1000 / (1140 + 3.5 * def)
+				dmg = math.floor(effectiveDEF(actor) * multiplier * ratio)
 				ht  = "Normal"
 			else
-				local raw, rawHt = CombatLibrary.CalculateDamageFromStats(actor, t)
+				local raw, rawHt = CombatLibrary.CalculateDamageFromStats(effectiveStatsFor(actor), effectiveStatsFor(t))
 				dmg = math.floor(raw * multiplier)
 				ht  = rawHt
 			end
 			t.HP      = math.max(0, t.HP - dmg)
 			totalDmg += dmg
 			lastHt    = ht
+			tryApplyEffects(battle, actor, t, abilityName, ht)
 		end
 	end
 
@@ -627,7 +841,7 @@ local function makePlayerUnit(data, slot)
 		Speed  = data.Speed or 50, CritChance = data.CritChance or 0.05,
 		CritDamage = data.CritDamage or 1.5, Resistance = data.Resistance or 0,
 		Accuracy = data.Accuracy or 0, Abilities = abilities,
-		CooldownsRemaining = {}, model = nil, hpBar = nil,
+		CooldownsRemaining = {}, statusEffects = {}, model = nil, hpBar = nil,
 	}
 end
 
@@ -642,7 +856,7 @@ local function makeEnemyUnit(data, slot)
 		Speed  = data.Speed, CritChance = data.CritChance or 0.05,
 		CritDamage = data.CritDamage or 1.5, Resistance = data.Resistance or 0,
 		Accuracy = data.Accuracy or 0, Abilities = data.Abilities or {},
-		CooldownsRemaining = {}, model = nil, hpBar = nil,
+		CooldownsRemaining = {}, statusEffects = {}, model = nil, hpBar = nil,
 	}
 end
 
@@ -724,6 +938,24 @@ local function runBattle(player, battle)
 			battle.activeTurnId = unit.Id
 			tickCooldowns(unit)
 
+			-- Start of turn: Continuous Damage ticks
+			processDoT(battle, unit)
+			if unit.HP <= 0 then
+				tickStatusEffects(unit)
+				snapshot(battle)
+				continue
+			end
+
+			-- Incapacitation check (Stun / Freeze / Sleep)
+			local incap, incapType = isIncapacitated(unit)
+			if incap then
+				addLog(battle, unit.Name .. " is " .. incapType .. "d! (turn skipped)")
+				tickStatusEffects(unit)
+				snapshot(battle)
+				bwait(battle, 0.4)
+				continue
+			end
+
 			if not unit.IsEnemy then
 				if battle.autoMode then
 					-- Auto: AI picks action for player unit
@@ -768,6 +1000,7 @@ local function runBattle(player, battle)
 				end
 				battle.waitingForAction = false
 				battle.phase = "resolving"
+				tickStatusEffects(unit)
 				snapshot(battle)
 				bwait(battle, 0.5)
 			else
@@ -776,6 +1009,7 @@ local function runBattle(player, battle)
 				bwait(battle, 1.0)
 				enemyAI(battle, unit)
 				battle.phase = "resolving"
+				tickStatusEffects(unit)
 				snapshot(battle)
 				bwait(battle, 0.5)
 			end
