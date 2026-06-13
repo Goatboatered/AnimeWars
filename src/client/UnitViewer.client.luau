@@ -9,8 +9,9 @@ local shared = ReplicatedStorage:WaitForChild("Shared")
 local UnitManager = require(shared:WaitForChild("UnitManager"))
 local getUnits = remotes:WaitForChild("GetUnits")
 local unitsUpdated = remotes:WaitForChild("UnitsUpdated")
-local displayUnitRemote = remotes:WaitForChild("DisplayUnit", 10)
+local displayUnitRemote   = remotes:WaitForChild("DisplayUnit", 10)
 local undisplayUnitRemote = remotes:WaitForChild("UndisplayUnit", 10)
+local powerUpRemote       = remotes:WaitForChild("PowerUp", 10)
 
 local COLORS = {
 	bg = Color3.fromRGB(34, 25, 18),
@@ -134,7 +135,7 @@ local subLabel = label(visualArea, "", UDim2.new(0, 8, 1, -56), UDim2.new(1, -16
 subLabel.TextXAlignment = Enum.TextXAlignment.Center
 
 local displayButton = Instance.new("TextButton")
-displayButton.Size = UDim2.fromOffset(150, 46)
+displayButton.Size = UDim2.fromOffset(150, 42)
 displayButton.Position = UDim2.fromOffset(8, 12)
 displayButton.BackgroundColor3 = Color3.fromRGB(56, 106, 173)
 displayButton.BorderSizePixel = 0
@@ -144,6 +145,18 @@ displayButton.Font = Enum.Font.GothamBlack
 displayButton.TextSize = 18
 displayButton.Parent = visualArea
 addStroke(displayButton, 7, Color3.fromRGB(255, 231, 164), 1, 0.45)
+
+local powerUpButton = Instance.new("TextButton")
+powerUpButton.Size = UDim2.fromOffset(150, 42)
+powerUpButton.Position = UDim2.fromOffset(8, 60)
+powerUpButton.BackgroundColor3 = Color3.fromRGB(170, 100, 30)
+powerUpButton.BorderSizePixel = 0
+powerUpButton.Text = "Power-up"
+powerUpButton.TextColor3 = Color3.fromRGB(255, 239, 197)
+powerUpButton.Font = Enum.Font.GothamBlack
+powerUpButton.TextSize = 18
+powerUpButton.Parent = visualArea
+addStroke(powerUpButton, 7, Color3.fromRGB(255, 205, 90), 1, 0.35)
 
 local tabs = Instance.new("Frame")
 tabs.Size = UDim2.fromOffset(146, 260)
@@ -212,9 +225,9 @@ local function pct(v)
 	return string.format("%.0f%%", (v or 0) * 100)
 end
 
-local function xpNeededFor(level)
+local function xpNeededFor(stars, level)
 	if UnitManager.XPToNextLevel then
-		return UnitManager.XPToNextLevel(level)
+		return UnitManager.XPToNextLevel(stars, level)
 	end
 	return math.floor(250 * level * level)
 end
@@ -354,55 +367,60 @@ end
 
 local function renderInfo(unit)
 	clearBody()
-	local maxLevel = UnitManager.MAX_LEVEL or 40
+	local stars = unit.Stars or 1
+	local maxLevel = (UnitManager.MAX_LEVEL_FOR_STARS and UnitManager.MAX_LEVEL_FOR_STARS[stars]) or 40
 	local level = unit.Level or 1
 	local xp = unit.XP or 0
-	local needed = xpNeededFor(level)
+	local needed = xpNeededFor(stars, level)
 	local isMaxLevel = level >= maxLevel or needed == math.huge
 	local xpRatio = isMaxLevel and 1 or math.clamp(xp / needed, 0, 1)
-	local stats = {
-		{"Level", tostring(level) .. " / " .. tostring(maxLevel)},
-		{"HP", tostring(unit.HP or 0)},
-		{"ATK", tostring(unit.Attack or 0)},
-		{"DEF", tostring(unit.Defense or 0)},
-		{"SPD", tostring(unit.Speed or 0)},
-		{"Crit Rate", pct(unit.CritChance)},
-		{"Crit Dmg", pct((unit.CritDamage or 1.5) - 1)},
-		{"Resistance", pct(unit.Resistance)},
-		{"Accuracy", pct(unit.Accuracy)},
-	}
-	for i, stat in ipairs(stats) do
-		local y = 16 + (i - 1) * 31
-		label(body, stat[1], UDim2.fromOffset(18, y), UDim2.fromOffset(160, 26), Color3.fromRGB(255, 232, 152), Enum.Font.GothamBold, 18)
-		local value = label(body, stat[2], UDim2.new(1, -178, 0, y), UDim2.fromOffset(142, 26), COLORS.text, Enum.Font.GothamMedium, 18)
-		value.TextXAlignment = Enum.TextXAlignment.Right
-	end
 
-	local xpTitle = label(body, "EXP", UDim2.new(0, 18, 1, -74), UDim2.fromOffset(70, 22), Color3.fromRGB(255, 232, 152), Enum.Font.GothamBold, 18)
-	xpTitle.TextYAlignment = Enum.TextYAlignment.Center
+	-- Level row
+	label(body, "Level", UDim2.fromOffset(18, 16), UDim2.fromOffset(160, 26), Color3.fromRGB(255, 232, 152), Enum.Font.GothamBold, 18)
+	local levelValue = label(body, tostring(level) .. " / " .. tostring(maxLevel), UDim2.new(1, -178, 0, 16), UDim2.fromOffset(142, 26), COLORS.text, Enum.Font.GothamMedium, 18)
+	levelValue.TextXAlignment = Enum.TextXAlignment.Right
 
+	-- EXP label row (text above the bar)
 	local xpText = isMaxLevel and "MAX" or string.format("%d / %d  (%d%%)", xp, needed, math.floor(xpRatio * 100 + 0.5))
-	local xpValue = label(body, xpText, UDim2.new(1, -250, 1, -74), UDim2.fromOffset(220, 22), COLORS.text, Enum.Font.GothamBold, 16)
+	label(body, "EXP", UDim2.fromOffset(18, 46), UDim2.fromOffset(60, 18), Color3.fromRGB(255, 232, 152), Enum.Font.GothamBold, 14)
+	local xpValue = label(body, xpText, UDim2.fromOffset(80, 46), UDim2.new(1, -98, 0, 18), COLORS.text, Enum.Font.GothamMedium, 14)
 	xpValue.TextXAlignment = Enum.TextXAlignment.Right
-	xpValue.TextYAlignment = Enum.TextYAlignment.Center
 
+	-- Bar below the text row
 	local xpBg = Instance.new("Frame")
-	xpBg.Size = UDim2.new(1, -36, 0, 18)
-	xpBg.Position = UDim2.new(0, 18, 1, -42)
+	xpBg.Size = UDim2.new(1, -36, 0, 10)
+	xpBg.Position = UDim2.fromOffset(18, 68)
 	xpBg.BackgroundColor3 = Color3.fromRGB(20, 13, 10)
 	xpBg.BorderSizePixel = 0
 	xpBg.Parent = body
-	addStroke(xpBg, 5, Color3.fromRGB(112, 76, 43), 1, 0.45)
+	addStroke(xpBg, 4, Color3.fromRGB(112, 76, 43), 1, 0.45)
 
 	local xpFill = Instance.new("Frame")
 	xpFill.Size = UDim2.fromScale(xpRatio, 1)
 	xpFill.BackgroundColor3 = Color3.fromRGB(84, 195, 116)
 	xpFill.BorderSizePixel = 0
 	xpFill.Parent = xpBg
-
 	local fillCorner = Instance.new("UICorner")
-	fillCorner.CornerRadius = UDim.new(0, 5)
+	fillCorner.CornerRadius = UDim.new(0, 4)
 	fillCorner.Parent = xpFill
+
+	-- Remaining stats start below the XP bar
+	local stats = {
+		{"HP",         tostring(unit.HP or 0)},
+		{"ATK",        tostring(unit.Attack or 0)},
+		{"DEF",        tostring(unit.Defense or 0)},
+		{"SPD",        tostring(unit.Speed or 0)},
+		{"Crit Rate",  pct(unit.CritChance)},
+		{"Crit Dmg",   pct((unit.CritDamage or 1.5) - 1)},
+		{"Resistance", pct(unit.Resistance)},
+		{"Accuracy",   pct(unit.Accuracy)},
+	}
+	for i, stat in ipairs(stats) do
+		local y = 88 + (i - 1) * 31
+		label(body, stat[1], UDim2.fromOffset(18, y), UDim2.fromOffset(160, 26), Color3.fromRGB(255, 232, 152), Enum.Font.GothamBold, 18)
+		local value = label(body, stat[2], UDim2.new(1, -178, 0, y), UDim2.fromOffset(142, 26), COLORS.text, Enum.Font.GothamMedium, 18)
+		value.TextXAlignment = Enum.TextXAlignment.Right
+	end
 end
 
 local function renderSkills(unit)
@@ -623,9 +641,472 @@ UserInputService.InputChanged:Connect(function(input)
 	updatePreview()
 end)
 
+-- ─── POWER-UP CIRCLE ─────────────────────────────────────────────────
+
+local powerCircle = Instance.new("Frame")
+powerCircle.Size = UDim2.fromScale(1, 1)
+powerCircle.BackgroundColor3 = COLORS.bg
+powerCircle.BorderSizePixel = 0
+powerCircle.ZIndex = 10
+powerCircle.Visible = false
+powerCircle.Parent = root
+
+local pcHeader = Instance.new("Frame")
+pcHeader.Size = UDim2.new(1, 0, 0, 56)
+pcHeader.BackgroundColor3 = COLORS.header
+pcHeader.BorderSizePixel = 0
+pcHeader.ZIndex = 10
+pcHeader.Parent = powerCircle
+
+local pcTitleLbl = Instance.new("TextLabel")
+pcTitleLbl.Size = UDim2.new(1, -68, 1, 0)
+pcTitleLbl.Position = UDim2.fromOffset(16, 0)
+pcTitleLbl.BackgroundTransparency = 1
+pcTitleLbl.Text = "Power-Up Circle"
+pcTitleLbl.TextColor3 = Color3.fromRGB(63, 36, 20)
+pcTitleLbl.Font = Enum.Font.GothamBlack
+pcTitleLbl.TextSize = 24
+pcTitleLbl.TextXAlignment = Enum.TextXAlignment.Left
+pcTitleLbl.TextYAlignment = Enum.TextYAlignment.Center
+pcTitleLbl.ZIndex = 11
+pcTitleLbl.Parent = pcHeader
+
+local pcCloseBtn = Instance.new("TextButton")
+pcCloseBtn.Size = UDim2.fromOffset(44, 44)
+pcCloseBtn.AnchorPoint = Vector2.new(1, 0.5)
+pcCloseBtn.Position = UDim2.new(1, -8, 0.5, 0)
+pcCloseBtn.BackgroundColor3 = Color3.fromRGB(105, 61, 37)
+pcCloseBtn.BorderSizePixel = 0
+pcCloseBtn.Text = "X"
+pcCloseBtn.TextColor3 = Color3.fromRGB(255, 232, 178)
+pcCloseBtn.Font = Enum.Font.GothamBlack
+pcCloseBtn.TextSize = 22
+pcCloseBtn.ZIndex = 12
+pcCloseBtn.Parent = pcHeader
+addStroke(pcCloseBtn, 6, Color3.fromRGB(255, 225, 151), 2, 0.25)
+
+-- Left info panel
+local pcLeft = Instance.new("Frame")
+pcLeft.Size = UDim2.new(0.36, -16, 1, -172)
+pcLeft.Position = UDim2.fromOffset(8, 64)
+pcLeft.BackgroundColor3 = COLORS.panel
+pcLeft.BorderSizePixel = 0
+pcLeft.ZIndex = 10
+pcLeft.Parent = powerCircle
+addStroke(pcLeft, 8, Color3.fromRGB(184, 129, 62), 2, 0.1)
+
+local pcTargetName = label(pcLeft, "", UDim2.fromOffset(12, 12), UDim2.new(1, -24, 0, 36), COLORS.gold, Enum.Font.GothamBlack, 19)
+pcTargetName.ZIndex = 11
+local pcTargetSub = label(pcLeft, "", UDim2.fromOffset(12, 50), UDim2.new(1, -24, 0, 22), COLORS.muted, Enum.Font.GothamBold, 14)
+pcTargetSub.ZIndex = 11
+
+local pcDivider = Instance.new("Frame")
+pcDivider.Size = UDim2.new(1, -24, 0, 1)
+pcDivider.Position = UDim2.fromOffset(12, 80)
+pcDivider.BackgroundColor3 = Color3.fromRGB(111, 74, 43)
+pcDivider.BorderSizePixel = 0
+pcDivider.ZIndex = 11
+pcDivider.Parent = pcLeft
+
+local pcExpGainTitle = label(pcLeft, "EXP Gain", UDim2.fromOffset(12, 90), UDim2.new(1, -24, 0, 20), Color3.fromRGB(255, 232, 152), Enum.Font.GothamBold, 15)
+pcExpGainTitle.ZIndex = 11
+local pcExpGainValue = label(pcLeft, "+0", UDim2.fromOffset(12, 112), UDim2.new(1, -24, 0, 34), COLORS.text, Enum.Font.GothamBlack, 26)
+pcExpGainValue.ZIndex = 11
+
+local pcLuckyNote = label(pcLeft, "20% chance: 1.5x bonus!", UDim2.fromOffset(12, 152), UDim2.new(1, -24, 0, 20), Color3.fromRGB(220, 185, 80), Enum.Font.GothamMedium, 13)
+pcLuckyNote.ZIndex = 11
+
+local pcMatCount = label(pcLeft, "Materials: 0 / 5", UDim2.fromOffset(12, 178), UDim2.new(1, -24, 0, 22), COLORS.text, Enum.Font.GothamBold, 15)
+pcMatCount.ZIndex = 11
+
+local pcStatusMsg = label(pcLeft, "", UDim2.fromOffset(12, 206), UDim2.new(1, -24, 0, 40), Color3.fromRGB(120, 210, 130), Enum.Font.GothamBold, 16)
+pcStatusMsg.ZIndex = 11
+pcStatusMsg.TextWrapped = true
+
+-- Right picker panel
+local pcRight = Instance.new("Frame")
+pcRight.Size = UDim2.new(0.64, -16, 1, -172)
+pcRight.Position = UDim2.new(0.36, 8, 0, 64)
+pcRight.BackgroundColor3 = COLORS.panelDark
+pcRight.BorderSizePixel = 0
+pcRight.ZIndex = 10
+pcRight.Parent = powerCircle
+addStroke(pcRight, 8, Color3.fromRGB(111, 74, 43), 1, 0.35)
+
+local pcPickerTitle = label(pcRight, "Select up to 5 materials", UDim2.fromOffset(12, 8), UDim2.new(1, -24, 0, 24), COLORS.muted, Enum.Font.GothamBold, 15)
+pcPickerTitle.ZIndex = 11
+
+local pcScroll = Instance.new("ScrollingFrame")
+pcScroll.Size = UDim2.new(1, -16, 1, -44)
+pcScroll.Position = UDim2.fromOffset(8, 36)
+pcScroll.BackgroundTransparency = 1
+pcScroll.BorderSizePixel = 0
+pcScroll.CanvasSize = UDim2.fromOffset(0, 0)
+pcScroll.ScrollBarThickness = 5
+pcScroll.ScrollingDirection = Enum.ScrollingDirection.Y
+pcScroll.ZIndex = 11
+pcScroll.Parent = pcRight
+
+local pcGrid = Instance.new("UIGridLayout")
+pcGrid.CellSize = UDim2.fromOffset(82, 82)
+pcGrid.CellPadding = UDim2.fromOffset(8, 8)
+pcGrid.SortOrder = Enum.SortOrder.LayoutOrder
+pcGrid.Parent = pcScroll
+
+pcGrid:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+	pcScroll.CanvasSize = UDim2.fromOffset(0, pcGrid.AbsoluteContentSize.Y + 12)
+end)
+
+-- Bottom bar: 5 slots + power-up button
+local pcBottom = Instance.new("Frame")
+pcBottom.Size = UDim2.new(1, 0, 0, 104)
+pcBottom.Position = UDim2.new(0, 0, 1, -104)
+pcBottom.BackgroundColor3 = Color3.fromRGB(24, 15, 9)
+pcBottom.BorderSizePixel = 0
+pcBottom.ZIndex = 10
+pcBottom.Parent = powerCircle
+
+local pcSlots = {}
+for i = 1, 5 do
+	local slot = Instance.new("Frame")
+	slot.Size = UDim2.fromOffset(82, 82)
+	slot.Position = UDim2.fromOffset(8 + (i - 1) * 90, 11)
+	slot.BackgroundColor3 = Color3.fromRGB(50, 32, 20)
+	slot.BorderSizePixel = 0
+	slot.ZIndex = 11
+	slot.Parent = pcBottom
+	addStroke(slot, 7, Color3.fromRGB(120, 84, 42), 2, 0.45)
+
+	local slotStars = Instance.new("TextLabel")
+	slotStars.Size = UDim2.new(1, 0, 0, 16)
+	slotStars.Position = UDim2.fromOffset(0, 3)
+	slotStars.BackgroundTransparency = 1
+	slotStars.Text = ""
+	slotStars.TextColor3 = Color3.fromRGB(255, 230, 67)
+	slotStars.Font = Enum.Font.GothamBlack
+	slotStars.TextSize = 11
+	slotStars.TextXAlignment = Enum.TextXAlignment.Center
+	slotStars.ZIndex = 12
+	slotStars.Parent = slot
+
+	local slotPlus = Instance.new("TextLabel")
+	slotPlus.Size = UDim2.fromScale(1, 1)
+	slotPlus.BackgroundTransparency = 1
+	slotPlus.Text = "+"
+	slotPlus.TextColor3 = Color3.fromRGB(90, 68, 48)
+	slotPlus.Font = Enum.Font.GothamBlack
+	slotPlus.TextSize = 30
+	slotPlus.TextXAlignment = Enum.TextXAlignment.Center
+	slotPlus.TextYAlignment = Enum.TextYAlignment.Center
+	slotPlus.ZIndex = 12
+	slotPlus.Parent = slot
+
+	local slotName = Instance.new("TextLabel")
+	slotName.Size = UDim2.new(1, -4, 0, 18)
+	slotName.Position = UDim2.fromOffset(2, 58)
+	slotName.BackgroundTransparency = 1
+	slotName.Text = ""
+	slotName.TextColor3 = Color3.fromRGB(255, 239, 207)
+	slotName.Font = Enum.Font.GothamBold
+	slotName.TextSize = 9
+	slotName.TextXAlignment = Enum.TextXAlignment.Center
+	slotName.TextScaled = false
+	slotName.ZIndex = 12
+	slotName.Parent = slot
+
+	local slotBtn = Instance.new("TextButton")
+	slotBtn.Size = UDim2.fromScale(1, 1)
+	slotBtn.BackgroundTransparency = 1
+	slotBtn.Text = ""
+	slotBtn.ZIndex = 13
+	slotBtn.Parent = slot
+
+	pcSlots[i] = { frame = slot, stars = slotStars, plus = slotPlus, name = slotName, btn = slotBtn }
+end
+
+local pcPowerBtn = Instance.new("TextButton")
+pcPowerBtn.Size = UDim2.fromOffset(154, 66)
+pcPowerBtn.AnchorPoint = Vector2.new(1, 0.5)
+pcPowerBtn.Position = UDim2.new(1, -12, 0.5, 0)
+pcPowerBtn.BackgroundColor3 = Color3.fromRGB(185, 122, 35)
+pcPowerBtn.BorderSizePixel = 0
+pcPowerBtn.Text = "Power-up"
+pcPowerBtn.TextColor3 = Color3.fromRGB(255, 243, 200)
+pcPowerBtn.Font = Enum.Font.GothamBlack
+pcPowerBtn.TextSize = 22
+pcPowerBtn.ZIndex = 12
+pcPowerBtn.Parent = pcBottom
+addStroke(pcPowerBtn, 8, Color3.fromRGB(255, 210, 90), 2, 0.15)
+
+-- ─── POWER-UP LOGIC ──────────────────────────────────────────────────
+
+local selectedMaterials = {}
+
+local function isMaterialSelected(unitId)
+	for _, mat in ipairs(selectedMaterials) do
+		if mat.Id == unitId then return true end
+	end
+	return false
+end
+
+local function removeMaterial(unitId)
+	for i, mat in ipairs(selectedMaterials) do
+		if mat.Id == unitId then
+			table.remove(selectedMaterials, i)
+			return
+		end
+	end
+end
+
+local function calcTotalExp()
+	local total = 0
+	for _, mat in ipairs(selectedMaterials) do
+		total += UnitManager.GetMaterialExp(mat.Stars or 1, mat.Level or 1)
+	end
+	return total
+end
+
+local function refreshPowerCircleUI()
+	local count = #selectedMaterials
+	pcMatCount.Text = string.format("Materials: %d / 5", count)
+	local expGain = calcTotalExp()
+	pcExpGainValue.Text = "+" .. tostring(expGain)
+
+	for i = 1, 5 do
+		local slot = pcSlots[i]
+		local mat = selectedMaterials[i]
+		if mat then
+			slot.plus.Text = ""
+			slot.stars.Text = string.rep("★", mat.Stars or 1)
+			slot.name.Text = mat.DisplayName or "Unit"
+			slot.frame.BackgroundColor3 = TYPE_COLORS[mat.Type] or TYPE_COLORS.Neutral
+		else
+			slot.plus.Text = "+"
+			slot.stars.Text = ""
+			slot.name.Text = ""
+			slot.frame.BackgroundColor3 = Color3.fromRGB(50, 32, 20)
+		end
+	end
+end
+
+local function populatePicker()
+	for _, child in ipairs(pcScroll:GetChildren()) do
+		if child:IsA("Frame") then
+			child:Destroy()
+		end
+	end
+
+	local targetId = selectedUnit and selectedUnit.Id
+	for _, unit in ipairs(currentUnits) do
+		if unit.Id == targetId then continue end
+
+		local selected = isMaterialSelected(unit.Id)
+
+		local card = Instance.new("Frame")
+		card.BackgroundColor3 = TYPE_COLORS[unit.Type] or TYPE_COLORS.Neutral
+		card.BorderSizePixel = 0
+		card.ZIndex = 12
+		card.Parent = pcScroll
+		addStroke(card, 7, Color3.fromRGB(247, 210, 108), selected and 3 or 1, selected and 0 or 0.4)
+
+		local starsLbl = Instance.new("TextLabel")
+		starsLbl.Size = UDim2.new(1, -8, 0, 14)
+		starsLbl.Position = UDim2.fromOffset(4, 2)
+		starsLbl.BackgroundTransparency = 1
+		starsLbl.Text = string.rep("★", unit.Stars or 1)
+		starsLbl.TextColor3 = Color3.fromRGB(255, 230, 67)
+		starsLbl.Font = Enum.Font.GothamBlack
+		starsLbl.TextSize = 10
+		starsLbl.ZIndex = 13
+		starsLbl.Parent = card
+
+		local initLbl = Instance.new("TextLabel")
+		initLbl.Size = UDim2.new(1, -12, 0, 30)
+		initLbl.Position = UDim2.fromOffset(6, 16)
+		initLbl.BackgroundTransparency = 1
+		initLbl.Text = string.sub(unit.DisplayName or "U", 1, 1)
+		initLbl.TextColor3 = Color3.new(1, 1, 1)
+		initLbl.Font = Enum.Font.GothamBlack
+		initLbl.TextSize = 22
+		initLbl.TextXAlignment = Enum.TextXAlignment.Center
+		initLbl.ZIndex = 13
+		initLbl.Parent = card
+
+		local nameLbl = Instance.new("TextLabel")
+		nameLbl.Size = UDim2.new(1, -8, 0, 18)
+		nameLbl.Position = UDim2.fromOffset(4, 46)
+		nameLbl.BackgroundTransparency = 1
+		nameLbl.Text = unit.DisplayName or "Unit"
+		nameLbl.TextColor3 = Color3.fromRGB(255, 239, 207)
+		nameLbl.Font = Enum.Font.GothamBold
+		nameLbl.TextSize = 9
+		nameLbl.TextXAlignment = Enum.TextXAlignment.Center
+		nameLbl.ZIndex = 13
+		nameLbl.Parent = card
+
+		local lvlLbl = Instance.new("TextLabel")
+		lvlLbl.Size = UDim2.fromOffset(24, 14)
+		lvlLbl.AnchorPoint = Vector2.new(1, 1)
+		lvlLbl.Position = UDim2.new(1, -4, 1, -4)
+		lvlLbl.BackgroundTransparency = 1
+		lvlLbl.Text = tostring(unit.Level or 1)
+		lvlLbl.TextColor3 = Color3.new(1, 1, 1)
+		lvlLbl.Font = Enum.Font.GothamBlack
+		lvlLbl.TextSize = 12
+		lvlLbl.TextXAlignment = Enum.TextXAlignment.Right
+		lvlLbl.ZIndex = 13
+		lvlLbl.Parent = card
+
+		if selected then
+			local checkOverlay = Instance.new("Frame")
+			checkOverlay.Size = UDim2.fromScale(1, 1)
+			checkOverlay.BackgroundColor3 = Color3.fromRGB(40, 180, 90)
+			checkOverlay.BackgroundTransparency = 0.55
+			checkOverlay.BorderSizePixel = 0
+			checkOverlay.ZIndex = 14
+			checkOverlay.Parent = card
+
+			local checkLbl = Instance.new("TextLabel")
+			checkLbl.Size = UDim2.fromScale(1, 1)
+			checkLbl.BackgroundTransparency = 1
+			checkLbl.Text = "✓"
+			checkLbl.TextColor3 = Color3.new(1, 1, 1)
+			checkLbl.Font = Enum.Font.GothamBlack
+			checkLbl.TextSize = 26
+			checkLbl.TextXAlignment = Enum.TextXAlignment.Center
+			checkLbl.TextYAlignment = Enum.TextYAlignment.Center
+			checkLbl.ZIndex = 15
+			checkLbl.Parent = checkOverlay
+		end
+
+		local clickBtn = Instance.new("TextButton")
+		clickBtn.Size = UDim2.fromScale(1, 1)
+		clickBtn.BackgroundTransparency = 1
+		clickBtn.Text = ""
+		clickBtn.ZIndex = 16
+		clickBtn.Parent = card
+
+		local capturedUnit = unit
+		clickBtn.MouseButton1Click:Connect(function()
+			if isMaterialSelected(capturedUnit.Id) then
+				removeMaterial(capturedUnit.Id)
+			else
+				if #selectedMaterials >= 5 then return end
+				table.insert(selectedMaterials, capturedUnit)
+			end
+			refreshPowerCircleUI()
+			populatePicker()
+		end)
+	end
+end
+
+local function openPowerCircle()
+	if not selectedUnit then return end
+	local cap = (UnitManager.MAX_LEVEL_FOR_STARS and UnitManager.MAX_LEVEL_FOR_STARS[selectedUnit.Stars or 1]) or 40
+	if (selectedUnit.Level or 1) >= cap then
+		pcStatusMsg.Text = "Unit is max level!"
+		pcStatusMsg.TextColor3 = Color3.fromRGB(210, 100, 80)
+	else
+		pcStatusMsg.Text = ""
+	end
+	selectedMaterials = {}
+	pcTargetName.Text = selectedUnit.DisplayName or "Unit"
+	pcTargetSub.Text = string.format("Lv.%d / %d   %s   %s",
+		selectedUnit.Level or 1,
+		cap,
+		selectedUnit.Type or "Neutral",
+		string.rep("★", selectedUnit.Stars or 1))
+	refreshPowerCircleUI()
+	populatePicker()
+	powerCircle.Visible = true
+end
+
+local function closePowerCircle()
+	powerCircle.Visible = false
+	selectedMaterials = {}
+end
+
+powerUpButton.MouseButton1Click:Connect(openPowerCircle)
+pcCloseBtn.MouseButton1Click:Connect(closePowerCircle)
+
+for i = 1, 5 do
+	local slot = pcSlots[i]
+	slot.btn.MouseButton1Click:Connect(function()
+		if selectedMaterials[i] then
+			removeMaterial(selectedMaterials[i].Id)
+			refreshPowerCircleUI()
+			populatePicker()
+		end
+	end)
+end
+
+pcPowerBtn.MouseButton1Click:Connect(function()
+	if not selectedUnit then return end
+	if #selectedMaterials == 0 then return end
+	local cap = (UnitManager.MAX_LEVEL_FOR_STARS and UnitManager.MAX_LEVEL_FOR_STARS[selectedUnit.Stars or 1]) or 40
+	if (selectedUnit.Level or 1) >= cap then return end
+
+	pcPowerBtn.Text = "..."
+	pcPowerBtn.Active = false
+
+	local matIds = {}
+	for _, mat in ipairs(selectedMaterials) do
+		table.insert(matIds, mat.Id)
+	end
+
+	local callOk, success, result = pcall(function()
+		return powerUpRemote:InvokeServer(selectedUnit.Id, matIds)
+	end)
+
+	pcPowerBtn.Active = true
+	pcPowerBtn.Text = "Power-up"
+
+	if callOk and success then
+		if result and result.lucky then
+			pcStatusMsg.Text = "Lucky! 1.5x EXP!"
+			pcStatusMsg.TextColor3 = Color3.fromRGB(255, 215, 60)
+			task.delay(2, function()
+				pcStatusMsg.Text = ""
+			end)
+		end
+		closePowerCircle()
+	else
+		pcStatusMsg.Text = "Power-up failed."
+		pcStatusMsg.TextColor3 = Color3.fromRGB(210, 100, 80)
+		task.delay(2, function()
+			pcStatusMsg.Text = ""
+		end)
+	end
+end)
+
 unitsUpdated.OnClientEvent:Connect(function(units)
 	if gui.Enabled then
+		if selectedUnit then
+			for _, unit in ipairs(units) do
+				if unit.Id == selectedUnit.Id then
+					selectedUnit = unit
+					subLabel.Text = string.format("Lv.%d  %s  %s  %s", unit.Level or 1, unit.Type or "Neutral", unit.Rarity or "Common", string.rep("*", unit.Stars or 1))
+					renderTab()
+					break
+				end
+			end
+		end
 		populateInventory(units)
+		if powerCircle.Visible then
+			local idSet = {}
+			for _, u in ipairs(units) do
+				idSet[u.Id] = true
+			end
+			local validMats = {}
+			for _, mat in ipairs(selectedMaterials) do
+				if idSet[mat.Id] then
+					table.insert(validMats, mat)
+				end
+			end
+			selectedMaterials = validMats
+			refreshPowerCircleUI()
+			populatePicker()
+		end
 	end
 end)
 

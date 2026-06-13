@@ -1,4 +1,4 @@
-local HUB_PLACE_ID = 122635524593151
+local HUB_PLACE_ID = 88611443715317
 
 local Players           = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -813,8 +813,7 @@ replayBtn.MouseButton1Click:Connect(function()
 				table.insert(unitIds, u.Id)
 			end
 		end
-		local opts = Instance.new("TeleportOptions")
-		opts:SetTeleportData({
+		TeleportService:Teleport(HUB_PLACE_ID, player, {
 			xpRewards  = pendingXPRewards,
 			replayData = {
 				unitIds    = unitIds,
@@ -823,7 +822,6 @@ replayBtn.MouseButton1Click:Connect(function()
 				stage      = tpData.stage,
 			},
 		})
-		TeleportService:Teleport(HUB_PLACE_ID, player, opts)
 	end
 end)
 
@@ -846,9 +844,7 @@ levelSelectBtn.MouseButton1Click:Connect(function()
 		endOverlay.Visible = false
 		showStudioLevelPicker()
 	elseif HUB_PLACE_ID ~= 0 then
-		local opts = Instance.new("TeleportOptions")
-		opts:SetTeleportData({ xpRewards = pendingXPRewards })
-		TeleportService:Teleport(HUB_PLACE_ID, player, opts)
+		TeleportService:Teleport(HUB_PLACE_ID, player, { xpRewards = pendingXPRewards })
 	end
 end)
 

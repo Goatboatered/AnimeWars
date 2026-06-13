@@ -5,6 +5,7 @@ local TeleportService   = game:GetService("TeleportService")
 local player = Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 local remotes = ReplicatedStorage:WaitForChild("GachaRemotes")
+local UnitManager = require(ReplicatedStorage:WaitForChild("Shared"):WaitForChild("UnitManager"))
 local summonResult = remotes:WaitForChild("SummonResult")
 
 local screenGui = Instance.new("ScreenGui")
@@ -127,6 +128,87 @@ playStroke.Thickness = 2
 playStroke.Transparency = 0.15
 playStroke.Parent = playButton
 
+-- ─── CURRENCY BAR ─────────────────────────────────────────────────────
+
+local currencyBar = Instance.new("Frame")
+currencyBar.Name = "CurrencyBar"
+currencyBar.Size = UDim2.fromOffset(200, 60)
+currencyBar.Position = UDim2.new(1, -10, 0, 10)
+currencyBar.AnchorPoint = Vector2.new(1, 0)
+currencyBar.BackgroundTransparency = 1
+currencyBar.Parent = screenGui
+
+local cbLayout = Instance.new("UIListLayout")
+cbLayout.Padding = UDim.new(0, 5)
+cbLayout.SortOrder = Enum.SortOrder.LayoutOrder
+cbLayout.FillDirection = Enum.FillDirection.Vertical
+cbLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+cbLayout.Parent = currencyBar
+
+local function makeCurrencyPill(iconColor, layoutOrder)
+	local pill = Instance.new("Frame")
+	pill.Size = UDim2.fromOffset(200, 26)
+	pill.BackgroundColor3 = COLORS.panel
+	pill.BackgroundTransparency = 0.08
+	pill.BorderSizePixel = 0
+	pill.LayoutOrder = layoutOrder
+	pill.Parent = currencyBar
+	addCornerStroke(pill, 6, iconColor, 1, 0.45)
+
+	local icon = Instance.new("Frame")
+	icon.Size = UDim2.fromOffset(12, 12)
+	icon.Position = UDim2.new(0, 8, 0.5, -6)
+	icon.BackgroundColor3 = iconColor
+	icon.BorderSizePixel = 0
+	icon.Parent = pill
+	local ic = Instance.new("UICorner")
+	ic.CornerRadius = UDim.new(0, 4)
+	ic.Parent = icon
+
+	local lbl = Instance.new("TextLabel")
+	lbl.Name = "ValueLabel"
+	lbl.Size = UDim2.new(1, -28, 1, 0)
+	lbl.Position = UDim2.fromOffset(26, 0)
+	lbl.BackgroundTransparency = 1
+	lbl.TextColor3 = COLORS.text
+	lbl.Font = Enum.Font.GothamBold
+	lbl.TextScaled = false
+	lbl.TextSize = 13
+	lbl.TextXAlignment = Enum.TextXAlignment.Left
+	lbl.Text = "..."
+	lbl.Parent = pill
+	return lbl
+end
+
+local manaLabel    = makeCurrencyPill(Color3.fromRGB(100, 155, 255), 1)
+local crystalLabel = makeCurrencyPill(Color3.fromRGB(70, 215, 195),  2)
+
+local function updateCurrencyDisplay(currencies)
+	manaLabel.Text    = "Mana Stones: " .. tostring(currencies and currencies.manastones or 0)
+	crystalLabel.Text = "Crystals: "    .. tostring(currencies and currencies.crystals    or 0)
+end
+
+task.spawn(function()
+	local getCurrenciesRemote = remotes:WaitForChild("GetCurrencies", 10)
+	if getCurrenciesRemote then
+		local ok, result = pcall(function()
+			return getCurrenciesRemote:InvokeServer()
+		end)
+		if ok and result then
+			updateCurrencyDisplay(result)
+		end
+	end
+end)
+
+local currenciesUpdatedRemote = remotes:WaitForChild("CurrenciesUpdated", 10)
+if currenciesUpdatedRemote then
+	currenciesUpdatedRemote.OnClientEvent:Connect(function(currencies)
+		updateCurrencyDisplay(currencies)
+	end)
+end
+
+-- ──────────────────────────────────────────────────────────────────────
+
 local function showMessage(text)
 	messageLabel.Text = text
 	messageLabel.Visible = true
@@ -148,9 +230,11 @@ local function performSummon()
 		return summonRequest:InvokeServer()
 	end)
 
-	if success and result then
+	if success and result and not result.error then
 		table.clear(displayedUnits)
 		showMessage("Unit summoned: " .. result.DisplayName)
+	elseif success and result and result.error then
+		showMessage(result.error)
 	else
 		showMessage("Summon failed. Try again.")
 	end
@@ -1026,17 +1110,15 @@ local function openUnitDetail(unit)
 	detailStatLabels[6].Text = "Crit DMG: " .. fmtPct((unit.CritDamage or 1.5) - 1)
 	detailStatLabels[7].Text = "Resistance: " .. fmtPct(unit.Resistance)
 	detailStatLabels[8].Text = "Accuracy: " .. fmtPct(unit.Accuracy)
-	local MAX_LEVEL = 40
-	local function xpToNext(lv)
-		return math.floor(250 * lv * lv)
-	end
+	local stars = unit.Stars or 1
+	local MAX_LEVEL = UnitManager.MAX_LEVEL_FOR_STARS[stars] or 40
 	local lvl = unit.Level or 1
 	local xp  = unit.XP or 0
 	if lvl >= MAX_LEVEL then
 		xpBarFill.Size = UDim2.fromScale(1, 1)
 		xpTextLabel.Text = "Lvl " .. lvl .. "  —  MAX LEVEL"
 	else
-		local needed = xpToNext(lvl)
+		local needed = UnitManager.XPToNextLevel(stars, lvl)
 		xpBarFill.Size = UDim2.fromScale(math.clamp(xp / needed, 0, 1), 1)
 		xpTextLabel.Text = "Lvl " .. lvl .. "  —  " .. xp .. " / " .. needed .. " XP"
 	end
@@ -1327,7 +1409,9 @@ unitsUpdated.OnClientEvent:Connect(function(units)
 end)
 
 summonResult.OnClientEvent:Connect(function(result)
-	if result then
+	if result and result.error then
+		showMessage(result.error)
+	elseif result then
 		table.clear(displayedUnits)
 		showMessage("Unit summoned: " .. result.DisplayName)
 	end
@@ -2012,7 +2096,7 @@ end)
 if tpOk and type(tpData) == "table" and tpData.xpRewards then
 	local applyRemote = remotes:WaitForChild("ApplyBattleRewards", 5)
 	if applyRemote then
-		applyRemote:FireServer(tpData.xpRewards)
+		applyRemote:FireServer(tpData.xpRewards, tpData.manastoneReward)
 	end
 end
 if tpOk and type(tpData) == "table" and tpData.replayData then

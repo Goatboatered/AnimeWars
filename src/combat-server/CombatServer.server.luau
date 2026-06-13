@@ -1,4 +1,4 @@
-local HUB_PLACE_ID = 122635524593151
+local HUB_PLACE_ID = 88611443715317
 
 local Players           = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
