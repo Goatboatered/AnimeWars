@@ -12,6 +12,7 @@ local unitsUpdated = remotes:WaitForChild("UnitsUpdated")
 local displayUnitRemote   = remotes:WaitForChild("DisplayUnit", 10)
 local undisplayUnitRemote = remotes:WaitForChild("UndisplayUnit", 10)
 local powerUpRemote       = remotes:WaitForChild("PowerUp", 10)
+local deleteUnitRemote    = remotes:WaitForChild("DeleteUnit", 10)
 
 local COLORS = {
 	bg = Color3.fromRGB(34, 25, 18),
@@ -157,6 +158,89 @@ powerUpButton.Font = Enum.Font.GothamBlack
 powerUpButton.TextSize = 18
 powerUpButton.Parent = visualArea
 addStroke(powerUpButton, 7, Color3.fromRGB(255, 205, 90), 1, 0.35)
+
+local deleteButton = Instance.new("TextButton")
+deleteButton.Size = UDim2.fromOffset(150, 42)
+deleteButton.Position = UDim2.fromOffset(8, 108)
+deleteButton.BackgroundColor3 = Color3.fromRGB(160, 40, 40)
+deleteButton.BorderSizePixel = 0
+deleteButton.Text = "Delete"
+deleteButton.TextColor3 = Color3.fromRGB(255, 220, 220)
+deleteButton.Font = Enum.Font.GothamBlack
+deleteButton.TextSize = 18
+deleteButton.Parent = visualArea
+addStroke(deleteButton, 7, Color3.fromRGB(255, 120, 120), 1, 0.4)
+
+-- ─── DELETE CONFIRM DIALOG ───────────────────────────────────────────
+
+local deleteOverlay = Instance.new("Frame")
+deleteOverlay.Size = UDim2.fromScale(1, 1)
+deleteOverlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+deleteOverlay.BackgroundTransparency = 0.45
+deleteOverlay.BorderSizePixel = 0
+deleteOverlay.ZIndex = 40
+deleteOverlay.Visible = false
+deleteOverlay.Parent = root
+
+local deleteDialog = Instance.new("Frame")
+deleteDialog.Size = UDim2.fromOffset(360, 190)
+deleteDialog.AnchorPoint = Vector2.new(0.5, 0.5)
+deleteDialog.Position = UDim2.fromScale(0.5, 0.5)
+deleteDialog.BackgroundColor3 = Color3.fromRGB(44, 28, 18)
+deleteDialog.BorderSizePixel = 0
+deleteDialog.ZIndex = 41
+deleteDialog.Parent = deleteOverlay
+addStroke(deleteDialog, 10, Color3.fromRGB(200, 80, 80), 2, 0.1)
+
+local deleteTitleLbl = Instance.new("TextLabel")
+deleteTitleLbl.Size = UDim2.new(1, -24, 0, 40)
+deleteTitleLbl.Position = UDim2.fromOffset(12, 16)
+deleteTitleLbl.BackgroundTransparency = 1
+deleteTitleLbl.Text = "Delete unit?"
+deleteTitleLbl.TextColor3 = Color3.fromRGB(255, 180, 180)
+deleteTitleLbl.Font = Enum.Font.GothamBlack
+deleteTitleLbl.TextSize = 24
+deleteTitleLbl.TextXAlignment = Enum.TextXAlignment.Center
+deleteTitleLbl.ZIndex = 42
+deleteTitleLbl.Parent = deleteDialog
+
+local deleteSubLbl = Instance.new("TextLabel")
+deleteSubLbl.Size = UDim2.new(1, -24, 0, 28)
+deleteSubLbl.Position = UDim2.fromOffset(12, 58)
+deleteSubLbl.BackgroundTransparency = 1
+deleteSubLbl.Text = "This cannot be undone."
+deleteSubLbl.TextColor3 = Color3.fromRGB(180, 140, 120)
+deleteSubLbl.Font = Enum.Font.GothamMedium
+deleteSubLbl.TextSize = 16
+deleteSubLbl.TextXAlignment = Enum.TextXAlignment.Center
+deleteSubLbl.ZIndex = 42
+deleteSubLbl.Parent = deleteDialog
+
+local deleteCancelBtn = Instance.new("TextButton")
+deleteCancelBtn.Size = UDim2.fromOffset(148, 50)
+deleteCancelBtn.Position = UDim2.fromOffset(16, 118)
+deleteCancelBtn.BackgroundColor3 = Color3.fromRGB(70, 55, 45)
+deleteCancelBtn.BorderSizePixel = 0
+deleteCancelBtn.Text = "Cancel"
+deleteCancelBtn.TextColor3 = Color3.fromRGB(220, 205, 185)
+deleteCancelBtn.Font = Enum.Font.GothamBlack
+deleteCancelBtn.TextSize = 20
+deleteCancelBtn.ZIndex = 42
+deleteCancelBtn.Parent = deleteDialog
+addStroke(deleteCancelBtn, 7, Color3.fromRGB(130, 100, 70), 1, 0.3)
+
+local deleteConfirmBtn = Instance.new("TextButton")
+deleteConfirmBtn.Size = UDim2.fromOffset(148, 50)
+deleteConfirmBtn.Position = UDim2.fromOffset(196, 118)
+deleteConfirmBtn.BackgroundColor3 = Color3.fromRGB(170, 40, 40)
+deleteConfirmBtn.BorderSizePixel = 0
+deleteConfirmBtn.Text = "Delete"
+deleteConfirmBtn.TextColor3 = Color3.fromRGB(255, 215, 215)
+deleteConfirmBtn.Font = Enum.Font.GothamBlack
+deleteConfirmBtn.TextSize = 20
+deleteConfirmBtn.ZIndex = 42
+deleteConfirmBtn.Parent = deleteDialog
+addStroke(deleteConfirmBtn, 7, Color3.fromRGB(255, 100, 100), 1, 0.2)
 
 local tabs = Instance.new("Frame")
 tabs.Size = UDim2.fromOffset(146, 260)
@@ -618,6 +702,48 @@ displayButton.MouseButton1Click:Connect(function()
 	end
 
 	updateDisplayButton()
+end)
+
+deleteButton.MouseButton1Click:Connect(function()
+	if not selectedUnit then return end
+	deleteTitleLbl.Text = 'Delete "' .. (selectedUnit.DisplayName or "Unit") .. '"?'
+	deleteOverlay.Visible = true
+end)
+
+deleteCancelBtn.MouseButton1Click:Connect(function()
+	deleteOverlay.Visible = false
+end)
+
+deleteConfirmBtn.MouseButton1Click:Connect(function()
+	if not selectedUnit then
+		deleteOverlay.Visible = false
+		return
+	end
+	local unitToDelete = selectedUnit
+	deleteConfirmBtn.Text = "..."
+	deleteConfirmBtn.Active = false
+
+	local ok, success = pcall(function()
+		return deleteUnitRemote:InvokeServer(unitToDelete.Id)
+	end)
+
+	deleteConfirmBtn.Text = "Delete"
+	deleteConfirmBtn.Active = true
+	deleteOverlay.Visible = false
+
+	if ok and success then
+		-- Deselect and clear preview if the deleted unit was selected
+		if selectedUnit and selectedUnit.Id == unitToDelete.Id then
+			selectedUnit = nil
+			nameLabel.Text = ""
+			subLabel.Text = ""
+			if previewModel then
+				previewModel:Destroy()
+				previewModel = nil
+			end
+		end
+		displayedUnits[tostring(unitToDelete.Id)] = nil
+	end
 end)
 
 viewport.InputBegan:Connect(function(input)

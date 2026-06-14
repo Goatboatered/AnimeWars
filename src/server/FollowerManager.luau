@@ -2,11 +2,16 @@ local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
 
 local FollowerManager = {}
-local playerFollowers = {}
+local playerFollowers = {}        -- [userId] = array of unit follower models
+local playerAvatarFollowers = {}  -- [userId] = player-avatar model
 
 local MAX_FOLLOWERS = 3
-local MOVE_SPEED = 12
-local TICK = 0.1
+local UNIT_SCALE    = 0.75  -- unit followers are 75% normal size
+local MOVE_SPEED    = 12
+local TICK          = 0.1
+
+local PLAYER_AVATAR_OFFSET = -4  -- side offset for the player's own avatar follower
+local SLOT_OFFSETS = { -2, 0, 2 }
 
 local NOOB_YELLOW = Color3.fromRGB(245, 205, 48)
 local NOOB_GREEN  = Color3.fromRGB(75, 151, 75)
@@ -20,37 +25,47 @@ local SHIRT_COLORS = {
 	Neutral = Color3.fromRGB(120, 120, 130),
 }
 
-local SLOT_OFFSETS = { -2, 0, 2 }
-
 local ANIM_WALK = "rbxassetid://180426354"
 local ANIM_IDLE = "rbxassetid://180435571"
 
-local function buildAvatar(spawnCF, shirtColor, unitName)
+local function loadTrack(animator, id, looped)
+	local anim = Instance.new("Animation")
+	anim.AnimationId = id
+	local track = animator:LoadAnimation(anim)
+	track.Looped = looped
+	return track
+end
+
+-- Builds a noob-style unit avatar with optional body scale.
+local function buildUnitAvatar(spawnCF, shirtColor, unitName)
 	local desc = Instance.new("HumanoidDescription")
-	desc.HeadColor = NOOB_YELLOW
-	desc.TorsoColor = shirtColor or SHIRT_COLORS.Neutral
-	desc.LeftArmColor = NOOB_YELLOW
-	desc.RightArmColor = NOOB_YELLOW
-	desc.LeftLegColor = NOOB_GREEN
-	desc.RightLegColor = NOOB_GREEN
+	desc.HeadColor      = NOOB_YELLOW
+	desc.TorsoColor     = shirtColor or SHIRT_COLORS.Neutral
+	desc.LeftArmColor   = NOOB_YELLOW
+	desc.RightArmColor  = NOOB_YELLOW
+	desc.LeftLegColor   = NOOB_GREEN
+	desc.RightLegColor  = NOOB_GREEN
+	desc.BodyHeightScale = UNIT_SCALE
+	desc.BodyWidthScale  = UNIT_SCALE
+	desc.BodyDepthScale  = UNIT_SCALE
+	desc.HeadScale       = UNIT_SCALE
 
 	local ok, model = pcall(Players.CreateHumanoidModelFromDescription, Players, desc, Enum.HumanoidRigType.R6)
 	if not ok or not model then
-		warn("[FollowerManager] buildAvatar failed:", model)
+		warn("[FollowerManager] buildUnitAvatar failed:", model)
 		return nil, nil, nil
 	end
 
 	model.Name = unitName or "UnitFollower"
 	local hrp = model.PrimaryPart or model:FindFirstChild("HumanoidRootPart")
-	if hrp then
-		model.PrimaryPart = hrp
-		model:PivotTo(spawnCF + Vector3.new(0, 3, 0))
-		hrp.Anchored = false
-	else
-		warn("[FollowerManager] generated avatar has no HumanoidRootPart")
+	if not hrp then
+		warn("[FollowerManager] unit avatar has no HumanoidRootPart")
 		model:Destroy()
 		return nil, nil, nil
 	end
+	model.PrimaryPart = hrp
+	model:PivotTo(spawnCF + Vector3.new(0, 3, 0))
+	hrp.Anchored = false
 
 	for _, part in ipairs(model:GetDescendants()) do
 		if part:IsA("BasePart") then
@@ -60,11 +75,11 @@ local function buildAvatar(spawnCF, shirtColor, unitName)
 
 	local humanoid = model:FindFirstChildOfClass("Humanoid")
 	if humanoid then
-		humanoid.DisplayName = unitName or "UnitFollower"
-		humanoid.WalkSpeed = MOVE_SPEED
-		humanoid.JumpPower = 25
-		humanoid.MaxHealth = math.huge
-		humanoid.Health = math.huge
+		humanoid.DisplayName        = unitName or "Unit"
+		humanoid.WalkSpeed          = MOVE_SPEED
+		humanoid.JumpPower          = 25
+		humanoid.MaxHealth          = math.huge
+		humanoid.Health             = math.huge
 	end
 
 	local animator = humanoid and humanoid:FindFirstChildOfClass("Animator")
@@ -76,73 +91,63 @@ local function buildAvatar(spawnCF, shirtColor, unitName)
 	return model, humanoid, animator
 end
 
-local function loadTrack(animator, id, looped)
-	local anim = Instance.new("Animation")
-	anim.AnimationId = id
-	local track = animator:LoadAnimation(anim)
-	track.Looped = looped
-	return track
+-- Builds a follower using the player's actual Roblox avatar appearance.
+local function buildPlayerAvatar(player, spawnCF)
+	local ok, desc = pcall(function()
+		return Players:GetHumanoidDescriptionFromUserId(player.UserId)
+	end)
+	if not ok or not desc then
+		warn("[FollowerManager] Could not fetch avatar description for", player.Name)
+		return nil, nil, nil
+	end
+
+	local ok2, model = pcall(Players.CreateHumanoidModelFromDescription, Players, desc, Enum.HumanoidRigType.R6)
+	if not ok2 or not model then
+		warn("[FollowerManager] Could not create player avatar model:", model)
+		return nil, nil, nil
+	end
+
+	model.Name = player.Name .. "_PlayerFollower"
+	local hrp = model.PrimaryPart or model:FindFirstChild("HumanoidRootPart")
+	if not hrp then
+		model:Destroy()
+		return nil, nil, nil
+	end
+	model.PrimaryPart = hrp
+	model:PivotTo(spawnCF + Vector3.new(0, 3, 0))
+	hrp.Anchored = false
+
+	for _, part in ipairs(model:GetDescendants()) do
+		if part:IsA("BasePart") then
+			part.CanCollide = false
+		end
+	end
+
+	local humanoid = model:FindFirstChildOfClass("Humanoid")
+	if humanoid then
+		humanoid.DisplayName = player.DisplayName or player.Name
+		humanoid.WalkSpeed   = MOVE_SPEED
+		humanoid.JumpPower   = 25
+		humanoid.MaxHealth   = math.huge
+		humanoid.Health      = math.huge
+	end
+
+	local animator = humanoid and humanoid:FindFirstChildOfClass("Animator")
+	if humanoid and not animator then
+		animator = Instance.new("Animator")
+		animator.Parent = humanoid
+	end
+
+	return model, humanoid, animator
 end
 
-function FollowerManager.SpawnFollower(player, unitType, displayName, unitId)
-	local character = player.Character
-	if not character then
-		return
-	end
-	local hrp = character:FindFirstChild("HumanoidRootPart")
-	if not hrp then
-		return
-	end
-
-	if not playerFollowers[player.UserId] then
-		playerFollowers[player.UserId] = {}
-	end
-	local followers = playerFollowers[player.UserId]
-	if unitId then
-		for _, follower in ipairs(followers) do
-			if follower:GetAttribute("UnitId") == unitId then
-				return
-			end
-		end
-	end
-	if #followers >= MAX_FOLLOWERS then
-		return
-	end
-
-	local slot = #followers + 1
-	local sideOffset = SLOT_OFFSETS[slot] or 0
-
-	-- Calculate spawn position relative to player
-	local spawnHorizontal = hrp.CFrame * CFrame.new(sideOffset, 0, 3)
-	local sx, sz = spawnHorizontal.Position.X, spawnHorizontal.Position.Z
-
-	-- Raycast to find ground at spawn location
-	local rayParams = RaycastParams.new()
-	rayParams.FilterType = Enum.RaycastFilterType.Exclude
-	rayParams.FilterDescendantsInstances = { character }
-
-	local rayOrigin = Vector3.new(sx, 100, sz)
-	local rayResult = Workspace:Raycast(rayOrigin, Vector3.new(0, -200, 0), rayParams)
-	local spawnY = rayResult and rayResult.Position.Y or 0
-
-	-- Spawn on ground
-	local spawnCF = CFrame.new(sx, spawnY, sz)
-
-	local shortName = displayName and (displayName:match("^(.-)%s*%[") or displayName) or nil
-	local follower, fHumanoid, fAnimator = buildAvatar(spawnCF, SHIRT_COLORS[unitType] or SHIRT_COLORS.Neutral, shortName)
-	if not follower or not fHumanoid or not fAnimator then
-		return
-	end
-	if unitId then
-		follower:SetAttribute("UnitId", unitId)
-	end
-	follower.Parent = Workspace
-	table.insert(followers, follower)
-
+-- Starts the follow loop for any follower model.
+local function startFollowLoop(player, followerModel, fHumanoid, fAnimator, sideOffset)
 	task.defer(function()
-		if not follower.Parent then
-			return
-		end
+		if not followerModel.Parent then return end
+
+		local character = player.Character
+		if not character then return end
 
 		local moveParams = RaycastParams.new()
 		moveParams.FilterType = Enum.RaycastFilterType.Exclude
@@ -151,59 +156,50 @@ function FollowerManager.SpawnFollower(player, unitType, displayName, unitId)
 		local walkTrack = loadTrack(fAnimator, ANIM_WALK, true)
 		local idleTrack = loadTrack(fAnimator, ANIM_IDLE, true)
 		idleTrack:Play()
-		local isWalking = false
+		local isWalking   = false
 		local lastJumpTime = 0
 		local JUMP_COOLDOWN = 0.3
 
-		-- Listen for player jumping to make follower jump too
 		local playerHumanoid = character:FindFirstChild("Humanoid")
 		if playerHumanoid then
-			playerHumanoid.StateChanged:Connect(function(oldState, newState)
-				if newState == Enum.HumanoidStateType.Jumping and follower.Parent then
-					local currentTime = tick()
-					if (currentTime - lastJumpTime) >= JUMP_COOLDOWN then
+			playerHumanoid.StateChanged:Connect(function(_, newState)
+				if newState == Enum.HumanoidStateType.Jumping and followerModel.Parent then
+					local now = tick()
+					if (now - lastJumpTime) >= JUMP_COOLDOWN then
 						fHumanoid.Jump = true
-						lastJumpTime = currentTime
+						lastJumpTime = now
 					end
 				end
 			end)
 		end
 
-		while follower.Parent and player:IsDescendantOf(game) do
+		while followerModel.Parent and player:IsDescendantOf(game) do
 			local char = player.Character
 			if char then
 				local charHRP = char:FindFirstChild("HumanoidRootPart")
 				if charHRP then
-					local fHRP = follower.PrimaryPart
+					local fHRP = followerModel.PrimaryPart
 					if fHRP then
-						-- Calculate target position relative to player
 						local targetHorizontal = charHRP.CFrame * CFrame.new(sideOffset, 0, 2.5)
 						local tx, tz = targetHorizontal.Position.X, targetHorizontal.Position.Z
 
-						-- Check if close enough to target
 						local xzDist = Vector3.new(tx - fHRP.Position.X, 0, tz - fHRP.Position.Z).Magnitude
 						local moving = xzDist > 1.5
 
-						-- Raycast from high above to find actual ground
-						local rayOrigin = Vector3.new(tx, 100, tz)
+						local rayOrigin    = Vector3.new(tx, 100, tz)
 						local rayDirection = Vector3.new(0, -200, 0)
-						local rayResult = Workspace:Raycast(rayOrigin, rayDirection, moveParams)
+						local rayResult    = Workspace:Raycast(rayOrigin, rayDirection, moveParams)
+						local groundY      = rayResult and rayResult.Position.Y or fHRP.Position.Y
 
-						-- Use ground level if found, otherwise use current Y
-						local groundY = rayResult and rayResult.Position.Y or fHRP.Position.Y
-
-						-- Move to target position on ground
 						fHumanoid:MoveTo(Vector3.new(tx, groundY, tz))
 
-						-- Only try to climb if actively moving toward player and there's a significant height difference
 						local heightDiff = groundY - fHRP.Position.Y
-						local currentTime = tick()
-						if moving and heightDiff > 0.8 and (currentTime - lastJumpTime) >= JUMP_COOLDOWN then
+						local now = tick()
+						if moving and heightDiff > 0.8 and (now - lastJumpTime) >= JUMP_COOLDOWN then
 							fHumanoid.Jump = true
-							lastJumpTime = currentTime
+							lastJumpTime = now
 						end
 
-						-- Switch between walk and idle animations
 						if moving and not isWalking then
 							idleTrack:Stop()
 							walkTrack:Play()
@@ -224,6 +220,66 @@ function FollowerManager.SpawnFollower(player, unitType, displayName, unitId)
 	end)
 end
 
+function FollowerManager.SpawnFollower(player, unitType, displayName, unitId)
+	local character = player.Character
+	if not character then return end
+	local hrp = character:FindFirstChild("HumanoidRootPart")
+	if not hrp then return end
+
+	if not playerFollowers[player.UserId] then
+		playerFollowers[player.UserId] = {}
+	end
+	local followers = playerFollowers[player.UserId]
+
+	-- Deduplicate
+	if unitId then
+		for _, f in ipairs(followers) do
+			if f:GetAttribute("UnitId") == unitId then return end
+		end
+	end
+	if #followers >= MAX_FOLLOWERS then return end
+
+	local slot = #followers + 1
+	local sideOffset = SLOT_OFFSETS[slot] or 0
+
+	-- Raycast to find ground at spawn position
+	local spawnH   = hrp.CFrame * CFrame.new(sideOffset, 0, 3)
+	local sx, sz   = spawnH.Position.X, spawnH.Position.Z
+	local rayParams = RaycastParams.new()
+	rayParams.FilterType = Enum.RaycastFilterType.Exclude
+	rayParams.FilterDescendantsInstances = { character }
+	local rayResult = Workspace:Raycast(Vector3.new(sx, 100, sz), Vector3.new(0, -200, 0), rayParams)
+	local spawnCF   = CFrame.new(sx, rayResult and rayResult.Position.Y or 0, sz)
+
+	-- Spawn the (small) unit follower
+	local shortName = displayName and (displayName:match("^(.-)%s*%[") or displayName) or nil
+	local follower, fHumanoid, fAnimator = buildUnitAvatar(spawnCF, SHIRT_COLORS[unitType] or SHIRT_COLORS.Neutral, shortName)
+	if not follower then return end
+	if unitId then
+		follower:SetAttribute("UnitId", unitId)
+	end
+	follower.Parent = Workspace
+	table.insert(followers, follower)
+	startFollowLoop(player, follower, fHumanoid, fAnimator, sideOffset)
+
+	-- Spawn the player's own avatar follower on the first display
+	if not playerAvatarFollowers[player.UserId] then
+		task.spawn(function()
+			-- Compute spawn position for player avatar
+			local avH = hrp.CFrame * CFrame.new(PLAYER_AVATAR_OFFSET, 0, 3)
+			local ax, az = avH.Position.X, avH.Position.Z
+			local avRay = Workspace:Raycast(Vector3.new(ax, 100, az), Vector3.new(0, -200, 0), rayParams)
+			local avCF  = CFrame.new(ax, avRay and avRay.Position.Y or 0, az)
+
+			local avModel, avHumanoid, avAnimator = buildPlayerAvatar(player, avCF)
+			if not avModel then return end
+			avModel.Parent = Workspace
+			playerAvatarFollowers[player.UserId] = avModel
+			startFollowLoop(player, avModel, avHumanoid, avAnimator, PLAYER_AVATAR_OFFSET)
+		end)
+	end
+end
+
 function FollowerManager.RemoveFollower(player, unitId)
 	local followers = playerFollowers[player.UserId]
 	if not followers then return end
@@ -233,22 +289,36 @@ function FollowerManager.RemoveFollower(player, unitId)
 				f:Destroy()
 			end
 			table.remove(followers, i)
-			return
+			break
 		end
+	end
+
+	-- Remove player avatar once all unit followers are gone
+	if #followers == 0 then
+		local av = playerAvatarFollowers[player.UserId]
+		if av and av.Parent then
+			av:Destroy()
+		end
+		playerAvatarFollowers[player.UserId] = nil
 	end
 end
 
 function FollowerManager.ClearFollowers(player)
 	local followers = playerFollowers[player.UserId]
-	if not followers then
-		return
-	end
-	for _, f in ipairs(followers) do
-		if f and f.Parent then
-			f:Destroy()
+	if followers then
+		for _, f in ipairs(followers) do
+			if f and f.Parent then
+				f:Destroy()
+			end
 		end
 	end
 	playerFollowers[player.UserId] = nil
+
+	local av = playerAvatarFollowers[player.UserId]
+	if av and av.Parent then
+		av:Destroy()
+	end
+	playerAvatarFollowers[player.UserId] = nil
 end
 
 Players.PlayerRemoving:Connect(function(player)
