@@ -433,7 +433,9 @@ local function parseEffectsFromDescription(description)
 			or desc:match("continuous damage[^.]*(%d+)%% chance")
 		local dotDur = desc:match("continuous damage for (%d+)") or desc:match("for (%d+) turn")
 		local c = dotPct and (tonumber(dotPct) / 100) or pct(desc)
-		table.insert(effects, {type = "DoT", chance = c, duration = tonumber(dotDur) or 2})
+		-- "if you get a Critical Hit" → only triggers on crits
+		local critOnly = desc:find("if you get a critical") ~= nil
+		table.insert(effects, {type = "DoT", chance = c, duration = tonumber(dotDur) or 2, critOnly = critOnly})
 	end
 	-- ATKDown — "attack power" decrease (not "attack bar"/"attack speed")
 	if desc:find("attack power")
@@ -474,6 +476,7 @@ local function tryApplyEffects(battle, attacker, target, abilityName, hitType)
 	end
 	if not effects then return end
 	for _, effectDef in ipairs(effects) do
+		if effectDef.critOnly and hitType ~= "Critical" then continue end
 		if math.random() > (effectDef.chance or 1) then continue end
 		if HARMFUL_EFFECTS[effectDef.type] then
 			local acc = math.min(0.85, attacker.Accuracy or 0)
